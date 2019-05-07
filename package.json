@@ -1,0 +1,10 @@
+{
+  "name": "rkta",
+  "private": true,
+  "scripts": {
+    "bump": "lerna version patch"
+  },
+  "devDependencies": {
+    "lerna": "^3.13.4"
+  }
+}
