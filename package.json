@@ -2,12 +2,13 @@
   "name": "rkta",
   "scripts": {
     "build": "for p in packages/*; do npx babel -d $p/lib $p/src; done",
-    "bump": "lerna version patch",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "preconstruct:fix": "preconstruct fix",
-    "prerelease": "npm run transpile; lerna bootstrap --hoist",
-    "release": "lerna publish"
+    "lerna:bump": "lerna version patch",
+    "lerna:bootstrap": "lerna bootstrap --hoist",
+    "lerna:publish": "lerna publish",
+    "prerelease": "npm run build && npm run lerna:bootstrap && npm run lerna:bump",
+    "release": "npm run lerna:publish"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
