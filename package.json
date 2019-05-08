@@ -1,6 +1,7 @@
 {
   "name": "rkta",
   "scripts": {
+    "transpile": "for p in packages/*; do npx babel -d $p/lib $p/src; done",
     "build": "preconstruct build",
     "bump": "lerna version patch",
     "docz:dev": "docz dev",
@@ -10,6 +11,14 @@
     "release": "lerna publish"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.4",
     "docz": "^1.1.0",
     "docz-theme-default": "^1.1.0",
     "lerna": "^3.13.4",
@@ -20,7 +29,7 @@
       "react": "React"
     },
     "packages": [
-      "packages/**/src/*"
+      "packages/*"
     ]
   },
   "licence": "MIT",
