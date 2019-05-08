@@ -1,0 +1,27 @@
+{
+  "name": "provider",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Sergei Droganov <serge@droganov.ru>",
+  "homepage": "https://github.com/r-k-t-a/rkta#readme",
+  "license": "MIT",
+  "main": "dist/provider.cjs.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-k-t-a/rkta.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/r-k-t-a/rkta/issues"
+  }
+}

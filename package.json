@@ -1,15 +1,31 @@
 {
   "name": "rkta",
   "scripts": {
+    "build": "preconstruct build",
     "bump": "lerna version patch",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
+    "preconstruct:fix": "preconstruct fix",
+    "prerelease": "lerna bootstrap",
     "release": "lerna publish"
   },
   "devDependencies": {
     "docz": "^1.1.0",
     "docz-theme-default": "^1.1.0",
-    "lerna": "^3.13.4"
+    "lerna": "^3.13.4",
+    "preconstruct": "^0.0.65"
   },
-  "version": "0.0.0"
+  "preconstruct": {
+    "globals": {
+      "react": "React"
+    },
+    "packages": [
+      "packages/**/src/*"
+    ]
+  },
+  "licence": "MIT",
+  "version": "0.0.0",
+  "dependencies": {
+    "react": "latest"
+  }
 }
