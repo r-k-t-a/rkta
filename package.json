@@ -1,8 +1,7 @@
 {
   "name": "rkta",
   "scripts": {
-    "transpile": "for p in packages/*; do npx babel -d $p/lib $p/src; done",
-    "build": "preconstruct build",
+    "build": "for p in packages/*; do npx babel -d $p/lib $p/src; done",
     "bump": "lerna version patch",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
@@ -21,8 +20,7 @@
     "@babel/register": "^7.4.4",
     "docz": "^1.1.0",
     "docz-theme-default": "^1.1.0",
-    "lerna": "^3.13.4",
-    "preconstruct": "^0.0.65"
+    "lerna": "^3.13.4"
   },
   "preconstruct": {
     "globals": {
