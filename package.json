@@ -7,7 +7,7 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "preconstruct:fix": "preconstruct fix",
-    "prerelease": "lerna bootstrap",
+    "prerelease": "npm run transpile; lerna bootstrap --hoist",
     "release": "lerna publish"
   },
   "devDependencies": {
