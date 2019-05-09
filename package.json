@@ -1,14 +1,11 @@
 {
   "name": "rkta",
   "scripts": {
-    "build": "for p in packages/*; do npx babel -d $p/lib $p/src; done",
+    "tsc": "tsc",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "lerna:bump": "lerna version patch",
-    "lerna:bootstrap": "lerna bootstrap --hoist",
-    "lerna:publish": "lerna publish",
-    "prerelease": "npm run build && npm run lerna:bootstrap && npm run lerna:bump",
-    "release": "npm run lerna:publish"
+    "prepublish": "lerna bootstrap && lerna run tsc && lerna version patch",
+    "publish": "lerna publish"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -18,22 +15,16 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.4.4",
     "docz": "^1.1.0",
     "docz-theme-default": "^1.1.0",
     "lerna": "^3.13.4"
   },
-  "preconstruct": {
-    "globals": {
-      "react": "React"
-    },
-    "packages": [
-      "packages/*"
-    ]
-  },
   "licence": "MIT",
   "version": "0.0.0",
   "dependencies": {
+    "@types/react": "^16.8.17",
     "react": "latest"
   }
 }

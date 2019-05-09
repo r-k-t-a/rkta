@@ -1,0 +1,1 @@
+{"packages/ui/src/Provider/Providex.tsx":{"hash":"8a8b7e1379be15f1ad29ba7b5d989048","props":[{"description":"","displayName":"Providex","methods":[],"props":{"count":{"defaultValue":null,"description":"","name":"count","parent":{"fileName":"packages/ui/src/Provider/Providex.tsx","name":"Props"},"required":true,"type":{"name":"number"}}}}]}}
