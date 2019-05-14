@@ -14,11 +14,11 @@
   },
   "props": [
     {
-      "key": "packages/ui/src/Provider/Providex.tsx",
+      "key": "packages/ui/src/Provider/Provider.tsx",
       "value": [
         {
           "description": "",
-          "displayName": "Providex",
+          "displayName": "Provider",
           "methods": [],
           "props": {
             "count": {
@@ -26,7 +26,7 @@
               "description": "",
               "name": "count",
               "parent": {
-                "fileName": "packages/ui/src/Provider/Providex.tsx",
+                "fileName": "packages/ui/src/Provider/Provider.tsx",
                 "name": "Props"
               },
               "required": true,
