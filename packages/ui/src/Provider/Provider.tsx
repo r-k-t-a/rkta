@@ -10,7 +10,7 @@ interface State {
 
 export default class Counter extends React.Component<Props, State> {
   state: State = {
-    count: 0
+    count: 0,
   };
 
   render() {
