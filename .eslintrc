@@ -6,12 +6,11 @@
     - prettier
     - react
   extends:
-    - eslint:recommended
-    - plugin:@typescript-eslint/recommended
     - airbnb
-    - prettier/@typescript-eslint
-    - plugin:prettier/recommended
+    - plugin:@typescript-eslint/recommended
     - plugin:import/typescript
+    - plugin:prettier/recommended
+    - prettier/@typescript-eslint
   parserOptions:
     ecmaVersion: 6
     project: ./tsconfig.json
@@ -23,9 +22,6 @@
       - single
     prettier/prettier:
       - error
-      - singleQuote: true
-        trailingComma: true
-        printWidth: 100
     react/jsx-filename-extension:
       - 1
       - extensions:

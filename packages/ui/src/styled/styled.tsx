@@ -1,16 +1,17 @@
 import * as React from 'react';
 import useProviderContext from '../Provider/useProviderContext';
-import ThemeDefs from '../Provider/theme/definitions';
 
-const makeThunk = (props: {}, theme: ThemeDefs): any => css => {
-  if (typeof css === 'function') return css(props, theme);
-  return css;
-};
+interface StyledComponentProps {
+  css: Function | object;
+}
 
 function styled(name: string, Component: React.ElementType): Function {
-  return ({ css, ...props }): React.ReactNode => {
+  return ({ css, ...props }: StyledComponentProps): React.ReactNode => {
     const { theme } = useProviderContext();
-    const thunk = makeThunk(props, theme);
+    const thunk = (payload: Function | object): object => {
+      if (typeof payload === 'function') return thunk(payload(theme, props));
+      return payload;
+    };
     const styles = theme[name] || {};
     const nextProps = {};
     const nextCss = [];
