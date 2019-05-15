@@ -1,27 +1,27 @@
 import * as React from 'react';
+import { ThemeProvider } from 'emotion-theming';
+import merge from 'lodash/merge';
 
-interface Props {
-  count: number;
+import defaultTheme from '../Theme/defaultTheme';
+import ThemeDefs from '../Theme/defenitions.';
+
+interface ProviderProps {
+  theme: ThemeDefs;
 }
 
-interface State {
-  count: number;
+interface ProviderState {
+  theme: ThemeDefs;
 }
 
-export default class Counter extends React.Component<Props, State> {
-  state: State = {
-    count: 0,
-  };
+export default class Provider extends React.Component<ProviderProps, ProviderState> {
+  public constructor(props: ProviderProps) {
+    super(props);
+    this.state = {
+      theme: merge(defaultTheme, this.props.theme),
+    };
+  }
 
-  render() {
-    const { count } = this.state;
-    return (
-      <div>
-        <button type="button">
-          Increment
-          {count}
-        </button>
-      </div>
-    );
+  public render(): React.ReactNode {
+    return <ThemeProvider theme={this.state.theme}>{this.props.children}</ThemeProvider>;
   }
 }

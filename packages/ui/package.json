@@ -25,6 +25,10 @@
   },
   "licence": "MIT",
   "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@types/lodash": "^4.14.129",
+    "emotion-theming": "^10.0.10",
+    "lodash": "^4.17.11",
     "react": "latest"
   }
 }
