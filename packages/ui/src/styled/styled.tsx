@@ -20,6 +20,7 @@ function styled(name: string, Component: function): function {
         nextProps[key] = value;
       }
     }
+    if (css) nextCss.push(thunk(css));
     return <Component {...nextProps} css={nextCss} />;
   };
 }
