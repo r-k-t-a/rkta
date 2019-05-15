@@ -3,7 +3,8 @@ import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
 import defaultTheme from './theme/defaultTheme';
-import ThemeDefs from './theme/defenitions';
+import ThemeDefs from './theme/definitions';
+import Context from './Context';
 
 interface ProviderProps {
   theme: ThemeDefs;
@@ -22,6 +23,11 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
   }
 
   public render(): React.ReactNode {
-    return <ThemeProvider theme={this.state.theme}>{this.props.children}</ThemeProvider>;
+    const { theme } = this.state;
+    return (
+      <ThemeProvider theme={theme}>
+        <Context.Provider value={{ theme }}>{this.props.children}</Context.Provider>
+      </ThemeProvider>
+    );
   }
 }

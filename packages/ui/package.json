@@ -32,6 +32,7 @@
     "@emotion/core": "^10.0.10",
     "emotion-theming": "^10.0.10",
     "lodash": "^4.17.11",
-    "react": "latest"
+    "react": "latest",
+    "react-dom": "latest"
   }
 }
