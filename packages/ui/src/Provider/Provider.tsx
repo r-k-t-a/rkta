@@ -2,8 +2,8 @@ import * as React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
-import defaultTheme from '../Theme/defaultTheme';
-import ThemeDefs from '../Theme/defenitions.';
+import defaultTheme from './theme/defaultTheme';
+import ThemeDefs from './theme/defenitions';
 
 interface ProviderProps {
   theme: ThemeDefs;

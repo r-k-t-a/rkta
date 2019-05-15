@@ -1,11 +1,12 @@
 {
   "name": "rkta",
   "scripts": {
-    "tsc": "tsc",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "prepublish": "lerna bootstrap && lerna run tsc && lerna version patch",
-    "publish": "lerna publish"
+    "lint": "lint",
+    "prepublish": "lerna run lint && lerna bootstrap && lerna run tsc && lerna version patch",
+    "publish": "lerna publish",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.9.0",
