@@ -3,19 +3,21 @@
   "scripts": {
     "docz:dev": "docz dev",
     "docz:build": "docz build",
+    "lint": "lerna run lint",
     "prepublish": "lerna run lint && lerna bootstrap && lerna run tsc && lerna version patch",
     "publish": "lerna publish",
     "tsc": "tsc"
   },
   "devDependencies": {
+    "@types/react": "^16.8.17",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
-    "@types/react": "^16.8.17",
     "docz": "^1.1.0",
     "docz-theme-default": "^1.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-emotion": "^10.0.7",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
