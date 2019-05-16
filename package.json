@@ -7,7 +7,7 @@
     "lint": "lerna run lint",
     "prepublish": "lerna run lint && lerna bootstrap && lerna run tsc && lerna version patch",
     "publish": "lerna publish",
-    "tsc": "tsc"
+    "tsc": "lerna run tsc"
   },
   "devDependencies": {
     "@types/react": "^16.8.17",
