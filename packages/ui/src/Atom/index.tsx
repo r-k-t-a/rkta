@@ -5,6 +5,7 @@ import { jsx } from '@emotion/core';
 interface AtomProps {
   atomRef?: Function | object;
   css?: Function | object;
+  children?: React.ReactNode;
   element: React.ElementType;
 }
 
