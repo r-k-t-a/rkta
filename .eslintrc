@@ -17,6 +17,10 @@
     project: ./tsconfig.json
     sourceType: module
   rules:
+    emotion/jsx-import: off
+    emotion/no-vanilla: error
+    emotion/import-from-emotion: error
+    emotion/styled-import: error
     react/destructuring-assignment: off
     quotes:
       - error
