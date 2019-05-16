@@ -7,7 +7,7 @@ import Context from './Context';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
-  theme?: object;
+  theme?: object | null;
 }
 
 interface ProviderState {
@@ -16,7 +16,7 @@ interface ProviderState {
 
 export default class Provider extends React.Component<ProviderProps, ProviderState> {
   public static defaultProps = {
-    theme: {},
+    theme: null,
   };
 
   public constructor(props: ProviderProps) {
