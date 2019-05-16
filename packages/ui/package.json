@@ -17,7 +17,6 @@
     "url": "git+https://github.com/r-k-t-a/rkta.git"
   },
   "scripts": {
-    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "tsc": "tsc --jsx react"
   },

@@ -3,8 +3,8 @@
   "scripts": {
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "lint": "lint",
-    "prepublish": "lerna run lint && lerna bootstrap && lerna run tsc && lerna version patch",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx packages/*/src",
+    "prepublish": "npm run lint && lerna bootstrap && lerna run tsc && lerna version patch",
     "publish": "lerna publish",
     "tsc": "tsc"
   },
