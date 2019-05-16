@@ -1,5 +1,16 @@
-import colors from './colors';
+import color from './colors';
+
+interface Colors {
+  primary: string;
+  // [prop: string]: string;
+}
+
+export interface ThemeInterface {
+  color: Colors;
+}
 
 export default {
-  colors,
+  color: {
+    primary: '#FADC4F',
+  },
 };

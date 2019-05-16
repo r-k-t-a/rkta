@@ -11,7 +11,6 @@
     "tsc": "lerna run tsc"
   },
   "devDependencies": {
-    "@types/react": "^16.8.17",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
     "docz": "^1.1.0",
@@ -31,7 +30,7 @@
   "licence": "MIT",
   "version": "0.0.0",
   "dependencies": {
-    "@types/react": "^16.8.17",
+    "@types/react": "latest",
     "react": "latest",
     "react-dom": "latest"
   }

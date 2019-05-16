@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Atom from '../Atom';
+import Atom from '../Atom/Atom';
 import themed from '../util/themed';
 
 interface FontProps {

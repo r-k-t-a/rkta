@@ -2,16 +2,16 @@ import * as React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
-import defaultTheme from './theme/defaultTheme';
+import defaultTheme, { ThemeInterface } from './theme/defaultTheme';
 import Context from './Context';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
-  theme?: object;
+  theme?: ThemeInterface;
 }
 
 interface ProviderState {
-  theme: object;
+  theme: ThemeInterface;
 }
 
 export default class Provider extends React.Component<ProviderProps, ProviderState> {
@@ -26,7 +26,7 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     };
   }
 
-  private replaceTheme = (nextTheme: object): void => {
+  private replaceTheme = (nextTheme: ThemeInterface): void => {
     this.setState({
       theme: merge(defaultTheme, nextTheme),
     });
