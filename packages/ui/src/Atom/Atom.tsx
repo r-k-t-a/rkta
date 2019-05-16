@@ -1,19 +1,31 @@
 /** @jsx jsx */
-import * as React from 'react';
+import { SFC, ReactNode, ElementType, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 interface AtomProps {
-  atomRef?: Function | object;
+  atomRef?: object;
   css?: Function | object;
-  children?: React.ReactNode;
-  element: React.ElementType;
+  children?: ReactNode;
+  element: ElementType;
 }
 
-const Atom: React.SFC<AtomProps> = ({
-  css,
-  element: Element = 'div',
+const Atom: SFC<AtomProps> = ({
   atomRef,
+  children,
+  css,
+  element: Element,
   ...rest
-}: AtomProps): React.ReactElement => <Element {...rest} css={css} ref={atomRef} />;
+}: AtomProps): ReactElement => (
+  <Element {...rest} css={css} ref={atomRef}>
+    {children}
+  </Element>
+);
+
+Atom.defaultProps = {
+  atomRef: null,
+  css: null,
+  children: null,
+  element: 'div',
+};
 
 export default Atom;
