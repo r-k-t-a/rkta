@@ -7,7 +7,7 @@ import Context from './Context';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
-  theme?: object | null;
+  theme?: object;
 }
 
 interface ProviderState {
