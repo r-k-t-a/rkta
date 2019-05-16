@@ -6,8 +6,8 @@
     "docz:build": "docz build",
     "postinstall": "lerna bootstrap",
     "lint": "lerna run lint",
-    "prepublish:custom": "lerna run lint && lerna run tsc && lerna version patch",
-    "publish": "npm run prepublish:custom && lerna publish",
+    "make": "lerna run lint && lerna run tsc && lerna version patch",
+    "publish": "npm run make && lerna publish",
     "tsc": "lerna run tsc"
   },
   "devDependencies": {
