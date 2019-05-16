@@ -1,12 +1,7 @@
-import color from './colors';
-
-interface Colors {
-  primary: string;
-  // [prop: string]: string;
-}
+import color, { ColorInterface } from './colors';
 
 export interface ThemeInterface {
-  color: Colors;
+  color: ColorInterface;
 }
 
 export default {
