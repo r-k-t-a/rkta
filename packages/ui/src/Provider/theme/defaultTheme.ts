@@ -10,7 +10,5 @@ export interface ThemeInterface {
 }
 
 export default {
-  color: {
-    primary: '#FADC4F',
-  },
+  color,
 };
