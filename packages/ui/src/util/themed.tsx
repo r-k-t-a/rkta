@@ -1,14 +1,12 @@
-/** @jsx jsx */
 import * as React from 'react';
-import { jsx } from '@emotion/core';
 import useProviderContext from '../Provider/useProviderContext';
 
-interface StyledComponentProps {
+interface ThemedComponentProps {
   css: Function | object;
 }
 
 function themed(name: string, Component: React.ElementType): Function {
-  return ({ css, ...props }: StyledComponentProps): React.ReactNode => {
+  return ({ css, ...props }: ThemedComponentProps): React.ReactNode => {
     const { theme } = useProviderContext();
     const thunk = (payload: Function | object): object => {
       if (typeof payload === 'function') return thunk(payload(theme, props));
