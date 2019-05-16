@@ -1,6 +1,7 @@
 {
   "name": "rkta",
   "scripts": {
+    "resetdeps": "lerna clean && lerna bootstrap",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "lint": "lerna run lint",
