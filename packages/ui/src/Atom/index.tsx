@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
+import { ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 interface AtomProps {
@@ -8,12 +8,8 @@ interface AtomProps {
   element: React.ElementType;
 }
 
-const Atom = ({ css, element: Element = 'div', atomRef, ...rest }: AtomProps): React.ReactNode => (
+const Atom = ({ css, element: Element = 'div', atomRef, ...rest }: AtomProps): ReactElement => (
   <Element {...rest} css={css} ref={atomRef} />
 );
-
-Atom.displayName = 'Atom';
-
-export const RawAtom = Atom;
 
 export default Atom;
