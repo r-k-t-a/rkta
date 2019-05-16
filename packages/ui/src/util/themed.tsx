@@ -7,7 +7,7 @@ interface StyledComponentProps {
   css: Function | object;
 }
 
-function styled(name: string, Component: React.ElementType): Function {
+function themed(name: string, Component: React.ElementType): Function {
   return ({ css, ...props }: StyledComponentProps): React.ReactNode => {
     const { theme } = useProviderContext();
     const thunk = (payload: Function | object): object => {
@@ -32,4 +32,4 @@ function styled(name: string, Component: React.ElementType): Function {
   };
 }
 
-export default styled;
+export default themed;
