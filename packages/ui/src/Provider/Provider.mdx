@@ -3,11 +3,36 @@ menu: UI
 name: Provider
 ---
 
-import { Props } from 'docz'
-import Provider from './Provider'
+import { Props } from 'docz';
+import Provider from './Provider';
 
 # Provider
-Provider is the essential part of `@rkta/ui` package.
-It creates context for the rest components.
+
+Use Provider to wrap your application and create `@rkta/ui` context.
+
+## Basic usage
+
+### Props
 
 <Props of={Provider} />
+
+### Example
+
+```javascript
+import Provider as RktaProvider from '@rkta/ui/Provider';
+
+<RktaProvider theme={{ color: { customColor: '#fff' } }}>
+...
+</RktaProvider>
+```
+
+## Context Hook
+
+```javascript
+import { useProviderContext } from '@rkta/ui/Provider';
+
+function MyComponent() {
+  const { theme, replaceTheme } = useProviderContext();
+  ...
+}
+```

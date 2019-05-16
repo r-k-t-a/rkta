@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import Context, { ContextValueDefs } from './Context';
+import Context, { ContextInterface } from './Context';
 
-export default function useProviderContext(): ContextValueDefs {
+export default function useProviderContext(): ContextInterface {
   return useContext(Context);
 }

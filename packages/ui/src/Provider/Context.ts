@@ -1,10 +1,8 @@
 import { createContext } from 'react';
-
-import ThemeDefs from './theme/definitions';
 import defaultTheme from './theme/defaultTheme';
 
-export interface ContextValueDefs {
-  theme: ThemeDefs;
+export interface ContextInterface {
+  theme: object;
 }
 
 export default createContext({ theme: defaultTheme });
