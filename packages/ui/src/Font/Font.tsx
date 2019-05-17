@@ -1,13 +1,12 @@
 import React from 'react';
 
 import Atom from '../Atom/Atom';
-import themed from '../util/themed';
+import themed, { CssType } from '../util/themed';
 
 interface FontProps {
   children: React.ReactNode;
   color?: string | number;
-  // css: object | object[] | string;
-  css: object;
+  css: CssType;
   getColor: Function;
 }
 
@@ -16,7 +15,9 @@ const getFontProps = (
   getColor: Function,
   rest: Partial<FontProps>,
 ): object => {
-  const nextCss = { ...rest.css, color: getColor(color) };
+  // TODO решить, как обрабатывать данный случай
+  // const nextCss = { ...rest.css, color: getColor(color) };
+  const nextCss = rest.css;
   return { ...rest, css: nextCss };
 };
 

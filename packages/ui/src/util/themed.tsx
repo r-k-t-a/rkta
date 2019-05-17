@@ -1,19 +1,19 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-import { ReactElement, SFC } from 'react';
+import React, { ReactElement, SFC } from 'react';
 import useProviderContext from '../Provider/useProviderContext';
 
+export type CssType = Function | object | object[] | string;
+
 export interface ThemedComponentProps {
-  css: Function | object;
+  css: CssType;
 }
 
 function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
   return ({ css, ...props }: ThemedComponentProps): ReactElement => {
     const { theme } = useProviderContext();
 
-    const thunk = (payload: Function | object): object => {
+    const thunk = (payload: CssType): CssType => {
       if (typeof payload === 'function') return thunk(payload(theme, props));
-      return payload;
+      return Array.isArray(payload) ? payload : [payload];
     };
     const getColor = (color: string | number): string => {
       const { color: colors } = theme;
@@ -22,7 +22,7 @@ function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
     };
     const styles = theme[name] || {};
     const nextProps = {};
-    const nextCss = [];
+    let nextCss = [];
     const keys = Object.keys(props);
     for (let i = 0; i < keys.length; i += 1) {
       const key = keys[i];
@@ -33,7 +33,7 @@ function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
         nextProps[key] = value;
       }
     }
-    if (css) nextCss.push(thunk(css));
+    if (css) nextCss = nextCss.concat(thunk(css));
     return <Component getColor={getColor} {...nextProps} css={nextCss} />;
   };
 }
