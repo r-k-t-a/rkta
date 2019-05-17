@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 
 interface AtomProps {
   atomRef?: object;
-  css?: Function | object;
+  css?: object | object[] | string;
   children?: ReactNode;
   element?: ElementType;
 }
