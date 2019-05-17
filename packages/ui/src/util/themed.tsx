@@ -1,11 +1,6 @@
 import React, { ReactElement, SFC } from 'react';
 import useProviderContext from '../Provider/useProviderContext';
-
-export type CssType = Function | object | object[] | string;
-
-export interface ThemedComponentProps {
-  css: CssType;
-}
+import { CssType, ThemedComponentProps } from './themedTypes';
 
 function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
   return ({ css, ...props }: ThemedComponentProps): ReactElement => {

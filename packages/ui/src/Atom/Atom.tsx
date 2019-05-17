@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import { SFC, ReactNode, ElementType, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
+import { CssType } from '../util/themedTypes';
 
 interface AtomProps {
   atomRef?: object;
-  css?: object | object[] | string;
+  css?: CssType;
   children?: ReactNode;
   element?: ElementType;
 }

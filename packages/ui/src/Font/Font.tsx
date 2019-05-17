@@ -1,28 +1,11 @@
 import React from 'react';
 
-import Atom from '../Atom/Atom';
-import themed, { CssType } from '../util/themed';
+import Atom from '../Atom';
+import themed from '../util/themed';
+import { FontProps } from './types';
 
-interface FontProps {
-  children: React.ReactNode;
-  color?: string | number;
-  css: CssType;
-  getColor: Function;
-}
-
-const getFontProps = (
-  color: string | number,
-  getColor: Function,
-  rest: Partial<FontProps>,
-): object => {
-  // TODO решить, как обрабатывать данный случай
-  // const nextCss = { ...rest.css, color: getColor(color) };
-  const nextCss = rest.css;
-  return { ...rest, css: nextCss };
-};
-
-const Font = ({ children, getColor, color, ...rest }: FontProps): React.ReactNode => (
-  <Atom element="span" {...getFontProps(color, getColor, rest)}>
+const Font = ({ children, css, ...rest }: FontProps): React.ReactNode => (
+  <Atom element="span" css={css} {...rest}>
     {children}
   </Atom>
 );
