@@ -1,24 +1,22 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { ReactNode } from 'react';
+import { ReactElement, SFC } from 'react';
 import useProviderContext from '../Provider/useProviderContext';
 
-interface ThemedComponentProps {
+export interface ThemedComponentProps {
   css: Function | object;
 }
 
-function themed(name: string, Component: Function): Function {
-  return ({ css, ...props }: ThemedComponentProps): ReactNode => {
+function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
+  return ({ css, ...props }: ThemedComponentProps): ReactElement => {
     const { theme } = useProviderContext();
 
     const thunk = (payload: Function | object): object => {
       if (typeof payload === 'function') return thunk(payload(theme, props));
       return payload;
     };
-
     const getColor = (color: string | number): string => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { colors } = theme as any;
+      const { color: colors } = theme;
       const colorValue = typeof color === 'number' ? colors[`color${color}`] : colors[color];
       return colorValue || colors.text;
     };

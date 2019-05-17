@@ -6,7 +6,7 @@ interface AtomProps {
   atomRef?: object;
   css?: Function | object;
   children?: ReactNode;
-  element: ElementType;
+  element?: ElementType;
 }
 
 const Atom: SFC<AtomProps> = ({
