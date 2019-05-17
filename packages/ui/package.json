@@ -25,13 +25,15 @@
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
   "licence": "MIT",
+  "peerDependencies": {
+    "react": "latest",
+    "react-dom": "latest"
+  },
   "dependencies": {
     "@emotion/core": "latest",
     "@types/lodash": "latest",
     "@types/react": "latest",
     "emotion-theming": "latest",
-    "lodash": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "lodash": "latest"
   }
 }
