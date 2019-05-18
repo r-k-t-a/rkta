@@ -4,9 +4,12 @@ import { jsx } from '@emotion/core';
 import { CssType } from '../util/themedTypes';
 
 interface AtomProps {
+  /** React ref object. */
   atomRef?: object;
+  /** Css string, Css object, array or function. */
   css?: CssType;
   children?: ReactNode;
+  /** React element or string. */
   element?: ElementType;
 }
 

@@ -4,15 +4,17 @@ import Atom from '../Atom';
 import themed from '../util/themed';
 import { FontProps } from './types';
 
-const Font = ({ children, css, ...rest }: FontProps): React.ReactNode => (
-  <Atom element="span" css={css} {...rest}>
+const Font = ({ children, css, element, ...rest }: FontProps): React.ReactNode => (
+  <Atom {...rest} element={element} css={css}>
     {children}
   </Atom>
 );
 
 Font.defaultProps = {
   children: null,
-  color: '',
+  color: 'text',
+  css: null,
+  element: 'span',
 };
 
 export const RawFont = Font;

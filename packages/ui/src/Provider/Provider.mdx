@@ -10,23 +10,23 @@ import Provider from './Provider';
 
 Use Provider to wrap your application and create `@rkta/ui` context.
 
-## Basic usage
-
-### Props
+## Props
 
 <Props of={Provider} />
 
-### Example
+## Example
 
 ```javascript
-import Provider as RktaProvider from '@rkta/ui/Provider';
+import Provider as UiProvider from '@rkta/ui/Provider';
 
-<RktaProvider theme={{ color: { customColor: '#fff' } }}>
+<UiProvider theme={{ color: { customColor: '#fff' } }}>
 ...
-</RktaProvider>
+</UiProvider>
 ```
 
 ## Context Hook
+
+Grab provider context inside your hooks.
 
 ```javascript
 import { useProviderContext } from '@rkta/ui/Provider';

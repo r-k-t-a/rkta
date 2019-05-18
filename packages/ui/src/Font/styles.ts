@@ -2,8 +2,7 @@ import { ThemeInterface } from '../Provider/theme/types';
 import { CssType } from '../util/themedTypes';
 import { FontProps } from './types';
 
-function initialStyles(theme: ThemeInterface, props: FontProps): CssType {
-  const { color, getColor } = props;
+function initialStyle(theme: ThemeInterface, { color }: FontProps): CssType {
   return {
     fontFamily: '"San Francisco", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif',
     fontSize: '16px',
@@ -12,12 +11,12 @@ function initialStyles(theme: ThemeInterface, props: FontProps): CssType {
     lineHeight: '24px',
     textRendering: 'optimizeLegibility',
     textDecoration: 'none',
-    color: getColor(color),
+    color: theme.color[color] || theme.color.text,
   };
 }
 
 export default {
-  initialStyles,
+  initialStyle,
   serif: {
     fontFamily: '"Playfair Display", Bookman, Palatino, Georgia, serif',
   },
@@ -32,10 +31,7 @@ export default {
   },
   baseline: {
     margin: 0,
-    paddingBottom: 0,
-    paddingTop: 0,
-    paddingLeft: 0,
-    paddingRight: 0,
+    padding: 0,
   },
   muted: {
     opacity: '0.4',
@@ -58,9 +54,6 @@ export default {
     wordWrap: 'break-word',
   },
   hyphens: { hyphens: 'auto' },
-  textLeft: {
-    textAlign: 'left',
-  },
 
   // size
   h1: {
