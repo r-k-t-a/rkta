@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "declaration": true,
-    // "noImplicitAny": false,
-    "removeComments": true,
-    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "jsx": "react",
+    "lib": ["es2015"],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "noLib": false,
+    "removeComments": true,
     "sourceMap": true,
-    "lib": ["es6"],
-    "jsx": "react"
+    "strict": true,
+    "target": "es2015"
   },
-  "include": ["packages/**/src/**/*"],
+  "include": ["packages/**/src"],
   "exclude": ["node_modules", "**/*.spec.ts"],
   "types": ["typePatches"]
 }
