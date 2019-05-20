@@ -1,4 +1,4 @@
-import { FontStyleInterface } from '../../Font/types';
+import { FontStyleInterface } from '../../Font/FontTypes';
 
 export interface ColorInterface {
   primary: string;

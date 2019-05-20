@@ -1,8 +1,8 @@
-import { ThemeInterface } from '../Provider/theme/types';
-import { CssType } from '../util/themedTypes';
-import { FontProps } from './types';
+import { CssType } from '../Provider/theme/themedTypes';
+import { FontProps, FontThemeDefs } from './FontTypes';
 
-function initialStyle(theme: ThemeInterface, { color }: FontProps): CssType {
+function initialStyle(theme: FontThemeDefs, props: FontProps): CssType {
+  const { color } = props;
   return {
     fontFamily: '"San Francisco", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif',
     fontSize: '16px',

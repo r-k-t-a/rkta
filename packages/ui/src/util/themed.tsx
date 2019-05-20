@@ -1,6 +1,6 @@
 import React, { ReactElement, SFC } from 'react';
 import useProviderContext from '../Provider/useProviderContext';
-import { CssType, ThemedComponentProps } from './themedTypes';
+import { CssType, ThemedComponentProps } from '../Provider/theme/themedTypes';
 
 function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
   return ({ css, ...props }: ThemedComponentProps): ReactElement => {
@@ -8,7 +8,7 @@ function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
     const ownCss = Array.isArray(css) ? css : [css];
     const thunk = (payload: CssType): CssType => {
       if (typeof payload === 'function') return thunk(payload(theme, props));
-      return Array.isArray(payload) ? payload : [payload];
+      return payload;
     };
     const styles = theme[name] || {};
     const nextProps = {};
