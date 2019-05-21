@@ -49,8 +49,10 @@ interface FontTextStyles {
   letterSpacing?: string;
 }
 
+type initialStyleType = (theme: FontThemeDefs, props: FontProps) => CssType;
+
 export interface FontStyleInterface {
-  initialStyle: (theme: FontThemeDefs, props: FontProps) => CssType;
+  initialStyle: initialStyleType;
 
   serif: { fontFamily: string };
   monospace: { fontFamily: string };
@@ -75,5 +77,5 @@ export interface FontStyleInterface {
   button: FontTextStyles;
   caption: FontTextStyles;
   overline: FontTextStyles;
-  [key: string]: object;
+  [key: string]: initialStyleType | object | undefined;
 }

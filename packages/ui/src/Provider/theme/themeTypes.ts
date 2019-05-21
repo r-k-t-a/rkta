@@ -1,6 +1,12 @@
-import { FontStyleInterface } from '../../Font/FontTypes';
+import { FontStyleInterface } from '../../Font/Font.types';
 
-export interface ColorInterface {
+export type StylesKeyType = string | object | undefined;
+
+export interface StylesInterface {
+  [key: string]: StylesKeyType;
+}
+
+export interface ColorInterface extends StylesInterface {
   primary: string;
   primary1: string;
   primary2: string;
@@ -40,5 +46,6 @@ export interface ColorInterface {
 
 export interface ThemeInterface {
   color: ColorInterface;
-  Font: FontStyleInterface;
+  Font: StylesInterface & FontStyleInterface;
+  [key: string]: StylesInterface;
 }

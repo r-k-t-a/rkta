@@ -2,15 +2,15 @@ import React from 'react';
 
 import Atom from '../Atom';
 import themed from '../util/themed';
-import { FontProps } from './FontTypes';
+import { FontProps } from './Font.types';
 
 const Font = ({ children, element, ...rest }: FontProps): React.ReactNode =>
   React.createElement(Atom, { ...rest, element }, children);
 
 Font.defaultProps = {
-  children: null,
+  children: undefined,
   color: 'text',
-  css: null,
+  css: undefined,
   element: 'span',
 };
 

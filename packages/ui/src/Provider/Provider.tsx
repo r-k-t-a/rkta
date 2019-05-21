@@ -17,7 +17,7 @@ interface ProviderState {
 
 export default class Provider extends React.Component<ProviderProps, ProviderState> {
   public static defaultProps = {
-    theme: null,
+    theme: undefined,
   };
 
   public constructor(props: ProviderProps) {

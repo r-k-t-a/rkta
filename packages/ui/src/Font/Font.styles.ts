@@ -1,5 +1,5 @@
 import { CssType } from '../Provider/theme/themedTypes';
-import { FontProps, FontThemeDefs } from './FontTypes';
+import { FontProps, FontThemeDefs } from './Font.types';
 
 function initialStyle(theme: FontThemeDefs, props: FontProps): CssType {
   const { color } = props;
@@ -11,7 +11,7 @@ function initialStyle(theme: FontThemeDefs, props: FontProps): CssType {
     lineHeight: '24px',
     textRendering: 'optimizeLegibility',
     textDecoration: 'none',
-    color: theme.color[color] || theme.color.text,
+    color: theme.color[color || 'text'],
   };
 }
 

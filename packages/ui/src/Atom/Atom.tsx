@@ -17,7 +17,7 @@ const Atom: SFC<AtomProps> = ({
   atomRef,
   children,
   css,
-  element: Element,
+  element: Element = 'div',
   ...rest
 }: AtomProps): ReactElement => (
   <Element {...rest} css={css} ref={atomRef}>
@@ -26,8 +26,8 @@ const Atom: SFC<AtomProps> = ({
 );
 
 Atom.defaultProps = {
-  atomRef: null,
-  css: null,
+  atomRef: undefined,
+  css: undefined,
   children: null,
   element: 'div',
 };
