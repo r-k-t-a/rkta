@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import defaultTheme from './theme/defaultTheme';
-import { ThemeInterface } from './theme/themeTypes';
+import { ThemeInterface } from '../types/theme.types';
 
 export interface ContextInterface {
   theme: ThemeInterface;

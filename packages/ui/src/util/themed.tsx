@@ -1,15 +1,14 @@
 import React, { ReactElement, SFC } from 'react';
 import useProviderContext from '../Provider/useProviderContext';
-import { CssType, ThemedComponentProps } from '../Provider/theme/themedTypes';
-import { StylesInterface, StylesKeyType } from '../Provider/theme/themeTypes';
+import { CssTypeThunk, StylesInterface, ThemedComponentProps } from '../types/theme.types';
 
 function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
   return ({ css, ...props }: ThemedComponentProps): ReactElement => {
     const { theme } = useProviderContext();
     const ownCss = Array.isArray(css) ? css : [css];
-    const thunk = (payload: StylesKeyType): CssType => {
-      if (typeof payload === 'function') return thunk(payload(theme, props));
-      return payload as CssType;
+    const thunk = (payload: CssTypeThunk): CssTypeThunk => {
+      if (typeof payload === 'function') return thunk(payload(theme, { ...props, css }));
+      return payload as CssTypeThunk;
     };
     const styles: StylesInterface = theme[name] || {};
     const nextProps: ThemedComponentProps = { css };

@@ -1,11 +1,7 @@
 import React from 'react';
-import { CssType } from '../Provider/theme/themedTypes';
+import { CssType } from '../types/theme.types';
 
-export interface FontThemeDefs {
-  color: { [key: string]: string };
-}
-
-export interface FontProps {
+export default interface FontProps {
   children: React.ReactNode;
   /** One of theme colors or CSS Value: Color. */
   color?: string;
@@ -40,42 +36,4 @@ export interface FontProps {
   /** force wrap long lines. */
   wrap?: boolean;
   hyphens?: boolean;
-}
-
-interface FontTextStyles {
-  fontSize: string;
-  fontWeight: string;
-  lineHeight: string;
-  letterSpacing?: string;
-}
-
-type initialStyleType = (theme: FontThemeDefs, props: FontProps) => CssType;
-
-export interface FontStyleInterface {
-  initialStyle: initialStyleType;
-
-  serif: { fontFamily: string };
-  monospace: { fontFamily: string };
-  uppercase: { textTransform: string; letterSpacing: string };
-  baseline: { margin: number; padding: number };
-  muted: { opacity: string; userSelect: string };
-  center: { textAlign: string };
-  etched: { textShadow: string };
-  noselect: { userSelect: string };
-  nowrap: { whiteSpace: string; textOverflow: string; overflow: string };
-  wrap: { overflowWrap: string; wordWrap: string };
-  hyphens: { hyphens: string };
-  h1: FontTextStyles;
-  h2: FontTextStyles;
-  h3: FontTextStyles;
-  h4: FontTextStyles;
-  h5: FontTextStyles;
-  h6: FontTextStyles;
-  subtitle1: FontTextStyles;
-  subtitle2: FontTextStyles;
-  body2: FontTextStyles;
-  button: FontTextStyles;
-  caption: FontTextStyles;
-  overline: FontTextStyles;
-  [key: string]: initialStyleType | object | undefined;
 }

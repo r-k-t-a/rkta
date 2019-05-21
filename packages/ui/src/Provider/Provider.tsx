@@ -3,7 +3,7 @@ import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
 import defaultTheme from './theme/defaultTheme';
-import { ThemeInterface } from './theme/themeTypes';
+import { ThemeInterface } from '../types/theme.types';
 import Context from './Context';
 
 interface ProviderProps {

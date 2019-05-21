@@ -2,7 +2,7 @@
 import { SFC, ReactNode, ElementType, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
-import { CssType } from '../Provider/theme/themedTypes';
+import { CssType } from '../types/theme.types';
 
 interface AtomProps {
   /** React ref object. */
