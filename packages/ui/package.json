@@ -17,9 +17,12 @@
     "url": "git+https://github.com/r-k-t-a/rkta.git"
   },
   "scripts": {
+    "type-check": "tsc --noEmit",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --ignore \"**/*.spec.ts\" --source-maps",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
-    "test": "echo \"Error: run tests from root\" && exit 1",
-    "tsc": "tsc --jsx react"
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/r-k-t-a/rkta/issues"
