@@ -1,6 +1,6 @@
 import { FontStyleInterface } from '../../Font/Font.types';
 
-export type StylesKeyType = string | object | undefined;
+export type StylesKeyType = Function | string | object | number | undefined | null;
 
 export interface StylesInterface {
   [key: string]: StylesKeyType;

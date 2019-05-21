@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { SFC, ReactNode, ElementType, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
+
 import { CssType } from '../Provider/theme/themedTypes';
 
 interface AtomProps {
@@ -26,8 +27,6 @@ const Atom: SFC<AtomProps> = ({
 );
 
 Atom.defaultProps = {
-  atomRef: undefined,
-  css: undefined,
   children: null,
   element: 'div',
 };

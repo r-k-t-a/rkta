@@ -1,6 +1,8 @@
-export type CssType = Function | object | object[] | string;
+import { InterpolationWithTheme } from '@emotion/core';
+
+export type CssType = InterpolationWithTheme<Function | object | string>;
 
 export interface ThemedComponentProps {
-  css: CssType;
+  css: CssType | CssType[];
   [key: string]: CssType | object | boolean;
 }

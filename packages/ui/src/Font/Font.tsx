@@ -8,9 +8,7 @@ const Font = ({ children, element, ...rest }: FontProps): React.ReactNode =>
   React.createElement(Atom, { ...rest, element }, children);
 
 Font.defaultProps = {
-  children: undefined,
   color: 'text',
-  css: undefined,
   element: 'span',
 };
 
