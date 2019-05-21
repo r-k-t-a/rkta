@@ -1,10 +1,10 @@
 import csstype from 'csstype'; // eslint-disable-line import/no-unresolved
 
-import { CssThunkResult, ThemeInterface, ThemedComponentProps } from '../types/theme.types';
+import { CssChunkType, ThemeInterface, ThemedComponentInterface } from '../types/theme.types';
 
-function initialStyle(theme: ThemeInterface, props: ThemedComponentProps): CssThunkResult {
+function initialStyle(theme: ThemeInterface, props: ThemedComponentInterface): CssChunkType {
   const { color } = props;
-  const result: CssThunkResult = {
+  return {
     fontFamily: '"San Francisco", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif',
     fontSize: '16px',
     fontWeight: 400,
@@ -14,7 +14,6 @@ function initialStyle(theme: ThemeInterface, props: ThemedComponentProps): CssTh
     textDecoration: 'none',
     color: theme.color[color || 'text'],
   };
-  return result;
 }
 
 export default {

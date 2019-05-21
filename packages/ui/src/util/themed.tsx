@@ -1,17 +1,17 @@
 import React, { ReactElement, SFC } from 'react';
 import useProviderContext from '../Provider/useProviderContext';
-import { CssTypeThunk, StylesInterface, ThemedComponentProps } from '../types/theme.types';
+import { CssChunkType, StylesInterface, ThemedComponentInterface } from '../types/theme.types';
 
-function themed(name: string, Component: Function): SFC<ThemedComponentProps> {
-  return ({ css, ...props }: ThemedComponentProps): ReactElement => {
+function themed(name: string, Component: Function): SFC<ThemedComponentInterface> {
+  return ({ css, ...props }: ThemedComponentInterface): ReactElement => {
     const { theme } = useProviderContext();
     const ownCss = Array.isArray(css) ? css : [css];
-    const thunk = (payload: CssTypeThunk): CssTypeThunk => {
+    const thunk = (payload: CssChunkType): CssChunkType => {
       if (typeof payload === 'function') return thunk(payload(theme, { ...props, css }));
-      return payload as CssTypeThunk;
+      return payload;
     };
     const styles: StylesInterface = theme[name] || {};
-    const nextProps: ThemedComponentProps = { css };
+    const nextProps: ThemedComponentInterface = { css };
     const nextCss = [thunk(styles.initialStyle)];
     const keys = Object.keys(props);
     for (let i = 0; i < keys.length; i += 1) {

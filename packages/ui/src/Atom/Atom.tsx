@@ -2,13 +2,13 @@
 import { SFC, ReactNode, ElementType, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
-import { CssType } from '../types/theme.types';
+import { CssChunkType } from '../types/theme.types';
 
 interface AtomProps {
   /** React ref object. */
   atomRef?: object;
   /** Css string, Css object, array or function. */
-  css?: CssType;
+  css?: CssChunkType;
   children?: ReactNode;
   /** React element or string. */
   element?: ElementType;

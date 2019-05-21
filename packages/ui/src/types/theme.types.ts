@@ -1,25 +1,22 @@
 import { InterpolationWithTheme, CSSObject } from '@emotion/core';
 
-export type CssType = InterpolationWithTheme<ThemeInterface>;
+type initialStyleFunction = (
+  theme: ThemeInterface,
+  props: ThemedComponentInterface,
+) => CssChunkType;
 
-export type CssTypeThunk = CssType | initialStyleFunction;
+export type CssType = InterpolationWithTheme<any>;
+export type CssChunkType = CssType | CSSObject | initialStyleFunction;
 
-export type CssThunkResult = initialStyleFunction | CSSObject;
-
-export interface ThemedComponentProps {
-  css: CssType;
+export interface ThemedComponentInterface {
+  css: CssChunkType;
   color?: string;
-  [key: string]: undefined | null | number | string | object | Function | CssType;
+  [key: string]: CssChunkType;
 }
 
-export type initialStyleFunction = (
-  theme: ThemeInterface,
-  props: ThemedComponentProps,
-) => CssThunkResult;
-
 export interface StylesInterface {
-  initialStyle?: initialStyleFunction;
-  [key: string]: CssTypeThunk;
+  initialStyle?: CssChunkType;
+  [key: string]: CssChunkType;
 }
 
 export interface ThemeInterface {
