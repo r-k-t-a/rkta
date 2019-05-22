@@ -1,5 +1,5 @@
 import React from 'react';
-import { CssType } from '../types/theme.types';
+import { CssType } from '../Provider/theme/theme.types';
 
 export default interface FontProps {
   children: React.ReactNode;

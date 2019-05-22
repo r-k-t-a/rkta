@@ -1,6 +1,10 @@
 import React, { ReactElement, SFC } from 'react';
 import useProviderContext from '../Provider/useProviderContext';
-import { CssChunkType, StylesInterface, ThemedComponentInterface } from '../types/theme.types';
+import {
+  CssChunkType,
+  StylesInterface,
+  ThemedComponentInterface,
+} from '../Provider/theme/theme.types';
 
 function themed(name: string, Component: Function): SFC<ThemedComponentInterface> {
   return ({ css, ...props }: ThemedComponentInterface): ReactElement => {
