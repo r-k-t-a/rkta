@@ -1,11 +1,11 @@
 import React from 'react';
-import { CssType } from '../Provider/theme/theme.types';
+import { CssPropType } from '../Provider/theme/theme.types';
 
 export default interface FontProps {
   children: React.ReactNode;
   /** One of theme colors or CSS Value: Color. */
   color?: string;
-  css?: CssType;
+  css?: CssPropType;
   element?: React.ElementType;
 
   h1?: boolean;

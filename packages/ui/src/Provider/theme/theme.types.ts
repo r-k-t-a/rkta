@@ -6,8 +6,8 @@ type initialStyleFunction = (
 ) => CssChunkType;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type CssType = InterpolationWithTheme<any>;
-export type CssChunkType = CssType | CSSObject | initialStyleFunction;
+export type CssPropType = InterpolationWithTheme<any>;
+export type CssChunkType = CssPropType | CSSObject | initialStyleFunction;
 
 export interface ThemedComponentInterface {
   css: CssChunkType;
