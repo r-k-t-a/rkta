@@ -1,3 +1,5 @@
 import Font from './Font';
 
-export default Font;
+import themed from '../util/themed';
+
+export default themed('Font', Font);

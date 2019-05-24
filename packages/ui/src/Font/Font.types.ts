@@ -1,11 +1,11 @@
 import React from 'react';
-import { CssPropType } from '../Provider/theme/theme.types';
+import { RktaThemed, CssEmotion } from '../Provider/theme/theme.types';
 
-export default interface FontProps {
+export default interface FontProps extends RktaThemed {
   children: React.ReactNode;
   /** One of theme colors or CSS Value: Color. */
   color?: string;
-  css?: CssPropType;
+  css?: CssEmotion;
   element?: React.ElementType;
 
   h1?: boolean;

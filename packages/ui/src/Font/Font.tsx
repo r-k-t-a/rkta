@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Atom from '../Atom';
-import themed from '../util/themed';
 import FontProps from './Font.types';
 
 const Font = ({ children, element, ...rest }: FontProps): React.ReactNode => (
@@ -15,6 +14,4 @@ Font.defaultProps = {
   element: 'span',
 };
 
-export const RawFont = Font;
-
-export default themed('Font', Font);
+export default Font;
