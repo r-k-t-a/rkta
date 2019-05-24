@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Font from '../Font';
-import { Props as FontProps } from '../Font/Font';
+import Text from '../Text';
+import { Props as FontProps } from '../Text/Text';
 
 export interface Props extends FontProps {
   children?: React.ReactNode;
@@ -21,6 +21,6 @@ export interface Props extends FontProps {
   transparent?: boolean;
 }
 
-const Paper = (props: Props): React.ReactNode => <Font element="div" {...props} />;
+const Paper = (props: Props): React.ReactNode => <Text element="div" {...props} />;
 
 export default Paper;

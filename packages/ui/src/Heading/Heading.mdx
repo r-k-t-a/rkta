@@ -1,0 +1,29 @@
+---
+menu: UI
+name: Heading
+---
+
+import { Link, Playground, Props } from 'docz';
+import RawHeading from './Heading';
+import Heading from './';
+
+# Heading
+
+<span>
+  Create HTML headings on top of <Link to="/rkta/packages-ui-src-text-text">Text</Link> component.
+</span>
+
+## Props
+
+<Props of={RawHeading} />
+
+## Examples
+
+<Playground>
+  <Heading level={1}>Level 1</Heading>
+  <Heading level={2}>Level 2</Heading>
+  <Heading level={3}>Level 3</Heading>
+  <Heading level={4}>Level 4</Heading>
+  <Heading level={5}>Level 5</Heading>
+  <Heading level={6}>Level 6</Heading>
+</Playground>
