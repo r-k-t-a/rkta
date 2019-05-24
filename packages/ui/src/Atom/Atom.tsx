@@ -2,9 +2,9 @@
 import { SFC, ReactNode, ElementType, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
-import { CssEmotion } from '../Provider/theme/theme.types';
+import { CssEmotion, RktaThemed } from '../Provider/theme/theme.types';
 
-interface AtomProps {
+export interface Props extends RktaThemed {
   /** React ref object. */
   atomRef?: object;
   /** Css string, Css object, array or function. */
@@ -14,13 +14,13 @@ interface AtomProps {
   element?: ElementType;
 }
 
-const Atom: SFC<AtomProps> = ({
+const Atom: SFC<Props> = ({
   atomRef,
   children,
   css,
   element: Element = 'div',
   ...rest
-}: AtomProps): ReactElement => (
+}: Props): ReactElement => (
   <Element {...rest} css={css} ref={atomRef}>
     {children}
   </Element>
