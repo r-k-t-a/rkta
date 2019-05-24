@@ -5,7 +5,6 @@ import { Props as AtomProps } from '../Atom/Atom';
 
 export interface Props extends AtomProps {
   children: React.ReactNode;
-
   /** Reset Paddings */
   fitAll?: boolean;
   /** Reset Left Padding */
