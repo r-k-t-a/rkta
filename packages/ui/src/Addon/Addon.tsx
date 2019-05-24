@@ -10,7 +10,7 @@ export interface Props extends AtomProps {
   fitAll?: boolean;
   /** Reset Left Padding */
   fitLeft?: boolean;
-  /** Reset Right Padding */
+  /** Reset Right Padding. Composed Atom Props: */
   fitRight?: boolean;
 }
 

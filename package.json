@@ -3,7 +3,8 @@
   "scripts": {
     "build": "lerna run build",
     "resetdeps": "lerna clean && lerna bootstrap",
-    "docz:dev": "rm -rf .docz; docz dev",
+    "predocz:dev": "rm -rf .docz/cache",
+    "docz:dev": "docz dev",
     "docz:build": "docz build",
     "postinstall": "lerna bootstrap",
     "lint": "lerna run lint",
