@@ -1,7 +1,7 @@
 import React from 'react';
 import { RktaThemed, CssEmotion } from '../Provider/theme/theme.types';
 
-export default interface FontProps extends RktaThemed {
+export default interface PaperProps extends RktaThemed {
   children?: React.ReactNode;
   css?: CssEmotion;
   element?: React.ElementType;
