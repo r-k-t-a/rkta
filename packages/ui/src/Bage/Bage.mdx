@@ -3,21 +3,26 @@ menu: UI
 name: Bage
 ---
 
-import { Playground, Props } from 'docz';
+import { Link, Playground, Props } from 'docz';
 import RawBage from './Bage';
 import Bage from './';
 
 # Bage
 
-Bage is a preconfigured sheet of paper, which can be used in different ways.
-Unlike it's done in Material UI R•K•T•A Bages are not opinionated about their positions.
+<span>
+  Bage composes paper <Link to="/rkta/packages-ui-src-paper-paper">Paper</Link> and&nbsp;
+  <Link to="/rkta/packages-ui-src-text-text">Text</Link> components.
+</span>
 
 ### Props
+
 <Props of={RawBage} />
 
 ### Examples
+
 <Playground>
-  <Bage>
+  <Bage bgColor="primary">Bage</Bage>
+  <Bage color="paper" bgColor="secondary" h5>
     Bage
   </Bage>
 </Playground>
