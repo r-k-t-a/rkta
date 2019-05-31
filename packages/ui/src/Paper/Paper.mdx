@@ -6,10 +6,11 @@ name: Paper
 import { Playground, Props } from 'docz';
 import RawPaper from './Paper';
 import Paper from './';
+import Divider from '../Divider';
 
 # Paper
 
-Paper description.
+Paper is main building block.
 
 ## Props
 
@@ -18,7 +19,10 @@ Paper description.
 ## Paper options
 
 <Playground>
-  <Paper rize={1}>
-    Paper
+  <Paper css={{ padding: 8 }} rize={1}>
+    Rized paper
   </Paper>
+  <Divider />
+  <Paper bgColor="primary" size={60} round hardBottom />
+  <Paper bgColor="secondary" size={60} round hardTop />
 </Playground>

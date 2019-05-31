@@ -7,21 +7,8 @@ export const initialStyle = (theme: ThemeInterface): CssRkta => ({
   position: 'relative',
 });
 
-export const rize = (theme: ThemeInterface, props: { rize: number }): CssRkta => {
-  const { rize: rizeValue } = props;
-  const blur: number = Math.max(rizeValue ** 3, 5);
-  return {
-    boxShadow: `
-      0px ${rizeValue}px ${blur}px 0px rgba(0, 0, 0, 0.2),
-      0px ${rizeValue * 2}px ${blur / 2}px 0px rgba(0, 0, 0, 0.14),
-      0px ${rizeValue * 3}px ${blur / rizeValue}1px ${-rizeValue / 2}px rgba(0, 0, 0, 0.12)
-    `,
-  };
-};
-
-export const size = (theme: ThemeInterface, props: { size: number }): CssRkta => ({
-  width: props.size,
-  height: props.size,
+export const bgColor = (theme: ThemeInterface, props: { bgColor: string }): CssRkta => ({
+  backgroundColor: theme.color[props.bgColor] || props.bgColor,
 });
 
 export const clip: CssRkta = {
@@ -58,9 +45,16 @@ export const hardRight: CssRkta = {
   borderTopRightRadius: '0',
 };
 
-export const readOnly: CssRkta = {
-  pointerEvents: 'none',
-  userSelect: 'none',
+export const rize = (theme: ThemeInterface, props: { rize: number }): CssRkta => {
+  const { rize: rizeValue } = props;
+  const blur: number = Math.max(rizeValue ** 3, 5);
+  return {
+    boxShadow: `
+      0px ${rizeValue}px ${blur}px 0px rgba(0, 0, 0, 0.2),
+      0px ${rizeValue * 2}px ${blur / 2}px 0px rgba(0, 0, 0, 0.14),
+      0px ${rizeValue * 3}px ${blur / rizeValue}1px ${-rizeValue / 2}px rgba(0, 0, 0, 0.12)
+    `,
+  };
 };
 
 export const round: CssRkta = {
@@ -68,8 +62,13 @@ export const round: CssRkta = {
 };
 
 export const rounded: CssRkta = {
-  borderRadius: '1200vw',
+  borderRadius: '9999vw',
 };
+
+export const size = (theme: ThemeInterface, props: { size: number }): CssRkta => ({
+  width: props.size,
+  height: props.size,
+});
 
 export const transparent: CssRkta = {
   backgroundColor: 'transparent',

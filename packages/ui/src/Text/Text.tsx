@@ -59,7 +59,7 @@ export interface Props extends AtomProps {
   /** Adds subtle shadow around text. */
   etched?: boolean;
   /** disables user select. */
-  noselect?: boolean;
+  readOnly?: boolean;
   nowrap?: boolean;
   /** force wrap long lines. */
   wrap?: boolean;

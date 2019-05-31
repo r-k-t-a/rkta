@@ -47,7 +47,8 @@ export const etched: CssRkta = {
   textShadow: '0 1px rgba(255, 255, 255, 0.24)',
 };
 
-export const noselect: CssRkta = {
+export const readOnly: CssRkta = {
+  pointerEvents: 'none',
   userSelect: 'none',
 };
 
