@@ -6,15 +6,24 @@ name: Divider
 import { Playground, Props } from 'docz';
 import RawDivider from './Divider';
 import Divider from './';
+import Paper from '../Paper';
 
 # Divider
 
-Divider is a horizontal rule (line) which usually helps to separate content
+Divider is a horizontal rule (line) which usually separates content blocks
 
 ### Props
+
 <Props of={RawDivider} />
 
 ### Examples
+
 <Playground>
-  <Divider dotted />
+  <Paper bgColor="primary" style={{ padding: 8 }}>
+    Before divider
+  </Paper>
+  <Divider />
+  <Paper bgColor="primary" style={{ padding: 8 }}>
+    After divider
+  </Paper>
 </Playground>
