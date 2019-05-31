@@ -1,7 +1,7 @@
 import { CssRkta } from '../Provider/theme/theme.types';
 
 export const initialStyle: CssRkta = {
-  display: 'inline-block',
+  display: 'inline-block !important',
   margin: '0 .3ex',
   padding: '0 calc(.48ex + 4px)',
   verticalAlign: 'middle',

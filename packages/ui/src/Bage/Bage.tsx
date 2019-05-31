@@ -1,8 +1,22 @@
 import React from 'react';
 
+import { CssEmotion } from '../Provider/theme/theme.types';
 import Paper from '../Paper';
-import BageProps from './Bage.types';
+import { Props as PropsProps } from '../Paper/Paper';
 
-const Bage = (props: BageProps): React.ReactNode => <Paper rounded overline nowrap {...props} />;
+interface Props extends PropsProps {
+  children: React.ReactNode;
+  css?: CssEmotion;
+  element?: React.ElementType;
+
+  /** Reset Margins */
+  fitAll?: boolean;
+  /** Reset Left Margin */
+  fitLeft?: boolean;
+  /** Reset Right Margin */
+  fitRight?: boolean;
+}
+
+const Bage = (props: Props): React.ReactNode => <Paper rounded overline nowrap {...props} />;
 
 export default Bage;
