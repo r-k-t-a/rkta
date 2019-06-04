@@ -36,7 +36,6 @@
     "@emotion/core": "latest",
     "@types/lodash": "latest",
     "@types/react": "latest",
-    "csstype": "^2.6.4",
     "emotion-theming": "latest",
     "lodash": "latest"
   }

@@ -32,6 +32,6 @@
     "react": "latest"
   },
   "dependencies": {
-    "@rkta/ui": "latest"
+    "@rkta/ui": "^0.0.1"
   }
 }

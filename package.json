@@ -38,7 +38,7 @@
     "typescript": "^3.4.5"
   },
   "licence": "MIT",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "@types/react": "latest",
     "react": "latest",
