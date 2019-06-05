@@ -36,5 +36,6 @@
     "csstype": "^2.6.4",
     "emotion-theming": "latest",
     "lodash": "latest"
-  }
+  },
+  "gitHead": "2c0b6df91e39d605202bdd18490032f7b3f03662"
 }
