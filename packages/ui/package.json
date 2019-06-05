@@ -29,6 +29,9 @@
     "react": "latest",
     "react-dom": "latest"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@emotion/core": "latest",
     "@types/lodash": "latest",
