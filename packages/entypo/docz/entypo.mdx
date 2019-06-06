@@ -1,0 +1,36 @@
+---
+name: Entypo
+---
+
+import { Playground, Props } from 'docz';
+import RawSvg from '@rkta/ui/Svg/Svg';
+import IconWrapper from './IconWrapper';
+import IconsList from './IconsList';
+import mainIcons from './mainIcons';
+import socialIcons from './socialIcons';
+import Address from '../src/Address';
+
+## Props
+
+<Props of={RawSvg} />
+
+## Use
+
+```
+import Address from '@rkta/entypo/Address';
+<Address size={32} color="primary" />
+```
+
+## Example
+
+<Playground>
+  <Address size={32} color="primary" />
+</Playground>
+
+## Icons
+
+<IconsList icons={mainIcons} width={190} />
+
+## Social Icons
+
+<IconsList icons={socialIcons} />
