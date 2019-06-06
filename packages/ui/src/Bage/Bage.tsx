@@ -4,6 +4,7 @@ import Paper from '../Paper';
 import { Props as PaperProps } from '../Paper/Paper';
 
 interface Props extends PaperProps {
+  children: React.ReactNode;
   /** Reset Margins */
   fitAll?: boolean;
   /** Reset Left Margin */
