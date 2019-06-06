@@ -9,7 +9,7 @@
     "docz:build": "docz build",
     "postinstall": "lerna bootstrap",
     "lint": "lerna run lint",
-    "make": "lerna run lint && npm run build",
+    "make": "npm run lint && npm run build",
     "publish": "npm run make && lerna publish --contents lib --yes patch",
     "type-check": "lerna run type-check"
   },
@@ -39,7 +39,7 @@
     "typescript": "^3.4.5"
   },
   "licence": "MIT",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
     "@types/react": "latest",
     "react": "latest",

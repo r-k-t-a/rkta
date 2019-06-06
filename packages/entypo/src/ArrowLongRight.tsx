@@ -1,0 +1,13 @@
+import React, { ReactNode } from 'react';
+
+import Svg from '@rkta/ui/Svg';
+import { Props as SvgProps } from '@rkta/ui/Svg/Svg';
+import { defaultIconSize } from './constants';
+
+const ArrowLongRight = (props: SvgProps): ReactNode => (
+  <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
+    <path d="M14,15.5V12H1V8h13V4.5l5.25,5.5L14,15.5z" />
+  </Svg>
+);
+
+export default ArrowLongRight;

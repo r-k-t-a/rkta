@@ -19,6 +19,7 @@
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --ignore \"**/*.spec.ts\" --source-maps",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
+    "prepare": "cp package.json lib/package.json || exit 0",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
@@ -36,7 +37,6 @@
     "@emotion/core": "latest",
     "@types/lodash": "latest",
     "@types/react": "latest",
-    "csstype": "^2.6.4",
     "emotion-theming": "latest",
     "lodash": "latest"
   },

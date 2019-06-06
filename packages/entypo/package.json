@@ -1,0 +1,41 @@
+{
+  "name": "@rkta/entypo",
+  "version": "0.0.5",
+  "description": "> TODO: description",
+  "author": "Sergei Droganov <serge@droganov.ru>",
+  "homepage": "https://github.com/r-k-t-a/rkta",
+  "license": "MIT",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-k-t-a/rkta.git"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --ignore \"**/*.spec.ts\" --source-maps",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
+    "prepare": "cp package.json lib/package.json || exit 0",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/r-k-t-a/rkta/issues"
+  },
+  "licence": "MIT",
+  "peerDependencies": {
+    "react": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@rkta/ui": "latest"
+  }
+}
