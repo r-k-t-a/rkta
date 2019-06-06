@@ -2,9 +2,9 @@ import React from 'react';
 
 import { CssEmotion } from '../Provider/theme/theme.types';
 import Paper from '../Paper';
-import { Props as PropsProps } from '../Paper/Paper';
+import { Props as BageProps } from '../Paper/Paper';
 
-interface Props extends PropsProps {
+interface Props extends BageProps {
   children: React.ReactNode;
   css?: CssEmotion;
   element?: React.ElementType;
