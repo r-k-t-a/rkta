@@ -1,14 +1,9 @@
 import React from 'react';
 
-import { CssEmotion } from '../Provider/theme/theme.types';
 import Paper from '../Paper';
-import { Props as BageProps } from '../Paper/Paper';
+import { Props as PaperProps } from '../Paper/Paper';
 
-interface Props extends BageProps {
-  children: React.ReactNode;
-  css?: CssEmotion;
-  element?: React.ElementType;
-
+interface Props extends PaperProps {
   /** Reset Margins */
   fitAll?: boolean;
   /** Reset Left Margin */
