@@ -11,6 +11,7 @@ export interface Props extends FontProps {
   hardLeft?: boolean;
   hardTop?: boolean;
   hardRight?: boolean;
+  relative?: boolean;
   rize?: number;
   round?: boolean;
   rounded?: boolean;

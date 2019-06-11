@@ -5,10 +5,13 @@ import merge from 'lodash/merge';
 import defaultTheme from './theme/defaultTheme';
 import { ThemeInterface } from './theme/theme.types';
 import Context from './Context';
+import { getElement, ElementResolverFunction } from './getElement';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
   theme?: ThemeInterface;
+  /** Replace default element resolver */
+  getElement?: ElementResolverFunction;
 }
 
 interface ProviderState {
@@ -16,6 +19,10 @@ interface ProviderState {
 }
 
 export default class Provider extends React.Component<ProviderProps, ProviderState> {
+  public static defaultProps = {
+    getElement,
+  };
+
   public constructor(props: ProviderProps) {
     super(props);
     this.state = {
@@ -33,7 +40,9 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     const { theme } = this.state;
     return (
       <ThemeProvider theme={theme}>
-        <Context.Provider value={{ replaceTheme: this.replaceTheme, theme }}>
+        <Context.Provider
+          value={{ getElement: this.props.getElement, replaceTheme: this.replaceTheme, theme }}
+        >
           {this.props.children}
         </Context.Provider>
       </ThemeProvider>

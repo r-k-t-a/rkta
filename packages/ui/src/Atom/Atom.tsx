@@ -1,8 +1,9 @@
 /** @jsx jsx */
-import { SFC, ReactNode, ElementType, ReactElement } from 'react';
+import { SFC, ReactNode, ElementType, ReactElement, useContext } from 'react';
 import { jsx } from '@emotion/core';
 
 import { CssEmotion, RktaThemed } from '../Provider/theme/theme.types';
+import Context from '../Provider/Context';
 
 export interface Props extends RktaThemed {
   /** React ref object. */
@@ -18,13 +19,17 @@ const Atom: SFC<Props> = ({
   atomRef,
   children,
   css,
-  element: Element = 'div',
+  element = 'div',
   ...rest
-}: Props): ReactElement => (
-  <Element {...rest} css={css} ref={atomRef}>
-    {children}
-  </Element>
-);
+}: Props): ReactElement => {
+  const { getElement } = useContext(Context);
+  const Element = getElement(element, rest);
+  return (
+    <Element {...rest} css={css} ref={atomRef}>
+      {children}
+    </Element>
+  );
+};
 
 Atom.defaultProps = {
   children: null,

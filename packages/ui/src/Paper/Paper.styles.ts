@@ -4,7 +4,6 @@ export const initialStyle = (theme: ThemeInterface): CssRkta => ({
   borderRadius: '3px',
   boxSizing: 'border-box',
   backgroundColor: theme.color.paper,
-  position: 'relative',
 });
 
 export const bgColor = (theme: ThemeInterface, props: { bgColor: string }): CssRkta => ({
@@ -43,6 +42,10 @@ export const hardTop: CssRkta = {
 export const hardRight: CssRkta = {
   borderBottomRightRadius: '0',
   borderTopRightRadius: '0',
+};
+
+export const relative: CssRkta = {
+  position: 'relative',
 };
 
 export const rize = (theme: ThemeInterface, props: { rize: number }): CssRkta => {
