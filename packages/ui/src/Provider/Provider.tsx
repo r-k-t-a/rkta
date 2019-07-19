@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
@@ -9,9 +9,9 @@ import { getElement, ElementResolverFunction } from './getElement';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
-  theme?: ThemeInterface;
+  theme: ThemeInterface;
   /** Replace default element resolver */
-  getElement?: ElementResolverFunction;
+  getElement: ElementResolverFunction;
 }
 
 interface ProviderState {

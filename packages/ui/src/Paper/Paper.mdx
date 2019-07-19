@@ -4,8 +4,7 @@ name: Paper
 ---
 
 import { Link, Playground, Props } from 'docz';
-import RawPaper from './Paper';
-import Paper from './';
+import Paper from './Paper';
 import Divider from '../Divider';
 
 # Paper
@@ -15,11 +14,7 @@ import Divider from '../Divider';
   <Link to="/rkta/packages-ui-src-text-text">Text</Link>.
 </span>
 
-## Props
-
-<Props of={RawPaper} />
-
-## Paper options
+## Examples
 
 <Playground>
   <Paper css={{ padding: 8 }} rize={1}>
@@ -29,3 +24,7 @@ import Divider from '../Divider';
   <Paper bgColor="primary" size={60} round hardBottom />
   <Paper bgColor="secondary" size={60} round hardTop />
 </Playground>
+
+## Props
+
+<Props of={Paper} />

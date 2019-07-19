@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { ReactElement, SFC } from 'react';
 
 import Atom from '../Atom';
 import { Props as AtomProps } from '../Atom/Atom';
+import useStyles from '../util/useStyles';
 
 export interface Props extends AtomProps {
   block?: boolean;
@@ -13,10 +14,13 @@ export interface Props extends AtomProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Svg = ({ children, ...rest }: Props): React.ReactNode => (
-  <Atom {...rest} element="svg">
-    {children}
-  </Atom>
-);
+const Svg: SFC<Props> = ({ children, ...rest }: Props): ReactElement => {
+  const nextProps = useStyles('Svg', rest);
+  return (
+    <Atom {...nextProps} element="svg">
+      {children}
+    </Atom>
+  );
+};
 
 export default Svg;

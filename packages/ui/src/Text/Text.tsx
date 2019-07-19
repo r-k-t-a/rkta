@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { SFC, ReactElement } from 'react';
 
 import Atom from '../Atom';
 import { Props as AtomProps } from '../Atom/Atom';
+import useStyles from '../util/useStyles';
 
 export interface Props extends AtomProps {
   /** One of theme colors or CSS Value: Color. */
@@ -66,14 +67,17 @@ export interface Props extends AtomProps {
   hyphens?: boolean;
 }
 
-const Font = ({ children, element, ...rest }: Props): React.ReactNode => (
-  <Atom {...rest} element={element}>
-    {children}
-  </Atom>
-);
+const Text: SFC<Props> = ({ children, element, ...rest }: Props): ReactElement => {
+  const nextProps = useStyles('Text', rest);
+  return (
+    <Atom {...nextProps} element={element}>
+      {children}
+    </Atom>
+  );
+};
 
-Font.defaultProps = {
+Text.defaultProps = {
   element: 'span',
 };
 
-export default Font;
+export default Text;

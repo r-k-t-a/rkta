@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement, SFC } from 'react';
 
 import { Props as PaperProps } from '../Paper/Paper';
 import Paper from '../Paper';
@@ -10,7 +10,7 @@ interface Props extends PaperProps {
   size: number;
 }
 
-const RippleWave = ({ onDissolve, released, css, ...rest }: Props): React.ReactElement => (
+const RippleWave: SFC<Props> = ({ onDissolve, released, css, ...rest }: Props): ReactElement => (
   <Paper
     element="span"
     css={getStyle(released, css)}

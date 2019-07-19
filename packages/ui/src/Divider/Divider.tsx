@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { ReactElement, SFC } from 'react';
 
 import Atom from '../Atom';
 import { Props as AtomProps } from '../Atom/Atom';
+import useStyles from '../util/useStyles';
 
 export interface Props extends AtomProps {
   /** Adds dotted style */
@@ -18,6 +19,9 @@ export interface Props extends AtomProps {
   invisible?: boolean;
 }
 
-const Divider = (props: Props): React.ReactNode => <Atom element="hr" {...props} />;
+const Divider: SFC<Props> = (props: Props): ReactElement => {
+  const nextProps = useStyles('Divider', props);
+  return <Atom element="hr" {...nextProps} />;
+};
 
 export default Divider;

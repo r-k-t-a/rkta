@@ -2,9 +2,10 @@ import { CssRkta } from '../Provider/theme/theme.types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const initialStyle: CssRkta = {
-  padding: 0,
   border: 'none',
+  cursor: 'pointer',
   display: 'inline-flex',
-  position: 'relative',
   outline: 'none',
+  padding: 0,
+  position: 'relative',
 };

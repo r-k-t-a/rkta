@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { SFC, ReactNode, ReactElement } from 'react';
 
 import Atom from '../Atom';
 import { Props as AtomProps } from '../Atom/Atom';
+import useStyles from '../util/useStyles';
 
 export interface Props extends AtomProps {
-  children: React.ReactNode;
+  children: ReactNode;
 
   /** Reset Paddings */
   fitAll?: boolean;
@@ -14,10 +15,13 @@ export interface Props extends AtomProps {
   fitRight?: boolean;
 }
 
-const Addon = ({ children, ...rest }: Props): React.ReactNode => (
-  <Atom element="span" {...rest}>
-    {children}
-  </Atom>
-);
+const Addon: SFC<Props> = ({ children, ...rest }: Props): ReactElement => {
+  const nextProps = useStyles('Addon', rest);
+  return (
+    <Atom element="span" {...nextProps}>
+      {children}
+    </Atom>
+  );
+};
 
 export default Addon;
