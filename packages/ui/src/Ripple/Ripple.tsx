@@ -1,4 +1,12 @@
-import React, { useState, useEffect, EffectCallback, FocusEvent, PointerEvent } from 'react';
+import React, {
+  SFC,
+  useState,
+  useEffect,
+  EffectCallback,
+  FocusEvent,
+  PointerEvent,
+  ReactElement,
+} from 'react';
 import get from 'lodash/get';
 
 import Atom from '../Atom';
@@ -16,7 +24,7 @@ interface WaveObject extends OutlineObject {
   released: boolean;
 }
 
-const Ripple = (): React.ReactElement => {
+const Ripple: SFC = (): ReactElement => {
   const [outline, setOutline] = useState<OutlineObject | null>(null);
   const [waves, setWaves] = useState<WaveObject[]>([]);
   const [refNode, setRef] = useState(null);

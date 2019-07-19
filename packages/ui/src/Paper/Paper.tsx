@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { SFC, ReactElement } from 'react';
 
 import Text from '../Text';
 import { Props as FontProps } from '../Text/Text';
+import useStyles from '../util/useStyles';
 
 export interface Props extends FontProps {
   bgColor?: string;
@@ -19,6 +20,9 @@ export interface Props extends FontProps {
   transparent?: boolean;
 }
 
-const Paper = (props: Props): React.ReactNode => <Text element="div" {...props} />;
+const Paper: SFC<Props> = (props: Props): ReactElement => {
+  const nextProps = useStyles('Paper', props);
+  return <Text element="div" {...nextProps} />;
+};
 
 export default Paper;

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { ReactNode, ReactElement, SFC } from 'react';
 
 import Paper from '../Paper';
 import { Props as PaperProps } from '../Paper/Paper';
+import useStyles from '../util/useStyles';
 
 interface Props extends PaperProps {
-  children: React.ReactNode;
+  children: ReactNode;
   /** Reset Margins */
   fitAll?: boolean;
   /** Reset Left Margin */
@@ -13,6 +14,9 @@ interface Props extends PaperProps {
   fitRight?: boolean;
 }
 
-const Bage = (props: Props): React.ReactNode => <Paper rounded overline nowrap {...props} />;
+const Bage: SFC<Props> = (props: Props): ReactElement => {
+  const nextProps = useStyles('Bage', props);
+  return <Paper rounded overline nowrap {...nextProps} />;
+};
 
 export default Bage;

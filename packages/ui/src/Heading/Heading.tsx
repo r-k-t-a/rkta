@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement, SFC } from 'react';
 
 import Text from '../Text';
 import { Props as TextProps } from '../Text/Text';
@@ -13,7 +13,7 @@ export interface Props extends TextProps {
   h6?: never;
 }
 
-const getHeaderProps = (level: number, rest: Partial<Props>): TextProps => {
+const getHeadingProps = (level: number, rest: Partial<Props>): TextProps => {
   if (level >= 1 && level <= 6) {
     const element = `h${level}` as React.ElementType;
     return { element, ...rest, [element as string]: true };
@@ -21,8 +21,8 @@ const getHeaderProps = (level: number, rest: Partial<Props>): TextProps => {
   return { element: 'header', ...rest };
 };
 
-const Header = ({ level, ...rest }: Props): React.ReactNode => (
-  <Text {...getHeaderProps(level, rest)} />
+const Heading: SFC<Props> = ({ level, ...rest }: Props): ReactElement => (
+  <Text {...getHeadingProps(level, rest)} />
 );
 
-export default Header;
+export default Heading;
