@@ -1,10 +1,10 @@
 import React, { SFC, ReactElement } from 'react';
 
 import Text from '../Text';
-import { Props as FontProps } from '../Text/Text';
+import { Props as TextProps } from '../Text/Text';
 import useStyles from '../util/useStyles';
 
-export interface Props extends FontProps {
+export interface Props extends TextProps {
   bgColor?: string;
   clip?: boolean;
   disabled?: boolean;
