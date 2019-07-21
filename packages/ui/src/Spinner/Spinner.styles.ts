@@ -27,6 +27,7 @@ export const initialStyle = (
   borderStyle: 'solid',
   borderRadius: '50%',
   boxSizing: 'border-box',
+  display: 'block',
   height: props.size,
   width: props.size,
   willChange: 'transform',

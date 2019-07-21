@@ -12,6 +12,7 @@ export interface Props extends TextProps {
   hardLeft?: boolean;
   hardTop?: boolean;
   hardRight?: boolean;
+  readOnly?: boolean;
   relative?: boolean;
   rize?: number;
   round?: boolean;

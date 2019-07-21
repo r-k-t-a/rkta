@@ -44,6 +44,10 @@ export const hardRight: CssRkta = {
   borderTopRightRadius: '0',
 };
 
+export const readOnly: CssRkta = {
+  pointerEvents: 'none',
+};
+
 export const relative: CssRkta = {
   position: 'relative',
 };

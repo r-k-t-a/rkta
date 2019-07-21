@@ -1,6 +1,5 @@
 import { CssRkta } from '../Provider/theme/theme.types';
 
-// eslint-disable-next-line import/prefer-default-export
 export const initialStyle: CssRkta = {
   border: 'none',
   cursor: 'pointer',
@@ -8,4 +7,11 @@ export const initialStyle: CssRkta = {
   outline: 'none',
   padding: 0,
   position: 'relative',
+};
+
+export const busy: CssRkta = {
+  color: 'transparent',
+  '> *': {
+    visibility: 'hidden',
+  },
 };
