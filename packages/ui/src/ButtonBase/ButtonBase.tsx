@@ -1,4 +1,4 @@
-import React, { ReactElement, SFC } from 'react';
+import React, { ReactElement, SFC, useRef } from 'react';
 
 import Atom from '../Atom';
 import Paper from '../Paper';
@@ -6,6 +6,7 @@ import Ripple from '../Ripple';
 import Spinner from '../Spinner';
 import { Props as PaperProps } from '../Paper/Paper';
 import { Props as SpinnerProps } from '../Spinner/Spinner';
+import { spinnerCss } from './ButtonBase.styles';
 import useStyles from '../util/useStyles';
 
 export interface Props extends PaperProps {
@@ -16,32 +17,22 @@ export interface Props extends PaperProps {
   tabIndex?: number;
 }
 
-const spinnerCss: {} = {
-  alignContent: 'center',
-  display: 'flex',
-  justifyContent: 'center',
-  position: 'absolute',
-  visibility: 'visible !important',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-};
-
 const ButtonBase: SFC<Props> = ({
+  atomRef,
   children,
   noRipple,
   spinnerProps,
   ...rest
 }: Props): ReactElement => {
   const nextProps = useStyles('ButtonBase', rest);
+  const ref = atomRef || useRef(null);
   return (
-    <Paper element="button" readOnly={rest.busy} {...nextProps}>
+    <Paper atomRef={ref} element="button" readOnly={rest.busy} {...nextProps}>
       {children}
       {!noRipple && <Ripple />}
       {rest.busy && (
         <Atom element="span" css={spinnerCss}>
-          <Spinner color={rest.color || 'text'} {...spinnerProps} />
+          <Spinner color={rest.color} {...spinnerProps} />
         </Atom>
       )}
     </Paper>
@@ -50,6 +41,7 @@ const ButtonBase: SFC<Props> = ({
 
 ButtonBase.defaultProps = {
   busy: false,
+  color: 'text',
   tabIndex: 0,
   role: 'button',
 };
