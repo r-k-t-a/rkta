@@ -15,21 +15,27 @@ const spin = keyframes`
   }
 `;
 
-export const initialStyle = (
-  theme: ThemeInterface,
-  props: { borderWidth: number; size: number },
-): CssRkta => ({
+export const initialStyle: CssRkta = {
   animation: `${spin} 1.6s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
-  borderWidth: props.borderWidth,
   borderColor: 'inherit',
   borderLeftColor: 'transparent !important',
   borderRightColor: 'transparent !important',
   borderStyle: 'solid',
   borderRadius: '50%',
   boxSizing: 'border-box',
+  display: 'block',
+  willChange: 'transform',
+};
+
+export const borderWidth = (
+  theme: ThemeInterface,
+  props: { borderWidth?: number | string },
+): CssRkta => ({
+  borderWidth: props.borderWidth,
+});
+export const size = (theme: ThemeInterface, props: { size?: number | string }): CssRkta => ({
   height: props.size,
   width: props.size,
-  willChange: 'transform',
 });
 
 export const color = (theme: ThemeInterface, props: { color?: string }): CssRkta => ({

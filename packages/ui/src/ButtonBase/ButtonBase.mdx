@@ -5,6 +5,7 @@ name: Button Base
 
 import { Link, Playground, Props } from 'docz';
 import ButtonBase from './ButtonBase';
+import Divider from '../Divider';
 
 # Button Base
 
@@ -21,6 +22,11 @@ import ButtonBase from '@rkta/ui/ButtonBase';
 
 <Playground>
   <ButtonBase>Click Me</ButtonBase>
+  <ButtonBase color="paper" bgColor="secondary" css={{ padding: 16 }}>
+    Click Me
+  </ButtonBase>
+  <Divider />
+  <ButtonBase busy>Click Me</ButtonBase>
 </Playground>
 
 ## Props

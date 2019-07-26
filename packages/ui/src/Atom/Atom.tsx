@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { SFC, ReactNode, ElementType, ReactElement, useContext } from 'react';
+import { ElementType, RefObject, ReactNode, ReactElement, SFC, useContext } from 'react';
 import { jsx } from '@emotion/core';
 
 import { CssEmotion, RktaThemed } from '../Provider/theme/theme.types';
@@ -7,7 +7,7 @@ import Context from '../Provider/Context';
 
 export interface Props extends RktaThemed {
   /** React ref object. */
-  atomRef?: object;
+  atomRef?: RefObject<Props>;
   /** Css string, Css object, array or function. */
   css?: CssEmotion;
   children?: ReactNode;
