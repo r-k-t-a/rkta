@@ -1,5 +1,3 @@
-import { css } from '@emotion/core';
-
 import { CssRkta } from '../Provider/theme/theme.types';
 
 export const initialStyle: CssRkta = {
@@ -9,6 +7,10 @@ export const initialStyle: CssRkta = {
   outline: 'none',
   padding: 0,
   position: 'relative',
+  userSelect: 'none',
+  '> *': {
+    pointerEvents: 'none',
+  },
 };
 
 export const busy: CssRkta = {
@@ -18,14 +20,14 @@ export const busy: CssRkta = {
   },
 };
 
-export const spinnerCss: CssRkta = css`
-  align-content: center;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  visibility: visible !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
+export const spinnerCss: {} = {
+  alignContent: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+  position: 'absolute',
+  visibility: 'visible !important',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+};

@@ -6,6 +6,7 @@ import useStyles from '../util/useStyles';
 
 export interface Props extends AtomProps {
   borderWidth?: number | string;
+  color?: string;
   size?: number | string;
 }
 
@@ -16,6 +17,7 @@ const Spinner: SFC<Props> = (props: Props): ReactElement => {
 
 Spinner.defaultProps = {
   borderWidth: '2.4px',
+  color: 'inherit',
   size: '24px',
 };
 
