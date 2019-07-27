@@ -1,27 +1,18 @@
 /** @jsx jsx */
-import { ElementType, RefObject, ReactNode, ReactElement, SFC, useContext } from 'react';
+import { ReactElement, SFC, useContext } from 'react';
 import { jsx } from '@emotion/core';
 
-import { CssEmotion, RktaThemed } from '../Provider/theme/theme.types';
 import Context from '../Provider/Context';
 
-export interface Props extends RktaThemed {
-  /** React ref object. */
-  atomRef?: RefObject<Props>;
-  /** Css string, Css object, array or function. */
-  css?: CssEmotion;
-  children?: ReactNode;
-  /** React element or string. */
-  element?: ElementType;
-}
+import { AtomProps } from './Atom.d';
 
-const Atom: SFC<Props> = ({
+const Atom: SFC<AtomProps> = ({
   atomRef,
   children,
   css,
   element = 'div',
   ...rest
-}: Props): ReactElement => {
+}: AtomProps): ReactElement => {
   const { getElement } = useContext(Context);
   const Element = getElement(element, rest);
   return (

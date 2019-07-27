@@ -1,4 +1,4 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.types';
+import { CssRkta, ThemeInterface } from '../Provider/theme/theme.d';
 
 export const initialStyle = (theme: ThemeInterface): CssRkta => ({
   fontFamily: '"San Francisco", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif',
