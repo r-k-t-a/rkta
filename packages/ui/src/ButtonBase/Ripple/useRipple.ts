@@ -34,9 +34,8 @@ function addWave(
   patchState: Function,
 ): void {
   const size = Math.max(width, height);
-  const halfSize = size / 2;
-  const x = pointX - halfSize;
-  const y = pointY - halfSize;
+  const x = pointX;
+  const y = pointY;
   const id = Date.now();
   const wave: WaveInterface = { id, x, y, size, released: false };
   patchState({ ...state, waves: [...state.waves, wave] });

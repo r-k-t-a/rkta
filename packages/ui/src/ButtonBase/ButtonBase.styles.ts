@@ -1,7 +1,8 @@
-import { CssRkta } from '../Provider/theme/theme.types';
+import { CssRkta } from '../Provider/theme/theme.d';
 
 export const initialStyle: CssRkta = {
-  border: 'none',
+  border: '0px solid currentColor',
+  boxSizing: 'border-box',
   cursor: 'pointer',
   display: 'inline-flex',
   outline: 'none',
@@ -21,7 +22,7 @@ export const busy: CssRkta = {
 };
 
 export const spinnerCss: {} = {
-  alignContent: 'center',
+  alignItems: 'center',
   display: 'flex',
   justifyContent: 'center',
   position: 'absolute',

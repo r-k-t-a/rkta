@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import Atom from '@rkta/ui/Atom';
 import Text from '@rkta/ui/Text';
-import { CssEmotion } from '@rkta/ui/Provider/theme/theme.types';
+import { CssEmotion } from '@rkta/ui/Provider/theme/theme.d';
 import { Props as SvgProps } from '@rkta/ui/Svg/Svg';
 
 export interface IconWrapperProps extends SvgProps {

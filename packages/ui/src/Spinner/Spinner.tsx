@@ -1,16 +1,10 @@
 import React, { SFC, ReactElement } from 'react';
 
 import Atom from '../Atom';
-import { Props as AtomProps } from '../Atom/Atom';
 import useStyles from '../util/useStyles';
+import { SpinnerProps } from './Spinner.d';
 
-export interface Props extends AtomProps {
-  borderWidth?: number | string;
-  color?: string;
-  size?: number | string;
-}
-
-const Spinner: SFC<Props> = (props: Props): ReactElement => {
+const Spinner: SFC<SpinnerProps> = (props: SpinnerProps): ReactElement => {
   const nextProps = useStyles('Spinner', props);
   return <Atom {...nextProps} />;
 };

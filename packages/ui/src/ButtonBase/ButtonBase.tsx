@@ -1,29 +1,20 @@
 import React, { ReactElement, SFC } from 'react';
 
-import Atom from '../Atom';
+import Atom from '../Atom/Atom';
 import Paper from '../Paper';
 import Ripple from './Ripple';
 import useRipple from './Ripple/useRipple';
 import Spinner from '../Spinner';
-import { Props as PaperProps } from '../Paper/Paper';
-import { Props as SpinnerProps } from '../Spinner/Spinner';
 import { spinnerCss } from './ButtonBase.styles';
 import useStyles from '../util/useStyles';
+import { ButtonBaseProps } from './ButtonBase.d';
 
-export interface Props extends PaperProps {
-  busy?: boolean;
-  noRipple?: boolean;
-  role?: string; // TODO: взять из @type для html type attribute
-  spinnerProps?: SpinnerProps;
-  tabIndex?: number;
-}
-
-const ButtonBase: SFC<Props> = ({
+const ButtonBase: SFC<ButtonBaseProps> = ({
   children,
   noRipple,
   spinnerProps,
   ...rest
-}: Props): ReactElement => {
+}: ButtonBaseProps): ReactElement => {
   const nextProps = useStyles('ButtonBase', rest);
   const [rippleProps, buttonProps] = useRipple(rest);
   return (
