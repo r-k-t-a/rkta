@@ -41,6 +41,7 @@ export interface TextProps extends AtomProps {
   h6?: boolean;
   subtitle1?: boolean;
   subtitle2?: boolean;
+  body?: boolean;
   body2?: boolean;
   button?: boolean;
   caption?: boolean;

@@ -1,0 +1,72 @@
+---
+menu: UI
+name: List
+---
+
+import { Playground, Props } from 'docz';
+import Addon from '../Addon';
+import List from './List';
+import ListItem from './ListItem';
+import ListButton from './ListButton';
+import ListTitle from './ListTitle';
+import ListText from './ListText';
+import Divider from '../Divider';
+import Wallet from '../../../entypo/src/Wallet';
+import ChevronSmallRight from '../../../entypo/src/ChevronSmallRight';
+
+# List
+
+## Examples
+
+<Playground style={{ backgroundColor: '#eee', margin: -40, padding: 40 }}>
+  <List rize={1} sans>
+    <ListTitle>List Title</ListTitle>
+    <ListButton fitAll>
+      <Addon>
+        <Wallet />
+      </Addon>
+      <Addon main>Button with Addons</Addon>
+      <Addon>
+        <ChevronSmallRight />
+      </Addon>
+    </ListButton>
+    <ListButton inset>Inset Button</ListButton>
+    <ListButton fitAll>
+      <Addon inset main>
+        Inset Button with Addon
+      </Addon>
+      <Addon>
+        <ChevronSmallRight />
+      </Addon>
+    </ListButton>
+    <Divider fitAll />
+    <ListItem muted>Muted Item</ListItem>
+    <ListItem bgColor="color9">Highlighted Item</ListItem>
+    <ListButton color="secondary" fitAll>
+      <Addon>
+        <Wallet />
+      </Addon>
+      <Addon main>Color Button</Addon>
+      <Addon>
+        <ChevronSmallRight />
+      </Addon>
+    </ListButton>
+    <Divider fitAll />
+    <ListButton fitAll>
+      <Addon>
+        <Wallet />
+      </Addon>
+      <ListText label="Item with text" description="Some description" />
+    </ListButton>
+    <ListButton fitAll>
+      <Addon>
+        <Wallet />
+      </Addon>
+      <ListText label="Reversed item" description="Some description" reverse />
+    </ListButton>
+  </List>
+</Playground>
+
+## Props
+
+<Props of={List} />

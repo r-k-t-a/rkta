@@ -1,0 +1,77 @@
+---
+menu: UI
+name: ListButton
+---
+
+import { Playground, Props, Link } from 'docz';
+import Addon from '../../Addon';
+import Text from '../../Text';
+import List from '../List';
+import ListButton from './ListButton';
+import ListTitle from '../ListTitle';
+import Divider from '../../Divider';
+import Wallet from '../../../../entypo/src/Wallet';
+import ChevronSmallRight from '../../../../entypo/src/ChevronSmallRight';
+
+# List
+
+<span>
+  Same as <Link to="/rkta/packages-ui-src-list-list-item-list-item">ListItem</Link> but interactive
+</span>
+
+## Examples
+
+<Playground style={{ backgroundColor: '#eee', margin: -40, padding: 40 }}>
+  <List rize={1} sans>
+    <ListTitle>Size range</ListTitle>
+    <Divider fitAll />
+    <ListButton fitAll tiny>
+      <Addon main>Tiny</Addon>
+      <Addon overline>32px</Addon>
+    </ListButton>
+    <Divider fitAll />
+    <ListButton fitAll small>
+      <Addon main>Small</Addon>
+      <Addon overline>40px</Addon>
+    </ListButton>
+    <Divider fitAll />
+    <ListButton fitAll normal>
+      <Addon main>Normal</Addon>
+      <Addon overline>48px</Addon>
+    </ListButton>
+    <Divider fitAll />
+    <ListButton fitAll big>
+      <Addon main>Big</Addon>
+      <Addon overline>56px</Addon>
+    </ListButton>
+    <Divider fitAll />
+    <ListButton fitAll huge>
+      <Addon main>Huge</Addon>
+      <Addon overline>64px</Addon>
+    </ListButton>
+    <Divider fitAll />
+  </List>
+  <Divider invisible />
+  <List rize={1} sans bgColor="primary">
+    <ListTitle>Icons and Colors</ListTitle>
+    <ListButton fitAll>
+      <Addon>
+        <Wallet />
+      </Addon>
+      <Addon main>Transparent Button with Addons</Addon>
+      <Addon>
+        <ChevronSmallRight />
+      </Addon>
+    </ListButton>
+    <ListButton fitAll bgColor="paper" color="secondary">
+      <Addon color="warning">
+        <Wallet />
+      </Addon>
+      <Addon main>Transparent Button with Addons</Addon>
+    </ListButton>
+  </List>
+</Playground>
+
+## Props
+
+<Props of={ListButton} />

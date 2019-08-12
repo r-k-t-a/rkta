@@ -19,10 +19,10 @@ export const BoxCss: CssEmotion = {
 
 const overlayShow = keyframes`
   from { opacity: 0; }
-  to { opacity: 0.2; }
+  to { opacity: 0.16; }
 `;
 const overlayHide = keyframes`
-  from { opacity: 0.2; }
+  from { opacity: 0.16; }
   to { opacity: 0; }
 `;
 export const OverlayCss = (mouseover: boolean): CssEmotion => ({

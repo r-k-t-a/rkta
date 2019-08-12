@@ -30,7 +30,7 @@ Button component
     <Button bgColor="color12" big>
       Big
     </Button>
-    <Button bgColor="color15" huge>
+    <Button bgColor="color15" huge paddingX={32}>
       Huge
     </Button>
   </Atom>
@@ -103,13 +103,13 @@ Button component
 ### Joints
 
 <Playground>
-  <Button bgColor="primary" hardRight>
+  <Button bgColor="primary" rounded hardRight>
     First
   </Button>
   <Button bgColor="primary" hard>
     Second
   </Button>
-  <Button bgColor="primary" hardLeft>
+  <Button bgColor="primary" rounded hardLeft>
     Third
   </Button>
 </Playground>
@@ -117,11 +117,11 @@ Button component
 ### Addons
 
 <Playground>
-  <Button bgColor="primary" fitAll>
+  <Button bgColor="primary" fitAll uppercase>
     <Addon>
       <Wallet />
     </Addon>
-    <Addon>Do it</Addon>
+    <Addon>Do it!</Addon>
     <Addon>
       <Trash />
     </Addon>

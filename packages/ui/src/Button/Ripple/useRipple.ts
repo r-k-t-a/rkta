@@ -23,8 +23,9 @@ function fire(event: {}, handle?: Function): void {
   if (typeof handle === 'function') handle(event);
 }
 
+const releaseWave = (wave: WaveInterface): WaveInterface => ({ ...wave, released: true });
 function releaseWaves(state: UseRippliState, patchState: Function): void {
-  const waves = state.waves.map((wave): WaveInterface => ({ ...wave, released: true }));
+  const waves = state.waves.map(releaseWave);
   patchState({ ...state, waves });
 }
 
@@ -38,7 +39,7 @@ function addWave(
   const y = pointY;
   const id = Date.now();
   const wave: WaveInterface = { id, x, y, size, released: false };
-  patchState({ ...state, waves: [...state.waves, wave] });
+  patchState({ ...state, waves: [...state.waves.map(releaseWave), wave] });
 }
 
 export default ({
@@ -81,10 +82,14 @@ export default ({
     onFocus: (event: FocusEvent): void => {
       if (!state.focus) {
         const node = event.target as HTMLElement;
-        const { width, height } = node.getBoundingClientRect();
+        const { clientWidth: width, clientHeight: height } = node;
         const pointX = width / 2;
         const pointY = height / 2;
-        addWave({ pointX, pointY, width, height }, { ...state, focus: true }, patchState);
+        addWave(
+          { pointX, pointY, width, height },
+          { ...state, focus: true, mouseover: true },
+          patchState,
+        );
       }
       fire(event, onFocus);
     },

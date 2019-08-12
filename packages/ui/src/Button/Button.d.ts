@@ -1,16 +1,14 @@
-import { ButtonBaseProps } from '../ButtonBase/ButtonBase.d';
+import { AddonProps } from '../Addon/Addon.d';
+import { PaperProps } from '../Paper/Paper.d';
+import { SpinnerProps } from '../Spinner/Spinner.d';
 
-export interface ButtonProps extends ButtonBaseProps {
-  big?: boolean;
+export interface ButtonProps extends AddonProps, PaperProps {
   blockLevel?: boolean;
-  fitAll?: boolean;
-  fitLeft?: boolean;
-  fitRight?: boolean;
-  huge?: boolean;
-  small?: boolean;
-  tiny?: boolean;
+  busy?: boolean;
 
+  noripple?: boolean;
   outline?: number | string;
   round?: boolean;
   size?: number | string;
+  spinnerProps?: SpinnerProps;
 }
