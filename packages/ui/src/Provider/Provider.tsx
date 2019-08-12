@@ -1,3 +1,4 @@
+/* eslint-disable react/static-property-placement */
 import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
@@ -23,12 +24,9 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     getElement,
   };
 
-  public constructor(props: ProviderProps) {
-    super(props);
-    this.state = {
-      theme: merge(defaultTheme, this.props.theme),
-    };
-  }
+  public state = {
+    theme: merge(defaultTheme, this.props.theme),
+  };
 
   private replaceTheme = (nextTheme: ThemeInterface): void => {
     this.setState({

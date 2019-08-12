@@ -1,4 +1,4 @@
-import React, { ReactElement, Fragment } from 'react';
+import React, { ReactElement } from 'react';
 
 import Atom from '../../Atom/Atom';
 import { BoxCss } from './Ripple.styles';
@@ -15,7 +15,7 @@ const Ripple = ({
 }: RippleProps): ReactElement => {
   const hasWaves = waves.length > 0;
   return (
-    <Fragment>
+    <>
       {(overlayIsVisible || hasWaves) && (
         <Overlay mouseover={mouseover} onOverlayAnimationEnd={onOverlayAnimationEnd} />
       )}
@@ -28,7 +28,7 @@ const Ripple = ({
           )}
         </Atom>
       )}
-    </Fragment>
+    </>
   );
 };
 
