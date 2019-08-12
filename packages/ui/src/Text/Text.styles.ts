@@ -1,19 +1,13 @@
 import { CssRkta, ThemeInterface } from '../Provider/theme/theme.d';
+import { TextProps } from './Text.d';
 
-export const initialStyle = (theme: ThemeInterface): CssRkta => ({
-  fontFamily: '"San Francisco", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif',
-  fontSize: '16px',
-  fontWeight: 400,
-  letterSpacing: '0.15px',
-  lineHeight: '24px',
-  textRendering: 'optimizeLegibility',
-  textDecoration: 'none',
-  color: theme.color.text,
-});
-
-export const color = (theme: ThemeInterface, props: { color?: string }): CssRkta => ({
+export const color = (theme: ThemeInterface, props: TextProps): CssRkta => ({
   color: props.color ? theme.color[props.color] || props.color : 'inherit',
 });
+
+export const sans: CssRkta = {
+  fontFamily: '"San Francisco", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif',
+};
 
 export const serif: CssRkta = {
   fontFamily: '"Playfair Display", Bookman, Palatino, Georgia, serif',
@@ -35,7 +29,7 @@ export const baseline: CssRkta = {
 };
 
 export const muted: CssRkta = {
-  opacity: 0.4,
+  opacity: 0.56,
   userSelect: 'none',
 };
 
@@ -122,6 +116,14 @@ export const subtitle2: CssRkta = {
   letterSpacing: '0.1px',
 };
 
+export const body: CssRkta = {
+  fontSize: '16px',
+  fontWeight: 400,
+  letterSpacing: '0.15px',
+  lineHeight: '24px',
+  textRendering: 'optimizeLegibility',
+};
+
 export const body2: CssRkta = {
   fontSize: '14px',
   lineHeight: '20px',
@@ -134,6 +136,7 @@ export const button: CssRkta = {
   lineHeight: '20px',
   fontWeight: 500,
   letterSpacing: '0.1px',
+  textDecoration: 'none',
 };
 
 export const caption: CssRkta = {

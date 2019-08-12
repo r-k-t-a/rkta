@@ -13,12 +13,13 @@ const Ripple = ({
   onWaveDissolve,
   waves,
 }: RippleProps): ReactElement => {
+  const hasWaves = waves.length > 0;
   return (
     <Fragment>
-      {overlayIsVisible && (
+      {(overlayIsVisible || hasWaves) && (
         <Overlay mouseover={mouseover} onOverlayAnimationEnd={onOverlayAnimationEnd} />
       )}
-      {waves.length > 0 && (
+      {hasWaves && (
         <Atom css={BoxCss} element="span">
           {waves.map(
             (wave): ReactElement => (
