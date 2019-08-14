@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.3.2",
+    "rkta-ui": "0.0.88",
     "@rkta/ui": "0.0.9",
     "lodash": "^4.17.15",
     "react": "^16.9.0",

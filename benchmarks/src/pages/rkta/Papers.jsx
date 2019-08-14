@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Button from '@rkta/ui/Button';
+import Paper from '@rkta/ui/Paper';
 import range from 'lodash/range';
 import Heading from '@rkta/ui/Heading';
 
@@ -7,10 +7,10 @@ import Profiler from '../../blocks/Profiler';
 
 export default () => (
   <Fragment>
-    <Heading level={1}>RKTA Buttons</Heading>
-    <Profiler id="rkta-buttons">
-      {range(0, 500).map(index => (
-        <Button key={index}>Button {index}</Button>
+    <Heading level={1}>RKTA Papers</Heading>
+    <Profiler id="rkta-papers">
+      {range(0, 5000).map(index => (
+        <Paper key={index} bgColor="warning">Paper {index}</Paper>
       ))}
     </Profiler>
   </Fragment>
