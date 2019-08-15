@@ -10,7 +10,9 @@ export default () => (
     <Heading level={1}>RKTA Papers</Heading>
     <Profiler id="rkta-papers">
       {range(0, 5000).map(index => (
-        <Paper key={index} bgColor="warning">Paper {index}</Paper>
+        <Paper key={index} bgColor="warning">
+          Paper {index}
+        </Paper>
       ))}
     </Profiler>
   </Fragment>

@@ -7,7 +7,7 @@ import RktaUi from './pages/rkta-ui';
 import Material from './pages/material';
 import Emotion from './pages/emotion';
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Route path="/" exact component={Home} />
@@ -17,6 +17,6 @@ function App() {
       <Route path="/emotion" component={Emotion} />
     </Router>
   );
-}
+};
 
 export default App;
