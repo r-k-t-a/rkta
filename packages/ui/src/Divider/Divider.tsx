@@ -5,7 +5,7 @@ import { DividerProps } from './Divider.defs';
 import useStyles from '../util/useStyles';
 
 const Divider: SFC<DividerProps> = (props: DividerProps): ReactElement => {
-  const nextProps = useStyles('Divider', props);
+  const nextProps = useStyles(props, 'Divider');
   return <Atom element="hr" {...nextProps} />;
 };
 

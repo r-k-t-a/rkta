@@ -1,16 +1,16 @@
 import React, { SFC, ReactElement } from 'react';
 
-import Text from '../Text';
+import Atom from '../Atom';
 import useStyles from '../util/useStyles';
 
 import { AddonProps } from './Addon.defs';
 
 const Addon: SFC<AddonProps> = ({
-  BaseElement = Text,
+  BaseElement = Atom,
   children,
   ...rest
 }: AddonProps): ReactElement => {
-  const nextProps = useStyles('Addon', rest);
+  const nextProps = useStyles(rest, 'Text', 'Addon');
   return (
     <BaseElement element="span" {...nextProps}>
       {children}

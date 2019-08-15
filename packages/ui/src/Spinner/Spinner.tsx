@@ -5,7 +5,7 @@ import useStyles from '../util/useStyles';
 import { SpinnerProps } from './Spinner.defs';
 
 const Spinner: SFC<SpinnerProps> = (props: SpinnerProps): ReactElement => {
-  const nextProps = useStyles('Spinner', props);
+  const nextProps = useStyles(props, 'Spinner');
   return <Atom {...nextProps} />;
 };
 

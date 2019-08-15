@@ -1,7 +1,7 @@
 import React, { SFC, ReactElement } from 'react';
 
 import useStyles from '../../util/useStyles';
-import Addon from '../../Addon';
+import Atom from '../../Atom';
 import Text from '../../Text';
 import { ListTextProps } from './ListText.defs';
 
@@ -10,16 +10,16 @@ const ListItem: SFC<ListTextProps> = ({
   description,
   ...props
 }: ListTextProps): ReactElement => {
-  const nextProps = useStyles('ListText', props);
+  const nextProps = useStyles(props, 'Text', 'Addon', 'ListText');
   return (
-    <Addon {...nextProps} paddingY={8}>
+    <Atom {...nextProps} paddingY={8}>
       {label}
       {description && (
         <Text caption muted>
           {description}
         </Text>
       )}
-    </Addon>
+    </Atom>
   );
 };
 

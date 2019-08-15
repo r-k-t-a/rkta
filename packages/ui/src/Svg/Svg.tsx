@@ -6,7 +6,7 @@ import { SvgProps } from './Svg.defs';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Svg: SFC<SvgProps> = ({ children, ...rest }: SvgProps): ReactElement => {
-  const nextProps = useStyles('Svg', rest);
+  const nextProps = useStyles(rest, 'Svg');
   return (
     <Atom {...nextProps} element="svg">
       {children}

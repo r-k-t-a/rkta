@@ -5,7 +5,7 @@ import useStyles from '../util/useStyles';
 import { TextProps } from './Text.defs';
 
 const Text: SFC<TextProps> = ({ children, element, ...rest }: TextProps): ReactElement => {
-  const nextProps = useStyles('Text', rest);
+  const nextProps = useStyles(rest, 'Text');
   return (
     <Atom {...nextProps} element={element}>
       {children}

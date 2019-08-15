@@ -1,12 +1,12 @@
 import React, { ReactElement, SFC } from 'react';
 
-import Paper from '../Paper';
+import Atom from '../Atom';
 import useStyles from '../util/useStyles';
 import { BageProps } from './Bage.defs';
 
 const Bage: SFC<BageProps> = (props: BageProps): ReactElement => {
-  const nextProps = useStyles('Bage', props);
-  return <Paper rounded overline nowrap {...nextProps} />;
+  const nextProps = useStyles(props, 'Text', 'Paper', 'Bage');
+  return <Atom rounded overline nowrap {...nextProps} />;
 };
 
 export default Bage;
