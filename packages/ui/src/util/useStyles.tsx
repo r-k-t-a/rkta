@@ -6,8 +6,7 @@ interface NextProps {
   [key: string]: CssRkta | React.ReactNode;
 }
 
-export default ({ css = [], ...props }: RktaThemed, ...names: string[]): NextProps => {
-  const { theme } = useProviderContext();
+function applyStyles(props, css, theme) {
   const ownCss = Array.isArray(css) ? css : [css];
   const thunk = (payload: CssRkta): CssEmotion => {
     if (typeof payload === 'function') return thunk(payload(theme, { ...props, css }));
@@ -39,4 +38,18 @@ export default ({ css = [], ...props }: RktaThemed, ...names: string[]): NextPro
 
   nextProps.css = cssEmotion;
   return nextProps;
+}
+
+const memoized = memoize(
+  applyStyles,
+  flow(
+    Object.entries,
+    flatten,
+    toString,
+  ),
+);
+
+export default (props: RktaThemed, ...names: string[]): NextProps => {
+  const { theme } = useProviderContext();
+  return memoized(props, theme, names);
 };
