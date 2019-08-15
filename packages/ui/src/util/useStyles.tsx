@@ -40,7 +40,7 @@ function applyStyles(props, css, theme) {
   return nextProps;
 }
 
-const memoized = memoize(
+const memoizedProps = memoize(
   applyStyles,
   flow(
     Object.entries,
@@ -51,5 +51,5 @@ const memoized = memoize(
 
 export default (props: RktaThemed, ...names: string[]): NextProps => {
   const { theme } = useProviderContext();
-  return memoized(props, theme, names);
+  return memoizedProps(props, theme, names);
 };
