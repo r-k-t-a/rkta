@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react';
 
-import { AddWaveInput, RippleProps, UseRippliState, WaveInterface } from './Ripple.d';
+import { AddWaveInput, RippleProps, UseRippliState, WaveInterface } from './Ripple.defs';
 
 const initialState: UseRippliState = {
   focus: false,

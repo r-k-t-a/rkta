@@ -1,4 +1,4 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.d';
+import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
 
 export const initialStyle: CssRkta = {
   fill: 'currentColor',

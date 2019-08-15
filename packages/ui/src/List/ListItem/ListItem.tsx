@@ -3,7 +3,7 @@ import React, { SFC, ReactElement } from 'react';
 import useStyles from '../../util/useStyles';
 import Addon from '../../Addon';
 import Paper from '../../Paper';
-import { ListItemProps } from './ListItem.d';
+import { ListItemProps } from './ListItem.defs';
 
 const ListItem: SFC<ListItemProps> = ({
   BaseElement,

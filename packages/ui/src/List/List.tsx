@@ -1,6 +1,6 @@
 import React, { SFC, ReactElement } from 'react';
 
-import { ListProps } from './List.d';
+import { ListProps } from './List.defs';
 import Paper from '../Paper';
 import useStyles from '../util/useStyles';
 

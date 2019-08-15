@@ -1,9 +1,9 @@
 import React, { ReactElement, SFC } from 'react';
 
 import Text from '../Text';
-import { TextProps } from '../Text/Text.d';
+import { TextProps } from '../Text/Text.defs';
 
-import { HeadingProps } from './Heading.d';
+import { HeadingProps } from './Heading.defs';
 
 const getHeadingProps = (level: number, rest: Partial<HeadingProps>): TextProps => {
   if (level >= 1 && level <= 6) {

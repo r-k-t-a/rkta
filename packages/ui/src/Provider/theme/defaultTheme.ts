@@ -11,7 +11,7 @@ import * as Spinner from '../../Spinner/Spinner.styles';
 import * as Svg from '../../Svg/Svg.styles';
 import * as Text from '../../Text/Text.styles';
 
-import { ThemeInterface } from './theme.d';
+import { ThemeInterface } from './theme.defs';
 
 const defaultTheme: ThemeInterface = {
   color,

@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 
 import Context from '../Provider/Context';
 
-import { AtomProps } from './Atom.d';
+import { AtomProps } from './Atom.defs';
 
 const Atom: SFC<AtomProps> = ({
   atomRef,

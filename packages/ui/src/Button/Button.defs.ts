@@ -1,6 +1,6 @@
-import { AddonProps } from '../Addon/Addon.d';
-import { PaperProps } from '../Paper/Paper.d';
-import { SpinnerProps } from '../Spinner/Spinner.d';
+import { AddonProps } from '../Addon/Addon.defs';
+import { PaperProps } from '../Paper/Paper.defs';
+import { SpinnerProps } from '../Spinner/Spinner.defs';
 
 export interface ButtonProps extends AddonProps, PaperProps {
   blockLevel?: boolean;

@@ -1,5 +1,5 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.d';
-import { TextProps } from './Text.d';
+import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { TextProps } from './Text.defs';
 
 export const color = (theme: ThemeInterface, props: TextProps): CssRkta => ({
   color: props.color ? theme.color[props.color] || props.color : 'inherit',

@@ -4,7 +4,7 @@ import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
 import defaultTheme from './theme/defaultTheme';
-import { ThemeInterface } from './theme/theme.d';
+import { ThemeInterface } from './theme/theme.defs';
 import Context from './Context';
 import { getElement, ElementResolverFunction } from './getElement';
 
@@ -24,6 +24,7 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     getElement,
   };
 
+  // eslint-disable-next-line react/state-in-constructor
   public state = {
     theme: merge(defaultTheme, this.props.theme),
   };

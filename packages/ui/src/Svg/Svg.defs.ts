@@ -1,4 +1,4 @@
-import { AtomProps } from '../Atom/Atom.d';
+import { AtomProps } from '../Atom/Atom.defs';
 
 export interface SvgProps extends AtomProps {
   block?: boolean;

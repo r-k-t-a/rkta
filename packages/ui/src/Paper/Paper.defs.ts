@@ -1,4 +1,4 @@
-import { TextProps } from '../Text/Text.d';
+import { TextProps } from '../Text/Text.defs';
 
 export interface PaperProps extends TextProps {
   bgColor?: string;

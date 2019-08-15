@@ -1,6 +1,6 @@
 import useProviderContext from '../Provider/useProviderContext';
 
-import { CssEmotion, CssRkta, RktaComponentStyles, RktaThemed } from '../Provider/theme/theme.d';
+import { CssEmotion, CssRkta, RktaComponentStyles, RktaThemed } from '../Provider/theme/theme.defs';
 
 interface NextProps {
   [key: string]: CssRkta | React.ReactNode;

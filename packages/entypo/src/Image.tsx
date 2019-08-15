@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 
 import Svg from '@rkta/ui/Svg';
-import { Props as SvgProps } from '@rkta/ui/Svg/Svg';
 import { defaultIconSize } from './constants';
 
-const Image = (props: SvgProps): ReactNode => (
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Image = (props: any): ReactNode => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
     <path
       fillRule="evenodd"

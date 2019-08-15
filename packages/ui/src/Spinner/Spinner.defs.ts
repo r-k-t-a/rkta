@@ -1,4 +1,4 @@
-import { AtomProps } from '../Atom/Atom.d';
+import { AtomProps } from '../Atom/Atom.defs';
 
 export interface SpinnerProps extends AtomProps {
   borderWidth?: number | string;

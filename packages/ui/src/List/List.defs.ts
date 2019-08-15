@@ -1,4 +1,4 @@
-import { PaperProps } from '../Paper/Paper.d';
+import { PaperProps } from '../Paper/Paper.defs';
 
 export interface ListProps extends PaperProps {
   fitAll?: boolean;
