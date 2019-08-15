@@ -1,5 +1,5 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.d';
-import { ButtonProps } from './Button.d';
+import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { ButtonProps } from './Button.defs';
 
 export const initialStyle: CssRkta = {
   alignItems: 'center',

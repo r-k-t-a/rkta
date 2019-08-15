@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import Atom from '../../Atom/Atom';
 import { BoxCss } from './Ripple.styles';
-import { RippleProps } from './Ripple.d';
+import { RippleProps } from './Ripple.defs';
 import Wave from './Wave';
 import Overlay from './Overlay';
 

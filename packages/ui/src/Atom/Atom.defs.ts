@@ -1,5 +1,5 @@
 import { ElementType, RefObject, ReactNode } from 'react';
-import { CssEmotion, RktaThemed } from '../Provider/theme/theme.d';
+import { CssEmotion, RktaThemed } from '../Provider/theme/theme.defs';
 
 export interface AtomProps extends RktaThemed {
   /** React ref object. */

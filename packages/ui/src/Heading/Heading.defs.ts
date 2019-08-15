@@ -1,4 +1,4 @@
-import { TextProps } from '../Text/Text.d';
+import { TextProps } from '../Text/Text.defs';
 
 export interface HeadingProps extends TextProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;

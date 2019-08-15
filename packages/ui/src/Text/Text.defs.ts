@@ -1,4 +1,4 @@
-import { AtomProps } from '../Atom/Atom.d';
+import { AtomProps } from '../Atom/Atom.defs';
 
 export interface TextProps extends AtomProps {
   /** One of theme colors or CSS Value: Color. */

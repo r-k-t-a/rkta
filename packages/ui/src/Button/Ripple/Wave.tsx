@@ -2,7 +2,7 @@ import React, { ReactElement, SFC } from 'react';
 
 import Atom from '../../Atom';
 import { WaveCss } from './Ripple.styles';
-import { WaveInterface } from './Ripple.d';
+import { WaveInterface } from './Ripple.defs';
 
 interface Props extends WaveInterface {
   onWaveDissolve: Function;

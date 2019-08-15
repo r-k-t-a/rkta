@@ -6,7 +6,7 @@ import Paper from '../Paper';
 import Spinner from '../Spinner';
 
 import useStyles from '../util/useStyles';
-import { ButtonProps } from './Button.d';
+import { ButtonProps } from './Button.defs';
 import { spinnerCss } from './Button.styles';
 
 import Ripple from './Ripple';

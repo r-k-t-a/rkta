@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { ThemeInterface } from './theme/theme.d';
+import { ThemeInterface } from './theme/theme.defs';
 import defaultTheme from './theme/defaultTheme';
 import { getElement, ElementResolverFunction } from './getElement';
 

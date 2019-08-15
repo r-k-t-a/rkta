@@ -3,7 +3,7 @@ import React, { SFC, ReactElement } from 'react';
 import useStyles from '../../util/useStyles';
 import Addon from '../../Addon';
 import Text from '../../Text';
-import { ListTextProps } from './ListText.d';
+import { ListTextProps } from './ListText.defs';
 
 const ListItem: SFC<ListTextProps> = ({
   label,

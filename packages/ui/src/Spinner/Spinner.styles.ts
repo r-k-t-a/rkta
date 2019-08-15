@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/core';
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.d';
+import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
 
 const spin = keyframes`
   0% {

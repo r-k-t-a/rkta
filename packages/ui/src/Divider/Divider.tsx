@@ -1,7 +1,7 @@
 import React, { ReactElement, SFC } from 'react';
 
 import Atom from '../Atom';
-import { DividerProps } from './Divider.d';
+import { DividerProps } from './Divider.defs';
 import useStyles from '../util/useStyles';
 
 const Divider: SFC<DividerProps> = (props: DividerProps): ReactElement => {

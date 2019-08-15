@@ -1,4 +1,4 @@
-import { CssRkta } from '../../Provider/theme/theme.d';
+import { CssRkta } from '../../Provider/theme/theme.defs';
 
 export const initialStyle: CssRkta = {
   display: 'flex',
