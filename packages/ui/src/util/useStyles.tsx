@@ -47,13 +47,13 @@ function applyStyles(props: RktaThemed, theme: ThemeInterface, names: string[]):
     nextKeys = [];
   }
 
-  const reversedCssEmotion = cssEmotion.reverse();
+  const flattenCssEmotion = flatten(cssEmotion.reverse());
 
   for (let i = 0; i < ownCss.length; i += 1) {
-    reversedCssEmotion.push(thunk(ownCss[i]));
+    flattenCssEmotion.push(thunk(ownCss[i]));
   }
 
-  nextProps.css = reversedCssEmotion;
+  nextProps.css = flattenCssEmotion;
   return nextProps;
 }
 
