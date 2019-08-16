@@ -1,7 +1,6 @@
 import React, { SFC, ReactElement } from 'react';
 
 import Atom from '../Atom/Atom';
-import Paper from '../Paper';
 import Spinner from '../Spinner';
 
 import useStyles from '../util/useStyles';
@@ -17,11 +16,17 @@ const Button: SFC<ButtonProps> = ({
   spinnerProps,
   ...rest
 }: ButtonProps): ReactElement => {
-  const nextProps = useStyles({ normal: true, ...rest }, 'Button', 'Addon', 'Text');
+  const nextProps = useStyles(
+    { normal: true, button: true, ...rest },
+    'Button',
+    'Paper',
+    'Addon',
+    'Text',
+  );
 
   const [rippleProps, buttonProps] = useRipple(nextProps);
   return (
-    <Paper element="button" button {...nextProps} {...buttonProps}>
+    <Atom element="button" {...nextProps} {...buttonProps}>
       {children}
       {!noRipple && <Ripple {...rippleProps} />}
       {rest.busy && (
@@ -29,7 +34,7 @@ const Button: SFC<ButtonProps> = ({
           <Spinner color={rest.color} {...spinnerProps} />
         </Atom>
       )}
-    </Paper>
+    </Atom>
   );
 };
 

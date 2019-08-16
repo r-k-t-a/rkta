@@ -1,7 +1,7 @@
 import React, { SFC, ReactElement } from 'react';
 
 import useStyles from '../../util/useStyles';
-import Paper from '../../Paper';
+import Atom from '../../Atom';
 import { ListItemProps } from './ListItem.defs';
 
 const ListItem: SFC<ListItemProps> = ({
@@ -9,13 +9,15 @@ const ListItem: SFC<ListItemProps> = ({
   children,
   ...props
 }: ListItemProps): ReactElement => {
-  const localProps = BaseElement ? { ...props, normal: true } : props;
-  const nextProps = useStyles(localProps, 'ListItem', 'Addon', 'Text');
+  const localProps = BaseElement
+    ? props
+    : { normal: true, hard: true, body: true, transparent: true, ...props };
+  const nextProps = useStyles(localProps, 'ListItem', 'Paper', 'Addon', 'Text');
   if (BaseElement) return <BaseElement {...nextProps}>{children}</BaseElement>;
   return (
-    <Paper element="div" hard body transparent {...nextProps}>
+    <Atom element="div" {...nextProps}>
       {children}
-    </Paper>
+    </Atom>
   );
 };
 
