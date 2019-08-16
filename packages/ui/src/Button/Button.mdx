@@ -36,14 +36,6 @@ Button component
   </Atom>
 </Playground>
 
-### Block Level
-
-<Playground>
-  <Button bgColor="primary" blockLevel>
-    Block Level
-  </Button>
-</Playground>
-
 ### Fitting
 
 <Playground>
@@ -55,79 +47,7 @@ Button component
       fitAll
     </Button>
     <Button bgColor="color2" fitLeft>
-      fitRight
+      fitLeft
     </Button>
   </Atom>
 </Playground>
-
-### Round buttons
-
-<Playground>
-  <Atom css={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
-    <Button bgColor="color1" round>
-      round
-    </Button>
-    <Button bgColor="primary" rize={1} round busy size={56}>
-      round
-    </Button>
-    <Button color="secondary" round size={72} outline={2}>
-      <Wallet />
-      <span>0</span>
-    </Button>
-  </Atom>
-</Playground>
-
-### Square buttons
-
-<Playground>
-  <Atom
-    css={{
-      alignItems: 'center',
-      backgroundColor: '#444',
-      display: 'flex',
-      justifyContent: 'space-between',
-      padding: 16,
-    }}
-  >
-    <Button color="color2" size={72} transparent outline={2}>
-      <Wallet />
-      <span>0</span>
-    </Button>
-    <Button color="warning" size={72} outline={2}>
-      <Wallet />
-      <span>1m</span>
-    </Button>
-  </Atom>
-</Playground>
-
-### Joints
-
-<Playground>
-  <Button bgColor="primary" rounded hardRight>
-    First
-  </Button>
-  <Button bgColor="primary" hard>
-    Second
-  </Button>
-  <Button bgColor="primary" rounded hardLeft>
-    Third
-  </Button>
-</Playground>
-
-### Addons
-
-<Playground>
-  <Button bgColor="primary" fitAll uppercase>
-    <Addon>
-      <Wallet />
-    </Addon>
-    <Addon>Do it!</Addon>
-    <Addon>
-      <Trash />
-    </Addon>
-  </Button>
-</Playground>
-
-## Props
-
-<Props of={Button} />

@@ -17,10 +17,11 @@ const Button: SFC<ButtonProps> = ({
   spinnerProps,
   ...rest
 }: ButtonProps): ReactElement => {
-  const nextProps = useStyles(rest, 'Button', 'Addon', 'Text');
+  const nextProps = useStyles({ normal: true, ...rest }, 'Button', 'Addon', 'Text');
+
   const [rippleProps, buttonProps] = useRipple(nextProps);
   return (
-    <Paper element="button" button normal {...nextProps} {...buttonProps}>
+    <Paper element="button" button {...nextProps} {...buttonProps}>
       {children}
       {!noRipple && <Ripple {...rippleProps} />}
       {rest.busy && (

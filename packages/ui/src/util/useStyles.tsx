@@ -42,6 +42,7 @@ function applyStyles(props: RktaThemed, theme: ThemeInterface, names: string[]):
         nextKeys.push(key);
       }
     }
+
     keys = nextKeys;
     nextKeys = [];
   }
@@ -67,5 +68,6 @@ const memoizedProps = memoize(applyStyles, createCacheKey);
 
 export default (props: RktaThemed, ...names: string[]): NextProps => {
   const { theme } = useProviderContext();
+
   return memoizedProps(props, theme, names);
 };

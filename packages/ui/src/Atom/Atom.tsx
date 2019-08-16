@@ -15,6 +15,8 @@ const Atom: SFC<AtomProps> = ({
 }: AtomProps): ReactElement => {
   const { getElement } = useContext(Context);
   const Element = getElement(element, rest);
+  // console.log(element, css);
+
   return (
     <Element {...rest} css={css} ref={atomRef}>
       {children}

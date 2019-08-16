@@ -2,7 +2,10 @@ import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
 
 export const initialStyle: CssRkta = {
   display: 'block',
-  padding: '0 16px',
+  paddingTop: 0,
+  paddingBottom: 0,
+  paddingLeft: 16,
+  paddingRight: 16,
 };
 
 export const big: CssRkta = {
@@ -10,7 +13,10 @@ export const big: CssRkta = {
 };
 
 export const fitAll: CssRkta = {
-  padding: 0,
+  paddingTop: 0,
+  paddingBottom: 0,
+  paddingLeft: 0,
+  paddingRight: 0,
 };
 
 export const fitLeft: CssRkta = {
