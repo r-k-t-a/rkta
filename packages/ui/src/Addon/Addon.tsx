@@ -5,16 +5,12 @@ import useStyles from '../util/useStyles';
 
 import { AddonProps } from './Addon.defs';
 
-const Addon: SFC<AddonProps> = ({
-  BaseElement = Atom,
-  children,
-  ...rest
-}: AddonProps): ReactElement => {
+const Addon: SFC<AddonProps> = ({ children, ...rest }: AddonProps): ReactElement => {
   const nextProps = useStyles(rest, 'Addon', 'Text');
   return (
-    <BaseElement element="span" {...nextProps}>
+    <Atom element="span" {...nextProps}>
       {children}
-    </BaseElement>
+    </Atom>
   );
 };
 

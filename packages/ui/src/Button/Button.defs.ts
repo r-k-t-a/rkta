@@ -5,6 +5,7 @@ import { SpinnerProps } from '../Spinner/Spinner.defs';
 export interface ButtonProps extends AddonProps, PaperProps {
   blockLevel?: boolean;
   busy?: boolean;
+  composition?: string[];
 
   noripple?: boolean;
   outline?: number | string;
