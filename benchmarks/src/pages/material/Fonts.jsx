@@ -8,8 +8,10 @@ export default () => (
   <Fragment>
     <h1>Material Typography</h1>
     <Profiler id="rkta-fonts">
-      {range(0, 5000).map(index => (
-        <Typography color="primary" key={index}>Typography {index}</Typography>
+      {range(0, 10000).map(index => (
+        <Typography color="primary" key={index}>
+          Typography {index}
+        </Typography>
       ))}
     </Profiler>
   </Fragment>

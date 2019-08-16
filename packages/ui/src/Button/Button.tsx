@@ -17,10 +17,10 @@ const Button: SFC<ButtonProps> = ({
   spinnerProps,
   ...rest
 }: ButtonProps): ReactElement => {
-  const nextProps = useStyles(rest, 'Text', 'Addon', 'Button');
+  const nextProps = useStyles(rest, 'Button', 'Addon', 'Text');
   const [rippleProps, buttonProps] = useRipple(nextProps);
   return (
-    <Atom BaseElement={Paper} element="button" button normal {...nextProps} {...buttonProps}>
+    <Paper element="button" button normal {...nextProps} {...buttonProps}>
       {children}
       {!noRipple && <Ripple {...rippleProps} />}
       {rest.busy && (
@@ -28,7 +28,7 @@ const Button: SFC<ButtonProps> = ({
           <Spinner color={rest.color} {...spinnerProps} />
         </Atom>
       )}
-    </Atom>
+    </Paper>
   );
 };
 

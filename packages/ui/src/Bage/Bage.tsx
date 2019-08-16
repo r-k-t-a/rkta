@@ -4,9 +4,13 @@ import Atom from '../Atom';
 import useStyles from '../util/useStyles';
 import { BageProps } from './Bage.defs';
 
-const Bage: SFC<BageProps> = (props: BageProps): ReactElement => {
-  const nextProps = useStyles(props, 'Text', 'Paper', 'Bage');
-  return <Atom rounded overline nowrap {...nextProps} />;
+const Bage: SFC<BageProps> = ({ children, ...rest }: BageProps): ReactElement => {
+  const nextProps = useStyles(rest, 'Bage', 'Paper', 'Text');
+  return (
+    <Atom rounded overline nowrap {...nextProps}>
+      {children}
+    </Atom>
+  );
 };
 
 export default Bage;

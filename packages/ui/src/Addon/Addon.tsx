@@ -10,7 +10,7 @@ const Addon: SFC<AddonProps> = ({
   children,
   ...rest
 }: AddonProps): ReactElement => {
-  const nextProps = useStyles(rest, 'Text', 'Addon');
+  const nextProps = useStyles(rest, 'Addon', 'Text');
   return (
     <BaseElement element="span" {...nextProps}>
       {children}

@@ -19,6 +19,8 @@ interface ProviderState {
   theme: ThemeInterface;
 }
 
+const getThemeTs = (): object => ({ ts: Date.now() });
+
 export default class Provider extends React.Component<ProviderProps, ProviderState> {
   public static defaultProps = {
     getElement,
@@ -26,12 +28,12 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
 
   // eslint-disable-next-line react/state-in-constructor
   public state = {
-    theme: merge(defaultTheme, this.props.theme),
+    theme: merge(defaultTheme, this.props.theme, getThemeTs()),
   };
 
   private replaceTheme = (nextTheme: ThemeInterface): void => {
     this.setState({
-      theme: merge(defaultTheme, nextTheme),
+      theme: merge(defaultTheme, nextTheme, getThemeTs()),
     });
   };
 

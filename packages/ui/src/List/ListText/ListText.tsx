@@ -7,12 +7,16 @@ import { ListTextProps } from './ListText.defs';
 
 const ListItem: SFC<ListTextProps> = ({
   label,
+  children,
   description,
   ...props
 }: ListTextProps): ReactElement => {
-  const nextProps = useStyles(props, 'Text', 'Addon', 'ListText');
+  const nextProps = {
+    ...useStyles({ ...props, paddingY: 8 }, 'ListText', 'Addon', 'Text'),
+    children,
+  };
   return (
-    <Atom {...nextProps} paddingY={8}>
+    <Atom {...nextProps}>
       {label}
       {description && (
         <Text caption muted>

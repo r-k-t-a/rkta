@@ -4,9 +4,9 @@ import { ListProps } from './List.defs';
 import Atom from '../Atom';
 import useStyles from '../util/useStyles';
 
-const List: SFC<ListProps> = (props): ReactElement => {
-  const nextProps = useStyles(props, 'Text', 'Paper', 'List');
-  return <Atom {...nextProps} />;
+const List: SFC<ListProps> = ({ children, ...rest }): ReactElement => {
+  const nextProps = useStyles(rest, 'List', 'Paper', 'Text');
+  return <Atom {...nextProps}>{children}</Atom>;
 };
 
 export default List;

@@ -8,7 +8,7 @@ export default () => (
   <Fragment>
     <h1>Material buttons</h1>
     <Profiler id="rkta-buttons">
-      {range(0, 500).map(index => (
+      {range(0, 1000).map(index => (
         <Button key={index}>Button {index}</Button>
       ))}
     </Profiler>

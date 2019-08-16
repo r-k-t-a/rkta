@@ -8,7 +8,7 @@ export default () => (
   <Fragment>
     <Header level={1}>RKTA-UI buttons</Header>
     <Profiler id="rktaui-buttons">
-      {range(0, 500).map(index => (
+      {range(0, 1000).map(index => (
         <Button key={index}>Button {index}</Button>
       ))}
     </Profiler>

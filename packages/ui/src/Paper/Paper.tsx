@@ -5,9 +5,13 @@ import useStyles from '../util/useStyles';
 
 import { PaperProps } from './Paper.defs';
 
-const Paper: SFC<PaperProps> = (props: PaperProps): ReactElement => {
-  const nextProps = useStyles(props, 'Text', 'Paper');
-  return <Atom element="div" {...nextProps} />;
+const Paper: SFC<PaperProps> = ({ children, ...rest }: PaperProps): ReactElement => {
+  const nextProps = useStyles(rest, 'Paper', 'Text');
+  return (
+    <Atom element="div" {...nextProps}>
+      {children}
+    </Atom>
+  );
 };
 
 export default Paper;
