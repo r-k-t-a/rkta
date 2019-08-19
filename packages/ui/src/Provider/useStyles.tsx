@@ -70,5 +70,7 @@ const createCacheKey = (props: RktaThemed, theme: ThemeInterface, names: string[
 
 const memoizedProps = memoize(applyStyles, createCacheKey);
 
-export default (theme: ThemeInterface): useStylesFunctionType => (props, ...names): NextProps =>
-  memoizedProps(props, theme, names);
+export default (getTheme: () => ThemeInterface): useStylesFunctionType => (
+  props,
+  ...names
+): NextProps => memoizedProps(props, getTheme(), names);
