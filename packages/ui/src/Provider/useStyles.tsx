@@ -8,13 +8,13 @@ import {
   ThemeInterface,
 } from './theme/theme.defs';
 
-interface NextProps {
+export interface NextProps {
   [key: string]: CssRkta | React.ReactNode;
 }
 
 export type useStylesFunctionType = (props: RktaThemed, ...names: string[]) => NextProps;
 
-function applyStyles(props: RktaThemed, theme: ThemeInterface, names: string[]): NextProps {
+function applyStyles(theme: ThemeInterface, props: RktaThemed, names: string[]): NextProps {
   const { css, ...rest } = props;
   const thunk = (payload: CssRkta): CssEmotion => {
     if (typeof payload === 'function') return thunk(payload(theme, { ...rest, css }));
@@ -68,7 +68,4 @@ const createArray = (props: RktaThemed, theme: ThemeInterface, names: string[]):
 const createCacheKey = (props: RktaThemed, theme: ThemeInterface, names: string[]): string =>
   join(flatten(createArray(props, theme, names)));
 
-const memoizedProps = memoize(applyStyles, createCacheKey);
-
-export default (theme: ThemeInterface): useStylesFunctionType => (props, ...names): NextProps =>
-  memoizedProps(props, theme, names);
+export default memoize(applyStyles, createCacheKey);

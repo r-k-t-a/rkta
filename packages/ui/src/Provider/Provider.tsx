@@ -4,10 +4,10 @@ import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
 import defaultTheme from './theme/defaultTheme';
-import { ThemeInterface } from './theme/theme.defs';
+import { RktaThemed, ThemeInterface } from './theme/theme.defs';
 import Context from './Context';
 import { getElement, ElementResolverFunction } from './getElement';
-import makeUseStyles from './useStyles';
+import useStyles, { NextProps } from './useStyles';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
@@ -35,7 +35,8 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     theme: merge(defaultTheme, this.props.theme, getThemeTs()),
   };
 
-  private [USE_STYLES] = makeUseStyles((): ThemeInterface => this.state.theme);
+  private [USE_STYLES] = (props: RktaThemed, names: string[]): NextProps =>
+    useStyles(this.state.theme, props, names);
 
   private [REPLACE_THEME] = (nextTheme: ThemeInterface): void => {
     this.setState({ theme: merge(defaultTheme, nextTheme, getThemeTs()) });
