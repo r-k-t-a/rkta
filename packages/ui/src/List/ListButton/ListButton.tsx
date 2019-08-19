@@ -3,13 +3,14 @@ import React, { SFC, ReactElement } from 'react';
 import Button from '../../Button';
 import { ListButtonProps } from './ListButton.defs';
 
-const ListTitle: SFC<ListButtonProps> = ({ children, ...rest }: ListButtonProps): ReactElement => {
+const ListButton: SFC<ListButtonProps> = ({ children, ...rest }: ListButtonProps): ReactElement => {
   return (
     <Button
       element="button"
       blockLevel
       transparent
       hard
+      body
       {...rest}
       composition={['ListItem', 'Button', 'Addon', 'Paper', 'Text']}
     >
@@ -18,4 +19,4 @@ const ListTitle: SFC<ListButtonProps> = ({ children, ...rest }: ListButtonProps)
   );
 };
 
-export default ListTitle;
+export default ListButton;
