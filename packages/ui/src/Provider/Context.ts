@@ -14,5 +14,5 @@ export interface ContextInterface {
 export default createContext<ContextInterface>({
   getElement,
   theme: defaultTheme,
-  useStyles: makeUseStyles(defaultTheme),
+  useStyles: makeUseStyles((): ThemeInterface => defaultTheme),
 });
