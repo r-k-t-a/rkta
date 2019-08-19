@@ -7,6 +7,7 @@ import defaultTheme from './theme/defaultTheme';
 import { ThemeInterface } from './theme/theme.defs';
 import Context from './Context';
 import { getElement, ElementResolverFunction } from './getElement';
+import makeUseStyles from './useStyles';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
@@ -31,18 +32,26 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     theme: merge(defaultTheme, this.props.theme, getThemeTs()),
   };
 
+  public useStyles = makeUseStyles(this.state.theme);
+
   private replaceTheme = (nextTheme: ThemeInterface): void => {
-    this.setState({
-      theme: merge(defaultTheme, nextTheme, getThemeTs()),
-    });
+    const mergedTheme = merge(defaultTheme, nextTheme, getThemeTs());
+    this.useStyles = makeUseStyles(mergedTheme);
+    this.setState({ theme: mergedTheme });
   };
 
   public render(): React.ReactNode {
     const { theme } = this.state;
+
     return (
       <ThemeProvider theme={theme}>
         <Context.Provider
-          value={{ getElement: this.props.getElement, replaceTheme: this.replaceTheme, theme }}
+          value={{
+            getElement: this.props.getElement,
+            replaceTheme: this.replaceTheme,
+            theme,
+            useStyles: this.useStyles,
+          }}
         >
           {this.props.children}
         </Context.Provider>

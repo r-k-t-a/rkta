@@ -1,10 +1,11 @@
 import React, { SFC, ReactElement } from 'react';
 
 import Atom from '../Atom';
-import useStyles from '../util/useStyles';
+import useProviderContext from '../Provider/useProviderContext';
 import { SpinnerProps } from './Spinner.defs';
 
 const Spinner: SFC<SpinnerProps> = (props: SpinnerProps): ReactElement => {
+  const { useStyles } = useProviderContext();
   const nextProps = useStyles(props, 'Spinner');
   return <Atom {...nextProps} />;
 };

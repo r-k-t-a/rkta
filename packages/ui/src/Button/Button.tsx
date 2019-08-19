@@ -3,7 +3,7 @@ import React, { SFC, ReactElement } from 'react';
 import Atom from '../Atom/Atom';
 import Spinner from '../Spinner';
 
-import useStyles from '../util/useStyles';
+import useProviderContext from '../Provider/useProviderContext';
 import { ButtonProps } from './Button.defs';
 import { spinnerCss } from './Button.styles';
 
@@ -17,6 +17,7 @@ const Button: SFC<ButtonProps> = ({
   spinnerProps,
   ...rest
 }: ButtonProps): ReactElement => {
+  const { useStyles } = useProviderContext();
   const nextProps = useStyles({ normal: true, button: true, ...rest }, ...composition);
   const [rippleProps, buttonProps] = useRipple(nextProps);
   return (

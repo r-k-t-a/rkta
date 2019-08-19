@@ -1,5 +1,4 @@
 import { flatten, join, memoize } from 'lodash';
-import useProviderContext from '../Provider/useProviderContext';
 
 import {
   CssEmotion,
@@ -7,11 +6,13 @@ import {
   RktaComponentStyles,
   RktaThemed,
   ThemeInterface,
-} from '../Provider/theme/theme.defs';
+} from './theme/theme.defs';
 
 interface NextProps {
   [key: string]: CssRkta | React.ReactNode;
 }
+
+export type useStylesFunctionType = (props: RktaThemed, ...names: string[]) => NextProps;
 
 function applyStyles(props: RktaThemed, theme: ThemeInterface, names: string[]): NextProps {
   const { css, ...rest } = props;
@@ -69,8 +70,5 @@ const createCacheKey = (props: RktaThemed, theme: ThemeInterface, names: string[
 
 const memoizedProps = memoize(applyStyles, createCacheKey);
 
-export default (props: RktaThemed, ...names: string[]): NextProps => {
-  const { theme } = useProviderContext();
-
-  return memoizedProps(props, theme, names);
-};
+export default (theme: ThemeInterface): useStylesFunctionType => (props, ...names): NextProps =>
+  memoizedProps(props, theme, names);

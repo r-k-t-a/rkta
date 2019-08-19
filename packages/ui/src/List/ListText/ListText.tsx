@@ -1,6 +1,6 @@
 import React, { SFC, ReactElement } from 'react';
 
-import useStyles from '../../util/useStyles';
+import useProviderContext from '../../Provider/useProviderContext';
 import Atom from '../../Atom';
 import Text from '../../Text';
 import { ListTextProps } from './ListText.defs';
@@ -11,6 +11,7 @@ const ListItem: SFC<ListTextProps> = ({
   description,
   ...props
 }: ListTextProps): ReactElement => {
+  const { useStyles } = useProviderContext();
   const nextProps = {
     ...useStyles({ ...props, paddingY: 8 }, 'ListText', 'Addon', 'Text'),
     children,
