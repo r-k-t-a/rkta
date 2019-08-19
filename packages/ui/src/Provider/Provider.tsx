@@ -22,6 +22,9 @@ interface ProviderState {
 
 const getThemeTs = (): object => ({ ts: Date.now() });
 
+const REPLACE_THEME = Symbol('');
+const USE_STYLES = Symbol('');
+
 export default class Provider extends React.Component<ProviderProps, ProviderState> {
   public static defaultProps = {
     getElement,
@@ -32,11 +35,10 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     theme: merge(defaultTheme, this.props.theme, getThemeTs()),
   };
 
-  public useStyles = makeUseStyles(this.state.theme);
+  private [USE_STYLES] = makeUseStyles((): ThemeInterface => this.state.theme);
 
-  private replaceTheme = (nextTheme: ThemeInterface): void => {
+  private [REPLACE_THEME] = (nextTheme: ThemeInterface): void => {
     const mergedTheme = merge(defaultTheme, nextTheme, getThemeTs());
-    this.useStyles = makeUseStyles(mergedTheme);
     this.setState({ theme: mergedTheme });
   };
 
@@ -48,9 +50,9 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
         <Context.Provider
           value={{
             getElement: this.props.getElement,
-            replaceTheme: this.replaceTheme,
+            replaceTheme: this[REPLACE_THEME],
             theme,
-            useStyles: this.useStyles,
+            useStyles: this[USE_STYLES],
           }}
         >
           {this.props.children}
