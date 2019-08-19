@@ -38,8 +38,7 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
   private [USE_STYLES] = makeUseStyles((): ThemeInterface => this.state.theme);
 
   private [REPLACE_THEME] = (nextTheme: ThemeInterface): void => {
-    const mergedTheme = merge(defaultTheme, nextTheme, getThemeTs());
-    this.setState({ theme: mergedTheme });
+    this.setState({ theme: merge(defaultTheme, nextTheme, getThemeTs()) });
   };
 
   public render(): React.ReactNode {
