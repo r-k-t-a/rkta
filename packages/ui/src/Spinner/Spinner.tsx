@@ -1,12 +1,14 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import Atom from '../Atom';
-import useStyles from '../util/useStyles';
+import useProviderContext from '../Provider/useProviderContext';
 import { SpinnerProps } from './Spinner.defs';
 
 const Spinner: SFC<SpinnerProps> = (props: SpinnerProps): ReactElement => {
-  const nextProps = useStyles('Spinner', props);
-  return <Atom {...nextProps} />;
+  const { useStyles } = useProviderContext();
+  const [nextProps, Element] = useStyles(props, 'Spinner');
+  return <Element {...nextProps} />;
 };
 
 Spinner.defaultProps = {

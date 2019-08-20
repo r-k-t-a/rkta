@@ -1,13 +1,15 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import Text from '../Text';
-import useStyles from '../util/useStyles';
+import useProviderContext from '../Provider/useProviderContext';
 
 import { PaperProps } from './Paper.defs';
 
-const Paper: SFC<PaperProps> = (props: PaperProps): ReactElement => {
-  const nextProps = useStyles('Paper', props);
-  return <Text element="div" {...nextProps} />;
+const Paper: SFC<PaperProps> = ({ children, ...rest }: PaperProps): ReactElement => {
+  const { useStyles } = useProviderContext();
+  const [nextProps, Element] = useStyles(rest, 'Paper', 'Text');
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 export default Paper;

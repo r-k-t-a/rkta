@@ -1,6 +1,6 @@
-import { AtomProps } from '../Atom/Atom.defs';
+import { RktaElement } from '../Provider/theme/theme.defs';
 
-export interface SvgProps extends AtomProps {
+export interface SvgProps extends RktaElement {
   block?: boolean;
   /** One of theme colors or CSS Value: Color. */
   color?: string;

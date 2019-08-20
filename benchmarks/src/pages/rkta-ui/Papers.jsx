@@ -8,8 +8,10 @@ export default () => (
   <Fragment>
     <Header level={1}>RKTA-UI papers</Header>
     <Profiler id="rktaui-papers">
-      {range(0, 5000).map(index => (
-        <Paper key={index} warning>Paper {index}</Paper>
+      {range(0, 10000).map(index => (
+        <Paper key={index} warning>
+          Paper {index}
+        </Paper>
       ))}
     </Profiler>
   </Fragment>

@@ -1,27 +1,29 @@
-import React, { Profiler, useState } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const onRender = (event, phase, actualTime) => {
-  if (phase === 'mount') console.log(event, phase, actualTime);
-};
+class CustomProfiler extends Component {
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+  };
+  state = {
+    actualTime: 0,
+  };
+  componentWillMount() {
+    this.beginTs = performance.now();
+  }
+  componentDidMount() {
+    this.setState({ actualTime: performance.now() - this.beginTs });
+  }
+  render() {
+    const { actualTime } = this.state;
+    return (
+      <Fragment>
+        {!!actualTime && <div>Rendered in {actualTime}ms</div>}
+        {this.props.children}
+      </Fragment>
+    );
+  }
+}
 
-const WrappedProfiler = ({ id, children }) => {
-  const [actualTime, setActualTime] = useState(null);
-  return (
-    <Profiler
-      id={id}
-      onRender={(event, phase, actualTime) => {
-        if (phase === 'mount') setActualTime(actualTime);
-      }}
-    >
-      {actualTime && <div>Rendered in {actualTime}ms</div>}
-      {children}
-    </Profiler>
-  );
-};
-WrappedProfiler.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-export default WrappedProfiler;
+export default CustomProfiler;

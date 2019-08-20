@@ -1,9 +1,6 @@
-import { ReactType } from 'react';
 import { TextProps } from '../Text/Text.defs';
 
 export interface AddonProps extends TextProps {
-  BaseElement?: ReactType;
-
   big?: boolean;
   /** Reset Paddings */
   fitAll?: boolean;

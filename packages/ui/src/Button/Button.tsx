@@ -1,11 +1,10 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import Atom from '../Atom/Atom';
-import Addon from '../Addon/Addon';
-import Paper from '../Paper';
 import Spinner from '../Spinner';
 
-import useStyles from '../util/useStyles';
+import useProviderContext from '../Provider/useProviderContext';
 import { ButtonProps } from './Button.defs';
 import { spinnerCss } from './Button.styles';
 
@@ -15,21 +14,27 @@ import useRipple from './Ripple/useRipple';
 const Button: SFC<ButtonProps> = ({
   noRipple,
   children,
+  composition = ['Button', 'Paper', 'Addon', 'Text'],
   spinnerProps,
   ...rest
 }: ButtonProps): ReactElement => {
-  const nextProps = useStyles('Button', rest);
+  const { useStyles, getElement } = useProviderContext();
+  const [nextProps, Element] = useStyles(
+    { element: 'button', normal: true, button: true, ...rest },
+    ...composition,
+  );
   const [rippleProps, buttonProps] = useRipple(nextProps);
+  const SpinnerWrapper = getElement('span', {});
   return (
-    <Addon BaseElement={Paper} element="button" button normal {...nextProps} {...buttonProps}>
+    <Element {...nextProps} {...buttonProps}>
       {children}
       {!noRipple && <Ripple {...rippleProps} />}
       {rest.busy && (
-        <Atom element="span" css={spinnerCss}>
+        <SpinnerWrapper css={spinnerCss}>
           <Spinner color={rest.color} {...spinnerProps} />
-        </Atom>
+        </SpinnerWrapper>
       )}
-    </Addon>
+    </Element>
   );
 };
 

@@ -1,12 +1,15 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
 import { ListProps } from './List.defs';
-import Paper from '../Paper';
-import useStyles from '../util/useStyles';
+import useProviderContext from '../Provider/useProviderContext';
 
-const List: SFC<ListProps> = (props): ReactElement => {
-  const nextProps = useStyles('List', props);
-  return <Paper {...nextProps} />;
+// eslint-disable-next-line react/prop-types
+const List: SFC<ListProps> = ({ children, ...rest }): ReactElement => {
+  const { useStyles } = useProviderContext();
+  const [nextProps, Element] = useStyles(rest, 'List', 'Paper', 'Text');
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 export default List;

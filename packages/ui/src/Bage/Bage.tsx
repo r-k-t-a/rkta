@@ -1,12 +1,21 @@
-import React, { ReactElement, SFC } from 'react';
+/** @jsx jsx */
+import { ReactElement, SFC } from 'react';
+import { jsx } from '@emotion/core';
 
-import Paper from '../Paper';
-import useStyles from '../util/useStyles';
+import useProviderContext from '../Provider/useProviderContext';
 import { BageProps } from './Bage.defs';
 
-const Bage: SFC<BageProps> = (props: BageProps): ReactElement => {
-  const nextProps = useStyles('Bage', props);
-  return <Paper rounded overline nowrap {...nextProps} />;
+const Bage: SFC<BageProps> = ({ children, ...rest }: BageProps): ReactElement => {
+  const { useStyles } = useProviderContext();
+
+  const [nextProps, Element] = useStyles(
+    { rounded: true, overline: true, nowrap: true, ...rest },
+    'Bage',
+    'Paper',
+    'Text',
+  );
+
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 export default Bage;

@@ -1,25 +1,34 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import useStyles from '../../util/useStyles';
-import Addon from '../../Addon';
+import useProviderContext from '../../Provider/useProviderContext';
 import Text from '../../Text';
 import { ListTextProps } from './ListText.defs';
 
 const ListItem: SFC<ListTextProps> = ({
   label,
+  children,
   description,
   ...props
 }: ListTextProps): ReactElement => {
-  const nextProps = useStyles('ListText', props);
+  const { useStyles } = useProviderContext();
+  const [nextStylesProps, Element] = useStyles(
+    { paddingY: 8, ...props },
+    'ListText',
+    'Addon',
+    'Text',
+  );
+  const nextProps = { ...nextStylesProps, children };
   return (
-    <Addon {...nextProps} paddingY={8}>
+    <Element {...nextProps}>
       {label}
       {description && (
         <Text caption muted>
           {description}
         </Text>
       )}
-    </Addon>
+    </Element>
   );
 };
 

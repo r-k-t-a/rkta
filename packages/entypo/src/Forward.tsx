@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 
 import Svg from '@rkta/ui/Svg';
+import { SvgProps } from '@rkta/ui/Svg/Svg.defs';
 import { defaultIconSize } from './constants';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Forward = (props: any): ReactNode => (
+const Forward = (props: SvgProps): ReactNode => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
     <path d="M12,11.874v4.357l7-6.69l-7-6.572v3.983c-8.775,0-11,9.732-11,9.732C3.484,12.296,7.237,11.874,12,11.874z" />
   </Svg>

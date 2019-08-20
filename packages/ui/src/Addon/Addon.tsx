@@ -1,21 +1,14 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import Text from '../Text';
-import useStyles from '../util/useStyles';
-
+import useProviderContext from '../Provider/useProviderContext';
 import { AddonProps } from './Addon.defs';
 
-const Addon: SFC<AddonProps> = ({
-  BaseElement = Text,
-  children,
-  ...rest
-}: AddonProps): ReactElement => {
-  const nextProps = useStyles('Addon', rest);
-  return (
-    <BaseElement element="span" {...nextProps}>
-      {children}
-    </BaseElement>
-  );
+const Addon: SFC<AddonProps> = ({ children, ...rest }: AddonProps): ReactElement => {
+  const { useStyles } = useProviderContext();
+  const [nextProps, Element] = useStyles({ element: 'span', ...rest }, 'Addon', 'Text');
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 export default Addon;

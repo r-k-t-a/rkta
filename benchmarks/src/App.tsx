@@ -6,8 +6,9 @@ import Rkta from './pages/rkta';
 import RktaUi from './pages/rkta-ui';
 import Material from './pages/material';
 import Emotion from './pages/emotion';
+import Vanila from './pages/vanila';
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Route path="/" exact component={Home} />
@@ -15,8 +16,9 @@ function App() {
       <Route path="/rkta-ui" component={RktaUi} />
       <Route path="/material" component={Material} />
       <Route path="/emotion" component={Emotion} />
+      <Route path="/vanila" component={Vanila} />
     </Router>
   );
-}
+};
 
 export default App;

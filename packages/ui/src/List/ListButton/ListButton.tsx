@@ -1,15 +1,21 @@
 import React, { SFC, ReactElement } from 'react';
 
 import Button from '../../Button';
-import ListItem from '../ListItem';
 import { ListButtonProps } from './ListButton.defs';
 
-const ListTitle: SFC<ListButtonProps> = ({ children, ...rest }: ListButtonProps): ReactElement => {
+const ListButton: SFC<ListButtonProps> = ({ children, ...rest }: ListButtonProps): ReactElement => {
   return (
-    <ListItem BaseElement={Button} element="button" hard blockLevel body transparent {...rest}>
+    <Button
+      blockLevel
+      transparent
+      hard
+      body
+      {...rest}
+      composition={['ListItem', 'Button', 'Addon', 'Paper', 'Text']}
+    >
       {children}
-    </ListItem>
+    </Button>
   );
 };
 
-export default ListTitle;
+export default ListButton;

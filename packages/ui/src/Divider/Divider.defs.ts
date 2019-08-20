@@ -1,6 +1,6 @@
-import { AtomProps } from '../Atom/Atom.defs';
+import { RktaElement } from '../Provider/theme/theme.defs';
 
-export interface DividerProps extends AtomProps {
+export interface DividerProps extends RktaElement {
   /** Adds dotted style */
   dotted?: boolean;
   /** Resets margins */

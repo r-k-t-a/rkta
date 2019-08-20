@@ -8,8 +8,10 @@ export default () => (
   <Fragment>
     <Header level={1}>RKTA-UI fonts</Header>
     <Profiler id="rktaui-fonts">
-      {range(0, 5000).map(index => (
-        <Font key={index} color="primary">Font {index}</Font>
+      {range(0, 10000).map(index => (
+        <Font key={index} color="primary">
+          Font {index}
+        </Font>
       ))}
     </Profiler>
   </Fragment>

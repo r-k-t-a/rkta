@@ -7,16 +7,18 @@ import Profiler from '../../blocks/Profiler';
 
 const styles = {
   bgrd: {
-    backgroundColor: '#F36F1B'
-  }
-}
+    backgroundColor: '#F36F1B',
+  },
+};
 
 const Papers = ({ classes }) => (
   <Fragment>
     <h1>Material papers</h1>
     <Profiler id="rkta-papers">
-      {range(0, 5000).map(index => (
-        <Paper className={classes.bgrd} key={index}>Paper {index}</Paper>
+      {range(0, 10000).map(index => (
+        <Paper className={classes.bgrd} key={index}>
+          Paper {index}
+        </Paper>
       ))}
     </Profiler>
   </Fragment>

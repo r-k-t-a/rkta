@@ -1,22 +1,21 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import useStyles from '../../util/useStyles';
-import Addon from '../../Addon';
-import Paper from '../../Paper';
+import useProviderContext from '../../Provider/useProviderContext';
+
 import { ListItemProps } from './ListItem.defs';
 
-const ListItem: SFC<ListItemProps> = ({
-  BaseElement,
-  children,
-  ...props
-}: ListItemProps): ReactElement => {
-  const nextProps = useStyles('ListItem', props);
-  if (BaseElement) return <BaseElement {...nextProps}>{children}</BaseElement>;
-  return (
-    <Addon BaseElement={Paper} element="div" hard normal body transparent {...nextProps}>
-      {children}
-    </Addon>
+const ListItem: SFC<ListItemProps> = ({ children, ...props }: ListItemProps): ReactElement => {
+  const { useStyles } = useProviderContext();
+  const [nextProps, Element] = useStyles(
+    { normal: true, hard: true, body: true, transparent: true, ...props },
+    'ListItem',
+    'Paper',
+    'Addon',
+    'Text',
   );
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 export default ListItem;
