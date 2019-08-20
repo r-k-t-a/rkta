@@ -4,7 +4,6 @@ name: Button
 ---
 
 import { Playground, Props } from 'docz';
-import Atom from '../Atom';
 import Addon from '../Addon';
 import Button from './Button';
 import Wallet from '../../../entypo/src/Wallet';
@@ -19,7 +18,7 @@ Button component
 ### Sizing
 
 <Playground>
-  <Atom css={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
+  <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
     <Button bgColor="color1" tiny>
       Tiny
     </Button>
@@ -33,7 +32,7 @@ Button component
     <Button bgColor="color15" huge paddingX={32}>
       Huge
     </Button>
-  </Atom>
+  </div>
 </Playground>
 
 ### Block Level
@@ -47,7 +46,7 @@ Button component
 ### Fitting
 
 <Playground>
-  <Atom css={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
+  <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
     <Button bgColor="color1" fitRight>
       fitRight
     </Button>
@@ -57,13 +56,13 @@ Button component
     <Button bgColor="color2" fitLeft>
       fitLeft
     </Button>
-  </Atom>
+  </div>
 </Playground>
 
 ### Round buttons
 
 <Playground>
-  <Atom css={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
+  <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
     <Button bgColor="color1" round>
       round
     </Button>
@@ -74,14 +73,14 @@ Button component
       <Wallet />
       <span>0</span>
     </Button>
-  </Atom>
+  </div>
 </Playground>
 
 ### Square buttons
 
 <Playground>
-  <Atom
-    css={{
+  <div
+    style={{
       alignItems: 'center',
       backgroundColor: '#444',
       display: 'flex',
@@ -97,7 +96,7 @@ Button component
       <Wallet />
       <span>1m</span>
     </Button>
-  </Atom>
+  </div>
 </Playground>
 
 ### Joints
