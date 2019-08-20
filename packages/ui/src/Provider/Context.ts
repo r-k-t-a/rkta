@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { ThemeInterface } from './theme/theme.defs';
 import defaultTheme from './theme/defaultTheme';
 import { getElement, ElementResolverFunction } from './getElement';
-import makeUseStyles, { useStylesFunctionType } from './useStyles';
+import { NextProps, useStylesFunctionType } from './useStyles';
 
 export interface ContextInterface {
   getElement: ElementResolverFunction;
@@ -14,5 +14,5 @@ export interface ContextInterface {
 export default createContext<ContextInterface>({
   getElement,
   theme: defaultTheme,
-  useStyles: makeUseStyles((): ThemeInterface => defaultTheme),
+  useStyles: (props): NextProps => props,
 });

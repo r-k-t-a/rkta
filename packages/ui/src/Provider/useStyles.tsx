@@ -59,13 +59,13 @@ function applyStyles(theme: ThemeInterface, props: RktaThemed, names: string[]):
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const createArray = (props: RktaThemed, theme: ThemeInterface, names: string[]): any[] => [
+const createArray = (theme: ThemeInterface, props: RktaThemed, names: string[]): any[] => [
   ...Object.entries(props),
   names,
   theme.ts,
 ];
 
-const createCacheKey = (props: RktaThemed, theme: ThemeInterface, names: string[]): string =>
-  join(flatten(createArray(props, theme, names)));
+const createCacheKey = (theme: ThemeInterface, props: RktaThemed, names: string[]): string =>
+  join(flatten(createArray(theme, props, names)));
 
 export default memoize(applyStyles, createCacheKey);
