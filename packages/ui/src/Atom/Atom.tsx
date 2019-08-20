@@ -3,20 +3,18 @@ import { ReactElement, SFC, useContext } from 'react';
 import { jsx } from '@emotion/core';
 
 import Context from '../Provider/Context';
+import { RktaElement } from '../Provider/theme/theme.defs';
 
-import { AtomProps } from './Atom.defs';
-
-const Atom: SFC<AtomProps> = ({
-  atomRef,
+const Atom: SFC<RktaElement> = ({
   children,
   css,
   element = 'div',
   ...rest
-}: AtomProps): ReactElement => {
+}: RktaElement): ReactElement => {
   const { getElement } = useContext(Context);
   const Element = getElement(element, rest);
   return (
-    <Element {...rest} css={css} ref={atomRef}>
+    <Element {...rest} css={css}>
       {children}
     </Element>
   );

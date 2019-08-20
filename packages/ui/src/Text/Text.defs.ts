@@ -1,6 +1,6 @@
-import { AtomProps } from '../Atom/Atom.defs';
+import { RktaElement } from '../Provider/theme/theme.defs';
 
-export interface TextProps extends AtomProps {
+export interface TextProps extends RktaElement {
   /** One of theme colors or CSS Value: Color. */
   color?:
     | 'primary'
