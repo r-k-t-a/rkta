@@ -1,7 +1,8 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
 import useProviderContext from '../../Provider/useProviderContext';
-import Atom from '../../Atom';
 import Text from '../../Text';
 import { ListTextProps } from './ListText.defs';
 
@@ -12,19 +13,22 @@ const ListItem: SFC<ListTextProps> = ({
   ...props
 }: ListTextProps): ReactElement => {
   const { useStyles } = useProviderContext();
-  const nextProps = {
-    ...useStyles({ ...props, paddingY: 8 }, 'ListText', 'Addon', 'Text'),
-    children,
-  };
+  const [nextStylesProps, Element] = useStyles(
+    { paddingY: 8, ...props },
+    'ListText',
+    'Addon',
+    'Text',
+  );
+  const nextProps = { ...nextStylesProps, children };
   return (
-    <Atom {...nextProps}>
+    <Element {...nextProps}>
       {label}
       {description && (
         <Text caption muted>
           {description}
         </Text>
       )}
-    </Atom>
+    </Element>
   );
 };
 

@@ -1,3 +1,4 @@
+import { ElementType } from 'react';
 import { flatten, join, memoize } from 'lodash';
 
 import {
@@ -8,13 +9,32 @@ import {
   ThemeInterface,
 } from './theme/theme.defs';
 
+import { ElementResolverFunction, ElementResolverProps } from './getElement';
+
 export interface NextProps {
   [key: string]: CssRkta | React.ReactNode;
 }
 
-export type useStylesFunctionType = (props: RktaThemed, ...names: string[]) => NextProps;
+export type NextPropsAndElementType = [NextProps, React.ElementType];
 
-function applyStyles(theme: ThemeInterface, props: RktaThemed, names: string[]): NextProps {
+export type useStylesFunctionType = (
+  props: RktaThemed,
+  ...names: string[]
+) => NextPropsAndElementType;
+
+interface ApplyStylesArgType {
+  composition: string[];
+  getElement: ElementResolverFunction;
+  props: RktaThemed & ElementResolverProps & { element?: ElementType };
+  theme: ThemeInterface;
+}
+
+function applyStyles({
+  getElement,
+  theme,
+  props,
+  composition,
+}: ApplyStylesArgType): NextPropsAndElementType {
   const { css, ...rest } = props;
   const thunk = (payload: CssRkta): CssEmotion => {
     if (typeof payload === 'function') return thunk(payload(theme, { ...rest, css }));
@@ -27,8 +47,8 @@ function applyStyles(theme: ThemeInterface, props: RktaThemed, names: string[]):
   let keys = Object.keys(rest);
   let nextKeys = [];
 
-  for (let index = 0; index < names.length; index += 1) {
-    const name = names[index];
+  for (let index = 0; index < composition.length; index += 1) {
+    const name = composition[index];
     const styles: RktaComponentStyles = theme[name] || {};
     const currentCssEmotion: CssRkta[] = [thunk(styles.initialStyle)];
 
@@ -55,17 +75,18 @@ function applyStyles(theme: ThemeInterface, props: RktaThemed, names: string[]):
   }
 
   nextProps.css = flattenCssEmotion;
-  return nextProps;
+  const Element = getElement(props.element || 'div', props);
+  return [nextProps, Element];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const createArray = (theme: ThemeInterface, props: RktaThemed, names: string[]): any[] => [
+const createArray = ({ theme, props, composition }: ApplyStylesArgType): any[] => [
   ...Object.entries(props),
-  names,
+  composition,
   theme.ts,
 ];
 
-const createCacheKey = (theme: ThemeInterface, props: RktaThemed, names: string[]): string =>
-  join(flatten(createArray(theme, props, names)));
+const createCacheKey = ({ getElement, theme, props, composition }: ApplyStylesArgType): string =>
+  join(flatten(createArray({ getElement, theme, props, composition })));
 
 export default memoize(applyStyles, createCacheKey);

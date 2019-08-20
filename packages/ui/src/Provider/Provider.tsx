@@ -7,7 +7,7 @@ import defaultTheme from './theme/defaultTheme';
 import { ThemeInterface } from './theme/theme.defs';
 import Context from './Context';
 import { getElement, ElementResolverFunction } from './getElement';
-import useStyles, { NextProps, useStylesFunctionType } from './useStyles';
+import useStyles, { NextPropsAndElementType, useStylesFunctionType } from './useStyles';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
@@ -35,8 +35,8 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     theme: merge(defaultTheme, this.props.theme, getThemeTs()),
   };
 
-  private [USE_STYLES]: useStylesFunctionType = (props, ...names): NextProps =>
-    useStyles(this.state.theme, props, names);
+  private [USE_STYLES]: useStylesFunctionType = (props, ...composition): NextPropsAndElementType =>
+    useStyles({ composition, getElement: this.props.getElement, theme: this.state.theme, props });
 
   private [REPLACE_THEME] = (nextTheme: ThemeInterface): void => {
     this.setState({ theme: merge(defaultTheme, nextTheme, getThemeTs()) });

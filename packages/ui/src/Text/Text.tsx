@@ -1,17 +1,14 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import Atom from '../Atom';
 import useProviderContext from '../Provider/useProviderContext';
 import { TextProps } from './Text.defs';
 
 const Text: SFC<TextProps> = ({ children, element, ...rest }: TextProps): ReactElement => {
   const { useStyles } = useProviderContext();
-  const nextProps = useStyles(rest, 'Text');
-  return (
-    <Atom {...nextProps} element={element}>
-      {children}
-    </Atom>
-  );
+  const [nextProps, Element] = useStyles({ element, ...rest }, 'Text');
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 Text.defaultProps = {

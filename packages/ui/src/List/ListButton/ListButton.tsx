@@ -6,7 +6,6 @@ import { ListButtonProps } from './ListButton.defs';
 const ListButton: SFC<ListButtonProps> = ({ children, ...rest }: ListButtonProps): ReactElement => {
   return (
     <Button
-      element="button"
       blockLevel
       transparent
       hard

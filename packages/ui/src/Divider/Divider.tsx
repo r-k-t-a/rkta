@@ -1,17 +1,14 @@
-import React, { ReactElement, SFC } from 'react';
+/** @jsx jsx */
+import { ReactElement, SFC } from 'react';
+import { jsx } from '@emotion/core';
 
-import Atom from '../Atom';
 import { DividerProps } from './Divider.defs';
 import useProviderContext from '../Provider/useProviderContext';
 
 const Divider: SFC<DividerProps> = ({ children, ...rest }: DividerProps): ReactElement => {
   const { useStyles } = useProviderContext();
-  const nextProps = useStyles(rest, 'Divider');
-  return (
-    <Atom element="hr" {...nextProps}>
-      {children}
-    </Atom>
-  );
+  const [nextProps, Element] = useStyles({ element: 'hr', ...rest }, 'Divider');
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 export default Divider;

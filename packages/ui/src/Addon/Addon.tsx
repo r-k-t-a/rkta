@@ -1,18 +1,14 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import Atom from '../Atom';
 import useProviderContext from '../Provider/useProviderContext';
-
 import { AddonProps } from './Addon.defs';
 
 const Addon: SFC<AddonProps> = ({ children, ...rest }: AddonProps): ReactElement => {
   const { useStyles } = useProviderContext();
-  const nextProps = useStyles(rest, 'Addon', 'Text');
-  return (
-    <Atom element="span" {...nextProps}>
-      {children}
-    </Atom>
-  );
+  const [nextProps, Element] = useStyles({ element: 'span', ...rest }, 'Addon', 'Text');
+  return <Element {...nextProps}>{children}</Element>;
 };
 
 export default Addon;

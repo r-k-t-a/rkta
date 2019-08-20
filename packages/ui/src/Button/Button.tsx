@@ -1,6 +1,7 @@
-import React, { SFC, ReactElement } from 'react';
+/** @jsx jsx */
+import { SFC, ReactElement } from 'react';
+import { jsx } from '@emotion/core';
 
-import Atom from '../Atom/Atom';
 import Spinner from '../Spinner';
 
 import useProviderContext from '../Provider/useProviderContext';
@@ -17,19 +18,23 @@ const Button: SFC<ButtonProps> = ({
   spinnerProps,
   ...rest
 }: ButtonProps): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const nextProps = useStyles({ normal: true, button: true, ...rest }, ...composition);
+  const { useStyles, getElement } = useProviderContext();
+  const [nextProps, Element] = useStyles(
+    { element: 'button', normal: true, button: true, ...rest },
+    ...composition,
+  );
   const [rippleProps, buttonProps] = useRipple(nextProps);
+  const SpinnerWrapper = getElement('span', {});
   return (
-    <Atom element="button" {...nextProps} {...buttonProps}>
+    <Element {...nextProps} {...buttonProps}>
       {children}
       {!noRipple && <Ripple {...rippleProps} />}
       {rest.busy && (
-        <Atom element="span" css={spinnerCss}>
+        <SpinnerWrapper css={spinnerCss}>
           <Spinner color={rest.color} {...spinnerProps} />
-        </Atom>
+        </SpinnerWrapper>
       )}
-    </Atom>
+    </Element>
   );
 };
 
