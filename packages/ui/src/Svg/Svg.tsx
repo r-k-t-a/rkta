@@ -7,8 +7,8 @@ import { SvgProps } from './Svg.defs';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Svg: SFC<SvgProps> = ({ children, ...rest }: SvgProps): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const [nextProps, Element] = useStyles({ element: 'svg', ...rest }, 'Svg');
+  const { applyStyles } = useProviderContext();
+  const [nextProps, Element] = applyStyles({ element: 'svg', ...rest }, 'Svg');
   return <Element {...nextProps}>{children}</Element>;
 };
 

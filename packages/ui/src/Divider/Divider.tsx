@@ -6,8 +6,8 @@ import { DividerProps } from './Divider.defs';
 import useProviderContext from '../Provider/useProviderContext';
 
 const Divider: SFC<DividerProps> = ({ children, ...rest }: DividerProps): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const [nextProps, Element] = useStyles({ element: 'hr', ...rest }, 'Divider');
+  const { applyStyles } = useProviderContext();
+  const [nextProps, Element] = applyStyles({ element: 'hr', ...rest }, 'Divider');
   return <Element {...nextProps}>{children}</Element>;
 };
 

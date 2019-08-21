@@ -18,8 +18,8 @@ const Button: SFC<ButtonProps> = ({
   spinnerProps,
   ...rest
 }: ButtonProps): ReactElement => {
-  const { useStyles, getElement } = useProviderContext();
-  const [nextProps, Element] = useStyles(
+  const { applyStyles, getElement } = useProviderContext();
+  const [nextProps, Element] = applyStyles(
     { element: 'button', normal: true, button: true, ...rest },
     ...composition,
   );

@@ -7,8 +7,8 @@ import useProviderContext from '../../Provider/useProviderContext';
 import { ListItemProps } from './ListItem.defs';
 
 const ListItem: SFC<ListItemProps> = ({ children, ...props }: ListItemProps): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const [nextProps, Element] = useStyles(
+  const { applyStyles } = useProviderContext();
+  const [nextProps, Element] = applyStyles(
     { normal: true, hard: true, body: true, transparent: true, ...props },
     'ListItem',
     'Paper',

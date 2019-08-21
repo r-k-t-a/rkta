@@ -12,8 +12,8 @@ const ListItem: SFC<ListTextProps> = ({
   description,
   ...props
 }: ListTextProps): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const [nextStylesProps, Element] = useStyles(
+  const { applyStyles } = useProviderContext();
+  const [nextStylesProps, Element] = applyStyles(
     { paddingY: 8, ...props },
     'ListText',
     'Addon',
