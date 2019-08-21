@@ -6,9 +6,9 @@ import useProviderContext from '../Provider/useProviderContext';
 import { BageProps } from './Bage.defs';
 
 const Bage: SFC<BageProps> = ({ children, ...rest }: BageProps): ReactElement => {
-  const { useStyles } = useProviderContext();
+  const { applyStyles } = useProviderContext();
 
-  const [nextProps, Element] = useStyles(
+  const [nextProps, Element] = applyStyles(
     { rounded: true, overline: true, nowrap: true, ...rest },
     'Bage',
     'Paper',

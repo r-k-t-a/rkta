@@ -6,8 +6,8 @@ import useProviderContext from '../Provider/useProviderContext';
 import { SpinnerProps } from './Spinner.defs';
 
 const Spinner: SFC<SpinnerProps> = (props: SpinnerProps): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const [nextProps, Element] = useStyles(props, 'Spinner');
+  const { applyStyles } = useProviderContext();
+  const [nextProps, Element] = applyStyles(props, 'Spinner');
   return <Element {...nextProps} />;
 };
 

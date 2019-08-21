@@ -8,11 +8,11 @@ export interface ContextInterface {
   getElement: ElementResolverFunction;
   replaceTheme?: (nextTheme: ThemeInterface) => void;
   theme: ThemeInterface;
-  useStyles: useStylesFunctionType;
+  applyStyles: useStylesFunctionType;
 }
 
 export default createContext<ContextInterface>({
   getElement,
   theme: defaultTheme,
-  useStyles: (props): NextPropsAndElementType => [props, 'div'],
+  applyStyles: (props): NextPropsAndElementType => [props, 'div'],
 });

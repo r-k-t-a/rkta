@@ -6,8 +6,8 @@ import useProviderContext from '../Provider/useProviderContext';
 import { TextProps } from './Text.defs';
 
 const Text: SFC<TextProps> = ({ children, element, ...rest }: TextProps): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const [nextProps, Element] = useStyles({ element, ...rest }, 'Text');
+  const { applyStyles } = useProviderContext();
+  const [nextProps, Element] = applyStyles({ element, ...rest }, 'Text');
   return <Element {...nextProps}>{children}</Element>;
 };
 

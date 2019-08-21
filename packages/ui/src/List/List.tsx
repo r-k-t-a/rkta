@@ -7,8 +7,8 @@ import useProviderContext from '../Provider/useProviderContext';
 
 // eslint-disable-next-line react/prop-types
 const List: SFC<ListProps> = ({ children, ...rest }): ReactElement => {
-  const { useStyles } = useProviderContext();
-  const [nextProps, Element] = useStyles(rest, 'List', 'Paper', 'Text');
+  const { applyStyles } = useProviderContext();
+  const [nextProps, Element] = applyStyles(rest, 'List', 'Paper', 'Text');
   return <Element {...nextProps}>{children}</Element>;
 };
 

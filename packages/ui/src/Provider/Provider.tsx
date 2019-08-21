@@ -52,7 +52,7 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
             getElement: this.props.getElement,
             replaceTheme: this[REPLACE_THEME],
             theme,
-            useStyles: this[USE_STYLES],
+            applyStyles: this[USE_STYLES],
           }}
         >
           {this.props.children}
