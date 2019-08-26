@@ -1,3 +1,1 @@
-import Bage from './Bage';
-
-export default Bage;
+export { default } from './Bage';
