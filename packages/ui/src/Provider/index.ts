@@ -1,5 +1,2 @@
-import Provider from './Provider';
-import hook from './useProviderContext';
-
-export const useProviderContext = hook;
-export default Provider;
+export { default as Provider } from './Provider';
+export { default as useProviderContext } from './useProviderContext';
