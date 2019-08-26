@@ -1,6 +1,6 @@
 {
   "name": "@rkta/ui",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "WIP Lightweight UI library for react",
   "author": "Sergei Droganov <serge@droganov.ru>",
   "homepage": "https://github.com/r-k-t-a/rkta",
@@ -38,8 +38,8 @@
     "@types/lodash": "latest",
     "@types/react": "latest",
     "emotion-theming": "latest",
-    "prop-types": "^15.7.2",
-    "lodash": "latest"
+    "lodash": "latest",
+    "prop-types": "^15.7.2"
   },
   "gitHead": "28b39e9d4f56c5a36c6766fc9302d72dc30c3f3a"
 }
