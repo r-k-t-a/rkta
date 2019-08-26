@@ -24,7 +24,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
-    "@types/react": "latest",
+    "@types/react": "^16.9.2",
     "babel-plugin-emotion": "^10.0.15",
     "docz": "^1.2.0",
     "docz-theme-default": "^1.2.0",
