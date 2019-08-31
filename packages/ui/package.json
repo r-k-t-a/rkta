@@ -27,8 +27,8 @@
   },
   "licence": "MIT",
   "peerDependencies": {
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "publishConfig": {
     "access": "public"

@@ -30,7 +30,7 @@
   },
   "licence": "MIT",
   "peerDependencies": {
-    "react": "latest"
+    "react": "^16.9.0"
   },
   "publishConfig": {
     "access": "public"
