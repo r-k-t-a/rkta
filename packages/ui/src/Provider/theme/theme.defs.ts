@@ -22,6 +22,7 @@ export interface RktaElement extends RktaThemed {
 export interface RktaComponentStyles {
   initialStyle?: CssRkta;
   [key: string]: CssRkta;
+  [key: number]: string;
 }
 
 export interface ThemeInterface {

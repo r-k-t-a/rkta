@@ -1,3 +1,4 @@
+import invariant from '../util/invariant';
 import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
 
 export const initialStyle = (theme: ThemeInterface): CssRkta => ({
@@ -53,15 +54,9 @@ export const relative: CssRkta = {
 };
 
 export const rize = (theme: ThemeInterface, props: { rize: number }): CssRkta => {
-  const { rize: rizeValue } = props;
-  const blur: number = Math.max(rizeValue ** 3, 5);
-  return {
-    boxShadow: `
-      0px ${rizeValue}px ${blur}px 0px rgba(0, 0, 0, 0.2),
-      0px ${rizeValue * 2}px ${blur / 2}px 0px rgba(0, 0, 0, 0.14),
-      0px ${rizeValue * 3}px ${blur / rizeValue}1px ${-rizeValue / 2}px rgba(0, 0, 0, 0.12)
-    `,
-  };
+  const { rize: rizeBy } = props;
+  invariant(rizeBy in theme.shadow, `Key "${rizeBy}" does not exist in "theme.shadow".`);
+  return { boxShadow: theme.shadow[rizeBy] };
 };
 
 export const round: CssRkta = {

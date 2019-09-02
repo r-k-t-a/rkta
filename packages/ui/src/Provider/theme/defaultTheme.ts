@@ -1,4 +1,6 @@
 import color from './color';
+import shadow from './shadow';
+
 import * as Addon from '../../Addon/Addon.styles';
 import * as Bage from '../../Bage/Bage.styles';
 import * as Button from '../../Button/Button.styles';
@@ -15,6 +17,8 @@ import { ThemeInterface } from './theme.defs';
 
 const defaultTheme: ThemeInterface = {
   color,
+  shadow,
+
   Addon,
   Bage,
   Button,
