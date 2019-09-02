@@ -1,5 +1,7 @@
+import breakpoints from './breakpoints';
 import color from './color';
 import shadow from './shadow';
+import createMediaQueries from './createMediaQueries';
 
 import * as Addon from '../../Addon/Addon.styles';
 import * as Bage from '../../Bage/Bage.styles';
@@ -18,7 +20,7 @@ import { ThemeInterface } from './theme.defs';
 const defaultTheme: ThemeInterface = {
   color,
   shadow,
-
+  media: createMediaQueries(breakpoints),
   Addon,
   Bage,
   Button,
