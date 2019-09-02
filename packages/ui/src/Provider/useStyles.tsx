@@ -35,7 +35,7 @@ function applyStyles({
   props,
   composition,
 }: ApplyStylesArgType): NextPropsAndElementType {
-  const { css, ...rest } = props;
+  const { css, element, ...rest } = props;
   const thunk = (payload: CssRkta): CssEmotion => {
     if (typeof payload === 'function') return thunk(payload(theme, { ...rest, css }));
     return payload;
@@ -75,7 +75,7 @@ function applyStyles({
   }
 
   nextProps.css = flattenCssEmotion;
-  const Element = getElement(props.element || 'div', props);
+  const Element = getElement(element || 'div', props);
   return [nextProps, Element];
 }
 

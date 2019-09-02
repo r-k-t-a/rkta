@@ -34,11 +34,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@emotion/core": "latest",
-    "@types/lodash": "latest",
-    "@types/react": "latest",
-    "emotion-theming": "latest",
-    "lodash": "latest",
+    "@emotion/core": "^10.0.16",
+    "@types/lodash": "^4.14.137",
+    "@types/react": "^16.9.2",
+    "emotion-theming": "^10.0.14",
+    "lodash": "^4.17.15",
     "prop-types": "^15.7.2"
   },
   "gitHead": "28b39e9d4f56c5a36c6766fc9302d72dc30c3f3a"

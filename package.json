@@ -24,6 +24,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
+    "@types/react": "^16.9.2",
     "babel-plugin-emotion": "^10.0.15",
     "docz": "^1.2.0",
     "docz-theme-default": "^1.2.0",
@@ -43,7 +44,6 @@
   "licence": "MIT",
   "version": "0.0.6",
   "dependencies": {
-    "@types/react": "latest",
     "md5": "^2.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
