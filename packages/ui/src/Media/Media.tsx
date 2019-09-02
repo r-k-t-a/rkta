@@ -1,25 +1,39 @@
-/** @jsx jsx */
-import { Children, SFC, cloneElement, ReactElement, ReactNode, useEffect, useState } from 'react';
+import { jsx } from '@emotion/core';
+import { Children, FunctionComponent, ReactElement, ReactNode, useEffect, useState } from 'react';
 
 import match from './match';
 import { MediaProps } from './Media.defs';
 import useProviderContext from '../Provider/useProviderContext';
+import { CssEmotion, CssRkta } from '../Provider/theme/theme.defs';
 
-const toString = (query: string[]): string => query.join(', ');
+const toString = (query: CssRkta[]): string => query.join(', ');
 
-const serverMedia = (children: ReactElement, queries: string[]): ReactElement => {
+const cloneElement = (element: ReactElement, props: {}): ReactElement =>
+  jsx(element.type, {
+    key: element.key,
+    ...element.props,
+    ...props,
+  });
+
+const serverMedia = (children: ReactElement, queries: CssRkta[]): ReactNode => {
   const serverQueries = queries.map((query): string => `not ${query}`);
-  const mediaQuery = `@media ${toString(serverQueries)}`;
-  // TODO: css = child.css.concat(mediaQuery)
-  return Children.map(children, (child): ReactElement => cloneElement(child, { css: mediaQuery }));
+  const mediaQuery = `@media ${toString(serverQueries)} { display: none; }`;
+  return Children.map(
+    children,
+    (child: ReactElement & { css?: CssEmotion }): ReactElement => {
+      const childrenCss: CssEmotion[] = Array.isArray(child.css) ? child.css : [child.css];
+      const nextCss = childrenCss.concat(mediaQuery);
+      return cloneElement(child, { css: nextCss });
+    },
+  );
 };
 
-function clientMedia(children: ReactElement, queries: string[]): ReactNode {
+function clientMedia(children: ReactElement, queries: CssRkta[]): ReactNode {
   const mq = toString(queries);
   return match(mq) ? children : null;
 }
 
-const Paper: SFC<MediaProps> = ({ children, ...queries }: MediaProps): ReactElement => {
+const Media: FunctionComponent<MediaProps> = ({ children, ...queries }: MediaProps): ReactNode => {
   const [isMounted, setIsMounted] = useState(false);
   const {
     theme: { media },
@@ -27,9 +41,10 @@ const Paper: SFC<MediaProps> = ({ children, ...queries }: MediaProps): ReactElem
   useEffect((): void => {
     if (!isMounted) setIsMounted(true);
   });
-  const mediaQueries = Object.keys(queries).map((name): string => media[name]);
-  const resolve = isMounted ? serverMedia : clientMedia;
+  const mediaQueries = Object.keys(queries).map((name): CssRkta => media[name]);
+  const resolve = isMounted ? clientMedia : serverMedia;
+
   return resolve(children, mediaQueries);
 };
 
-export default Paper;
+export default Media;

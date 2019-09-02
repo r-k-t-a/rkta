@@ -25,6 +25,10 @@ export interface RktaComponentStyles {
   [key: number]: string;
 }
 
+export interface BreakpointType {
+  [key: string]: number;
+}
+
 export interface ThemeInterface {
   color: {
     [key: string]: string;

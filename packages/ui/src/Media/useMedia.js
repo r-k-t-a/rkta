@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
 import isEqual from 'lodash/isEqual';
 
-import Context from '../Theme/Context';
-import matchMedia from './matchMedia';
+import Context from '../Provider/Context';
+import matchMedia from './match';
 
 const withTheme = theme => (acc, key) => ({
   ...acc,
