@@ -1,7 +1,7 @@
 import { keyframes } from '@emotion/core';
 import { CssRkta } from '../Provider/theme/theme.defs';
 
-const PopIn = keyframes`
+const PopOver = keyframes`
   from {
     opacity: 0;
     transform: translateY(-160px);
@@ -11,8 +11,8 @@ const PopIn = keyframes`
     transform: translateY(0px);
   }
 `;
-export const popIn: CssRkta = {
-  animation: `${PopIn} 0.64s ease`,
+export const popOver: CssRkta = {
+  animation: `${PopOver} 0.64s ease`,
   willChange: 'opacity, transform',
 };
 
