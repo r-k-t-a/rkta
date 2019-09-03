@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import isEqual from 'lodash/isEqual';
+import memoize from 'lodash';
 
 import { ThemeInterface } from '../Provider/theme/theme.defs';
 import useProviderContext from '../Provider/useProviderContext';
@@ -13,12 +14,25 @@ const withTheme = (theme: ThemeInterface | null): ((acc: {}, key: string) => {})
   [key]: theme && matchMedia(theme.mediaQueries[key] as string),
 });
 
+const evaluateQueries = ({ media }: ThemeInterface): {} =>
+  Object.entries(media).reduce(
+    (acc, [key, value]): {} => ({
+      ...acc,
+      [key]: matchMedia(value),
+    }),
+    {},
+  );
+
+function resolver(theme, context) {}
+
+const evaluate = memoize(evaluateQueries, resolver);
+
 export default function useMedia(...args: string[]): {} {
-  const [state, setState] = useState<{} | null>(null);
   const { theme } = useProviderContext();
+  const [state, setState] = useState<{} | null>(null);
 
   function handleResize(): void {
-    const nextState: {} = args.reduce(withTheme(theme), {});
+    const nextState: {} = evaluate(theme, window);
     if (!isEqual(nextState, state)) setState(nextState);
   }
 
@@ -30,5 +44,5 @@ export default function useMedia(...args: string[]): {} {
     };
   }, args.concat(state ? Object.values(state) : []));
 
-  return state || args.reduce(withTheme(null), {});
+  return state || evaluate(theme);
 }
