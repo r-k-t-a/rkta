@@ -7,6 +7,10 @@ interface Handlers {
   [key: string]: Function;
 }
 
+function emitEvent(emit: Function | undefined): void {
+  if (typeof emit === 'function') emit();
+}
+
 export default (initialQueue: string[], handlers: Handlers): {} => {
   const [queue, setQueue] = useState(initialQueue);
   const {
@@ -14,14 +18,12 @@ export default (initialQueue: string[], handlers: Handlers): {} => {
   } = useProviderContext();
   const [activeTransition, ...restTransitions] = queue;
   const css: CssRkta = activeTransition ? Fx[activeTransition] : [];
+  const addEffect = (effect: string): void => setQueue([...queue, effect]);
   const onAnimationEnd = (): void => {
     setQueue(restTransitions);
     const [nextTransition] = restTransitions;
-    const emitEnd = handlers[`on${startCase(activeTransition)}`];
-    const emitBegin = nextTransition && handlers[`on${startCase(nextTransition)}Begin`];
-    if (typeof emitEnd === 'function') emitEnd();
-    if (typeof emitBegin === 'function') emitBegin();
+    emitEvent(handlers[`on${startCase(activeTransition)}`]);
+    emitEvent(handlers[`on${startCase(nextTransition)}Begin`]);
   };
-  const addEffect = (effect: string): void => setQueue([...queue, effect]);
   return [{ css, onAnimationEnd }, addEffect];
 };
