@@ -1,21 +1,13 @@
 import { useEffect, useState } from 'react';
 import isEqual from 'lodash/isEqual';
-import memoize from 'lodash';
+import flatten from 'lodash/flatten';
+import memoize from 'lodash/memoize';
 
-import { ThemeInterface } from '../Provider/theme/theme.defs';
 import useProviderContext from '../Provider/useProviderContext';
 import matchMedia from './match';
 
-const withTheme = (theme: ThemeInterface | null): ((acc: {}, key: string) => {}) => (
-  acc: {},
-  key: string,
-): {} => ({
-  ...acc,
-  [key]: theme && matchMedia(theme.mediaQueries[key] as string),
-});
-
-const evaluateQueries = ({ media }: ThemeInterface): {} =>
-  Object.entries(media).reduce(
+const evaluate = (entries): {} =>
+  entries.reduce(
     (acc, [key, value]): {} => ({
       ...acc,
       [key]: matchMedia(value),
@@ -23,26 +15,28 @@ const evaluateQueries = ({ media }: ThemeInterface): {} =>
     {},
   );
 
-function resolver(theme, context) {}
+function resolver(entries) {
+  // entries + window.width.height + dpi
+}
+const evaluateMemo = memoize(evaluateQueries, resolver);
 
-const evaluate = memoize(evaluateQueries, resolver);
-
-export default function useMedia(...args: string[]): {} {
+export default function useMedia(): {} {
   const { theme } = useProviderContext();
-  const [state, setState] = useState<{} | null>(null);
+  const [state, setState] = useState();
+  const entries = Object.entries(theme.media);
 
-  function handleResize(): void {
-    const nextState: {} = evaluate(theme, window);
+  function updateState(): void {
+    const nextState: {} = evaluateMemo(entries);
     if (!isEqual(nextState, state)) setState(nextState);
   }
 
   useEffect((): (() => void) => {
-    window.addEventListener('resize', handleResize);
-    handleResize();
+    window.addEventListener('resize', updateState);
+    updateState();
     return (): void => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', updateState);
     };
-  }, args.concat(state ? Object.values(state) : []));
+  }, flatten(entries));
 
-  return state || evaluate(theme);
+  return state || evaluate(entries);
 }
