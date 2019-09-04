@@ -5,16 +5,16 @@ import memoize from 'lodash/memoize';
 
 import useProviderContext from '../Provider/useProviderContext';
 import matchMedia from './match';
-import { EntriesType, MediaKeys } from './Media.defs';
+import { EntriesType, UseMediaResult } from './Media.defs';
 
-const evaluate = (entries: EntriesType): MediaKeys =>
+const evaluate = (entries: EntriesType): UseMediaResult =>
   entries.reduce(
     (acc, [key, value]): {} => ({
       ...acc,
       [key]: matchMedia(value),
     }),
     {},
-  );
+  ) as UseMediaResult;
 
 function resolver(entries: EntriesType): string {
   const { innerHeight, innerWidth, screen } = window;
@@ -23,10 +23,10 @@ function resolver(entries: EntriesType): string {
 
 const evaluateMemo = memoize(evaluate, resolver);
 
-const evaluateServer = (entries: EntriesType): MediaKeys =>
-  entries.reduce((acc, [key]): MediaKeys => ({ ...acc, [key]: null }), {});
+const evaluateServer = (entries: EntriesType): UseMediaResult =>
+  entries.reduce((acc, [key]): {} => ({ ...acc, [key]: null }), {}) as UseMediaResult;
 
-export default function useMedia(): MediaKeys {
+export default function useMedia(): UseMediaResult {
   const { theme } = useProviderContext();
   const [state, setState] = useState();
   const entries = Object.entries(theme.media);
