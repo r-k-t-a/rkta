@@ -16,14 +16,8 @@ const evaluate = (entries: string[][]): {} =>
   );
 
 function resolver(entries: string[][]): string {
-  const keys = flatten(entries);
-  if (typeof window === 'undefined') return keys.join(',');
-  const {
-    innerHeight,
-    innerWidth,
-    screen: { availWidth },
-  } = window;
-  return keys.concat(innerHeight, innerWidth, availWidth).join(',');
+  const { innerHeight, innerWidth, screen } = window;
+  return [...flatten(entries), innerHeight, innerWidth, screen.availWidth].join();
 }
 const evaluateMemo = memoize(evaluate, resolver);
 
