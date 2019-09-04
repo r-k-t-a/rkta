@@ -1,0 +1,81 @@
+---
+menu: UI / Hooks
+name: useFx
+---
+
+import { useState } from 'react';
+import { Link, Playground, Props } from 'docz';
+import { Addon, Button, ListItem, Paper, Text } from '../';
+import useFx from './useFx';
+
+# useFx
+
+`useFx` allows you to apply various effects
+
+## Use
+
+```
+import { useFx } from '@rkta/ui';
+...
+
+const MyFunctionComponent = () => {
+  const { phone } = useMedia();
+  return phone ? <MobileMenu /> : null;
+}
+```
+
+## Example
+
+<Playground>
+  {() => {
+    const Popover = props => {
+      console.log('Popover');
+      return (
+        <Paper
+          bgColor="warning"
+          color="paper"
+          rize={3}
+          style={{
+            padding: 24,
+            paddingTop: 48,
+            position: 'fixed',
+            bottom: 50,
+            right: 16,
+            width: 500,
+            zIndex: 1000,
+          }}
+          {...props}
+        >
+          <button onClick={props.onClose} style={{ display: 'block', position: 'absolute', top: 8, right: 8}}>
+            Close
+          </button>
+          <Text h6>{error}</Text>
+        </Paper>
+      );
+    }
+
+    const [error, setError] = useState(null);
+    const onFadeDown = () => {
+      console.log('onFadeDown');
+      setError(null);
+    }
+    const onFadeDownBegin = () => {
+      console.log('onFadeDownBegin');
+    }
+    const [popoverProps, addEffect] = useFx(['popUp'], { onFadeDown, onFadeDownBegin });
+    return (
+      <>
+        <button onClick={() => {
+          console.log('onOpen');
+          setError("Error message!");
+          }}>Open popover window</button>
+        {!!error && <Popover {...popoverProps} onClose={() => {
+          console.log('onClose');
+          addEffect('fadeDown');
+        }}/>}
+      </>
+    );
+
+}}
+
+</Playground>

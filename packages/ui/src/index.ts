@@ -5,6 +5,7 @@ export { default as Divider } from './Divider';
 export { default as Heading } from './Heading';
 export * from './List';
 export { default as Media, matchMedia, useMedia } from './Media';
+export { useFx } from './Fx';
 export { default as Paper } from './Paper';
 export * from './Provider';
 export { default as Spinner } from './Spinner';
