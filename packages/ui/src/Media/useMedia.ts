@@ -17,17 +17,13 @@ const evaluate = (entries: string[][]): {} =>
 
 function resolver(entries: string[][]): string {
   const keys = flatten(entries);
-  if (typeof window !== 'undefined') {
-    const {
-      innerHeight,
-      innerWidth,
-      screen: { availWidth },
-    } = window;
-    keys.push(innerHeight.toString());
-    keys.push(innerWidth.toString());
-    keys.push(availWidth.toString());
-  }
-  return keys.join(',');
+  if (typeof window === 'undefined') return keys.join(',');
+  const {
+    innerHeight,
+    innerWidth,
+    screen: { availWidth },
+  } = window;
+  return keys.concat(innerHeight, innerWidth, availWidth).join(',');
 }
 const evaluateMemo = memoize(evaluate, resolver);
 
