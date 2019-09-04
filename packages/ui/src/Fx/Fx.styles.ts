@@ -1,7 +1,7 @@
 import { keyframes } from '@emotion/core';
 import { CssRkta } from '../Provider/theme/theme.defs';
 
-const PopOver = keyframes`
+const PopUp = keyframes`
   from {
     opacity: 0;
     transform: translateY(-160px);
@@ -11,18 +11,18 @@ const PopOver = keyframes`
     transform: translateY(0px);
   }
 `;
-export const popOver: CssRkta = {
-  animation: `${PopOver} 0.64s ease`,
+export const popUp: CssRkta = {
+  animation: `${PopUp} 0.64s ease`,
   willChange: 'opacity, transform',
 };
 
-const PopOut = keyframes`
+const FadeDown = keyframes`
   to {
     opacity: 0;
     transform: translateY(-160px);
   }
 `;
-export const popOut: CssRkta = {
-  animation: `${PopOut} 0.4s ease`,
+export const fadeDown: CssRkta = {
+  animation: `${FadeDown} 0.4s ease`,
   willChange: 'opacity, transform',
 };
