@@ -6,7 +6,7 @@ import memoize from 'lodash/memoize';
 import useProviderContext from '../Provider/useProviderContext';
 import matchMedia from './match';
 
-const evaluate = (entries): {} =>
+const evaluate = (entries: string[][]): {} =>
   entries.reduce(
     (acc, [key, value]): {} => ({
       ...acc,
@@ -15,10 +15,21 @@ const evaluate = (entries): {} =>
     {},
   );
 
-function resolver(entries) {
-  // entries + window.width.height + dpi
+function resolver(entries: string[][]): string {
+  const keys = flatten(entries);
+  if (typeof window !== 'undefined') {
+    const {
+      innerHeight,
+      innerWidth,
+      screen: { availWidth },
+    } = window;
+    keys.push(innerHeight.toString());
+    keys.push(innerWidth.toString());
+    keys.push(availWidth.toString());
+  }
+  return keys.join(',');
 }
-const evaluateMemo = memoize(evaluateQueries, resolver);
+const evaluateMemo = memoize(evaluate, resolver);
 
 export default function useMedia(): {} {
   const { theme } = useProviderContext();

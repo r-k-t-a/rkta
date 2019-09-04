@@ -13,11 +13,11 @@ export interface MediaProps {
   atLeastLaptop?: boolean;
   atLeastDesktop?: boolean;
   atLeastJumbotron?: boolean;
-  atMost$Phone?: boolean;
-  atMost$Tablet?: boolean;
-  atMost$Laptop?: boolean;
-  atMost$Desktop?: boolean;
-  atMost$Jumbotron?: boolean;
+  atMostPhone?: boolean;
+  atMostTablet?: boolean;
+  atMostLaptop?: boolean;
+  atMostDesktop?: boolean;
+  atMostJumbotron?: boolean;
 
   [key: string]: string | ReactNode;
 }

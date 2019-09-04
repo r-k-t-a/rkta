@@ -4,6 +4,7 @@ export { default as Button } from './Button';
 export { default as Divider } from './Divider';
 export { default as Heading } from './Heading';
 export * from './List';
+export { default as Media, matchMedia } from './Media';
 export { default as Paper } from './Paper';
 export * from './Provider';
 export { default as Spinner } from './Spinner';

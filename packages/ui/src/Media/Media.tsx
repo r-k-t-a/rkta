@@ -35,11 +35,17 @@ function clientMedia(children: ReactElement, queries: CssRkta[]): ReactNode {
 
 const Media: FunctionComponent<MediaProps> = ({ children, ...queries }: MediaProps): ReactNode => {
   const [isMounted, setIsMounted] = useState(false);
+  const [, updateState] = useState();
   const {
     theme: { media },
   } = useProviderContext();
-  useEffect((): void => {
+
+  useEffect((): (() => void) => {
     if (!isMounted) setIsMounted(true);
+    window.addEventListener('resize', updateState);
+    return (): void => {
+      window.removeEventListener('resize', updateState);
+    };
   });
   const mediaQueries = Object.keys(queries).map((name): CssRkta => media[name]);
   const resolve = isMounted ? clientMedia : serverMedia;
