@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 
 export interface MediaProps {
-  children: ReactNode;
+  children: ReactElement;
 
   phone?: boolean;
   tablet?: boolean;
@@ -19,5 +19,5 @@ export interface MediaProps {
   atMostDesktop?: boolean;
   atMostJumbotron?: boolean;
 
-  [key: string]: string | ReactNode;
+  [key: string]: boolean | ReactElement | undefined;
 }
