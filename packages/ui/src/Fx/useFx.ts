@@ -4,7 +4,11 @@ import useProviderContext from '../Provider/useProviderContext';
 import { CssRkta } from '../Provider/theme/theme.defs';
 
 interface Handlers {
-  [key: string]: Function;
+  onPopUp?: Function;
+  onPopUpBegin?: Function;
+  onFadeDown?: Function;
+  onFadeDownBegin?: Function;
+  [key: string]: Function | undefined;
 }
 
 function emitEvent(emit: Function | undefined): void {
