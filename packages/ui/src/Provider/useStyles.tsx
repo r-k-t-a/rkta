@@ -1,5 +1,7 @@
 import { ElementType } from 'react';
-import { flatten, join, memoize } from 'lodash';
+import flatten from 'lodash/flatten';
+import join from 'lodash/join';
+import memoize from 'lodash/memoize';
 
 import {
   CssEmotion,
