@@ -9,7 +9,7 @@ import useMedia from './useMedia';
 
 # useMedia
 
-useMedia used to controll visibility depending on breakpoints.
+`useMedia` allows you to evaluate theme media queries at client runtime.
 
 ## Use
 
@@ -32,17 +32,20 @@ const MyFunctionComponent = () => {
       <>
         <h4>Resize window to see text changing:</h4>
         <Paper css={{ padding: 16 }} rize={1}>
-          {phone && 'Phone'}
-          {tablet && 'Tablet'}
-          {laptop && 'Laptop'}
-          {desktop && 'Desktop'}
+          Your display mode is:
+          <strong>
+            {phone && 'Phone'}
+            {tablet && 'Tablet'}
+            {laptop && 'Laptop'}
+            {desktop && 'Desktop'}
+          </strong>
         </Paper>
       </>
     );
   }}
 </Playground>
 
-## Default possible keys
+## useMedia returns an object of:
 
 ```
   phone: boolean | null;
@@ -63,3 +66,5 @@ const MyFunctionComponent = () => {
   atMostDesktop: boolean | null;
   atMostJumbotron: boolean | null;
 ```
+
+Mind that hook evaluates mediaqueries after react component mounts. Prior mount you expect all queries to be nulls.
