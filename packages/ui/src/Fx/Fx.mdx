@@ -5,8 +5,8 @@ name: useFx
 
 import { useState } from 'react';
 import { Link, Playground, Props } from 'docz';
+import { Paper, Text } from '../';
 import useFx from './useFx';
-import Popover from './Popover';
 
 # useFx
 
@@ -31,6 +31,31 @@ Note, `useFx` only working with rkta components.
 
 <Playground>
   {() => {
+    const Popover = ({ children, css, onAnimationEnd, noMemoize, onClose }) => (
+      <Paper
+        bgColor="warning"
+        color="paper"
+        rize={1}
+        css={css}
+        onAnimationEnd={onAnimationEnd}
+        noMemoize={noMemoize}
+        style={{
+          padding: 24,
+          paddingTop: 48,
+          position: 'fixed',
+          bottom: 50,
+          right: 16,
+          width: 500,
+          zIndex: 1000,
+        }}
+      >
+        <button onClick={onClose} style={{ position: 'absolute', top: 8, right: 8 }} type="button">
+          Close
+        </button>
+        <Text h6>{children}</Text>
+      </Paper>
+    );
+
     const [error, setError] = useState(null);
     const onFadeDown = () => setError(null);
     const [popoverProps, addEffect] = useFx([], { onFadeDown });
@@ -51,6 +76,7 @@ Note, `useFx` only working with rkta components.
         )}
       </>
     );
+
 }}
 
 </Playground>
