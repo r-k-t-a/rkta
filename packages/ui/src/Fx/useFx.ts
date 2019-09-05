@@ -15,7 +15,7 @@ function emitEvent(emit: Function | undefined): void {
   if (typeof emit === 'function') emit();
 }
 
-export default (initialQueue: string[], handlers: Handlers = {}): ({} | Function)[] => {
+export default (initialQueue: string[] = [], handlers: Handlers = {}): ({} | Function)[] => {
   const [queue, setQueue] = useState(initialQueue);
   const [isMounted, setIsMounted] = useState(false);
   const {

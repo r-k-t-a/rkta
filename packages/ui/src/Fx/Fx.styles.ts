@@ -27,6 +27,6 @@ const FadeDown = keyframes`
   }
 `;
 export const fadeDown: CssRkta = {
-  animation: `${FadeDown} 0.4s ease`,
+  animation: `${FadeDown} 0.32s ease`,
   willChange: 'opacity, transform',
 };
