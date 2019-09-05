@@ -11,6 +11,7 @@ import * as List from '../../List/List.styles';
 import * as ListItem from '../../List/ListItem/ListItem.styles';
 import * as ListText from '../../List/ListText/ListText.styles';
 import * as Paper from '../../Paper/Paper.styles';
+import * as ScrollBox from '../../ScrollBox/ScrollBox.styles';
 import * as Spinner from '../../Spinner/Spinner.styles';
 import * as Svg from '../../Svg/Svg.styles';
 import * as Text from '../../Text/Text.styles';
@@ -28,6 +29,7 @@ const defaultTheme: ThemeInterface = {
   List,
   ListItem,
   ListText,
+  ScrollBox,
   Spinner,
   Svg,
   Paper,
