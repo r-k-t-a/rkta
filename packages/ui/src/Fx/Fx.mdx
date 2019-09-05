@@ -19,9 +19,28 @@ import { useFx } from '@rkta/ui';
 ...
 
 const MyFunctionComponent = () => {
-  const { phone } = useMedia();
-  const [popoverProps, addEffect] = useFx(['popUp']);
-  return <Paper {...popoverProps} onClose={() => addEffect('fadeDown')} />
+    const [error, setError] = useState(null);
+
+    const onFadeDown = () => setError(null);
+    const [popoverProps, addEffect] = useFx([], { onFadeDown });
+
+    return (
+      <>
+        <button
+          onClick={() => {
+            setError(new Error("Error message"));
+            if (!error) addEffect('popUp');
+          }}
+        >
+          Open popover window
+        </button>
+        {error && (
+          <Popover {...popoverProps} onClose={() => addEffect('fadeDown')}>
+            {error.message}
+          </Popover>
+        )}
+      </>
+    );
 }
 ```
 
