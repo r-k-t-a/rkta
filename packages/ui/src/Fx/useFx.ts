@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import startCase from 'lodash/startCase';
+import { useState, useEffect } from 'react';
+import upperFirst from 'lodash/upperFirst';
 import useProviderContext from '../Provider/useProviderContext';
 import { CssRkta } from '../Provider/theme/theme.defs';
 
@@ -15,26 +15,34 @@ function emitEvent(emit: Function | undefined): void {
   if (typeof emit === 'function') emit();
 }
 
-export default (initialQueue: string[], handlers: Handlers): ({} | Function)[] => {
+export default (initialQueue: string[], handlers: Handlers = {}): ({} | Function)[] => {
   const [queue, setQueue] = useState(initialQueue);
-  console.log('queue', queue);
-
+  const [isMounted, setIsMounted] = useState(false);
   const {
     theme: { Fx },
   } = useProviderContext();
   const [activeTransition, ...restTransitions] = queue;
+  console.log('activeTransition', activeTransition);
   const css: CssRkta = activeTransition ? Fx[activeTransition] : [];
   const addEffect = (effect: string): void => {
-    console.log('addEffect', effect);
-
+    console.log('addEffect', queue, effect);
     setQueue([...queue, effect]);
   };
+  function emitBegin(transition: string): void {
+    emitEvent(handlers[`on${upperFirst(transition)}Begin`]);
+  }
   const onAnimationEnd = (): void => {
-    setQueue(restTransitions);
     const [nextTransition] = restTransitions;
-    console.log('onAnimationEnd', activeTransition, '->', nextTransition);
-    emitEvent(handlers[`on${startCase(activeTransition)}`]);
-    emitEvent(handlers[`on${startCase(nextTransition)}Begin`]);
+    setQueue(restTransitions);
+    emitEvent(handlers[`on${upperFirst(activeTransition)}`]);
+    emitBegin(nextTransition);
+    console.log('onAnimationEnd');
   };
-  return [{ css, onAnimationEnd }, addEffect];
+  useEffect((): void => {
+    if (isMounted) return;
+    setIsMounted(true);
+    emitBegin(activeTransition);
+  });
+  console.log('queue', queue);
+  return [{ css, onAnimationEnd: activeTransition && onAnimationEnd }, addEffect];
 };

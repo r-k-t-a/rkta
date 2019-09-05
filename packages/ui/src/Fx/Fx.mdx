@@ -28,13 +28,14 @@ const MyFunctionComponent = () => {
 
 <Playground>
   {() => {
-    const Popover = props => {
-      console.log('Popover');
+    const Popover = ({ css, onAnimationEnd, onClose }) => {
       return (
         <Paper
           bgColor="warning"
           color="paper"
-          rize={3}
+          css={css}
+          onAnimationEnd={onAnimationEnd}
+          rize={1}
           style={{
             padding: 24,
             paddingTop: 48,
@@ -44,35 +45,22 @@ const MyFunctionComponent = () => {
             width: 500,
             zIndex: 1000,
           }}
-          {...props}
         >
-          <button onClick={props.onClose} style={{ display: 'block', position: 'absolute', top: 8, right: 8}}>
-            Close
-          </button>
-          <Text h6>{error}</Text>
+          <button onClick={onClose}>Close</button>
+          <Text h6>error</Text>
         </Paper>
       );
     }
-
-    const [error, setError] = useState(null);
-    const onFadeDown = () => {
-      console.log('onFadeDown');
-      setError(null);
-    }
-    const onFadeDownBegin = () => {
-      console.log('onFadeDownBegin');
-    }
-    const [popoverProps, addEffect] = useFx(['popUp'], { onFadeDown, onFadeDownBegin });
+    const [popoverProps, addEffect] = useFx(['popUp']);
     return (
       <>
-        <button onClick={() => {
-          console.log('onOpen');
-          setError("Error message!");
-          }}>Open popover window</button>
-        {!!error && <Popover {...popoverProps} onClose={() => {
-          console.log('onClose');
-          addEffect('fadeDown');
-        }}/>}
+        <button onClick={() => { setError("Error message!") }}>
+          Open popover window
+        </button>
+        <Popover
+          {...popoverProps}
+          onClose={() => { addEffect('fadeDown') }}
+        />
       </>
     );
 
