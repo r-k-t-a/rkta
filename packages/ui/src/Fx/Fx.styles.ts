@@ -12,7 +12,7 @@ const PopUp = keyframes`
   }
 `;
 export const popUp: CssRkta = {
-  animation: `${PopUp} 2.64s ease`,
+  animation: `${PopUp} 0.64s ease`,
   willChange: 'opacity, transform',
 };
 
@@ -27,6 +27,6 @@ const FadeDown = keyframes`
   }
 `;
 export const fadeDown: CssRkta = {
-  animation: `${FadeDown} 2.4s ease`,
+  animation: `${FadeDown} 0.4s ease`,
   willChange: 'opacity, transform',
 };

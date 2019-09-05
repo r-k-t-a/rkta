@@ -5,8 +5,8 @@ name: useFx
 
 import { useState } from 'react';
 import { Link, Playground, Props } from 'docz';
-import { Addon, Button, ListItem, Paper, Text } from '../';
 import useFx from './useFx';
+import Popover from './Popover';
 
 # useFx
 
@@ -20,50 +20,37 @@ import { useFx } from '@rkta/ui';
 
 const MyFunctionComponent = () => {
   const { phone } = useMedia();
-  return phone ? <MobileMenu /> : null;
+  const [popoverProps, addEffect] = useFx(['popUp']);
+  return <Paper {...popoverProps} onClose={() => addEffect('fadeDown')} />
 }
 ```
+
+Note, `useFx` only working with rkta components.
 
 ## Example
 
 <Playground>
   {() => {
-    const Popover = ({ css, onAnimationEnd, onClose }) => {
-      return (
-        <Paper
-          bgColor="warning"
-          color="paper"
-          css={css}
-          onAnimationEnd={onAnimationEnd}
-          rize={1}
-          style={{
-            padding: 24,
-            paddingTop: 48,
-            position: 'fixed',
-            bottom: 50,
-            right: 16,
-            width: 500,
-            zIndex: 1000,
-          }}
-        >
-          <button onClick={onClose}>Close</button>
-          <Text h6>error</Text>
-        </Paper>
-      );
-    }
-    const [popoverProps, addEffect] = useFx(['popUp']);
+    const [error, setError] = useState(null);
+    const onFadeDown = () => setError(null);
+    const [popoverProps, addEffect] = useFx([], { onFadeDown });
     return (
       <>
-        <button onClick={() => { setError("Error message!") }}>
+        <button
+          onClick={() => {
+            setError(new Error("Error message"));
+            if (!error) addEffect('popUp');
+          }}
+        >
           Open popover window
         </button>
-        <Popover
-          {...popoverProps}
-          onClose={() => { addEffect('fadeDown') }}
-        />
+        {error && (
+          <Popover {...popoverProps} onClose={() => addEffect('fadeDown')}>
+            {error.message}
+          </Popover>
+        )}
       </>
     );
-
 }}
 
 </Playground>

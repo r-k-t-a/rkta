@@ -22,10 +22,8 @@ export default (initialQueue: string[], handlers: Handlers = {}): ({} | Function
     theme: { Fx },
   } = useProviderContext();
   const [activeTransition, ...restTransitions] = queue;
-  console.log('activeTransition', activeTransition);
   const css: CssRkta = activeTransition ? Fx[activeTransition] : [];
   const addEffect = (effect: string): void => {
-    console.log('addEffect', queue, effect);
     setQueue([...queue, effect]);
   };
   function emitBegin(transition: string): void {
@@ -36,13 +34,11 @@ export default (initialQueue: string[], handlers: Handlers = {}): ({} | Function
     setQueue(restTransitions);
     emitEvent(handlers[`on${upperFirst(activeTransition)}`]);
     emitBegin(nextTransition);
-    console.log('onAnimationEnd');
   };
   useEffect((): void => {
     if (isMounted) return;
     setIsMounted(true);
     emitBegin(activeTransition);
   });
-  console.log('queue', queue);
-  return [{ css, onAnimationEnd: activeTransition && onAnimationEnd }, addEffect];
+  return [{ css, onAnimationEnd: activeTransition && onAnimationEnd, noMemoize: true }, addEffect];
 };

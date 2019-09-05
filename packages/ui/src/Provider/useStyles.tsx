@@ -29,6 +29,7 @@ interface ApplyStylesArgType {
   getElement: ElementResolverFunction;
   props: RktaThemed & ElementResolverProps & { element?: ElementType };
   theme: ThemeInterface;
+  noMemoize?: boolean;
 }
 
 function applyStyles({
@@ -91,4 +92,10 @@ const createArray = ({ theme, props, composition }: ApplyStylesArgType): any[] =
 const createCacheKey = ({ getElement, theme, props, composition }: ApplyStylesArgType): string =>
   join(flatten(createArray({ getElement, theme, props, composition })));
 
-export default memoize(applyStyles, createCacheKey);
+const memoizedApplyStyles = memoize(applyStyles, createCacheKey);
+
+export default ({
+  props: { noMemoize, ...props },
+  ...rest
+}: ApplyStylesArgType): NextPropsAndElementType =>
+  noMemoize ? applyStyles({ props, ...rest }) : memoizedApplyStyles({ props, ...rest });
