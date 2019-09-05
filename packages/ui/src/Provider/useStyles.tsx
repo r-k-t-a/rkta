@@ -27,9 +27,9 @@ export type useStylesFunctionType = (
 interface ApplyStylesArgType {
   composition: string[];
   getElement: ElementResolverFunction;
+  memo?: boolean;
   props: RktaThemed & ElementResolverProps & { element?: ElementType };
   theme: ThemeInterface;
-  noMemoize?: boolean;
 }
 
 function applyStyles({
@@ -95,7 +95,9 @@ const createCacheKey = ({ getElement, theme, props, composition }: ApplyStylesAr
 const memoizedApplyStyles = memoize(applyStyles, createCacheKey);
 
 export default ({
-  props: { noMemoize, ...props },
+  props: { memo, ...props },
   ...rest
-}: ApplyStylesArgType): NextPropsAndElementType =>
-  noMemoize ? applyStyles({ props, ...rest }) : memoizedApplyStyles({ props, ...rest });
+}: ApplyStylesArgType): NextPropsAndElementType => {
+  const styled = memo ? memoizedApplyStyles : applyStyles;
+  return styled({ props, ...rest });
+};

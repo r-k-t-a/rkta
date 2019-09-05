@@ -40,5 +40,5 @@ export default (initialQueue: string[] = [], handlers: Handlers = {}): ({} | Fun
     setIsMounted(true);
     emitBegin(activeTransition);
   });
-  return [{ css, onAnimationEnd: activeTransition && onAnimationEnd, noMemoize: true }, addEffect];
+  return [{ css, onAnimationEnd }, addEffect];
 };

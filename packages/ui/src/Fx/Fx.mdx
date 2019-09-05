@@ -16,37 +16,35 @@ import Cross from '../../../entypo/src/Cross';
 ## Use
 
 ```
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import { useFx } from '@rkta/ui';
-...
 
 const FxComponent = () => {
-    const onPopUp = () => console.log('pop up!');
-    const [fx, addEffect] = useFx(['popUp'], { onPopUp });
-    return (
-      <div {...fx}>
-        Hi, I have FX.
-        <buttton onClick={() => addEffect('fadeDown')}>
-          Hide me
-        </button>
-      </div>
-    );
+  const onPopUp = () => console.log('pop up!');
+  const [fx, addEffect] = useFx(['popUp'], { onPopUp });
+  return (
+    <div {...fx}>
+      Hi, I have FX.
+      <button onClick={() => addEffect('fadeDown')}>
+        Hide me
+      </button>
+    </div>
+  );
 }
 ```
-
-Note, `useFx` only working with rkta components.
 
 ## Example
 
 <Playground>
   {() => {
-    const Popover = ({ children, css, onAnimationEnd, noMemoize, onClose }) => (
+    const Popover = ({ children, css, onAnimationEnd, onClose }) => (
       <List
         bgColor="text"
         color="paper"
         rize={1}
         css={css}
         onAnimationEnd={onAnimationEnd}
-        noMemoize={noMemoize}
         style={{
           position: 'fixed',
           bottom: 50,
@@ -58,28 +56,31 @@ Note, `useFx` only working with rkta components.
         <ListTitle color="error" fitAll>
           <Addon main>Error!</Addon>
           <Addon>
-            <Button onClick={onClose} noMemoize round type="button" transparent color="paper">
+            <Button onClick={onClose} round type="button" transparent color="paper">
               <Cross color="paper" />
             </Button>
           </Addon>
         </ListTitle>
-        <ListItem>{children}</ListItem>
+        <ListItem>
+          Error message
+        </ListItem>
       </List>
     );
 
-    const [error, setError] = useState(null);
-    const onFadeDown = () => setError(null);
+    const [error, setError] = useState(false);
+    const onFadeDown = () => setError(false);
     const [popoverProps, addEffect] = useFx([], { onFadeDown });
     return (
       <>
-        <button
+        <Button
+          bgColor="primary"
           onClick={() => {
-            setError(new Error("Error message"));
-            if (!error) addEffect('popUp');
+            if (!error) setError(true);
+            addEffect(error ? 'fadeDown' : 'popUp');
           }}
         >
           Toggle FX
-        </button>
+        </Button>
         {error && (
           <Popover {...popoverProps} onClose={() => addEffect('fadeDown')}>
             {error.message}

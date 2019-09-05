@@ -25,7 +25,6 @@ const Button: SFC<ButtonProps> = ({
   );
   const [rippleProps, buttonProps] = useRipple(nextProps);
   const SpinnerWrapper = getElement('span', {});
-  console.log('nextProps', nextProps);
   return (
     <Element {...nextProps} {...buttonProps}>
       {children}
