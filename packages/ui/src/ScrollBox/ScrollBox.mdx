@@ -1,0 +1,76 @@
+---
+menu: UI
+name: ScrollBox
+---
+
+import { Playground, Props } from 'docz';
+import Range from 'lodash/range';
+import ScrollBox from './ScrollBox';
+import Paper from '../Paper';
+
+# ScrollBox
+
+Utility component preconfigured for easy use
+
+## Examples
+
+### Horizontal
+
+<Playground>
+  <ScrollBox x bgColor="warning">
+    {Range(0, 50).map(item => (
+      <Paper
+        bgColor="primary"
+        center
+        size={50}
+        css={{ margin: 4, flexShrink: 0, lineHeight: '50px' }}
+      >
+        {item}
+      </Paper>
+    ))}
+  </ScrollBox>
+</Playground>
+
+### Vertical
+
+<Playground>
+  <ScrollBox
+    y
+    css={{ display: 'flex', flexDirection: 'column', width: 100, height: 200, margin: 'auto' }}
+  >
+    {Range(0, 50).map(item => (
+      <Paper
+        bgColor="success"
+        center
+        size={50}
+        css={{ margin: 4, flexShrink: 0, lineHeight: '50px' }}
+      >
+        {item}
+      </Paper>
+    ))}
+  </ScrollBox>
+</Playground>
+
+### Scroll Snapping
+
+<Playground>
+  <ScrollBox x hideScrollbars snap>
+    {Range(1, 13).map(item => (
+      <Paper
+        bgColor={`color${item}`}
+        center
+        css={{
+          flexShrink: 0,
+          lineHeight: '80px',
+          width: '100%',
+        }}
+      >
+        {item}
+      </Paper>
+    ))}
+  </ScrollBox>
+</Playground>
+
+## Props
+
+<Props of={ScrollBox} />
