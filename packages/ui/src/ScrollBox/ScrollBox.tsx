@@ -8,13 +8,8 @@ import useProviderContext from '../Provider/useProviderContext';
 // eslint-disable-next-line react/prop-types
 const ScrollBox: SFC<ScrollBoxProps> = ({ children, ...rest }): ReactElement => {
   const { applyStyles } = useProviderContext();
-  const [nextProps, Element] = applyStyles(rest, 'ScrollBox');
+  const [nextProps, Element] = applyStyles(rest, 'ScrollBox', 'Paper', 'Text');
   return <Element {...nextProps}>{children}</Element>;
-};
-
-ScrollBox.defaultProps = {
-  x: false,
-  y: false,
 };
 
 export default ScrollBox;
