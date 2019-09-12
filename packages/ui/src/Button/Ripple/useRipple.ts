@@ -44,6 +44,7 @@ function addWave(
 
 export default ({
   onBlur,
+  onClick,
   onFocus,
   onMouseOver,
   onMouseOut,
@@ -73,7 +74,7 @@ export default ({
     },
     onClick: (event: MouseEvent<HTMLElement>): void => {
       releaseWaves(state, patchState);
-      fire(event, onFocus);
+      fire(event, onClick);
     },
     onContextMenu: (event: TouchEvent): void => {
       releaseWaves(state, patchState);

@@ -1,0 +1,94 @@
+---
+menu: UI / Hooks
+name: useFx
+---
+
+import { useState } from 'react';
+import { Link, Playground, Props } from 'docz';
+import { Addon, Button, List, ListItem, ListTitle, Text } from '../';
+import useFx from './useFx';
+import Cross from '../../../entypo/src/Cross';
+
+# useFx
+
+`useFx` allows you to apply various effects
+
+## Use
+
+```
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { useFx } from '@rkta/ui';
+
+const FxComponent = () => {
+  const onPopUp = () => console.log('pop up!');
+  const [fx, addEffect] = useFx(['popUp'], { onPopUp });
+  return (
+    <div {...fx}>
+      Hi, I have FX.
+      <button onClick={() => addEffect('fadeDown')}>
+        Hide me
+      </button>
+    </div>
+  );
+}
+```
+
+## Example
+
+<Playground>
+  {() => {
+    const Popover = ({ children, css, onAnimationEnd, onClose }) => (
+      <List
+        bgColor="text"
+        color="paper"
+        rize={1}
+        css={css}
+        onAnimationEnd={onAnimationEnd}
+        style={{
+          position: 'fixed',
+          bottom: 50,
+          right: 16,
+          width: 320,
+          zIndex: 1000,
+        }}
+      >
+        <ListTitle color="error" fitAll>
+          <Addon main>Error!</Addon>
+          <Addon>
+            <Button onClick={onClose} round type="button" transparent color="paper">
+              <Cross color="paper" />
+            </Button>
+          </Addon>
+        </ListTitle>
+        <ListItem>
+          Error message
+        </ListItem>
+      </List>
+    );
+
+    const [error, setError] = useState(false);
+    const onFadeDown = () => setError(false);
+    const [popoverProps, addEffect] = useFx([], { onFadeDown });
+    return (
+      <>
+        <Button
+          bgColor="primary"
+          onClick={() => {
+            if (!error) setError(true);
+            addEffect(error ? 'fadeDown' : 'popUp');
+          }}
+        >
+          Toggle FX
+        </Button>
+        {error && (
+          <Popover {...popoverProps} onClose={() => addEffect('fadeDown')}>
+            {error.message}
+          </Popover>
+        )}
+      </>
+    );
+
+}}
+
+</Playground>

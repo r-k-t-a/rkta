@@ -14,6 +14,7 @@ export default {
   paper2: '#EEEEEE',
   paper3: '#E0E0E0',
 
+  error: '#FF1A36',
   success: '#91CE79',
   warning: '#F36F1B',
 
