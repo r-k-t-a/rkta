@@ -2,9 +2,9 @@
   "name": "@rkta/entypo",
   "version": "0.0.15",
   "description": "> TODO: description",
-  "author": "Sergei Droganov <serge@droganov.ru>",
+  "author": "Daniel Bruce, Sergei Droganov",
   "homepage": "https://github.com/r-k-t-a/rkta",
-  "license": "MIT",
+  "license": "CC BY-SA",
   "main": "src/index.js",
   "directories": {
     "lib": "lib"
@@ -28,7 +28,6 @@
   "bugs": {
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
-  "licence": "MIT",
   "peerDependencies": {
     "react": "^16.9.0"
   },
@@ -36,6 +35,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@rkta/ui": "latest"
+    "@rkta/ui": "^0.0.15"
   }
 }
