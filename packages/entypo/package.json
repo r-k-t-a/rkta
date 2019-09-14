@@ -5,13 +5,9 @@
   "author": "Daniel Bruce, Sergei Droganov",
   "homepage": "https://github.com/r-k-t-a/rkta",
   "license": "CC BY-SA",
-  "main": "src/index.js",
   "directories": {
     "lib": "lib"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/r-k-t-a/rkta.git"
