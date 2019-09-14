@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 
 import Svg from '@rkta/ui/Svg';
 import { SvgProps } from '@rkta/ui/Svg/Svg.defs';
 import { defaultIconSize } from './constants';
 
-const Clapperboard = (props: SvgProps): ReactNode => (
+const Clapperboard = (props: SvgProps): ReactElement => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
     <path
       fillRule="evenodd"

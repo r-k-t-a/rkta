@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 
 import Svg from '@rkta/ui/Svg';
 import { SvgProps } from '@rkta/ui/Svg/Svg.defs';
 import { defaultIconSize } from './constants';
 
-const TriangleLeft = (props: SvgProps): ReactNode => (
+const TriangleLeft = (props: SvgProps): ReactElement => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
     <path d="M14,5v10l-9-5L14,5z" />
   </Svg>
