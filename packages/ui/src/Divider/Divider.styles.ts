@@ -1,4 +1,5 @@
 import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { DividerProps } from './Divider.defs';
 
 export function initialStyle(theme: ThemeInterface): CssRkta {
   return {
@@ -33,3 +34,8 @@ export const inset: CssRkta = {
 export const invisible: CssRkta = {
   visibility: 'hidden',
 };
+
+export const size = (theme: ThemeInterface, props: DividerProps): CssRkta => ({
+  marginBottom: props.size,
+  marginTop: props.size,
+});
