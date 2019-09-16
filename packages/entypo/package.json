@@ -25,12 +25,12 @@
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
   "peerDependencies": {
-    "react": "^16.9.0"
+    "@rkta/ui": "latest"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@rkta/ui": "latest"
+    "react": "^16.9.0"
   }
 }
