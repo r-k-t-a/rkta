@@ -31,6 +31,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@rkta/ui": "^0.0.17"
+    "@rkta/ui": "latest"
   }
 }
