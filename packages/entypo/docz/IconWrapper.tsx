@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import Atom from '@rkta/ui/Atom';
 import Text from '@rkta/ui/Text';
 import { CssEmotion } from '@rkta/ui/Provider/theme/theme.d';
 import { Props as SvgProps } from '@rkta/ui/Svg/Svg';
@@ -25,12 +24,12 @@ const testStyles = {
 const IconWrapper = ({ iconName, icons, width }: IconWrapperProps): ReactElement => {
   const Icon = icons[iconName];
   return (
-    <Atom css={{ ...containerStyles, width: width || 110 }}>
+    <div style={{ ...containerStyles, width: width || 110 }}>
       <Icon />
       <Text element="div" overline css={testStyles}>
         {iconName}
       </Text>
-    </Atom>
+    </div>
   );
 };
 
