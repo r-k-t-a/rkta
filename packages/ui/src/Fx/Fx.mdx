@@ -22,11 +22,11 @@ import { useFx } from '@rkta/ui';
 
 const FxComponent = () => {
   const onPopUp = () => console.log('pop up!');
-  const [fx, addEffect] = useFx(['popUp'], { onPopUp });
+  const [fx, setFx] = useFx('popUp', { onPopUp });
   return (
     <div {...fx}>
       Hi, I have FX.
-      <button onClick={() => addEffect('fadeDown')}>
+      <button onClick={() => setFx('fadeDown')}>
         Hide me
       </button>
     </div>
@@ -43,15 +43,14 @@ const FxComponent = () => {
         bgColor="text"
         color="paper"
         rize={1}
-        css={css}
-        onAnimationEnd={onAnimationEnd}
-        style={{
+        css={[css, {
           position: 'fixed',
-          bottom: 50,
+          bottom: 16,
           right: 16,
           width: 320,
           zIndex: 1000,
-        }}
+        }]}
+        onAnimationEnd={onAnimationEnd}
       >
         <ListTitle color="error" fitAll>
           <Addon main>Error!</Addon>
@@ -69,20 +68,20 @@ const FxComponent = () => {
 
     const [error, setError] = useState(false);
     const onFadeDown = () => setError(false);
-    const [popoverProps, addEffect] = useFx([], { onFadeDown });
+    const [popoverProps, setFx] = useFx([], { onFadeDown });
     return (
       <>
         <Button
           bgColor="primary"
           onClick={() => {
             if (!error) setError(true);
-            addEffect(error ? 'fadeDown' : 'popUp');
+            setFx(error ? 'fadeDown' : 'popUp');
           }}
         >
           Toggle FX
         </Button>
         {error && (
-          <Popover {...popoverProps} onClose={() => addEffect('fadeDown')}>
+          <Popover {...popoverProps} onClose={() => setFx('fadeDown')}>
             {error.message}
           </Popover>
         )}

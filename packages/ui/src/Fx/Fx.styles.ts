@@ -1,6 +1,10 @@
 import { keyframes } from '@emotion/core';
 import { CssRkta } from '../Provider/theme/theme.defs';
 
+export const initialStyle: CssRkta = {
+  visibility: 'hidden',
+};
+
 const PopUp = keyframes`
   from {
     opacity: 0;
@@ -17,10 +21,6 @@ export const popUp: CssRkta = {
 };
 
 const FadeDown = keyframes`
-  from {
-    opacity: 1;
-    transform: translateY(0px);
-  }
   to {
     opacity: 0;
     transform: translateY(160px);
