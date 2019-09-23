@@ -46,14 +46,14 @@ function applyStyles({
   const ownCss = Array.isArray(css) ? css : [css];
 
   const nextProps: NextProps = {};
-  const cssEmotion: (CssRkta[] | CssRkta)[] = [];
+  const cssEmotion: (CssEmotion[] | CssEmotion)[] = [];
   let keys = Object.keys(rest);
   let nextKeys = [];
 
   for (let index = 0; index < composition.length; index += 1) {
     const name = composition[index];
     const styles: RktaComponentStyles = theme[name] || {};
-    const currentCssEmotion: CssRkta[] = [thunk(styles.initialStyle)];
+    const currentCssEmotion: CssEmotion[] = [thunk(styles.initialStyle)];
 
     for (let i = 0; i < keys.length; i += 1) {
       const key = keys[i];

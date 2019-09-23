@@ -1,7 +1,7 @@
 import { keyframes } from '@emotion/core';
-import { CssRkta } from '../Provider/theme/theme.defs';
+import { CssEmotion } from '../Provider/theme/theme.defs';
 
-export const initialStyle: CssRkta = {
+export const initialStyle: CssEmotion = {
   visibility: 'hidden',
 };
 
@@ -15,7 +15,7 @@ const PopUp = keyframes`
     transform: translateY(0px);
   }
 `;
-export const popUp: CssRkta = {
+export const popUp: CssEmotion = {
   animation: `${PopUp} 0.64s ease`,
   willChange: 'opacity, transform',
 };
@@ -26,7 +26,7 @@ const FadeDown = keyframes`
     transform: translateY(160px);
   }
 `;
-export const fadeDown: CssRkta = {
+export const fadeDown: CssEmotion = {
   animation: `${FadeDown} 0.32s ease`,
   willChange: 'opacity, transform',
 };
