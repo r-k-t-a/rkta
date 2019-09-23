@@ -1,7 +1,7 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { CssEmotion, ThemeInterface } from '../Provider/theme/theme.defs';
 import { ButtonProps } from './Button.defs';
 
-export const initialStyle: CssRkta = {
+export const initialStyle: CssEmotion = {
   alignItems: 'center',
   border: '0px solid currentColor',
   boxSizing: 'border-box',
@@ -16,23 +16,23 @@ export const initialStyle: CssRkta = {
   },
 };
 
-export const blockLevel: CssRkta = {
+export const blockLevel: CssEmotion = {
   display: 'flex',
   width: '100%',
 };
 
-export const busy: CssRkta = {
+export const busy: CssEmotion = {
   fontSize: 0,
   '> *': {
     visibility: 'hidden',
   },
 };
 
-export const outline = (theme: ThemeInterface, props: ButtonProps): CssRkta => ({
+export const outline = (theme: ThemeInterface, props: ButtonProps): CssEmotion => ({
   borderWidth: props.outline || 1,
 });
 
-export const round = (theme: ThemeInterface, props: ButtonProps): CssRkta => {
+export const round = (theme: ThemeInterface, props: ButtonProps): CssEmotion => {
   const size = props.size || 48;
   return {
     borderRadius: size,
@@ -43,7 +43,7 @@ export const round = (theme: ThemeInterface, props: ButtonProps): CssRkta => {
   };
 };
 
-export const size = (theme: ThemeInterface, props: ButtonProps): CssRkta => ({
+export const size = (theme: ThemeInterface, props: ButtonProps): CssEmotion => ({
   flexDirection: 'column',
   height: props.size,
   minHeight: props.size,

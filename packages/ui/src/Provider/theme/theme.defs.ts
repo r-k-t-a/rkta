@@ -2,11 +2,11 @@ import React, { ElementType, ReactNode } from 'react';
 import { InterpolationWithTheme } from '@emotion/core';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type initialStyleFunction = (theme: ThemeInterface, props: any) => CssRkta;
+type CssGetter = (theme: ThemeInterface, props: any) => CssRkta;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CssEmotion = InterpolationWithTheme<any>;
-export type CssRkta = CssEmotion | initialStyleFunction;
+export type CssRkta = CssEmotion | CssGetter;
 
 export interface RktaThemed {
   css?: CssRkta;
@@ -20,7 +20,6 @@ export interface RktaElement extends RktaThemed {
 }
 
 export interface RktaComponentStyles {
-  initialStyle?: CssRkta;
   [key: string]: CssRkta;
   [key: number]: string;
 }

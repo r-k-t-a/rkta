@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import upperFirst from 'lodash/upperFirst';
+
 import useProviderContext from '../Provider/useProviderContext';
-import { CssRkta } from '../Provider/theme/theme.defs';
+import { CssRkta, CssEmotion } from '../Provider/theme/theme.defs';
 
 interface Handlers {
   onPopUp?: Function;
@@ -12,7 +13,7 @@ interface Handlers {
 }
 
 interface FX {
-  css: CssRkta;
+  css: CssEmotion;
   onAnimationEnd: Function;
 }
 
@@ -26,7 +27,7 @@ export default (initialFx: string, handlers: Handlers = {}): [FX, Function] => {
   } = useProviderContext();
   const [fx, setFx] = useState('initialStyle');
   const [isMounted, setIsMounted] = useState(false);
-  const css: CssRkta = Fx[fx];
+  const css: CssEmotion = Fx[fx] as CssEmotion;
   function emitBegin(transition: string): void {
     emitEvent(handlers[`on${upperFirst(transition)}Begin`]);
   }
