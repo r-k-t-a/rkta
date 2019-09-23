@@ -35,7 +35,7 @@ const Button: SFC<ButtonProps> = forwardRef(
         {!noRipple && <Ripple {...rippleProps} />}
         {rest.busy && (
           <SpinnerWrapper css={spinnerCss}>
-            <Spinner color={rest.color} {...spinnerProps} />
+            <Spinner {...spinnerProps} />
           </SpinnerWrapper>
         )}
       </Element>
@@ -45,7 +45,7 @@ const Button: SFC<ButtonProps> = forwardRef(
 
 Button.defaultProps = {
   busy: false,
-  color: 'text',
+  color: 'currentColor',
   tabIndex: 0,
 };
 

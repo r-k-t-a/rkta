@@ -22,7 +22,7 @@ export const blockLevel: CssRkta = {
 };
 
 export const busy: CssRkta = {
-  color: 'transparent',
+  fontSize: 0,
   '> *': {
     visibility: 'hidden',
   },

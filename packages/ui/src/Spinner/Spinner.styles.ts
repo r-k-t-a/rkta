@@ -17,7 +17,7 @@ const spin = keyframes`
 
 export const initialStyle: CssRkta = {
   animation: `${spin} 1.6s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
-  borderColor: 'inherit',
+  borderColor: 'currentColor',
   borderLeftColor: 'transparent !important',
   borderRightColor: 'transparent !important',
   borderStyle: 'solid',

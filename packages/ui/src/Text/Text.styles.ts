@@ -2,7 +2,7 @@ import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
 import { TextProps } from './Text.defs';
 
 export const color = (theme: ThemeInterface, props: TextProps): CssRkta => ({
-  color: props.color ? theme.color[props.color] || props.color : 'inherit',
+  color: props.color ? theme.color[props.color] || props.color : 'currentColor',
 });
 
 export const sans: CssRkta = {
