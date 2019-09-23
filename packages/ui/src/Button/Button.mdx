@@ -6,6 +6,7 @@ name: Button
 import { Playground, Props } from 'docz';
 import Addon from '../Addon';
 import Button from './Button';
+import Paper from '../Paper';
 import Wallet from '../../../entypo/src/Wallet';
 import Trash from '../../../entypo/src/Trash';
 
@@ -62,7 +63,10 @@ Button component
 ### Round buttons
 
 <Playground>
-  <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
+  <Paper
+    color="text"
+    css={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between', padding: 8 }}
+  >
     <Button bgColor="color1" round>
       round
     </Button>
@@ -73,22 +77,23 @@ Button component
       <Wallet />
       <span>0</span>
     </Button>
-  </div>
+  </Paper>
 </Playground>
 
 ### Square buttons
 
 <Playground>
-  <div
-    style={{
+  <Paper
+    bgColor="text"
+    color="color2"
+    css={{
       alignItems: 'center',
-      backgroundColor: '#444',
       display: 'flex',
       justifyContent: 'space-between',
       padding: 16,
     }}
   >
-    <Button color="color2" size={72} transparent outline={2}>
+    <Button size={72} transparent outline={2}>
       <Wallet />
       <span>0</span>
     </Button>
@@ -96,7 +101,7 @@ Button component
       <Wallet />
       <span>1m</span>
     </Button>
-  </div>
+  </Paper>
 </Playground>
 
 ### Joints
