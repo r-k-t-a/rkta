@@ -15,30 +15,28 @@ function emitEvent(emit: Function | undefined): void {
   if (typeof emit === 'function') emit();
 }
 
-export default (initialQueue: string[] = [], handlers: Handlers = {}): ({} | Function)[] => {
-  const [queue, setQueue] = useState(initialQueue);
-  const [isMounted, setIsMounted] = useState(false);
+export default (initialFx: string, handlers: Handlers = {}): ({} | Function)[] => {
   const {
     theme: { Fx },
   } = useProviderContext();
-  const [activeTransition, ...restTransitions] = queue;
-  const css: CssRkta = activeTransition ? Fx[activeTransition] : [];
-  const addEffect = (effect: string): void => {
-    setQueue([...queue, effect]);
-  };
+  const [fx, setFx] = useState('initialStyle');
+  const [isMounted, setIsMounted] = useState(false);
+  const css: CssRkta = Fx[fx];
   function emitBegin(transition: string): void {
     emitEvent(handlers[`on${upperFirst(transition)}Begin`]);
   }
+  function setEffect(effect: string): void {
+    setFx(effect);
+    emitBegin(effect);
+  }
   const onAnimationEnd = (): void => {
-    const [nextTransition] = restTransitions;
-    setQueue(restTransitions);
-    emitEvent(handlers[`on${upperFirst(activeTransition)}`]);
-    emitBegin(nextTransition);
+    emitEvent(handlers[`on${upperFirst(fx)}`]);
   };
   useEffect((): void => {
     if (isMounted) return;
     setIsMounted(true);
-    emitBegin(activeTransition);
+    emitBegin(fx);
+    setFx(initialFx);
   });
-  return [{ css, onAnimationEnd }, addEffect];
+  return [{ css, onAnimationEnd }, setEffect];
 };
