@@ -11,11 +11,16 @@ interface Handlers {
   [key: string]: Function | undefined;
 }
 
+interface FX {
+  css: CssRkta;
+  onAnimationEnd: Function;
+}
+
 function emitEvent(emit: Function | undefined): void {
   if (typeof emit === 'function') emit();
 }
 
-export default (initialFx: string, handlers: Handlers = {}): ({} | Function)[] => {
+export default (initialFx: string, handlers: Handlers = {}): [FX, Function] => {
   const {
     theme: { Fx },
   } = useProviderContext();
