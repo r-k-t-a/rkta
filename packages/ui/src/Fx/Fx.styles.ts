@@ -27,6 +27,6 @@ const FadeDown = keyframes`
   }
 `;
 export const fadeDown: CssEmotion = {
-  animation: `${FadeDown} 0.32s ease`,
+  animation: `${FadeDown} 0.32s ease forwards`,
   willChange: 'opacity, transform',
 };

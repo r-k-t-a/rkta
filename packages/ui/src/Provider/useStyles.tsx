@@ -8,7 +8,7 @@ import {
   CssRkta,
   RktaComponentStyles,
   RktaThemed,
-  ThemeInterface,
+  RktaTheme,
 } from './theme/theme.defs';
 
 import { ElementResolverFunction, ElementResolverProps } from './getElement';
@@ -29,7 +29,7 @@ interface ApplyStylesArgType {
   getElement: ElementResolverFunction;
   memo?: boolean;
   props: RktaThemed & ElementResolverProps & { element?: ElementType };
-  theme: ThemeInterface;
+  theme: RktaTheme;
 }
 
 function applyStyles({

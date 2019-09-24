@@ -1,4 +1,4 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 
 export const initialStyle: CssRkta = {
   fill: 'currentColor',
@@ -9,11 +9,11 @@ export const block: CssRkta = {
   display: 'block',
 };
 
-export const color = (theme: ThemeInterface, props: { color: string }): CssRkta => ({
+export const color = (theme: RktaTheme, props: { color: string }): CssRkta => ({
   fill: theme.color[props.color] || props.color,
 });
 
-export const size = (theme: ThemeInterface, props: { size: number }): CssRkta => {
+export const size = (theme: RktaTheme, props: { size: number }): CssRkta => {
   const { size: sizeValue } = props;
   return {
     height: sizeValue,

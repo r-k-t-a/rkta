@@ -4,20 +4,20 @@ import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
 import defaultTheme from './theme/defaultTheme';
-import { ThemeInterface } from './theme/theme.defs';
+import { RktaTheme } from './theme/theme.defs';
 import Context from './Context';
 import { getElement, ElementResolverFunction } from './getElement';
 import useStyles, { NextPropsAndElementType, useStylesFunctionType } from './useStyles';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
-  theme?: ThemeInterface;
+  theme?: RktaTheme;
   /** Replace default element resolver */
   getElement: ElementResolverFunction;
 }
 
 interface ProviderState {
-  theme: ThemeInterface;
+  theme: RktaTheme;
 }
 
 const getThemeTs = (): object => ({ ts: Date.now() });
@@ -38,7 +38,7 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
   private [USE_STYLES]: useStylesFunctionType = (props, ...composition): NextPropsAndElementType =>
     useStyles({ composition, getElement: this.props.getElement, theme: this.state.theme, props });
 
-  private [REPLACE_THEME] = (nextTheme: ThemeInterface): void => {
+  private [REPLACE_THEME] = (nextTheme: RktaTheme): void => {
     this.setState({ theme: merge(defaultTheme, nextTheme, getThemeTs()) });
   };
 

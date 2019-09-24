@@ -1,7 +1,7 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 import { DividerProps } from './Divider.defs';
 
-export function initialStyle(theme: ThemeInterface): CssRkta {
+export function initialStyle(theme: RktaTheme): CssRkta {
   return {
     border: '0',
     height: '0',
@@ -35,7 +35,7 @@ export const invisible: CssRkta = {
   visibility: 'hidden',
 };
 
-export const size = (theme: ThemeInterface, props: DividerProps): CssRkta => ({
+export const size = (theme: RktaTheme, props: DividerProps): CssRkta => ({
   marginBottom: props.size,
   marginTop: props.size,
 });

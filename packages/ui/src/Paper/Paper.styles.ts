@@ -1,13 +1,13 @@
 import invariant from '../util/invariant';
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 
-export const initialStyle = (theme: ThemeInterface): CssRkta => ({
+export const initialStyle = (theme: RktaTheme): CssRkta => ({
   borderRadius: '3px',
   boxSizing: 'border-box',
   backgroundColor: theme.color.paper,
 });
 
-export const bgColor = (theme: ThemeInterface, props: { bgColor: string }): CssRkta => ({
+export const bgColor = (theme: RktaTheme, props: { bgColor: string }): CssRkta => ({
   backgroundColor: theme.color[props.bgColor] || props.bgColor,
 });
 
@@ -53,7 +53,7 @@ export const relative: CssRkta = {
   position: 'relative',
 };
 
-export const rize = (theme: ThemeInterface, props: { rize: number }): CssRkta => {
+export const rize = (theme: RktaTheme, props: { rize: number }): CssRkta => {
   const { rize: rizeBy } = props;
   invariant(rizeBy in theme.shadow, `Key "${rizeBy}" does not exist in "theme.shadow".`);
   return { boxShadow: theme.shadow[rizeBy] };
@@ -67,7 +67,7 @@ export const rounded: CssRkta = {
   borderRadius: '9999vw',
 };
 
-export const size = (theme: ThemeInterface, props: { size: number }): CssRkta => ({
+export const size = (theme: RktaTheme, props: { size: number }): CssRkta => ({
   width: props.size,
   height: props.size,
 });

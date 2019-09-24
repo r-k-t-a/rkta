@@ -1,4 +1,4 @@
-import { CssEmotion, ThemeInterface } from '../Provider/theme/theme.defs';
+import { CssEmotion, RktaTheme } from '../Provider/theme/theme.defs';
 import { ButtonProps } from './Button.defs';
 
 export const initialStyle: CssEmotion = {
@@ -28,11 +28,11 @@ export const busy: CssEmotion = {
   },
 };
 
-export const outline = (theme: ThemeInterface, props: ButtonProps): CssEmotion => ({
+export const outline = (theme: RktaTheme, props: ButtonProps): CssEmotion => ({
   borderWidth: props.outline || 1,
 });
 
-export const round = (theme: ThemeInterface, props: ButtonProps): CssEmotion => {
+export const round = (theme: RktaTheme, props: ButtonProps): CssEmotion => {
   const size = props.size || 48;
   return {
     borderRadius: size,
@@ -43,7 +43,7 @@ export const round = (theme: ThemeInterface, props: ButtonProps): CssEmotion => 
   };
 };
 
-export const size = (theme: ThemeInterface, props: ButtonProps): CssEmotion => ({
+export const size = (theme: RktaTheme, props: ButtonProps): CssEmotion => ({
   flexDirection: 'column',
   height: props.size,
   minHeight: props.size,

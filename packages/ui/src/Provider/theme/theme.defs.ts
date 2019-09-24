@@ -2,7 +2,7 @@ import React, { ElementType, ReactNode } from 'react';
 import { InterpolationWithTheme } from '@emotion/core';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type CssGetter = (theme: ThemeInterface, props: any) => CssRkta;
+type CssGetter = (theme: RktaTheme, props: any) => CssRkta;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CssEmotion = InterpolationWithTheme<any>;
@@ -28,7 +28,7 @@ export interface BreakpointType {
   [key: string]: number;
 }
 
-export interface ThemeInterface {
+export interface RktaTheme {
   color: {
     [key: string]: string;
   };

@@ -1,4 +1,4 @@
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 
 export const initialStyle: CssRkta = {
   display: 'block',
@@ -36,12 +36,12 @@ export const normal: CssRkta = {
   minHeight: 48,
 };
 
-export const paddingX = (theme: ThemeInterface, props: { paddingX: number }): CssRkta => ({
+export const paddingX = (theme: RktaTheme, props: { paddingX: number }): CssRkta => ({
   paddingLeft: props.paddingX,
   paddingRight: props.paddingX,
 });
 
-export const paddingY = (theme: ThemeInterface, props: { paddingY: number }): CssRkta => ({
+export const paddingY = (theme: RktaTheme, props: { paddingY: number }): CssRkta => ({
   paddingTop: props.paddingY,
   paddingBottom: props.paddingY,
 });

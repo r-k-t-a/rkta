@@ -68,7 +68,7 @@ const FxComponent = () => {
 
     const [error, setError] = useState(false);
     const onFadeDown = () => setError(false);
-    const [popoverProps, setFx] = useFx([], { onFadeDown });
+    const [popoverProps, setFx] = useFx('popUp', { onFadeDown });
     return (
       <>
         <Button

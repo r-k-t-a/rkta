@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/core';
-import { CssRkta, ThemeInterface } from '../Provider/theme/theme.defs';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 
 const spin = keyframes`
   0% {
@@ -28,16 +28,16 @@ export const initialStyle: CssRkta = {
 };
 
 export const borderWidth = (
-  theme: ThemeInterface,
+  theme: RktaTheme,
   props: { borderWidth?: number | string },
 ): CssRkta => ({
   borderWidth: props.borderWidth,
 });
-export const size = (theme: ThemeInterface, props: { size?: number | string }): CssRkta => ({
+export const size = (theme: RktaTheme, props: { size?: number | string }): CssRkta => ({
   height: props.size,
   width: props.size,
 });
 
-export const color = (theme: ThemeInterface, props: { color?: string }): CssRkta => ({
+export const color = (theme: RktaTheme, props: { color?: string }): CssRkta => ({
   borderColor: props.color ? theme.color[props.color] || props.color : 'inherit',
 });
