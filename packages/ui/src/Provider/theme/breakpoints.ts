@@ -1,6 +1,6 @@
-import { BreakpointType } from './theme.defs';
+import { Breakpoint } from './theme.defs';
 
-const list: BreakpointType[] = [
+const list: Breakpoint[] = [
   { phone: 0 },
   { tablet: 600 },
   { laptop: 960 },
