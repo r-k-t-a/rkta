@@ -32,11 +32,15 @@ export const busy: CssEmotion = {
   },
 };
 
-export const color = (theme: RktaTheme, props: ButtonProps): CssRkta => ({
-  '&:active, &:hover, &:visited': {
-    color: props.color ? theme.color[props.color] || props.color : 'currentColor',
-  },
-});
+export const color = (theme: RktaTheme, props: ButtonProps): CssRkta => {
+  const cssColor = props.color ? theme.color[props.color] || props.color : 'currentColor';
+  return {
+    color: cssColor,
+    '&:active, &:hover, &:visited': {
+      color: cssColor,
+    },
+  };
+};
 
 export const outline = (theme: RktaTheme, props: ButtonProps): CssEmotion => ({
   borderWidth: props.outline || 1,
