@@ -1,4 +1,4 @@
-import { CssEmotion, RktaTheme } from '../Provider/theme/theme.defs';
+import { CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 import { ButtonProps } from './Button.defs';
 
 export const initialStyle: CssEmotion = {
@@ -12,6 +12,9 @@ export const initialStyle: CssEmotion = {
   position: 'relative',
   userSelect: 'none',
   WebkitTapHighlightColor: 'transparent',
+  '&:active, &:hover, &:visited': {
+    color: 'currentColor',
+  },
   '> *': {
     pointerEvents: 'none',
   },
@@ -28,6 +31,12 @@ export const busy: CssEmotion = {
     visibility: 'hidden',
   },
 };
+
+export const color = (theme: RktaTheme, props: ButtonProps): CssRkta => ({
+  '&:active, &:hover, &:visited': {
+    color: props.color ? theme.color[props.color] || props.color : 'currentColor',
+  },
+});
 
 export const outline = (theme: RktaTheme, props: ButtonProps): CssEmotion => ({
   borderWidth: props.outline || 1,
