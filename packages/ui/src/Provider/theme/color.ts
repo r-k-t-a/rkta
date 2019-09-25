@@ -14,6 +14,10 @@ export default {
   paper2: '#EEEEEE',
   paper3: '#E0E0E0',
 
+  link: '#1516AD',
+  linkHover: '#5051FA',
+  linkVisited: '#AD2F99',
+
   error: '#FF1A36',
   success: '#91CE79',
   warning: '#F36F1B',

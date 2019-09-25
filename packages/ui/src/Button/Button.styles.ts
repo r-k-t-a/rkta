@@ -11,6 +11,7 @@ export const initialStyle: CssEmotion = {
   outline: 'none',
   position: 'relative',
   userSelect: 'none',
+  WebkitTapHighlightColor: 'transparent',
   '> *': {
     pointerEvents: 'none',
   },
