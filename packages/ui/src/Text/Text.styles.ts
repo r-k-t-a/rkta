@@ -1,8 +1,7 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
-import { TextProps } from './Text.defs';
+import { Color, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 
-export const color = (theme: RktaTheme, props: TextProps): CssRkta => ({
-  color: props.color ? theme.color[props.color] || props.color : 'currentColor',
+export const color = (theme: RktaTheme, props: { color: Color }): CssRkta => ({
+  color: theme.color[props.color] || props.color,
 });
 
 export const sans: CssRkta = {

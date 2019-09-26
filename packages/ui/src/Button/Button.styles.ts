@@ -1,4 +1,4 @@
-import { CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
+import { Color, CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 import { ButtonProps } from './Button.defs';
 
 export const initialStyle: CssEmotion = {
@@ -32,8 +32,8 @@ export const busy: CssEmotion = {
   },
 };
 
-export const color = (theme: RktaTheme, props: ButtonProps): CssRkta => {
-  const cssColor = props.color ? theme.color[props.color] || props.color : 'currentColor';
+export const color = (theme: RktaTheme, props: { color: Color }): CssRkta => {
+  const cssColor = theme.color[props.color] || props.color;
   return {
     color: cssColor,
     '&:active, &:hover, &:visited': {
