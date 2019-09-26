@@ -6,6 +6,7 @@ name: Divider
 import { Playground, Props } from 'docz';
 import Divider from './Divider';
 import Paper from '../Paper';
+import { List, ListItem } from '../List';
 
 # Divider
 
@@ -17,10 +18,16 @@ Divider is a horizontal rule (line) which usually separates content blocks
   <Paper bgColor="primary" style={{ padding: 8 }}>
     Before divider
   </Paper>
-  <Divider size="16px" />
+  <Divider verticalSpace="16px" />
   <Paper bgColor="primary" style={{ padding: 8 }}>
     After divider
   </Paper>
+  <Divider invisible />
+  <List bgColor="color5">
+    <ListItem>Give some ventilation</ListItem>
+    <Divider horizontalSpace="16px" />
+    <ListItem>To air inside the box</ListItem>
+  </List>
 </Playground>
 
 ## Props
