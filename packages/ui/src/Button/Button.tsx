@@ -47,6 +47,7 @@ Button.defaultProps = {
   busy: false,
   color: 'currentColor',
   tabIndex: 0,
+  type: 'button',
 };
 
 export default Button;
