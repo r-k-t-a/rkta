@@ -54,7 +54,7 @@ export const relative: CssRkta = {
 };
 
 export const rize = (theme: RktaTheme, props: { rize: number }): CssRkta => {
-  const { rize: rizeBy } = props;
+  const rizeBy = props.rize.toString();
   invariant(rizeBy in theme.shadow, `Key "${rizeBy}" does not exist in "theme.shadow".`);
   return { boxShadow: theme.shadow[rizeBy] };
 };

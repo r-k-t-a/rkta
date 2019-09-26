@@ -21,8 +21,8 @@ import { RktaTheme } from './theme.defs';
 
 const defaultTheme: RktaTheme = {
   color,
-  shadow,
   media: createMediaQueries(breakpoints),
+  shadow,
   Addon,
   Bage,
   Button,
