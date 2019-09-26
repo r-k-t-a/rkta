@@ -13,6 +13,8 @@ export interface DividerProps extends RktaElement {
   inset?: boolean;
   /** Hide and keep the spase */
   invisible?: boolean;
-  /** Set divider margins */
-  size?: number | string;
+  /** Set divider horizontal margins */
+  horizontalSpace?: number | string;
+  /** Set divider vertical margins */
+  verticalSpace?: number | string;
 }

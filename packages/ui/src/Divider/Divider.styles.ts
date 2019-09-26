@@ -35,7 +35,12 @@ export const invisible: CssRkta = {
   visibility: 'hidden',
 };
 
-export const size = (theme: RktaTheme, props: DividerProps): CssRkta => ({
-  marginBottom: props.size,
-  marginTop: props.size,
+export const horizontalSpace = (theme: RktaTheme, props: DividerProps): CssRkta => ({
+  marginLeft: props.horizontalSpace,
+  marginRight: props.horizontalSpace,
+});
+
+export const verticalSpace = (theme: RktaTheme, props: DividerProps): CssRkta => ({
+  marginBottom: props.verticalSpace,
+  marginTop: props.verticalSpace,
 });
