@@ -1,4 +1,4 @@
-import { RktaComponentStyles } from './theme.defs';
+import { Shadows } from './theme.defs';
 
 const shadowKeyUmbraOpacity = 0.2;
 const shadowKeyPenumbraOpacity = 0.14;
@@ -12,11 +12,12 @@ function createShadow(px: number[]): string {
   ].join(',');
 }
 
-function reduceShadows(acc: RktaComponentStyles, px: number[], key: number): RktaComponentStyles {
-  return { ...acc, [key]: createShadow(px) };
+function reduceShadows(acc: Shadows, px: number[], key: number): Shadows {
+  const keystring = (key + 1).toString();
+  return { ...acc, [keystring]: createShadow(px) } as Shadows;
 }
 
-const variants: RktaComponentStyles = [
+const variants = [
   [0, 1, 3, 0, 0, 1, 1, 0, 0, 2, 1, -1],
   [0, 1, 5, 0, 0, 2, 2, 0, 0, 3, 1, -2],
   [0, 1, 8, 0, 0, 3, 4, 0, 0, 3, 3, -2],
@@ -41,6 +42,6 @@ const variants: RktaComponentStyles = [
   [0, 10, 14, -6, 0, 22, 35, 3, 0, 8, 42, 7],
   [0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8],
   [0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8],
-].reduce(reduceShadows, {});
+].reduce(reduceShadows, {} as Shadows);
 
 export default variants;
