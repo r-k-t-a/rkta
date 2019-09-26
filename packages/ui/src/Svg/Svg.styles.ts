@@ -1,4 +1,4 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
+import { Color, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 
 export const initialStyle: CssRkta = {
   fill: 'currentColor',
@@ -9,7 +9,7 @@ export const block: CssRkta = {
   display: 'block',
 };
 
-export const color = (theme: RktaTheme, props: { color: string }): CssRkta => ({
+export const color = (theme: RktaTheme, props: { color: Color }): CssRkta => ({
   fill: theme.color[props.color] || props.color,
 });
 

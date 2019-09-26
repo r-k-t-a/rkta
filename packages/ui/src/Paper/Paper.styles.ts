@@ -1,5 +1,5 @@
 import invariant from '../util/invariant';
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
+import { Color, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
 
 export const initialStyle = (theme: RktaTheme): CssRkta => ({
   borderRadius: '3px',
@@ -7,7 +7,7 @@ export const initialStyle = (theme: RktaTheme): CssRkta => ({
   backgroundColor: theme.color.paper,
 });
 
-export const bgColor = (theme: RktaTheme, props: { bgColor: string }): CssRkta => ({
+export const bgColor = (theme: RktaTheme, props: { bgColor: Color }): CssRkta => ({
   backgroundColor: theme.color[props.bgColor] || props.bgColor,
 });
 
