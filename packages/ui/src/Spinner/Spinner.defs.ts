@@ -1,7 +1,7 @@
-import { RktaElement } from '../Provider/theme/theme.defs';
+import { Color, RktaElement } from '../Provider/theme/theme.defs';
 
 export interface SpinnerProps extends RktaElement {
   borderWidth?: number | string;
-  color?: string;
+  color?: Color;
   size?: number | string;
 }
