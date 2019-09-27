@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { forwardRef, SFC, ReactElement } from 'react';
+import { forwardRef, SFC } from 'react';
 import { jsx } from '@emotion/core';
 
 import Spinner from '../Spinner';
@@ -23,7 +23,7 @@ const Button: SFC<ButtonProps> = forwardRef(
       ...rest
     }: ButtonProps,
     ref,
-  ): ReactElement => {
+  ): JSX.Element => {
     const { applyStyles, getElement } = useProviderContext();
     const [nextProps, Element] = applyStyles({ ...injectedProps, ...rest }, ...composition);
     const [rippleProps, buttonProps] = useRipple(nextProps);
