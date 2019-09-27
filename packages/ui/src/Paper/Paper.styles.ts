@@ -49,6 +49,9 @@ export const hardRight: CssEmotion = {
 export const outline = (theme: RktaTheme, props: { outline: number }): CssEmotion => ({
   borderWidth: props.outline,
 });
+export const outlineColor = (theme: RktaTheme, props: { outlineColor: string }): CssEmotion => ({
+  borderColor: theme.color[props.outlineColor] || props.outlineColor,
+});
 
 export const readOnly: CssEmotion = {
   pointerEvents: 'none',
