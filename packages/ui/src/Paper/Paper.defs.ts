@@ -9,6 +9,7 @@ export interface PaperOwnProps {
   hardTop?: boolean;
   hardRight?: boolean;
   outline?: number | string;
+  outlineColor?: string;
   readOnly?: boolean;
   relative?: boolean;
   rize?: number;
