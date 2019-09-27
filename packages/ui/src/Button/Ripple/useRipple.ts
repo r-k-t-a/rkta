@@ -9,6 +9,7 @@ import {
 } from 'react';
 
 import { AddWaveInput, RippleProps, UseRippliState, WaveInterface } from './Ripple.defs';
+import reEmit from '../../util/reEmit';
 
 const initialState: UseRippliState = {
   focus: false,
@@ -18,10 +19,6 @@ const initialState: UseRippliState = {
   waves: [],
   touch: false,
 };
-
-function fire(event: {}, handle?: Function): void {
-  if (typeof handle === 'function') handle(event);
-}
 
 const releaseWave = (wave: WaveInterface): WaveInterface => ({ ...wave, released: true });
 function releaseWaves(state: UseRippliState, patchState: Function): void {
@@ -70,15 +67,15 @@ export default ({
   const buttonProps = {
     onBlur: (event: FocusEvent): void => {
       releaseWaves({ ...state, focus: false, mouseover: false }, patchState);
-      fire(event, onBlur);
+      reEmit(event, onBlur);
     },
     onClick: (event: MouseEvent<HTMLElement>): void => {
       releaseWaves(state, patchState);
-      fire(event, onClick);
+      reEmit(event, onClick);
     },
     onContextMenu: (event: TouchEvent): void => {
       releaseWaves(state, patchState);
-      fire(event, onContextMenu);
+      reEmit(event, onContextMenu);
     },
     onFocus: (event: FocusEvent): void => {
       if (!state.focus) {
@@ -92,15 +89,15 @@ export default ({
           patchState,
         );
       }
-      fire(event, onFocus);
+      reEmit(event, onFocus);
     },
     onMouseOver: (event: MouseEvent): void => {
       patchState({ mouseover: true, overlayIsVisible: !state.touch });
-      fire(event, onMouseOver);
+      reEmit(event, onMouseOver);
     },
     onMouseOut: (event: MouseEvent): void => {
       patchState({ mouseover: false });
-      fire(event, onMouseOut);
+      reEmit(event, onMouseOut);
     },
     onPointerDown: (event: PointerEvent): void => {
       const { clientY, clientX } = event;
@@ -109,11 +106,11 @@ export default ({
       const pointX = clientX - left;
       const pointY = clientY - top;
       addWave({ pointX, pointY, width, height }, { ...state, focus: true }, patchState);
-      fire(event, onPointerDown);
+      reEmit(event, onPointerDown);
     },
     onTouchStart: (event: TouchEvent): void => {
       patchState({ touch: true });
-      fire(event, onTouchStart);
+      reEmit(event, onTouchStart);
     },
   };
   function onOverlayAnimationEnd(): void {

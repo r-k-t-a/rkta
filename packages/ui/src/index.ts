@@ -3,6 +3,7 @@ export { default as Bage } from './Bage';
 export { default as Button } from './Button';
 export { default as Divider } from './Divider';
 export { default as Heading } from './Heading';
+export { default as Input } from './Input';
 export * from './List';
 export { default as Media, matchMedia, useMedia } from './Media';
 export { useFx } from './Fx';

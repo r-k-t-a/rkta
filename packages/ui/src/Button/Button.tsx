@@ -11,6 +11,8 @@ import { spinnerCss } from './Button.styles';
 import Ripple from './Ripple';
 import useRipple from './Ripple/useRipple';
 
+const injectedProps = { element: 'button', normal: true, button: true };
+
 const Button: SFC<ButtonProps> = forwardRef(
   (
     {
@@ -23,10 +25,7 @@ const Button: SFC<ButtonProps> = forwardRef(
     ref,
   ): ReactElement => {
     const { applyStyles, getElement } = useProviderContext();
-    const [nextProps, Element] = applyStyles(
-      { element: 'button', normal: true, button: true, ...rest },
-      ...composition,
-    );
+    const [nextProps, Element] = applyStyles({ ...injectedProps, ...rest }, ...composition);
     const [rippleProps, buttonProps] = useRipple(nextProps);
     const SpinnerWrapper = getElement('span', {});
     return (

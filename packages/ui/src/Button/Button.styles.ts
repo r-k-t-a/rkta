@@ -3,7 +3,6 @@ import { ButtonProps } from './Button.defs';
 
 export const initialStyle: CssEmotion = {
   alignItems: 'center',
-  border: '0px solid currentColor',
   boxSizing: 'border-box',
   cursor: 'pointer',
   justifyContent: 'center',
@@ -41,10 +40,6 @@ export const color = (theme: RktaTheme, props: { color: Color }): CssRkta => {
     },
   };
 };
-
-export const outline = (theme: RktaTheme, props: ButtonProps): CssEmotion => ({
-  borderWidth: props.outline || 1,
-});
 
 export const round = (theme: RktaTheme, props: ButtonProps): CssEmotion => {
   const size = props.size || 48;

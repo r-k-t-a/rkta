@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { PaperProps } from '../Paper/Paper.defs';
+import { Paper } from '../Paper/Paper.defs';
 
-export interface BageProps extends PaperProps {
+export interface BageProps extends Paper {
   children: ReactNode;
   /** Reset Margins */
   fitAll?: boolean;

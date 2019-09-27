@@ -1,6 +1,6 @@
 import { TextProps } from '../Text/Text.defs';
 
-export interface AddonProps extends TextProps {
+export interface AddonOwnProps {
   big?: boolean;
   /** Reset Paddings */
   fitAll?: boolean;
@@ -17,3 +17,5 @@ export interface AddonProps extends TextProps {
   small?: boolean;
   tiny?: boolean;
 }
+
+export interface Addon extends AddonOwnProps, TextProps {}
