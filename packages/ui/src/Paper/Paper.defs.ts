@@ -1,7 +1,8 @@
 import { TextProps } from '../Text/Text.defs';
+import { Color } from '../Provider/theme/theme.defs';
 
 export interface PaperOwnProps {
-  bgColor?: string;
+  bgColor?: Color;
   clip?: boolean;
   disabled?: boolean;
   hardBottom?: boolean;
@@ -9,7 +10,7 @@ export interface PaperOwnProps {
   hardTop?: boolean;
   hardRight?: boolean;
   outline?: number | string;
-  outlineColor?: string;
+  outlineColor?: Color;
   readOnly?: boolean;
   relative?: boolean;
   rize?: number;
