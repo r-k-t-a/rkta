@@ -1,6 +1,6 @@
 import { TextProps } from '../Text/Text.defs';
 
-export interface PaperProps extends TextProps {
+export interface PaperOwnProps {
   bgColor?: string;
   clip?: boolean;
   disabled?: boolean;
@@ -8,6 +8,7 @@ export interface PaperProps extends TextProps {
   hardLeft?: boolean;
   hardTop?: boolean;
   hardRight?: boolean;
+  outline?: number | string;
   readOnly?: boolean;
   relative?: boolean;
   rize?: number;
@@ -16,3 +17,5 @@ export interface PaperProps extends TextProps {
   size?: number | string;
   transparent?: boolean;
 }
+
+export interface Paper extends PaperOwnProps, TextProps {}

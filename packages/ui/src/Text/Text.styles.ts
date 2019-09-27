@@ -51,7 +51,7 @@ export const nowrap: CssRkta = {
   overflow: 'hidden',
 };
 
-export const wrap: CssRkta = {
+export const wrapLongLines: CssRkta = {
   overflowWrap: 'break-word',
   wordWrap: 'break-word',
 };

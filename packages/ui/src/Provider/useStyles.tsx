@@ -60,7 +60,8 @@ function applyStyles({
       const value = rest[key];
       if (key in styles) {
         delete nextProps[key];
-        if (value !== false) currentCssEmotion.push(thunk(styles[key]));
+        if (value !== false && typeof value !== 'undefined')
+          currentCssEmotion.push(thunk(styles[key]));
       } else {
         nextProps[key] = value;
         nextKeys.push(key);

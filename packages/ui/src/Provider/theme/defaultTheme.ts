@@ -8,6 +8,8 @@ import * as Bage from '../../Bage/Bage.styles';
 import * as Button from '../../Button/Button.styles';
 import * as Divider from '../../Divider/Divider.styles';
 import * as Fx from '../../Fx/Fx.styles';
+import * as Input from '../../Input/Input.styles';
+import * as InputBase from '../../Input/InputBase/InputBase.styles';
 import * as List from '../../List/List.styles';
 import * as ListItem from '../../List/ListItem/ListItem.styles';
 import * as ListText from '../../List/ListText/ListText.styles';
@@ -28,6 +30,8 @@ const defaultTheme: RktaTheme = {
   Button,
   Divider,
   Fx,
+  Input,
+  InputBase,
   List,
   ListItem,
   ListText,
