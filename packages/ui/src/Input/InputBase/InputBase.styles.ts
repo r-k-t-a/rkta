@@ -4,7 +4,6 @@ import { CssEmotion } from '../../Provider/theme/theme.defs';
 export const initialStyle: CssEmotion = css`
   display: flex;
   justify-content: center;
-  flex: 1;
   flex-direction: column;
   transition: justify-content 0.24s ease;
   will-change: justify-content;
