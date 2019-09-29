@@ -10,7 +10,9 @@ export const initialStyle: CssEmotion = css`
   span {
     align-self: flex-start;
     line-height: 12px;
+    pointer-events: none;
     transition: font 0.24s ease;
+    user-select: none;
     will-change: font;
   }
   input {
@@ -18,12 +20,14 @@ export const initialStyle: CssEmotion = css`
     border: none;
     display: block;
     font: inherit;
-    height: 1px;
-    outline: none;
+    height: 20px;
     margin: 0;
+    margin-top: -20px;
+    outline: none;
     padding: 0;
-    transition: height 0.24s ease;
-    will-change: height;
+    transition: margin 0.24s ease, transform 0.24s ease;
+    transform: translateY(40%);
+    will-change: margin, transform;
   }
 `;
 
@@ -31,8 +35,10 @@ export const active: CssEmotion = css`
   justify-content: space-evenly;
   span {
     font-size: 10px;
+    margin-bottom: 0;
   }
   input {
-    height: 20px;
+    margin-top: 0;
+    transform: translateY(0px);
   }
 `;
