@@ -18,7 +18,7 @@ export const initialStyle: CssEmotion = css`
     border: none;
     display: block;
     font: inherit;
-    height: 0;
+    height: 1px;
     outline: none;
     margin: 0;
     padding: 0;
