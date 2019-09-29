@@ -4,12 +4,12 @@ import { CssEmotion } from '../../Provider/theme/theme.defs';
 export const initialStyle: CssEmotion = css`
   display: flex;
   justify-content: center;
+  flex: 1;
   flex-direction: column;
   transition: justify-content 0.24s ease;
   will-change: justify-content;
   span {
     align-self: flex-start;
-    flex: 1;
     line-height: 12px;
     transition: font 0.24s ease;
     will-change: font;
