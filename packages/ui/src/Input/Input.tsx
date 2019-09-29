@@ -51,7 +51,6 @@ const Input = ({
         {...inputProps}
         active={active}
         caption={caption}
-        hasFocus={hasFocus}
         onBlur={handleBlur}
         onChange={handleChange}
         onFocus={handleFocus}
