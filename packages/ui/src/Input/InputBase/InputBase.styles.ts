@@ -28,6 +28,7 @@ export const initialStyle: CssEmotion = css`
     transition: margin 0.24s ease, transform 0.24s ease;
     transform: translateY(40%);
     will-change: margin, transform;
+    -webkit-tap-highlight-color: transparent;
   }
 `;
 
