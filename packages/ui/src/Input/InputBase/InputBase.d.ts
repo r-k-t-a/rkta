@@ -6,7 +6,6 @@ export interface InputBase extends AddonOwnProps, HTMLProps<HTMLInputElement> {
   active: boolean;
   big?: boolean;
   caption?: ReactNode;
-  hasFocus: boolean;
   huge?: boolean;
   small?: boolean;
   tiny?: boolean;
