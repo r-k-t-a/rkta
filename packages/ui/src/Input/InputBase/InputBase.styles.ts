@@ -8,6 +8,8 @@ export const initialStyle: CssEmotion = css`
   transition: justify-content 0.24s ease;
   will-change: justify-content;
   span {
+    align-self: flex-start;
+    flex: 1;
     line-height: 12px;
     transition: font 0.24s ease;
     will-change: font;
