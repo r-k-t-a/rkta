@@ -1,7 +1,7 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 export interface MediaProps {
-  children: ReactElement;
+  children: ReactElement | ReactElement[];
 
   phone?: boolean;
   tablet?: boolean;
@@ -19,7 +19,7 @@ export interface MediaProps {
   atMostDesktop?: boolean;
   atMostJumbotron?: boolean;
 
-  [key: string]: boolean | ReactElement | undefined;
+  [key: string]: ReactNode;
 }
 
 export type EntriesType = string[][];
