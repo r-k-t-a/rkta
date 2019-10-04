@@ -15,7 +15,7 @@ const cloneElement = (element: ReactElement, props: {}): ReactElement =>
     ...props,
   });
 
-const serverMedia = (children: ReactElement[], queries: CssRkta[]): ReactNode => {
+const serverMedia = (children: ReactElement | ReactElement[], queries: CssRkta[]): ReactNode => {
   const serverQueries = queries.map((query): string => `not ${query}`);
   const mediaQuery = `@media ${toString(serverQueries)} { display: none; }`;
   return Children.map(
