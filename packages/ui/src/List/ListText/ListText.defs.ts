@@ -1,9 +1,9 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
 import { Addon } from '../../Addon/Addon.defs';
 
 export interface ListTextProps extends Addon {
-  label: ReactElement;
-  description?: ReactElement;
+  label: ReactNode;
+  description?: ReactNode;
   reverse?: boolean;
 }
