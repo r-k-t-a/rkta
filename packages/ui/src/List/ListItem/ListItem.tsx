@@ -3,10 +3,9 @@ import { SFC, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import useProviderContext from '../../Provider/useProviderContext';
+import ListItem from './ListItem.d';
 
-import { ListItemProps } from './ListItem.defs';
-
-const ListItem: SFC<ListItemProps> = ({ children, ...props }: ListItemProps): ReactElement => {
+const ListItem: SFC<ListItem> = ({ children, ...props }: ListItem): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(
     { normal: true, hard: true, body: true, transparent: true, ...props },
