@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import Addon from '../../Addon/Addon.d';
 
-export interface ListTextProps extends Addon {
+export default interface ListText extends Addon {
   label: ReactNode;
   description?: ReactNode;
   reverse?: boolean;

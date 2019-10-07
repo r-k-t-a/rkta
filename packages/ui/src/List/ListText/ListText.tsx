@@ -4,14 +4,14 @@ import { jsx } from '@emotion/core';
 
 import useProviderContext from '../../Provider/useProviderContext';
 import Text from '../../Text';
-import { ListTextProps } from './ListText.defs';
+import ListText from './ListText.d';
 
-const ListItem: SFC<ListTextProps> = ({
+const ListItem: SFC<ListText> = ({
   label,
   children,
   description,
   ...props
-}: ListTextProps): ReactElement => {
+}: ListText): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextStylesProps, Element] = applyStyles(
     { paddingY: 8, ...props },
