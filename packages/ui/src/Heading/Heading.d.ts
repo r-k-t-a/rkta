@@ -1,6 +1,6 @@
 import { TextProps } from '../Text/Text.defs';
 
-export interface HeadingProps extends TextProps {
+export default interface HeadingProps extends TextProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   h1?: never;
   h2?: never;
