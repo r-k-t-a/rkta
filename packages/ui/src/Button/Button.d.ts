@@ -1,6 +1,6 @@
 import Addon from '../Addon/Addon.d';
 import Paper from '../Paper/Paper.d';
-import { SpinnerProps } from '../Spinner/Spinner.defs';
+import Spinner from '../Spinner/Spinner.d';
 
 export default interface ButtonProps extends Addon, Paper {
   blockLevel?: boolean;
@@ -10,5 +10,5 @@ export default interface ButtonProps extends Addon, Paper {
   noripple?: boolean;
   round?: boolean;
   size?: number | string;
-  spinnerProps?: SpinnerProps;
+  spinnerProps?: Spinner;
 }
