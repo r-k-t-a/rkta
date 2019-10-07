@@ -1,5 +1,5 @@
 import upperFirst from 'lodash/upperFirst';
-import { Breakpoint, MediaQueries } from './theme.defs';
+import { Breakpoint, MediaQueries } from './theme.d';
 
 interface QueryItem {
   [key: number]: string;

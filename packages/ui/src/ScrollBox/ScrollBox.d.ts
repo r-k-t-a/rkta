@@ -1,4 +1,4 @@
-import { RktaElement } from '../Provider/theme/theme.defs';
+import { RktaElement } from '../Provider/theme/theme.d';
 import Paper from '../Paper/Paper.d';
 
 export default interface ScrollBox extends Paper, RktaElement {

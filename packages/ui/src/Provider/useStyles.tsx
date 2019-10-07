@@ -3,13 +3,7 @@ import flatten from 'lodash/flatten';
 import join from 'lodash/join';
 import memoize from 'lodash/memoize';
 
-import {
-  CssEmotion,
-  CssRkta,
-  RktaComponentStyles,
-  RktaThemed,
-  RktaTheme,
-} from './theme/theme.defs';
+import { CssEmotion, CssRkta, RktaComponentStyles, RktaThemed, RktaTheme } from './theme/theme.d';
 
 import { ElementResolverFunction, ElementResolverProps } from './getElement';
 

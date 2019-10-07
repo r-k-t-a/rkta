@@ -14,4 +14,4 @@ export { default as Spinner } from './Spinner';
 export { default as Svg } from './Svg';
 export { default as Text } from './Text';
 
-export * from './Provider/theme/theme.defs';
+export * from './Provider/theme/theme.d';

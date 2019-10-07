@@ -1,4 +1,4 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.d';
 import Divider from './Divider.d';
 
 export function initialStyle(theme: RktaTheme): CssRkta {

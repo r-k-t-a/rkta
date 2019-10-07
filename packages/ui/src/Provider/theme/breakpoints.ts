@@ -1,4 +1,4 @@
-import { Breakpoint } from './theme.defs';
+import { Breakpoint } from './theme.d';
 
 const list: Breakpoint[] = [
   { phone: 0 },

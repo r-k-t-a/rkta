@@ -1,5 +1,5 @@
 import Text from '../Text/Text.d';
-import { Color } from '../Provider/theme/theme.defs';
+import { Color } from '../Provider/theme/theme.d';
 
 export interface PaperOwnProps {
   bgColor?: Color;

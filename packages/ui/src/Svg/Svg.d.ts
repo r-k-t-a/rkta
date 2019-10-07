@@ -1,4 +1,4 @@
-import { RktaElement } from '../Provider/theme/theme.defs';
+import { RktaElement } from '../Provider/theme/theme.d';
 
 export default interface Svg extends RktaElement {
   block?: boolean;

@@ -1,4 +1,4 @@
-import { Color, CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
+import { Color, CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.d';
 import Button from './Button.d';
 
 export const initialStyle: CssEmotion = {

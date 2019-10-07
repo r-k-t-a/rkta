@@ -4,7 +4,7 @@ import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
 import match from './match';
 import Media from './Media.d';
 import useProviderContext from '../Provider/useProviderContext';
-import { CssEmotion, CssRkta } from '../Provider/theme/theme.defs';
+import { CssEmotion, CssRkta } from '../Provider/theme/theme.d';
 
 const toString = (query: CssRkta[]): string => query.join(', ');
 

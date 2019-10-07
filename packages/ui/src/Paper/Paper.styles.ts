@@ -1,5 +1,5 @@
 import invariant from '../util/invariant';
-import { Color, CssEmotion, RktaTheme } from '../Provider/theme/theme.defs';
+import { Color, CssEmotion, RktaTheme } from '../Provider/theme/theme.d';
 
 export const initialStyle = (theme: RktaTheme): CssEmotion => ({
   border: '0px solid currentColor',
