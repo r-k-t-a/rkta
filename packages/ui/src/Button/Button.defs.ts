@@ -1,4 +1,4 @@
-import { Addon } from '../Addon/Addon.defs';
+import Addon from '../Addon/Addon.d';
 import { Paper } from '../Paper/Paper.defs';
 import { SpinnerProps } from '../Spinner/Spinner.defs';
 

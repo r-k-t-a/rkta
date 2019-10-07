@@ -18,4 +18,4 @@ export interface AddonOwnProps {
   tiny?: boolean;
 }
 
-export interface Addon extends AddonOwnProps, TextProps {}
+export default interface Addon extends AddonOwnProps, TextProps {}
