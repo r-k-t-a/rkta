@@ -1,6 +1,6 @@
 import { Paper } from '../Paper/Paper.defs';
 
-export interface ListProps extends Paper {
+export default interface List extends Paper {
   fitAll?: boolean;
   fitTop?: boolean;
   fitBottom?: boolean;
