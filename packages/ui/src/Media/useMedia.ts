@@ -5,7 +5,7 @@ import memoize from 'lodash/memoize';
 
 import useProviderContext from '../Provider/useProviderContext';
 import matchMedia from './match';
-import { EntriesType, UseMediaResult } from './Media.defs';
+import { EntriesType, UseMediaResult } from './Media.d';
 
 const evaluate = (entries: EntriesType): UseMediaResult =>
   entries.reduce(
