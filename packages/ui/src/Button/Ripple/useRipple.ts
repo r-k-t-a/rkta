@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react';
 
-import { AddWaveInput, RippleProps, UseRippliState, WaveInterface } from './Ripple.defs';
+import { AddWaveInput, RippleProps, UseRippliState, WaveInterface } from './Ripple.d';
 import reEmit from '../../util/reEmit';
 
 const initialState: UseRippliState = {

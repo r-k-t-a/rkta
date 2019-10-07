@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 
-export interface MediaProps {
+export default interface Media {
   children: ReactElement | ReactElement[];
 
   phone?: boolean;

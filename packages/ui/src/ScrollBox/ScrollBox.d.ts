@@ -1,7 +1,7 @@
-import { RktaElement } from '../Provider/theme/theme.defs';
-import { Paper } from '../Paper/Paper.defs';
+import { RktaElement } from '../Provider/theme/theme.d';
+import Paper from '../Paper/Paper.d';
 
-export interface ScrollBoxProps extends Paper, RktaElement {
+export default interface ScrollBox extends Paper, RktaElement {
   /** Hide scrollbars */
   hideScrollbars?: boolean;
   /** Enable scroll snapping */

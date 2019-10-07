@@ -2,9 +2,9 @@ import { jsx } from '@emotion/core';
 import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
 
 import match from './match';
-import { MediaProps } from './Media.defs';
+import Media from './Media.d';
 import useProviderContext from '../Provider/useProviderContext';
-import { CssEmotion, CssRkta } from '../Provider/theme/theme.defs';
+import { CssEmotion, CssRkta } from '../Provider/theme/theme.d';
 
 const toString = (query: CssRkta[]): string => query.join(', ');
 
@@ -33,7 +33,7 @@ function clientMedia(children: ReactNode, queries: CssRkta[]): ReactNode {
   return match(mq) ? children : null;
 }
 
-const Media = ({ children, ...queries }: MediaProps): ReactNode => {
+const Media = ({ children, ...queries }: Media): ReactNode => {
   const [isMounted, setIsMounted] = useState(false);
   const [, updateState] = useState();
   const {

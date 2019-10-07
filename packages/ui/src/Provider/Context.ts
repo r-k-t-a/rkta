@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { RktaTheme } from './theme/theme.defs';
+import { RktaTheme } from './theme/theme.d';
 import defaultTheme from './theme/defaultTheme';
 import { getElement, ElementResolverFunction } from './getElement';
 import { NextPropsAndElementType, useStylesFunctionType } from './useStyles';

@@ -3,7 +3,7 @@ import { ReactElement, SFC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { WaveCss } from './Ripple.styles';
-import { WaveInterface } from './Ripple.defs';
+import { WaveInterface } from './Ripple.d';
 import { getElement } from '../../Provider/getElement';
 
 interface Props extends WaveInterface {

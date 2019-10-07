@@ -1,6 +1,6 @@
 import { ReactNode, HTMLProps } from 'react';
 
-import { AddonOwnProps } from '../../Addon/Addon.defs';
+import { AddonOwnProps } from '../../Addon/Addon.d';
 
 export interface InputBase extends AddonOwnProps, HTMLProps<HTMLInputElement> {
   active: boolean;

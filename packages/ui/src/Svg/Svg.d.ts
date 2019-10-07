@@ -1,6 +1,6 @@
-import { RktaElement } from '../Provider/theme/theme.defs';
+import { RktaElement } from '../Provider/theme/theme.d';
 
-export interface SvgProps extends RktaElement {
+export default interface Svg extends RktaElement {
   block?: boolean;
   /** One of theme colors or CSS Value: Color. */
   color?: string;

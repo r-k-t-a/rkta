@@ -1,6 +1,6 @@
-import { RktaElement } from '../Provider/theme/theme.defs';
+import { RktaElement } from '../Provider/theme/theme.d';
 
-export interface DividerProps extends RktaElement {
+export default interface Divider extends RktaElement {
   /** Adds dotted style */
   dotted?: boolean;
   /** Resets margins */

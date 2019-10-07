@@ -4,7 +4,7 @@ import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
 import defaultTheme from './theme/defaultTheme';
-import { RktaTheme } from './theme/theme.defs';
+import { RktaTheme } from './theme/theme.d';
 import Context from './Context';
 import { getElement, ElementResolverFunction } from './getElement';
 import useStyles, { NextPropsAndElementType, useStylesFunctionType } from './useStyles';

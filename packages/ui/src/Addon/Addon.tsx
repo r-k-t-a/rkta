@@ -3,7 +3,7 @@ import { SFC, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import useProviderContext from '../Provider/useProviderContext';
-import { Addon as Props } from './Addon.defs';
+import Props from './Addon.d';
 
 const Addon: SFC<Props> = ({ children, ...rest }: Props): ReactElement => {
   const { applyStyles } = useProviderContext();

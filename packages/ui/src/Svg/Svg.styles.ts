@@ -1,4 +1,4 @@
-import { Color, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
+import { Color, CssRkta, RktaTheme } from '../Provider/theme/theme.d';
 
 export const initialStyle: CssRkta = {
   fill: 'currentColor',

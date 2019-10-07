@@ -1,5 +1,5 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
-import { DividerProps } from './Divider.defs';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.d';
+import Divider from './Divider.d';
 
 export function initialStyle(theme: RktaTheme): CssRkta {
   return {
@@ -35,12 +35,12 @@ export const invisible: CssRkta = {
   visibility: 'hidden',
 };
 
-export const horizontalSpace = (theme: RktaTheme, props: DividerProps): CssRkta => ({
+export const horizontalSpace = (theme: RktaTheme, props: Divider): CssRkta => ({
   marginLeft: props.horizontalSpace,
   marginRight: props.horizontalSpace,
 });
 
-export const verticalSpace = (theme: RktaTheme, props: DividerProps): CssRkta => ({
+export const verticalSpace = (theme: RktaTheme, props: Divider): CssRkta => ({
   marginBottom: props.verticalSpace,
   marginTop: props.verticalSpace,
 });
