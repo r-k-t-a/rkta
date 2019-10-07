@@ -2,7 +2,7 @@ import Addon from '../Addon/Addon.d';
 import { Paper } from '../Paper/Paper.defs';
 import { SpinnerProps } from '../Spinner/Spinner.defs';
 
-export interface ButtonProps extends Addon, Paper {
+export default interface ButtonProps extends Addon, Paper {
   blockLevel?: boolean;
   busy?: boolean;
   composition?: string[];

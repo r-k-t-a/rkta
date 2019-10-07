@@ -1,4 +1,4 @@
 import { ListItemProps } from '../ListItem/ListItem.defs';
-import { ButtonProps } from '../../Button/Button.defs';
+import Button from '../../Button/Button.d';
 
-export interface ListButtonProps extends ButtonProps, ListItemProps {}
+export interface ListButtonProps extends Button, ListItemProps {}

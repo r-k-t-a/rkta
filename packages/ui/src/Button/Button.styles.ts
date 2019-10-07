@@ -1,5 +1,5 @@
 import { Color, CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.defs';
-import { ButtonProps } from './Button.defs';
+import Button from './Button.d';
 
 export const initialStyle: CssEmotion = {
   alignItems: 'center',
@@ -41,7 +41,7 @@ export const color = (theme: RktaTheme, props: { color: Color }): CssRkta => {
   };
 };
 
-export const round = (theme: RktaTheme, props: ButtonProps): CssEmotion => {
+export const round = (theme: RktaTheme, props: Button): CssEmotion => {
   const size = props.size || 48;
   return {
     borderRadius: size,
@@ -52,7 +52,7 @@ export const round = (theme: RktaTheme, props: ButtonProps): CssEmotion => {
   };
 };
 
-export const size = (theme: RktaTheme, props: ButtonProps): CssEmotion => ({
+export const size = (theme: RktaTheme, props: Button): CssEmotion => ({
   flexDirection: 'column',
   height: props.size,
   minHeight: props.size,

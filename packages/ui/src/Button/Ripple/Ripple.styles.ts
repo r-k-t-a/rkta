@@ -2,7 +2,7 @@
 import { keyframes } from '@emotion/core';
 
 import { CssEmotion } from '../../Provider/theme/theme.defs';
-import { WaveInterface } from './Ripple.defs';
+import { WaveInterface } from './Ripple.d';
 
 export const BoxCss: CssEmotion = {
   background: 'none',

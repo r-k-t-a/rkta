@@ -3,7 +3,7 @@ import { Fragment, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import { BoxCss } from './Ripple.styles';
-import { RippleProps } from './Ripple.defs';
+import { RippleProps } from './Ripple.d';
 import Wave from './Wave';
 import Overlay from './Overlay';
 import { getElement } from '../../Provider/getElement';
