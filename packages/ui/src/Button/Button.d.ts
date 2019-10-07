@@ -1,5 +1,5 @@
 import Addon from '../Addon/Addon.d';
-import { Paper } from '../Paper/Paper.defs';
+import Paper from '../Paper/Paper.d';
 import { SpinnerProps } from '../Spinner/Spinner.defs';
 
 export default interface ButtonProps extends Addon, Paper {

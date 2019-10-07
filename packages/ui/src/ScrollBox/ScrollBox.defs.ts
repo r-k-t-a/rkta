@@ -1,5 +1,5 @@
 import { RktaElement } from '../Provider/theme/theme.defs';
-import { Paper } from '../Paper/Paper.defs';
+import Paper from '../Paper/Paper.d';
 
 export interface ScrollBoxProps extends Paper, RktaElement {
   /** Hide scrollbars */

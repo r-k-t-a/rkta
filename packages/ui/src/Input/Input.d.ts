@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { Color } from '../Provider/theme/theme.defs';
 
 import { InputBase } from './InputBase/InputBase.d';
-import { PaperOwnProps } from '../Paper/Paper.defs';
+import { PaperOwnProps } from '../Paper/Paper.d';
 
 export interface Input extends PaperOwnProps, InputBase {
   active: never;

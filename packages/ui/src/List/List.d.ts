@@ -1,4 +1,4 @@
-import { Paper } from '../Paper/Paper.defs';
+import Paper from '../Paper/Paper.d';
 
 export default interface List extends Paper {
   fitAll?: boolean;

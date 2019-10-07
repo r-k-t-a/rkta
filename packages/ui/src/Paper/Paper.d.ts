@@ -20,4 +20,4 @@ export interface PaperOwnProps {
   transparent?: boolean;
 }
 
-export interface Paper extends PaperOwnProps, TextProps {}
+export default interface Paper extends PaperOwnProps, TextProps {}

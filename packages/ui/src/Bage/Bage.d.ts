@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Paper } from '../Paper/Paper.defs';
+import Paper from '../Paper/Paper.d';
 
 export default interface BageProps extends Paper {
   children: ReactNode;
