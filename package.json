@@ -13,7 +13,7 @@
     "publish": "npm run make && lerna publish --contents lib --yes patch",
     "resetdeps": "lerna clean && lerna bootstrap",
     "updatedeps": "ncu -u && npm update",
-    "typecheck": "lerna run type-check"
+    "typecheck": "lerna run typecheck"
   },
   "config": {
     "commitizen": {
