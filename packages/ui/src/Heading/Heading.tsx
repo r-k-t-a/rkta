@@ -1,7 +1,7 @@
 import React, { ReactElement, SFC } from 'react';
 
 import Text from '../Text';
-import { TextProps } from '../Text/Text.defs';
+import TextProps from '../Text/Text.d';
 import Heading from './Heading.d';
 
 const getHeading = (level: number, rest: Partial<Heading>): TextProps => {

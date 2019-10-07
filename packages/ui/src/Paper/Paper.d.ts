@@ -1,4 +1,4 @@
-import { TextProps } from '../Text/Text.defs';
+import Text from '../Text/Text.d';
 import { Color } from '../Provider/theme/theme.defs';
 
 export interface PaperOwnProps {
@@ -20,4 +20,4 @@ export interface PaperOwnProps {
   transparent?: boolean;
 }
 
-export default interface Paper extends PaperOwnProps, TextProps {}
+export default interface Paper extends PaperOwnProps, Text {}

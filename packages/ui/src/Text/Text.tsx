@@ -3,9 +3,9 @@ import { SFC, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import useProviderContext from '../Provider/useProviderContext';
-import { TextProps } from './Text.defs';
+import Text from './Text.d';
 
-const Text: SFC<TextProps> = ({ children, element, ...rest }: TextProps): ReactElement => {
+const Text: SFC<Text> = ({ children, element, ...rest }: Text): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element, ...rest }, 'Text');
   return <Element {...nextProps}>{children}</Element>;

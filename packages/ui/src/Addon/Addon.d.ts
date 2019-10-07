@@ -1,4 +1,4 @@
-import { TextProps } from '../Text/Text.defs';
+import Text from '../Text/Text.d';
 
 export interface AddonOwnProps {
   big?: boolean;
@@ -18,4 +18,4 @@ export interface AddonOwnProps {
   tiny?: boolean;
 }
 
-export default interface Addon extends AddonOwnProps, TextProps {}
+export default interface Addon extends AddonOwnProps, Text {}

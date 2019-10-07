@@ -1,6 +1,6 @@
 import { Color, RktaElement } from '../Provider/theme/theme.defs';
 
-export interface TextProps extends RktaElement {
+export default interface Text extends RktaElement {
   /** One of theme colors or CSS Value: Color. */
   color?: Color;
   h1?: boolean;
