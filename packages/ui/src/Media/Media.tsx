@@ -1,5 +1,5 @@
 import { jsx } from '@emotion/core';
-import React, { Children, FunctionComponent, ReactElement, useEffect, useState } from 'react';
+import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
 
 import match from './match';
 import { MediaProps } from './Media.defs';
@@ -15,32 +15,25 @@ const cloneElement = (element: ReactElement, props: {}): ReactElement =>
     ...props,
   });
 
-const serverMedia = (children: ReactElement, queries: CssRkta[]): ReactElement => {
+const serverMedia = (children: ReactElement | ReactElement[], queries: CssRkta[]): ReactNode => {
   const serverQueries = queries.map((query): string => `not ${query}`);
   const mediaQuery = `@media ${toString(serverQueries)} { display: none; }`;
-  return (
-    <>
-      {Children.map(
-        children,
-        (child: ReactElement & { css?: CssEmotion }): ReactElement => {
-          const childrenCss: CssEmotion[] = Array.isArray(child.css) ? child.css : [child.css];
-          const nextCss = childrenCss.concat(mediaQuery);
-          return cloneElement(child, { css: nextCss });
-        },
-      )}
-    </>
+  return Children.map(
+    children,
+    (child: ReactElement & { css?: CssEmotion }): ReactElement => {
+      const childrenCss: CssEmotion[] = Array.isArray(child.css) ? child.css : [child.css];
+      const nextCss = childrenCss.concat(mediaQuery);
+      return cloneElement(child, { css: nextCss });
+    },
   );
 };
 
-function clientMedia(children: ReactElement, queries: CssRkta[]): ReactElement | null {
+function clientMedia(children: ReactNode, queries: CssRkta[]): ReactNode {
   const mq = toString(queries);
   return match(mq) ? children : null;
 }
 
-const Media: FunctionComponent<MediaProps> = ({
-  children,
-  ...queries
-}: MediaProps): ReactElement | null => {
+const Media = ({ children, ...queries }: MediaProps): ReactNode => {
   const [isMounted, setIsMounted] = useState(false);
   const [, updateState] = useState();
   const {
