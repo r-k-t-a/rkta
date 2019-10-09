@@ -3,9 +3,9 @@ import { SFC, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import useProviderContext from '../Provider/useProviderContext';
-import Spinner from './Spinner.d';
+import Props from './Spinner.d';
 
-const Spinner: SFC<Spinner> = (props: Spinner): ReactElement => {
+const Spinner: SFC<Props> = (props): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(props, 'Spinner');
   return <Element {...nextProps} />;
