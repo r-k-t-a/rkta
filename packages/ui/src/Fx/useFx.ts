@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import upperFirst from 'lodash/upperFirst';
 
-import useProviderContext from '../Provider/useProviderContext';
-import { CssEmotion } from '../Provider/theme/theme.d';
+import { useProviderContext } from '../Provider';
+import { CssEmotion } from '../Provider/theme/theme.type';
 
 interface Handlers {
   onPopUp?: Function;
@@ -21,7 +21,7 @@ function emitEvent(emit: Function | undefined): void {
   if (typeof emit === 'function') emit();
 }
 
-export default (initialFx: string, handlers: Handlers = {}): [FX, Function] => {
+export const useFx = (initialFx: string, handlers: Handlers = {}): [FX, Function] => {
   const {
     theme: { Fx },
   } = useProviderContext();

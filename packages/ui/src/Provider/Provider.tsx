@@ -4,16 +4,17 @@ import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
 
 import defaultTheme from './theme/defaultTheme';
-import { RktaTheme } from './theme/theme.d';
+import { RktaTheme } from './theme/theme.type';
 import Context from './Context';
-import { getElement, ElementResolverFunction } from './getElement';
+import { getElement } from './getElement';
+import { Resolver } from './getElement.type';
 import useStyles, { NextPropsAndElementType, useStylesFunctionType } from './useStyles';
 
 interface ProviderProps {
   /** Extends default theme. The property is not reactive, to modify theme at runtime, use replaceTheme method. */
   theme?: RktaTheme;
   /** Replace default element resolver */
-  getElement: ElementResolverFunction;
+  getElement: Resolver;
 }
 
 interface ProviderState {
@@ -25,7 +26,7 @@ const getThemeTs = (): object => ({ ts: Date.now() });
 const REPLACE_THEME = Symbol('');
 const USE_STYLES = Symbol('');
 
-export default class Provider extends React.Component<ProviderProps, ProviderState> {
+export class Provider extends React.Component<ProviderProps, ProviderState> {
   public static defaultProps = {
     getElement,
   };
@@ -61,3 +62,5 @@ export default class Provider extends React.Component<ProviderProps, ProviderSta
     );
   }
 }
+
+export default Provider;

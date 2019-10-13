@@ -1,5 +1,5 @@
-import { Color, CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.d';
-import Button from './Button.d';
+import { Color, CssEmotion, CssRkta, RktaTheme } from '../Provider/theme/theme.type';
+import { Props as Button } from './Button.type';
 
 export const initialStyle: CssEmotion = {
   alignItems: 'center',

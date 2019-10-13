@@ -19,7 +19,7 @@ import * as Spinner from '../../Spinner/Spinner.styles';
 import * as Svg from '../../Svg/Svg.styles';
 import * as Text from '../../Text/Text.styles';
 
-import { RktaTheme } from './theme.d';
+import { RktaTheme } from './theme.type';
 
 const defaultTheme: RktaTheme = {
   color,

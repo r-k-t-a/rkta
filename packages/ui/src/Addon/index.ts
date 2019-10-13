@@ -1,1 +1,1 @@
-export { default } from './Addon';
+export * from './Addon';

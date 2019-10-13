@@ -1,1 +1,1 @@
-export { default } from './Bage';
+export * from './Bage';

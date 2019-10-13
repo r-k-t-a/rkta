@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { CssEmotion } from '../../Provider/theme/theme.d';
+import { CssEmotion } from '../../Provider/theme/theme.type';
 
 export const initialStyle: CssEmotion = css`
   display: flex;

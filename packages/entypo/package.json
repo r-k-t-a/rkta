@@ -6,9 +6,10 @@
   "homepage": "https://github.com/r-k-t-a/rkta",
   "license": "CC BY-SA",
   "main": "lib/index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/r-k-t-a/rkta.git"
@@ -26,12 +27,13 @@
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
   "peerDependencies": {
+    "react": "^16.8.0",
     "@rkta/ui": "latest"
   },
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "react": "^16.9.0"
+  "devDependencies": {
+    "@rkta/ui": "*"
   }
 }

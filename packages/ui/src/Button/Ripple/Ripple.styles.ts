@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { keyframes } from '@emotion/core';
 
-import { CssEmotion } from '../../Provider/theme/theme.d';
-import { WaveInterface } from './Ripple.d';
+import { CssEmotion } from '../../Provider/theme/theme.type';
+import { Wave } from './Ripple.type';
 
 export const BoxCss: CssEmotion = {
   background: 'none',
@@ -61,7 +61,7 @@ const waveClick = keyframes`
   to { opacity: 0; transform: scale(2); }
 `;
 
-export const WaveCss = ({ x, y, released, size }: WaveInterface): CssEmotion => {
+export const WaveCss = ({ x, y, released, size }: Wave): CssEmotion => {
   const currentSize = released ? size : Math.min(size, 96);
   const halfSize = currentSize / 2;
   return {

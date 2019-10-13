@@ -2,18 +2,18 @@
 import { forwardRef, SFC } from 'react';
 import { jsx } from '@emotion/core';
 
-import Spinner from '../Spinner';
-import useProviderContext from '../Provider/useProviderContext';
+import { Spinner } from '../Spinner';
+import { useProviderContext } from '../Provider';
 
-import Props from './Button.d';
+import { Props } from './Button.type';
 import { spinnerCss } from './Button.styles';
 
-import Ripple from './Ripple';
+import { Ripple } from './Ripple';
 import useRipple from './Ripple/useRipple';
 
 const injectedProps = { element: 'button', normal: true, button: true };
 
-const Button: SFC<Props> = forwardRef(
+export const Button: SFC<Props> = forwardRef(
   (
     {
       noRipple,

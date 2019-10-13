@@ -2,13 +2,13 @@
 import { jsx } from '@emotion/core';
 import { useState, FormEvent } from 'react';
 
-import InputBase from './InputBase';
-import useProviderContext from '../Provider/useProviderContext';
+import { InputBase } from './InputBase';
+import { useProviderContext } from '../Provider';
 import reEmit from '../util/reEmit';
 
-import { Input as Props } from './Input.d';
+import { Props } from './Input.type';
 
-const Input = ({
+export const Input = ({
   append,
   caption,
   defaultValue = '',
@@ -61,5 +61,3 @@ const Input = ({
     </Element>
   );
 };
-
-export default Input;

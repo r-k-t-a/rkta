@@ -1,12 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 
-import useProviderContext from '../../Provider/useProviderContext';
+import { useProviderContext } from '../../Provider';
 import Text from '../../Text';
+import { Props } from './InputBase.type';
 
-import { InputBase as Props } from './InputBase.d';
-
-const Input = ({ active, caption, value, onChange, ...rest }: Props): JSX.Element => {
+export const InputBase = ({ active, caption, value, onChange, ...rest }: Props): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const styledProps = {
     normal: true,
@@ -28,4 +27,4 @@ const Input = ({ active, caption, value, onChange, ...rest }: Props): JSX.Elemen
   );
 };
 
-export default Input;
+export default InputBase;

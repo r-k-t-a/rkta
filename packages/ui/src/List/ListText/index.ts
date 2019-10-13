@@ -1,3 +1,1 @@
-import ListText from './ListText';
-
-export default ListText;
+export * from './ListText';

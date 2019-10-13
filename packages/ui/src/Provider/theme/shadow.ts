@@ -1,4 +1,4 @@
-import { Shadows } from './theme.d';
+import { Shadows } from './theme.type';
 
 const shadowKeyUmbraOpacity = 0.2;
 const shadowKeyPenumbraOpacity = 0.14;

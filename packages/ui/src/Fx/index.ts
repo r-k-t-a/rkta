@@ -1,1 +1,1 @@
-export { default as useFx } from './useFx';
+export * from './useFx';

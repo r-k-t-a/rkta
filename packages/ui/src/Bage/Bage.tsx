@@ -2,10 +2,10 @@
 import { ReactElement, SFC } from 'react';
 import { jsx } from '@emotion/core';
 
-import useProviderContext from '../Provider/useProviderContext';
-import Props from './Bage.d';
+import { useProviderContext } from '../Provider';
+import { Props } from './Bage.type';
 
-const Bage: SFC<Props> = ({ children, ...rest }: Props): ReactElement => {
+export const Bage: SFC<Props> = ({ children, ...rest }: Props): ReactElement => {
   const { applyStyles } = useProviderContext();
 
   const [nextProps, Element] = applyStyles(
@@ -17,5 +17,3 @@ const Bage: SFC<Props> = ({ children, ...rest }: Props): ReactElement => {
 
   return <Element {...nextProps}>{children}</Element>;
 };
-
-export default Bage;
