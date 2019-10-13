@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../../Provider';
-import Text from '../../Text';
+import { Text } from '../../Text';
 import { Props } from './InputBase.type';
 
 export const InputBase = ({ active, caption, value, onChange, ...rest }: Props): JSX.Element => {

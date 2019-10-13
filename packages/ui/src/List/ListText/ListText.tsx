@@ -3,7 +3,7 @@ import { SFC, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../../Provider';
-import Text from '../../Text';
+import { Text } from '../../Text';
 import { Props } from './ListText.type';
 
 export const ListText: SFC<Props> = ({

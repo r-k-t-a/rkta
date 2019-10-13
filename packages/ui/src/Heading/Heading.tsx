@@ -1,6 +1,6 @@
 import React, { ReactElement, SFC } from 'react';
 
-import Text from '../Text';
+import { Text } from '../Text';
 import { Props as TextProps } from '../Text/Text.type';
 import { Props } from './Heading.type';
 

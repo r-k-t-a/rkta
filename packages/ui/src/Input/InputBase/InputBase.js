@@ -1,6 +1,6 @@
 import { jsx } from '@emotion/core';
 import { useProviderContext } from '../../Provider';
-import Text from '../../Text';
+import { Text } from '../../Text';
 export const InputBase = ({ active, caption, value, onChange, ...rest }) => {
     const { applyStyles } = useProviderContext();
     const styledProps = {

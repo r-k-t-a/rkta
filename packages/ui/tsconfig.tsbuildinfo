@@ -482,19 +482,19 @@
         "signature": "9de6beb1a44722d707cd7fecc9e384e37d81bd64e2517157c7c39e8c41a391f8"
       },
       "./src/text/text.tsx": {
-        "version": "6fab8f6a96932512c5922286460da9d24f0f8388a12a32701eb8edd6cbdf25c6",
-        "signature": "203a480e9ebe0b4b5d3831eacf3de078caeff39ad221175ffae7a89209081e66"
+        "version": "32d4b60e46f5ebb37a94a4fa544366eab09dffdc1c45ab53ecc63534e860289f",
+        "signature": "f7b6633a9920cb7c6561083ae95741d61eedd9c83a09ae10cb7a09e8e8a76643"
       },
       "./src/text/index.ts": {
-        "version": "ec8c9eb6ba86920fbadaa2912adbd3030ba1d207d71f74b904d732fbfe4adbf7",
-        "signature": "68e2fe76dca445dbac135758f6127374d01cb2feb3181868e7028be506e08395"
+        "version": "12373d7ede414d01c7054bd30ab1ab64fc7118d304b641c666e1d01a4763d5a7",
+        "signature": "c9e5984cad6d79819ddb8e1cf05eb12bf57b7c383151661eb6fd179eeb70556c"
       },
       "./src/heading/heading.type.ts": {
         "version": "5c6a1d0928f3d8374aed16612f9820d452a61991cabb9267086869b95206fe84",
         "signature": "d788b5706a59fe59a06a91d267e6c4f68e78884207d27f67d7e4dc350016237c"
       },
       "./src/heading/heading.tsx": {
-        "version": "cec4862ddc39674e1deacc5fc947a1276471b32b5d5436fc20fbade4fbb4644a",
+        "version": "ea1afaff4e8f0099e6d3cc513ee857aa31b782046641f65432f3f672cb70f73b",
         "signature": "afdd058361d98fd7ca5032f567b47827c0e19a5b1a529f21f5ca2ecd8a5df4ba"
       },
       "./src/heading/index.ts": {
@@ -506,7 +506,7 @@
         "signature": "40861b826aeab5b6e84454e7556f101d1daa2919910b0ae1895d6d3cd7b92937"
       },
       "./src/input/inputbase/inputbase.tsx": {
-        "version": "83d13063e2edfb9b0f84e75078d47eb83d0033391a592cd2a324dae30527c42c",
+        "version": "c69edff25b60fe1fe7f7e246b5299496b0d38c001ced080ea93390c2e0092adb",
         "signature": "bfb06b855826c4437366df5eae2d7c5ecdc06161606c163f4dd9abb62464c846"
       },
       "./src/input/inputbase/index.ts": {
@@ -570,7 +570,7 @@
         "signature": "4337181f414414ae0cd621424185a9bd1d603ebe2d2d9d71e230eac2e81294d1"
       },
       "./src/list/listtext/listtext.tsx": {
-        "version": "b61c0fb7e66bf75e55a17eae0ed803370b1a0b4218af0ba18df642f52027da19",
+        "version": "c9daa071887df69a5c5f3e8030bc7afa35eff94bf0c9e08116888121242fd96a",
         "signature": "75eea2f5c9314e9d1b5269c15c387ec1e5e14e77dde114ddb553f0b9fe4e25d8"
       },
       "./src/list/listtext/index.ts": {
@@ -898,6 +898,7 @@
       "strict": true,
       "target": 99,
       "outDir": "./lib",
+      "emitDeclarationOnly": true,
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
