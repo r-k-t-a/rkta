@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./packages",
+    "baseUrl": ".",
     "composite": true,
     "declaration": true,
     "declarationMap": true,
@@ -17,7 +17,7 @@
     "noImplicitReturns": true,
     "noLib": false,
     "paths": {
-      "@rkta/*": ["*/src"]
+      "@rkta/*": ["packages/*/src"]
     },
     "removeComments": true,
     "rootDir": ".",
