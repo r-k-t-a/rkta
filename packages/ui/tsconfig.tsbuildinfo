@@ -888,11 +888,8 @@
       "noLib": false,
       "outDir": "./lib",
       "paths": {
-        "@rkta/entypo": [
-          "entypo/src"
-        ],
-        "@rkta/ui": [
-          "ui/src"
+        "@rkta/*": [
+          "*/src"
         ]
       },
       "removeComments": true,
@@ -901,6 +898,7 @@
       "sourceMap": true,
       "strict": true,
       "target": 99,
+      "emitDeclarationOnly": true,
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
