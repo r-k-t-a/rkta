@@ -10,9 +10,7 @@ interface Props extends WaveCommon {
   onWaveDissolve: Function;
 }
 
-const Wave: SFC<Props> = ({ onWaveDissolve, ...wave }: Props): ReactElement => {
+export const Wave: SFC<Props> = ({ onWaveDissolve, ...wave }: Props): ReactElement => {
   const Element = getElement('span', {});
   return <Element css={WaveCss(wave)} onAnimationEnd={onWaveDissolve} />;
 };
-
-export default Wave;

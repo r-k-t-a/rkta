@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "react": "^16.8.0",
-    "@rkta/ui": "latest"
+    "@rkta/ui": "*"
   },
   "publishConfig": {
     "access": "public"

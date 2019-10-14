@@ -10,9 +10,7 @@ interface Props {
   onOverlayAnimationEnd: Function;
 }
 
-const Overlay = ({ mouseover, onOverlayAnimationEnd }: Props): ReactElement => {
+export const Overlay = ({ mouseover, onOverlayAnimationEnd }: Props): ReactElement => {
   const Element = getElement('span', {});
   return <Element css={OverlayCss(mouseover)} onAnimationEnd={onOverlayAnimationEnd} />;
 };
-
-export default Overlay;

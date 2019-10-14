@@ -10,5 +10,3 @@ export const Paper: SFC<Props> = ({ children, ...rest }: Props): ReactElement =>
   const [nextProps, Element] = applyStyles(rest, 'Paper', 'Text');
   return <Element {...nextProps}>{children}</Element>;
 };
-
-export default Paper;

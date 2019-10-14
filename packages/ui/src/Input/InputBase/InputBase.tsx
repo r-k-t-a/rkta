@@ -26,5 +26,3 @@ export const InputBase = ({ active, caption, value, onChange, ...rest }: Props):
     </Element>
   );
 };
-
-export default InputBase;

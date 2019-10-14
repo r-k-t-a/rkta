@@ -4,8 +4,8 @@ import { jsx } from '@emotion/core';
 
 import { BoxCss } from './Ripple.styles';
 import { Props } from './Ripple.type';
-import Wave from './Wave';
-import Overlay from './Overlay';
+import { Wave } from './Wave';
+import { Overlay } from './Overlay';
 import { getElement } from '../../Provider/getElement';
 
 /* eslint-disable react/jsx-fragments */

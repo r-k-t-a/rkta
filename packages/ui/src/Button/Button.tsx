@@ -48,5 +48,3 @@ Button.defaultProps = {
   tabIndex: 0,
   type: 'button',
 };
-
-export default Button;
