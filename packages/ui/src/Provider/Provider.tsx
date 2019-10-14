@@ -62,5 +62,3 @@ export class Provider extends React.Component<ProviderProps, ProviderState> {
     );
   }
 }
-
-export default Provider;

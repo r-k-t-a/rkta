@@ -27,7 +27,7 @@
     "target": "esnext"
   },
   "include": ["packages/**/src"],
-  "exclude": ["node_modules", "packages/**/lib", "**/*.spec.ts"],
+  "exclude": ["node_modules", "packages/**/lib", "packages/**/docz", "**/*.spec.ts"],
   "types": ["typePatches"],
   "references": [{ "path": "packages/ui" }, { "path": "packages/entypo" }]
 }

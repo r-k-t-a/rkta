@@ -2,7 +2,8 @@
   "name": "rkta",
   "version": "0.0.6",
   "scripts": {
-    "build": "tsc --build",
+    "build": "lerna run build",
+    "build:tsc": "tsc --build",
     "bump": "npm run make && lerna version patch",
     "commit": "git-cz",
     "predocz:dev": "rm -rf .docz/cache",

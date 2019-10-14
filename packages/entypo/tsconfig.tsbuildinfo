@@ -386,8 +386,8 @@
         "signature": "08adb513c7b5a92c084903bd417db11ac1c1d1761d77bb8711377c53f17343c8"
       },
       "../ui/src/provider/provider.tsx": {
-        "version": "1ce4534a2645326fa111a1fa3dad7d93e4f465148850057020c54292ddf1b8a0",
-        "signature": "1ce4534a2645326fa111a1fa3dad7d93e4f465148850057020c54292ddf1b8a0"
+        "version": "5e95705bc8f86756603c00baf4e4c26a0219015c65ee66d6ada4f26dacc25705",
+        "signature": "5e95705bc8f86756603c00baf4e4c26a0219015c65ee66d6ada4f26dacc25705"
       },
       "../ui/src/provider/usestyles.tsx": {
         "version": "1e951fe3d47fde6b65ef9d54e74e6de02e210b9e029388efb80687733af2dd34",
@@ -9620,11 +9620,9 @@
       "../ui/src/scrollbox/scrollbox.tsx",
       "../ui/src/scrollbox/index.ts",
       "../ui/src/provider/getelement.type.ts",
-      "../ui/src/provider/provider.tsx",
       "../ui/src/provider/usestyles.tsx",
       "../ui/src/provider/context.ts",
       "../ui/src/provider/useprovidercontext.ts",
-      "../ui/src/provider/index.ts",
       "../ui/src/spinner/spinner.tsx",
       "../ui/src/spinner/index.ts",
       "../ui/src/svg/svg.type.ts",
@@ -10112,7 +10110,9 @@
       "../../node_modules/@types/q/index.d.ts",
       "../../node_modules/@types/unist/index.d.ts",
       "../../node_modules/@types/vfile-message/index.d.ts",
-      "../../node_modules/@types/vfile/index.d.ts"
+      "../../node_modules/@types/vfile/index.d.ts",
+      "../ui/src/provider/provider.tsx",
+      "../ui/src/provider/index.ts"
     ]
   },
   "version": "3.6.4"

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from './src/Provider';
+import { Provider } from '../ui/src';
 
 const DoczWrapper = ({ children }): React.ReactElement => <Provider>{children}</Provider>;
 
