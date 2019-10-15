@@ -1,0 +1,28 @@
+---
+menu: UI
+name: ListTitle
+---
+
+import { Playground, Props } from 'docz';
+import { Addon } from '../../Addon';
+import { List } from '../List';
+import { ListItem } from '../ListItem';
+import { ListTitle } from './ListTitle';
+
+# ListTitle
+
+Use ListText to create multiline list items.
+
+## Examples
+
+<Playground style={{ backgroundColor: '#eee', margin: -40, padding: 40 }}>
+  <List rize={1} sans>
+    <ListTitle>Title</ListTitle>
+    <ListItem>Item 1</ListItem>
+    <ListItem>Item 2</ListItem>
+  </List>
+</Playground>
+
+## Props
+
+<Props of={ListTitle} />

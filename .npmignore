@@ -1,0 +1,7 @@
+.docz
+node_modules
+lerna-debug.log
+npm-debug.log
+packages/*/src
+package-lock.json
+yarn.lock

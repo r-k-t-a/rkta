@@ -1,0 +1,33 @@
+---
+menu: UI
+name: Input
+---
+
+import { Link, Playground, Props } from 'docz';
+import { Input } from './Input';
+import { Addon } from '../Addon';
+
+# Bage
+
+<span>
+  Bage composes paper <Link to="/rkta/packages-ui-src-paper-paper">Paper</Link> and&nbsp;
+  <Link to="/rkta/packages-ui-src-text-text">Text</Link> components.
+</span>
+
+## Examples
+
+<Playground>
+  <Input caption="Tiny" tiny outline={1} />
+  <br />
+  <Input caption="Small" small />
+  <br />
+  <Input caption="Normal" />
+  <br />
+  <Input caption="Big" big fancy fitAll color="error" />
+  <br />
+  <Input append={<Addon>*</Addon>} caption="Huge" huge rize={3} color="secondary" outline={2} />
+</Playground>
+
+## Props
+
+<Props of={Input} />

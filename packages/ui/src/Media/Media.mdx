@@ -1,0 +1,67 @@
+---
+menu: UI
+name: Media
+---
+
+import { Link, Playground, Props } from 'docz';
+import { Media } from './Media';
+
+# Media
+
+Media elements are used to controll blocks visibility depending on breakpoints.
+
+## Examples
+
+<Playground>
+  <Media phone>
+    <div>phone</div>
+  </Media>
+  <Media tablet>
+    <div>tablet</div>
+  </Media>
+  <Media laptop>
+    <div>laptop</div>
+  </Media>
+  <Media desktop>
+    <div>desktop</div>
+  </Media>
+  <Media jumbotron>
+    <div>jumbotron</div>
+  </Media>
+
+  <Media atLeastPhone>
+    <div>atLeastPhone</div>
+  </Media>
+  <Media atLeastTablet>
+    <div>atLeastTablet</div>
+  </Media>
+  <Media atLeastLaptop>
+    <div>atLeastLaptop</div>
+  </Media>
+  <Media atLeastDesktop>
+    <div>atLeastDesktop</div>
+  </Media>
+  <Media atLeastJumbotron>
+    <div>atLeastJumbotron</div>
+  </Media>
+
+  <Media atMostPhone>
+    <div>atMostPhone</div>
+  </Media>
+  <Media atMostTablet>
+    <div>atMostTablet</div>
+  </Media>
+  <Media atMostLaptop>
+    <div>atMostLaptop</div>
+  </Media>
+  <Media atMostDesktop>
+    <div>atMostDesktop</div>
+  </Media>
+  <Media atMostJumbotron>
+    <div>atMostJumbotron</div>
+  </Media>
+</Playground>
+
+## Props
+
+<Props of={Media} />

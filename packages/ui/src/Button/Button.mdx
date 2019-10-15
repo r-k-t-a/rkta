@@ -1,0 +1,137 @@
+---
+menu: UI
+name: Button
+---
+
+import { Playground, Props } from 'docz';
+import { Addon } from '../Addon';
+import { Button } from './Button';
+import { Paper } from '../Paper';
+import { Wallet } from '../../../entypo/src';
+import { Trash } from '../../../entypo/src';
+
+# Button
+
+Button component
+
+## Button variants
+
+### Sizing
+
+<Playground>
+  <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
+    <Button bgColor="color1" tiny>
+      Tiny
+    </Button>
+    <Button bgColor="color7" small>
+      Small
+    </Button>
+    <Button bgColor="color2">Normal</Button>
+    <Button bgColor="color12" big>
+      Big
+    </Button>
+    <Button bgColor="color15" huge paddingX={32}>
+      Huge
+    </Button>
+  </div>
+</Playground>
+
+### Block Level
+
+<Playground>
+  <Button bgColor="primary" blockLevel>
+    Block Level
+  </Button>
+</Playground>
+
+### Fitting
+
+<Playground>
+  <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
+    <Button bgColor="color1" fitRight>
+      fitRight
+    </Button>
+    <Button bgColor="color7" fitAll>
+      fitAll
+    </Button>
+    <Button bgColor="color2" fitLeft>
+      fitLeft
+    </Button>
+  </div>
+</Playground>
+
+### Round buttons
+
+<Playground>
+  <Paper
+    color="text"
+    css={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between', padding: 8 }}
+  >
+    <Button bgColor="color1" round>
+      round
+    </Button>
+    <Button bgColor="primary" rize={1} round busy size={56}>
+      round
+    </Button>
+    <Button color="secondary" round size={72} outline={2}>
+      <Wallet />
+      <span>0</span>
+    </Button>
+  </Paper>
+</Playground>
+
+### Square buttons
+
+<Playground>
+  <Paper
+    bgColor="text"
+    color="color2"
+    css={{
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'space-between',
+      padding: 16,
+    }}
+  >
+    <Button size={72} transparent outline={2}>
+      <Wallet />
+      <span>0</span>
+    </Button>
+    <Button color="warning" size={72} outline={2}>
+      <Wallet />
+      <span>1m</span>
+    </Button>
+  </Paper>
+</Playground>
+
+### Joints
+
+<Playground>
+  <Button bgColor="primary" rounded hardRight>
+    First
+  </Button>
+  <Button bgColor="primary" hard>
+    Second
+  </Button>
+  <Button bgColor="primary" rounded hardLeft>
+    Third
+  </Button>
+</Playground>
+
+### Addons
+
+<Playground>
+  <Button bgColor="secondary1" color="color1" fitAll uppercase href="//nike.com" target="_blank">
+    <Addon>
+      <Wallet />
+    </Addon>
+    <Addon>Do it!</Addon>
+    <Addon>
+      <Trash />
+    </Addon>
+  </Button>
+</Playground>
+
+## Props
+
+<Props of={Button} />
