@@ -8,10 +8,8 @@ export * from './List';
 export * from './Media';
 export * from './Fx';
 export * from './Paper';
-export * from './ScrollBox';
 export * from './Provider';
+export * from './ScrollBox';
 export * from './Spinner';
 export * from './Svg';
 export * from './Text';
-
-export * from './Provider/theme/theme.type';

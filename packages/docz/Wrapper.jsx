@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from '../ui/lib';
+import { Provider } from '@rkta/ui';
 
-const DoczWrapper = ({ children }): React.ReactElement => {
-  console.log('Provider', Provider);
+function DoczWrapper({ children }) {
   return <Provider>{children}</Provider>;
-};
+}
 
 DoczWrapper.propTypes = { children: PropTypes.node.isRequired };
 
