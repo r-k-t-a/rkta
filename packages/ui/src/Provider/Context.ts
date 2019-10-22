@@ -1,17 +1,18 @@
 import { createContext } from 'react';
-import { RktaTheme } from './theme/theme.d';
-import defaultTheme from './theme/defaultTheme';
-import { getElement, ElementResolverFunction } from './getElement';
+import { RktaTheme } from './theme/theme.type';
+import { defaultTheme } from './theme/defaultTheme';
+import { getElement } from './getElement';
+import { Resolver } from './getElement.type';
 import { NextPropsAndElementType, useStylesFunctionType } from './useStyles';
 
 export interface ContextInterface {
-  getElement: ElementResolverFunction;
+  getElement: Resolver;
   replaceTheme?: (nextTheme: RktaTheme) => void;
   theme: RktaTheme;
   applyStyles: useStylesFunctionType;
 }
 
-export default createContext<ContextInterface>({
+export const Context = createContext<ContextInterface>({
   getElement,
   theme: defaultTheme,
   applyStyles: (props): NextPropsAndElementType => [props, 'div'],

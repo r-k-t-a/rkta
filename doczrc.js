@@ -1,6 +1,7 @@
 export default {
   base: '/rkta/',
   dest: '/doc',
+  src: 'packages',
   typescript: true,
-  wrapper: 'packages/ui/DoczWrapper',
+  wrapper: 'packages/docz/Wrapper',
 };

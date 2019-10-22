@@ -1,7 +1,10 @@
 {
   "name": "rkta",
+  "version": "0.0.6",
   "scripts": {
+    "bootstrap": "lerna clean && lerna bootstrap",
     "build": "lerna run build",
+    "build:tsc": "tsc --build",
     "bump": "npm run make && lerna version patch",
     "commit": "git-cz",
     "predocz:dev": "rm -rf .docz/cache",
@@ -11,10 +14,11 @@
     "make": "npm run lint && npm run build",
     "postinstall": "lerna bootstrap",
     "publish": "npm run make && lerna publish --contents lib --yes patch",
-    "resetdeps": "lerna clean && lerna bootstrap",
     "updatedeps": "ncu -u && npm update",
     "typecheck": "lerna run typecheck"
   },
+  "licence": "MIT",
+  "private": true,
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -25,17 +29,21 @@
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
+  "dependencies": {
+    "@rkta/entypo": "0.0.43",
+    "@rkta/ui": "0.0.43"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
     "@types/react": "^16.9.5",
-    "@typescript-eslint/eslint-plugin": "^2.3.2",
-    "@typescript-eslint/parser": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
     "babel-plugin-emotion": "^10.0.21",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
@@ -49,17 +57,13 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
-    "husky": "^3.0.8",
-    "lerna": "^3.16.4",
+    "husky": "^3.0.9",
+    "lerna": "^3.17.0",
     "npm-check-updates": "^3.1.24",
     "prettier": "^1.18.2",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   },
-  "licence": "MIT",
-  "version": "0.0.6",
-  "dependencies": {
-    "md5": "^2.2.1",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }

@@ -1,4 +1,4 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.d';
+import { CssRkta, RktaTheme } from '../Provider/theme/theme.type';
 
 export const initialStyle: CssRkta = {
   display: 'block',

@@ -1,11 +1,9 @@
-import { Breakpoint } from './theme.d';
+import { Breakpoint } from './theme.type';
 
-const list: Breakpoint[] = [
+export const breakpoints: Breakpoint[] = [
   { phone: 0 },
   { tablet: 600 },
   { laptop: 960 },
   { desktop: 1280 },
   { jumbotron: 1920 },
 ];
-
-export default list;

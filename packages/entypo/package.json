@@ -6,15 +6,17 @@
   "homepage": "https://github.com/r-k-t-a/rkta",
   "license": "CC BY-SA",
   "main": "lib/index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/r-k-t-a/rkta.git"
   },
   "scripts": {
     "build": "npm run build:types && npm run build:js",
+    "build:tsc": "tsc",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --ignore \"**/*.spec.ts\" --source-maps",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
@@ -26,12 +28,13 @@
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
   "peerDependencies": {
-    "@rkta/ui": "latest"
+    "react": "^16.8.0",
+    "@rkta/ui": "*"
   },
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "react": "^16.9.0"
+  "devDependencies": {
+    "@rkta/ui": "*"
   }
 }

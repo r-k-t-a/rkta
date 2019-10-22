@@ -1,10 +1,10 @@
 import { jsx } from '@emotion/core';
 import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
 
-import match from './match';
-import Media from './Media.d';
-import useProviderContext from '../Provider/useProviderContext';
-import { CssEmotion, CssRkta } from '../Provider/theme/theme.d';
+import { matchMedia } from './matchMedia';
+import { Props } from './Media.type';
+import { useProviderContext } from '../Provider';
+import { CssEmotion, CssRkta } from '../Provider/theme/theme.type';
 
 const toString = (query: CssRkta[]): string => query.join(', ');
 
@@ -30,10 +30,10 @@ const serverMedia = (children: ReactElement | ReactElement[], queries: CssRkta[]
 
 function clientMedia(children: ReactNode, queries: CssRkta[]): ReactNode {
   const mq = toString(queries);
-  return match(mq) ? children : null;
+  return matchMedia(mq) ? children : null;
 }
 
-const Media = ({ children, ...queries }: Media): ReactNode => {
+export const Media = ({ children, ...queries }: Props): ReactNode => {
   const [isMounted, setIsMounted] = useState(false);
   const [, updateState] = useState();
   const {
@@ -52,5 +52,3 @@ const Media = ({ children, ...queries }: Media): ReactNode => {
 
   return resolve(children, mediaQueries);
 };
-
-export default Media;

@@ -1,3 +1,1 @@
-import ListButton from './ListButton';
-
-export default ListButton;
+export * from './ListButton';

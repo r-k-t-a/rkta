@@ -1,3 +1,1 @@
-import Item from './ListItem';
-
-export default Item;
+export * from './ListItem';

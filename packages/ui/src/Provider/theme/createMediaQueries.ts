@@ -1,5 +1,5 @@
 import upperFirst from 'lodash/upperFirst';
-import { Breakpoint, MediaQueries } from './theme.d';
+import { Breakpoint, MediaQueries } from './theme.type';
 
 interface QueryItem {
   [key: number]: string;
@@ -12,7 +12,7 @@ function createMediaQuery(min: number | null, max: number | null, key: string): 
   return { [key]: query };
 }
 
-export default (breakpoints: Breakpoint[]): MediaQueries =>
+export const createMediaQueries = (breakpoints: Breakpoint[]): MediaQueries =>
   breakpoints.reduce(
     (acc, breakpoint, index) => {
       const key = Object.keys(breakpoint)[0];

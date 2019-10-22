@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/core';
-import { CssEmotion } from '../Provider/theme/theme.d';
+import { CssEmotion } from '../Provider/theme/theme.type';
 
 export const initialStyle: CssEmotion = {
   visibility: 'hidden',

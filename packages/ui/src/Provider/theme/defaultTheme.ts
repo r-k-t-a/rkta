@@ -1,7 +1,7 @@
-import breakpoints from './breakpoints';
-import color from './color';
-import shadow from './shadow';
-import createMediaQueries from './createMediaQueries';
+import { breakpoints } from './breakpoints';
+import { color } from './color';
+import { shadow } from './shadow';
+import { createMediaQueries } from './createMediaQueries';
 
 import * as Addon from '../../Addon/Addon.styles';
 import * as Bage from '../../Bage/Bage.styles';
@@ -19,9 +19,9 @@ import * as Spinner from '../../Spinner/Spinner.styles';
 import * as Svg from '../../Svg/Svg.styles';
 import * as Text from '../../Text/Text.styles';
 
-import { RktaTheme } from './theme.d';
+import { RktaTheme } from './theme.type';
 
-const defaultTheme: RktaTheme = {
+export const defaultTheme: RktaTheme = {
   color,
   media: createMediaQueries(breakpoints),
   shadow,
@@ -41,5 +41,3 @@ const defaultTheme: RktaTheme = {
   Paper,
   Text,
 };
-
-export default defaultTheme;

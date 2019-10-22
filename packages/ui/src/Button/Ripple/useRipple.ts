@@ -8,8 +8,24 @@ import {
   useState,
 } from 'react';
 
-import { AddWaveInput, RippleProps, UseRippliState, WaveInterface } from './Ripple.d';
-import reEmit from '../../util/reEmit';
+import { Props, Wave } from './Ripple.type';
+import { reEmit } from '../../util/reEmit';
+
+interface AddWaveInput {
+  width: number;
+  height: number;
+  pointX: number;
+  pointY: number;
+}
+
+interface UseRippliState {
+  focus: boolean;
+  mouseover: boolean;
+  overlayIsVisible: boolean;
+  patched: number;
+  touch: boolean;
+  waves: Wave[];
+}
 
 const initialState: UseRippliState = {
   focus: false,
@@ -20,7 +36,7 @@ const initialState: UseRippliState = {
   touch: false,
 };
 
-const releaseWave = (wave: WaveInterface): WaveInterface => ({ ...wave, released: true });
+const releaseWave = (wave: Wave): Wave => ({ ...wave, released: true });
 function releaseWaves(state: UseRippliState, patchState: Function): void {
   const waves = state.waves.map(releaseWave);
   patchState({ ...state, waves });
@@ -35,11 +51,11 @@ function addWave(
   const x = pointX;
   const y = pointY;
   const id = Date.now();
-  const wave: WaveInterface = { id, x, y, size, released: false };
+  const wave: Wave = { id, x, y, size, released: false };
   patchState({ ...state, waves: [...state.waves.map(releaseWave), wave] });
 }
 
-export default ({
+export const useRipple = ({
   onBlur,
   onClick,
   onFocus,
@@ -48,7 +64,7 @@ export default ({
   onPointerDown,
   onContextMenu,
   onTouchStart,
-}: ButtonHTMLAttributes<{}>): [RippleProps, {}] => {
+}: ButtonHTMLAttributes<{}>): [Props, {}] => {
   const [state, setState] = useState(initialState);
   function patchState(payload: {}): void {
     setState({ ...state, ...payload, patched: Date.now() });

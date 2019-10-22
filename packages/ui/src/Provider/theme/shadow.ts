@@ -1,4 +1,4 @@
-import { Shadows } from './theme.d';
+import { Shadows } from './theme.type';
 
 const shadowKeyUmbraOpacity = 0.2;
 const shadowKeyPenumbraOpacity = 0.14;
@@ -17,7 +17,7 @@ function reduceShadows(acc: Shadows, px: number[], key: number): Shadows {
   return { ...acc, [keystring]: createShadow(px) } as Shadows;
 }
 
-const variants = [
+export const shadow = [
   [0, 1, 3, 0, 0, 1, 1, 0, 0, 2, 1, -1],
   [0, 1, 5, 0, 0, 2, 2, 0, 0, 3, 1, -2],
   [0, 1, 8, 0, 0, 3, 4, 0, 0, 3, 3, -2],
@@ -43,5 +43,3 @@ const variants = [
   [0, 11, 14, -7, 0, 23, 36, 3, 0, 9, 44, 8],
   [0, 11, 15, -7, 0, 24, 38, 3, 0, 9, 46, 8],
 ].reduce(reduceShadows, {} as Shadows);
-
-export default variants;

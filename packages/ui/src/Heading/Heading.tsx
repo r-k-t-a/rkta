@@ -1,10 +1,10 @@
 import React, { ReactElement, SFC } from 'react';
 
-import Text from '../Text';
-import TextProps from '../Text/Text.d';
-import Heading from './Heading.d';
+import { Text } from '../Text';
+import { Props as TextProps } from '../Text/Text.type';
+import { Props } from './Heading.type';
 
-const getHeading = (level: number, rest: Partial<Heading>): TextProps => {
+const getHeading = (level: number, rest: Partial<Props>): TextProps => {
   if (level >= 1 && level <= 6) {
     const element = `h${level}` as React.ElementType;
     return { element, [element as string]: true, ...rest };
@@ -12,8 +12,6 @@ const getHeading = (level: number, rest: Partial<Heading>): TextProps => {
   return { element: 'header', ...rest };
 };
 
-const Heading: SFC<Heading> = ({ level, ...rest }: Heading): ReactElement => (
+export const Heading: SFC<Props> = ({ level, ...rest }: Props): ReactElement => (
   <Text {...getHeading(level, rest)} />
 );
-
-export default Heading;

@@ -3,9 +3,15 @@ import flatten from 'lodash/flatten';
 import join from 'lodash/join';
 import memoize from 'lodash/memoize';
 
-import { CssEmotion, CssRkta, RktaComponentStyles, RktaThemed, RktaTheme } from './theme/theme.d';
+import {
+  CssEmotion,
+  CssRkta,
+  RktaComponentStyles,
+  RktaThemed,
+  RktaTheme,
+} from './theme/theme.type';
 
-import { ElementResolverFunction, ElementResolverProps } from './getElement';
+import { Resolver, ElementResolverProps } from './getElement.type';
 
 export interface NextProps {
   [key: string]: CssRkta | React.ReactNode;
@@ -20,7 +26,7 @@ export type useStylesFunctionType = (
 
 interface ApplyStylesArgType {
   composition: string[];
-  getElement: ElementResolverFunction;
+  getElement: Resolver;
   memo?: boolean;
   props: RktaThemed & ElementResolverProps & { element?: ElementType };
   theme: RktaTheme;
@@ -89,7 +95,7 @@ const createCacheKey = ({ getElement, theme, props, composition }: ApplyStylesAr
 
 const memoizedApplyStyles = memoize(applyStyles, createCacheKey);
 
-export default ({
+export const useStyles = ({
   props: { memo, ...props },
   ...rest
 }: ApplyStylesArgType): NextPropsAndElementType => {

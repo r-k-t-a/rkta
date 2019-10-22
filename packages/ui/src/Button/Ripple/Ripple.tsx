@@ -3,19 +3,19 @@ import { Fragment, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import { BoxCss } from './Ripple.styles';
-import { RippleProps } from './Ripple.d';
-import Wave from './Wave';
-import Overlay from './Overlay';
+import { Props } from './Ripple.type';
+import { Wave } from './Wave';
+import { Overlay } from './Overlay';
 import { getElement } from '../../Provider/getElement';
 
 /* eslint-disable react/jsx-fragments */
-const Ripple = ({
+export const Ripple = ({
   mouseover,
   overlayIsVisible,
   onOverlayAnimationEnd,
   onWaveDissolve,
   waves,
-}: RippleProps): ReactElement => {
+}: Props): ReactElement => {
   const hasWaves = waves.length > 0;
   const WavesWrapElement = getElement('span', {});
   return (
@@ -35,5 +35,3 @@ const Ripple = ({
     </Fragment>
   );
 };
-
-export default Ripple;

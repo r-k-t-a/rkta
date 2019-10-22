@@ -1,10 +1,10 @@
 import React, { forwardRef, SFC } from 'react';
 
-import Button from '../../Button';
-import ListButton from './ListButton.d';
+import { Button } from '../../Button';
+import { Props } from './ListButton.type';
 
-const ListButton: SFC<ListButton> = forwardRef(
-  ({ children, ...rest }: ListButton, ref): JSX.Element => {
+export const ListButton: SFC<Props> = forwardRef(
+  ({ children, ...rest }: Props, ref): JSX.Element => {
     return (
       <Button
         blockLevel
@@ -20,5 +20,3 @@ const ListButton: SFC<ListButton> = forwardRef(
     );
   },
 );
-
-export default ListButton;

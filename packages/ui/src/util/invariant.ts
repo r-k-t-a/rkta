@@ -1,3 +1,3 @@
-export default (condition: boolean, message: string): void => {
+export const invariant = (condition: boolean, message: string): void => {
   if (!condition) throw new Error(message);
 };

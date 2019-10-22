@@ -2,10 +2,10 @@
 import { SFC, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
-import useProviderContext from '../Provider/useProviderContext';
-import Text from './Text.d';
+import { useProviderContext } from '../Provider';
+import { Props } from './Text.type';
 
-const Text: SFC<Text> = ({ children, element, ...rest }: Text): ReactElement => {
+export const Text: SFC<Props> = ({ children, element, ...rest }: Props): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element, ...rest }, 'Text');
   return <Element {...nextProps}>{children}</Element>;
@@ -14,5 +14,3 @@ const Text: SFC<Text> = ({ children, element, ...rest }: Text): ReactElement => 
 Text.defaultProps = {
   element: 'span',
 };
-
-export default Text;

@@ -7,3 +7,4 @@ yarn-error.log
 
 benchmarks/build
 packages/**/lib
+*.tsbuildinfo

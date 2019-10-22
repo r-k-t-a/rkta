@@ -1,4 +1,4 @@
-import { CssEmotion, RktaTheme } from '../Provider/theme/theme.d';
+import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
 
 export { color } from '../Text/Text.styles';
 

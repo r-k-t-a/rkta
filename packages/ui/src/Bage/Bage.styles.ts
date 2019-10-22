@@ -1,4 +1,4 @@
-import { CssRkta } from '../Provider/theme/theme.d';
+import { CssRkta } from '../Provider/theme/theme.type';
 
 export const initialStyle: CssRkta = {
   display: 'inline-block !important',
