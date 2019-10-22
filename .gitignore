@@ -2,6 +2,7 @@
 lerna-debug.log
 node_modules
 package-lock.json
+tsconfig.tsbuildinfo
 yarn.lock
 yarn-error.log
 
