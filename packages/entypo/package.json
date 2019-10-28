@@ -7,6 +7,9 @@
   "license": "CC BY-SA",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "directory": [
+    "lib"
+  ],
   "files": [
     "lib"
   ],
