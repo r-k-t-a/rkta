@@ -10,9 +10,6 @@
   "directory": [
     "lib"
   ],
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/r-k-t-a/rkta.git"
