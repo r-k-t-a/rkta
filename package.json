@@ -19,11 +19,6 @@
   },
   "licence": "MIT",
   "private": true,
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
   "dependencies": {
     "@rkta/entypo": "0.0.43",
     "@rkta/ui": "0.0.43"
@@ -51,7 +46,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
-    "husky": "^3.0.9",
     "lerna": "^3.17.0",
     "npm-check-updates": "^3.1.24",
     "prettier": "^1.18.2",
