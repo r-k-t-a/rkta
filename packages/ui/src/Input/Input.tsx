@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, SFC } from 'react';
 
 import { InputBase } from './InputBase';
 import { useProviderContext } from '../Provider';
@@ -8,7 +8,7 @@ import { reEmit } from '../util/reEmit';
 
 import { Props } from './Input.type';
 
-export const Input = ({
+export const Input: SFC<Props> = ({
   append,
   caption,
   defaultValue = '',

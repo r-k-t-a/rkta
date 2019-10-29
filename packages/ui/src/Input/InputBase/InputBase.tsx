@@ -1,11 +1,18 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import { SFC } from 'react';
 
 import { useProviderContext } from '../../Provider';
 import { Text } from '../../Text';
 import { Props } from './InputBase.type';
 
-export const InputBase = ({ active, caption, value, onChange, ...rest }: Props): JSX.Element => {
+export const InputBase: SFC<Props> = ({
+  active,
+  caption,
+  value,
+  onChange,
+  ...rest
+}: Props): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const styledProps = {
     normal: true,
