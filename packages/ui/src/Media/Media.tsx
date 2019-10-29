@@ -1,5 +1,5 @@
 import { jsx } from '@emotion/core';
-import { Children, ReactElement, ReactNode, useEffect, useState } from 'react';
+import React, { Children, ReactElement, ReactNode, SFC, useEffect, useState } from 'react';
 
 import { matchMedia } from './matchMedia';
 import { Props } from './Media.type';
@@ -33,7 +33,7 @@ function clientMedia(children: ReactNode, queries: CssRkta[]): ReactNode {
   return matchMedia(mq) ? children : null;
 }
 
-export const Media = ({ children, ...queries }: Props): ReactNode => {
+export const Media: SFC<Props> = ({ children, ...queries }: Props): ReactElement => {
   const [isMounted, setIsMounted] = useState(false);
   const [, updateState] = useState();
   const {
@@ -50,5 +50,5 @@ export const Media = ({ children, ...queries }: Props): ReactNode => {
   const mediaQueries = Object.keys(queries).map((name): CssRkta => media[name]);
   const resolve = isMounted ? clientMedia : serverMedia;
 
-  return resolve(children, mediaQueries);
+  return <>{resolve(children, mediaQueries)}</>;
 };
