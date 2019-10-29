@@ -1,11 +1,9 @@
-import React, { ElementType, ReactNode } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { InterpolationWithTheme } from '@emotion/core';
+import { ElementType, ReactNode } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type CssGetter = (theme: RktaTheme, props: any) => CssRkta;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type CssEmotion = InterpolationWithTheme<any>;
+type CssGetter = (theme: RktaTheme, props: any) => CssRkta;
 export type CssRkta = CssEmotion | CssGetter;
 
 export declare type Color =
@@ -115,7 +113,7 @@ export interface Shadows {
 
 export interface RktaThemed {
   css?: CssRkta;
-  [key: string]: CssRkta | React.ReactNode;
+  [key: string]: CssRkta | ReactNode;
 }
 export interface RktaElement extends RktaThemed {
   css?: CssEmotion;
