@@ -1,11 +1,10 @@
 /* eslint-disable react/static-property-placement */
 import React from 'react';
-import { ThemeProvider } from 'emotion-theming';
 import merge from 'lodash/merge';
+import { Context, ThemeProvider } from '@rkta/context';
 
 import { defaultTheme } from './theme/defaultTheme';
 import { RktaTheme } from './theme/theme.type';
-import { Context } from './Context';
 import { getElement } from './getElement';
 import { Resolver } from './getElement.type';
 import { NextPropsAndElementType, useStyles, useStylesFunctionType } from './useStyles';
