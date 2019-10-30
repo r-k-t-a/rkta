@@ -14,10 +14,8 @@ export const useAutoHeight = (
   function onInput(): void {
     if (!ref.current) return;
     const textarea = ref.current.childNodes[1] as HTMLTextAreaElement;
-    const { clientHeight, offsetHeight } = textarea;
     textarea.style.height = 'auto';
-    const height = offsetHeight - clientHeight + textarea.scrollHeight;
-    textarea.style.height = `${height}px`;
+    textarea.style.height = `${textarea.scrollHeight}px`;
   }
   useEffect(onInput, [value]);
   return { ref, onInput };

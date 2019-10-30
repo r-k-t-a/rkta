@@ -37,6 +37,7 @@ export const initialStyle: CssEmotion = css`
   textarea {
     line-height: 24px;
     min-height: 48px;
+    overflow: auto;
     resize: none;
   }
 `;
