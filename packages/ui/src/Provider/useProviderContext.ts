@@ -1,6 +1,8 @@
 import { useContext } from 'react';
-import { Context, ContextInterface } from './Context';
+import { Context } from '@rkta/context';
+
+import { ContextInterface } from './Provider.type';
 
 export function useProviderContext(): ContextInterface {
-  return useContext(Context);
+  return useContext(Context) as ContextInterface;
 }

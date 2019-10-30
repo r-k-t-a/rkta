@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
-    "emotion-theming": "^10.0.14"
+    "@rkta/context": "^0.0.51"
   },
   "peerDependencies": {
     "lodash": "^4.17.15",

@@ -1,10 +1,10 @@
 {
-  "name": "@rkta/entypo",
+  "name": "@rkta/context",
   "version": "0.0.51",
-  "description": "> TODO: description",
-  "author": "Daniel Bruce, Sergei Droganov",
+  "description": "WIP Lightweight UI library for react",
+  "author": "Sergei Droganov <serge@droganov.ru>",
   "homepage": "https://github.com/r-k-t-a/rkta",
-  "license": "CC BY-SA",
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "directory": [
@@ -27,14 +27,17 @@
   "bugs": {
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
+  "dependencies": {
+    "emotion-theming": "^10.0.14"
+  },
   "peerDependencies": {
-    "@rkta/ui": "*",
-    "react": "^16.8.0"
+    "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2"
   },
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@rkta/ui": "*"
-  }
+  "gitHead": "28b39e9d4f56c5a36c6766fc9302d72dc30c3f3a"
 }
