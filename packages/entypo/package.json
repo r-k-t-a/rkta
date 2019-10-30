@@ -35,6 +35,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@rkta/ui": "^0.0.51"
+    "@rkta/ui": "*"
   }
 }

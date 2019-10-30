@@ -19,10 +19,7 @@
   },
   "licence": "MIT",
   "private": true,
-  "dependencies": {
-    "@rkta/entypo": "0.0.47",
-    "@rkta/ui": "0.0.47"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
