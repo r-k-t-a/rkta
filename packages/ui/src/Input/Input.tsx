@@ -32,15 +32,15 @@ export const Input: SFC<Props> = ({
   const wrapperProps = { active, element: 'label', fancy, transparent: fancy, ...rest };
   const [{ css, ...inputProps }, Element] = applyStyles(wrapperProps, 'Input', 'Paper');
 
-  const handleBlur = (event: FormEvent<HTMLInputElement>): void => {
+  const handleBlur = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setHasFocus(false);
     reEmit(event, onBlur);
   };
-  const handleChange = (event: FormEvent<HTMLInputElement>): void => {
+  const handleChange = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setOwnValue(event.currentTarget.value);
     reEmit(event, onChange);
   };
-  const handleFocus = (event: FormEvent<HTMLInputElement>): void => {
+  const handleFocus = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     setHasFocus(true);
     reEmit(event, onFocus);
   };

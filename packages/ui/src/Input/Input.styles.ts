@@ -5,7 +5,6 @@ export { color } from '../Text/Text.styles';
 export const initialStyle: CssEmotion = {
   alignItems: 'center',
   display: 'flex',
-  flex: 1,
 };
 
 export const fancy = (theme: RktaTheme, props: { active: boolean }): CssEmotion => ({
