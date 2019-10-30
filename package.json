@@ -17,8 +17,9 @@
     "updatedeps": "ncu -u && npm update",
     "typecheck": "lerna run typecheck"
   },
-  "licence": "MIT",
-  "private": true,
+  "engines": {
+    "yarn": "^1.13.0"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -48,6 +49,8 @@
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"
   },
+  "licence": "MIT",
+  "private": true,
   "workspaces": [
     "packages/*"
   ]

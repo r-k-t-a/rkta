@@ -1,11 +1,9 @@
-import { ReactNode, HTMLProps } from 'react';
+import { HTMLProps, ReactNode } from 'react';
 import { AddonOwnProps } from '../../Addon/Addon.type';
 
-export interface Props extends AddonOwnProps, HTMLProps<HTMLInputElement> {
+export interface Props extends AddonOwnProps, HTMLProps<HTMLInputElement | HTMLTextAreaElement> {
   active?: boolean;
-  big?: boolean;
+  autoheight?: boolean;
   caption?: ReactNode;
-  huge?: boolean;
-  small?: boolean;
-  tiny?: boolean;
+  multiline?: boolean;
 }

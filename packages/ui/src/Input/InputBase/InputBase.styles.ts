@@ -15,20 +15,29 @@ export const initialStyle: CssEmotion = css`
     user-select: none;
     will-change: font;
   }
-  input {
+  input,
+  textarea {
     background-color: transparent;
     border: none;
+    color: inherit;
     display: block;
     font: inherit;
-    height: 20px;
     margin: 0;
-    margin-top: -20px;
     outline: none;
     padding: 0;
-    transition: margin 0.24s ease, transform 0.24s ease;
-    transform: translateY(40%);
-    will-change: margin, transform;
     -webkit-tap-highlight-color: transparent;
+  }
+  input {
+    height: 20px;
+    margin-top: -20px;
+    transform: translateY(40%);
+    transition: margin 0.24s ease, transform 0.24s ease;
+    will-change: margin, transform;
+  }
+  textarea {
+    line-height: 24px;
+    min-height: 48px;
+    resize: none;
   }
 `;
 
@@ -42,4 +51,10 @@ export const active: CssEmotion = css`
     margin-top: 0;
     transform: translateY(0px);
   }
+`;
+
+export const multiline: CssEmotion = css`
+  height: auto;
+  padding-bottom: 8px;
+  padding-top: 8px;
 `;
