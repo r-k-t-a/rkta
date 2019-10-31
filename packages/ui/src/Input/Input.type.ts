@@ -8,7 +8,7 @@ export interface Props extends PaperOwnProps, InputBase {
   active?: never;
   append?: ReactNode;
   color?: Color;
-  defaultValue: string;
+  defaultValue?: string;
   disabled?: boolean;
   hasFocus?: never;
   fancy?: boolean;
