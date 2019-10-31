@@ -56,7 +56,6 @@ export const active: CssEmotion = css`
 
 export const maxRows = (theme: RktaTheme, props: { maxRows: number }): CssEmotion => css`
   textarea {
-    outline: 1px dotted;
     max-height: ${props.maxRows * 24}px;
   }
 `;
