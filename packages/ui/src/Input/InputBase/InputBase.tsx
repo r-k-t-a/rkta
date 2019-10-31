@@ -27,6 +27,7 @@ export const InputBase: SFC<Props> = ({
   const [{ css, ...inputProps }, Element] = applyStyles(styledProps, 'InputBase', 'Addon');
   const Input = multiline ? 'textarea' : 'input';
   const elementProps = useAutoHeight(autoheight && multiline, value);
+
   return (
     <Element {...elementProps} css={css}>
       {caption && (

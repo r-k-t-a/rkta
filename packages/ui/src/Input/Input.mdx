@@ -23,6 +23,10 @@ import { New } from '../../../entypo/src';
   <br />
   <Input caption="Normal" />
   <br />
+  <Input caption="Disabled" disabled />
+  <br />
+  <Input caption="Read Only" readOnly />
+  <br />
   <Input caption="Big" big fancy fitAll color="error" />
   <br />
   <Input
@@ -42,7 +46,7 @@ import { New } from '../../../entypo/src';
 ## Multiline Input
 
 <Playground>
-  <Input autoheight multiline caption="Multiline" bgColor="color3" rize={1} />
+  <Input autoheight multiline caption="Multiline" bgColor="color3" rize={1} maxRows={4} />
 </Playground>
 
 ## Props

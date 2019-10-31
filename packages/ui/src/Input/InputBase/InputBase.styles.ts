@@ -1,5 +1,5 @@
-import { css } from '@emotion/core';
-import { CssEmotion } from '../../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { CssEmotion, RktaTheme } from '../../Provider/theme/theme.type';
 
 export const initialStyle: CssEmotion = css`
   display: flex;
@@ -51,6 +51,13 @@ export const active: CssEmotion = css`
   input {
     margin-top: 0;
     transform: translateY(0px);
+  }
+`;
+
+export const maxRows = (theme: RktaTheme, props: { maxRows: number }): CssEmotion => css`
+  textarea {
+    outline: 1px dotted;
+    max-height: ${props.maxRows * 24}px;
   }
 `;
 

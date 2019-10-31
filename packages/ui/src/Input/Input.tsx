@@ -12,12 +12,14 @@ export const Input: SFC<Props> = ({
   append,
   caption,
   defaultValue = '',
+  disabled,
   fancy,
   onBlur,
   onChange,
   onFocus,
   placeholder,
   prepend,
+  readOnly,
   value,
   ...rest
 }: Props): JSX.Element => {
@@ -29,7 +31,15 @@ export const Input: SFC<Props> = ({
   const active = hasFocus || !!(currentValue || placeholder);
 
   const { applyStyles } = useProviderContext();
-  const wrapperProps = { active, element: 'label', fancy, transparent: fancy, ...rest };
+  const wrapperProps = {
+    active,
+    disabled,
+    element: 'label',
+    fancy,
+    readOnly,
+    transparent: fancy,
+    ...rest,
+  };
   const [{ css, ...inputProps }, Element] = applyStyles(wrapperProps, 'Input', 'Paper');
 
   const handleBlur = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -51,10 +61,12 @@ export const Input: SFC<Props> = ({
         {...inputProps}
         active={active}
         caption={caption}
+        disabled={disabled}
         onBlur={handleBlur}
         onChange={handleChange}
         onFocus={handleFocus}
         placeholder={placeholder}
+        readOnly={readOnly}
         value={currentValue}
       />
       {append}
