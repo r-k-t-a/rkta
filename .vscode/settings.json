@@ -1,4 +1,5 @@
 {
+  "javascript.implicitProjectConfig.checkJs": false,
   "editor.formatOnSave": true,
   "eslint.autoFixOnSave": false,
   "eslint.validate": [

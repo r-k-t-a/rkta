@@ -1,5 +1,5 @@
-import { css, SerializedStyles } from '@emotion/core';
-import { CssEmotion, RktaTheme } from '../../Provider/theme/theme.type';
+import { css } from '@emotion/core';
+import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
 
 export const initialStyle: CssEmotion = css`
   display: flex;
@@ -7,14 +7,15 @@ export const initialStyle: CssEmotion = css`
   flex-direction: column;
   transition: justify-content 0.24s ease;
   will-change: justify-content;
-  span {
+  .caption {
     align-self: flex-start;
-    line-height: 12px;
+    line-height: 20px;
     pointer-events: none;
     transition: font 0.24s ease;
     user-select: none;
     will-change: font;
   }
+  .value,
   input,
   textarea {
     background-color: transparent;
@@ -27,8 +28,10 @@ export const initialStyle: CssEmotion = css`
     padding: 0;
     -webkit-tap-highlight-color: transparent;
   }
+  .value,
   input {
     height: 20px;
+    line-height: 20px;
     margin-top: -20px;
     transform: translateY(40%);
     transition: margin 0.24s ease, transform 0.24s ease;
@@ -44,10 +47,12 @@ export const initialStyle: CssEmotion = css`
 
 export const active: CssEmotion = css`
   justify-content: space-evenly;
-  span {
+  .caption {
     font-size: 10px;
+    line-height: 12px;
     margin-bottom: 0;
   }
+  .value,
   input {
     margin-top: 0;
     transform: translateY(0px);

@@ -9,10 +9,11 @@ import * as Button from '../../Button/Button.styles';
 import * as Divider from '../../Divider/Divider.styles';
 import * as Fx from '../../Fx/Fx.styles';
 import * as Input from '../../Input/Input.styles';
-import * as InputBase from '../../Input/InputBase/InputBase.styles';
+import * as InputBase from '../../InputBase/InputBase.styles';
 import * as List from '../../List/List.styles';
 import * as ListItem from '../../List/ListItem/ListItem.styles';
 import * as ListText from '../../List/ListText/ListText.styles';
+import * as Select from '../../Select/Select.styles';
 import * as Paper from '../../Paper/Paper.styles';
 import * as ScrollBox from '../../ScrollBox/ScrollBox.styles';
 import * as Spinner from '../../Spinner/Spinner.styles';
@@ -35,6 +36,7 @@ export const defaultTheme: RktaTheme = {
   List,
   ListItem,
   ListText,
+  Select,
   ScrollBox,
   Spinner,
   Svg,

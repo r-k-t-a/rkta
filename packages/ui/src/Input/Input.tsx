@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core';
 import { useState, FormEvent, SFC } from 'react';
 
-import { InputBase } from './InputBase';
+import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
 import { reEmit } from '../util/reEmit';
 
