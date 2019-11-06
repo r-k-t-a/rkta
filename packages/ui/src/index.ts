@@ -6,6 +6,7 @@ export * from './Heading';
 export * from './Input';
 export * from './List';
 export * from './Media';
+export * from './Select';
 export * from './Fx';
 export * from './Paper';
 export * from './Provider';

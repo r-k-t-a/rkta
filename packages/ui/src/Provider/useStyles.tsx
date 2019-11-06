@@ -72,7 +72,7 @@ function applyStyles({
     nextKeys = [];
   }
 
-  const flattenCssEmotion = flatten(cssEmotion.reverse());
+  const flattenCssEmotion = flatten(cssEmotion.reverse()) as CssEmotion[];
 
   for (let i = 0; i < ownCss.length; i += 1) {
     flattenCssEmotion.push(thunk(ownCss[i]));
