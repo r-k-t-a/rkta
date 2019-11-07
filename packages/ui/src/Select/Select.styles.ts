@@ -25,3 +25,7 @@ export const active = (theme: RktaTheme, props: { active: boolean }): CssEmotion
     transform: rotate(${props.active ? 180 : 0}deg);
   }
 `;
+
+export const main = {
+  flex: 1,
+};

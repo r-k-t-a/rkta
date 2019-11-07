@@ -10,6 +10,7 @@ import * as Divider from '../../Divider/Divider.styles';
 import * as Fx from '../../Fx/Fx.styles';
 import * as Input from '../../Input/Input.styles';
 import * as InputBase from '../../InputBase/InputBase.styles';
+import * as InputGroup from '../../InputGroup/InputGroup.styles';
 import * as List from '../../List/List.styles';
 import * as ListItem from '../../List/ListItem/ListItem.styles';
 import * as ListText from '../../List/ListText/ListText.styles';
@@ -33,6 +34,7 @@ export const defaultTheme: RktaTheme = {
   Fx,
   Input,
   InputBase,
+  InputGroup,
   List,
   ListItem,
   ListText,

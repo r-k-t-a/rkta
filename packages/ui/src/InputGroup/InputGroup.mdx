@@ -1,0 +1,35 @@
+---
+menu: UI
+name: Input Group
+---
+
+import { Link, Playground, Props } from 'docz';
+import { Addon, Button, Input, InputGroup, Divider, Select } from '../';
+import { New } from '../../../entypo/src';
+
+## Input Group
+
+<Playground>
+  <InputGroup rize={1}>
+    <Input caption="Caption" hardRight main />
+    <Button bgColor="primary" hardLeft>
+      OK
+    </Button>
+  </InputGroup>
+  <Divider invisible />
+  <InputGroup rize={1}>
+    <Addon>
+      <Button bgColor="primary" round size={32} rize={1}>
+        &larr;
+      </Button>
+    </Addon>
+    <Select caption="Caption" main>
+      <option>Option 1</option>
+    </Select>
+
+  </InputGroup>
+</Playground>
+
+## Props
+
+<Props of={InputGroup} />

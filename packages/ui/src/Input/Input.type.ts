@@ -12,6 +12,7 @@ export interface Props extends PaperOwnProps, InputBase {
   disabled?: boolean;
   hasFocus?: never;
   fancy?: boolean;
+  main?: boolean;
   prepend?: ReactNode;
   readOnly?: boolean;
   size?: never;
