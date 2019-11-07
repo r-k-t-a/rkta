@@ -30,8 +30,8 @@ export const Select: SFC<Props> = ({
     'Addon',
   );
   function handleClose(event: FormEvent<HTMLSelectElement>): void {
-    const { value } = event.target as HTMLSelectElement;
-    setCurrentValue(value);
+    const { value: selectValue } = event.target as HTMLSelectElement;
+    setCurrentValue(selectValue);
     if (isActive) setIsActive(false);
   }
   function handleOpen(): void {
