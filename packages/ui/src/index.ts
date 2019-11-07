@@ -4,6 +4,7 @@ export * from './Button';
 export * from './Divider';
 export * from './Heading';
 export * from './Input';
+export * from './InputGroup';
 export * from './List';
 export * from './Media';
 export * from './Select';

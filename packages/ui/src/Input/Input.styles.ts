@@ -33,3 +33,7 @@ export const fancy = (theme: RktaTheme, props: { active: boolean }): CssEmotion 
     transition: 'transform 0.32s ease',
   },
 });
+
+export const main = {
+  flex: 1,
+};
