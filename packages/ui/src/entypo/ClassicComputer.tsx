@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import Svg from '../Svg';
+import { Svg } from '../Svg';
 import { defaultIconSize } from './constants';
 
 const ClassicComputer = <T extends {}>(props: T): ReactElement => (
