@@ -13,19 +13,16 @@ function createMediaQuery(min: number | null, max: number | null, key: string): 
 }
 
 export const createMediaQueries = (breakpoints: Breakpoint[]): MediaQueries =>
-  breakpoints.reduce(
-    (acc, breakpoint, index) => {
-      const key = Object.keys(breakpoint)[0];
-      const nextBreakPoint = breakpoints[index + 1];
-      const upperKey = upperFirst(key);
-      const min = breakpoint[key];
-      const max = nextBreakPoint ? Object.values(nextBreakPoint)[0] - 1 : null;
-      return {
-        ...acc,
-        ...createMediaQuery(min, max, key),
-        ...createMediaQuery(null, max, `atLeast${upperKey}`),
-        ...createMediaQuery(min, null, `atMost${upperKey}`),
-      };
-    },
-    {} as MediaQueries,
-  );
+  breakpoints.reduce((acc, breakpoint, index) => {
+    const key = Object.keys(breakpoint)[0];
+    const nextBreakPoint = breakpoints[index + 1];
+    const upperKey = upperFirst(key);
+    const min = breakpoint[key];
+    const max = nextBreakPoint ? Object.values(nextBreakPoint)[0] - 1 : null;
+    return {
+      ...acc,
+      ...createMediaQuery(min, max, key),
+      ...createMediaQuery(null, max, `atLeast${upperKey}`),
+      ...createMediaQuery(min, null, `atMost${upperKey}`),
+    };
+  }, {} as MediaQueries);
