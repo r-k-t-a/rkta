@@ -17,8 +17,8 @@
     "noImplicitReturns": true,
     "noLib": false,
     "paths": {
-      "@rkta/context": ["packages/context/src"],
-      "@rkta/ui": ["packages/ui/src"]
+      "@rkta/context": ["packages/context"],
+      "@rkta/ui": ["packages/ui"]
     },
     "removeComments": true,
     "rootDir": ".",
@@ -27,7 +27,7 @@
     "strict": true,
     "target": "esnext"
   },
-  "include": ["packages/**/src"],
+  "files": [],
   "exclude": ["node_modules", "packages/**/lib", "packages/docz", "**/*.spec.ts"],
   "types": ["typePatches"],
   "references": [{ "path": "packages/context" }, { "path": "packages/ui" }]
