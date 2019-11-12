@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { ReactNode, SFC, useContext } from 'react';
 import { useTheme } from '@rkta/context';
-import { css, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
 interface CssProps {
   color?: string;
@@ -35,8 +35,8 @@ const getCss = (theme: Theme, { inline = false, size = 24, color = '' }: CssProp
 
 const TsElement: SFC<Props> = ({ children, ...rest }: Props): JSX.Element => {
   const theme = useTheme();
-  const cssEmotion = getCss(theme, rest);
-  return <svg css={cssEmotion}>{children}</svg>;
+  const css = getCss(theme, rest);
+  return <svg css={css}>{children}</svg>;
 };
 
 export default TsElement;
