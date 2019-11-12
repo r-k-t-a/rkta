@@ -18,7 +18,8 @@
     "noLib": false,
     "paths": {
       "@rkta/context": ["packages/context"],
-      "@rkta/ui": ["packages/ui"]
+      "@rkta/ui": ["packages/ui"],
+      "@rkta/entypo": ["packages/entypo"]
     },
     "removeComments": true,
     "rootDir": ".",
@@ -30,5 +31,9 @@
   "files": [],
   "exclude": ["node_modules", "packages/**/lib", "packages/docz", "**/*.spec.ts"],
   "types": ["typePatches"],
-  "references": [{ "path": "packages/context" }, { "path": "packages/ui" }]
+  "references": [
+    { "path": "packages/context" },
+    { "path": "packages/ui" },
+    { "path": "packages/entypo" }
+  ]
 }
