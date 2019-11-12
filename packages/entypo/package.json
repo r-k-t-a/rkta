@@ -36,6 +36,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@emotion/core": "^10.0.16",
+    "@rkta/context": "^0.0.61"
+  },
   "devDependencies": {
     "@rkta/ui": "^0.0.61",
     "@types/react": "^16.9.2"

@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /** @jsx jsx */
-import { ReactNode, SFC, useContext } from 'react';
+import { ReactNode, SFC } from 'react';
 import { useTheme } from '@rkta/context';
-import { jsx } from '@emotion/core';
+import { jsx, InterpolationWithTheme } from '@emotion/core';
 
 interface CssProps {
   color?: string;
@@ -14,10 +15,15 @@ interface Props extends CssProps {
 }
 
 interface Theme {
-  color: { [key: string]: string };
+  color: {
+    [key: string]: string | number;
+  };
 }
 
-const getCss = (theme: Theme, { inline = false, size = 24, color = '' }: CssProps) => [
+const getCss = (
+  theme: Theme,
+  { inline = false, size = 24, color = '' }: CssProps,
+): InterpolationWithTheme<any> => [
   {
     display: 'block',
     fill: 'currentColor',
@@ -29,12 +35,12 @@ const getCss = (theme: Theme, { inline = false, size = 24, color = '' }: CssProp
     display: 'inline-block',
   },
   color && {
-    fill: theme.color[color] || color,
+    fill: (theme.color[color] || color) as string,
   },
 ];
 
 const TsElement: SFC<Props> = ({ children, ...rest }: Props): JSX.Element => {
-  const theme = useTheme();
+  const theme = useTheme<Theme>();
   const css = getCss(theme, rest);
   return <svg css={css}>{children}</svg>;
 };
