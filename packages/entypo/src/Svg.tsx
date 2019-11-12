@@ -10,7 +10,11 @@ interface Props {
   size?: number | string;
 }
 
-const getCss = (theme, { inline = false, size = 24, color = '' }) => [
+interface Theme {
+  color: { [key: string]: string };
+}
+
+const getCss = (theme: Theme, { inline = false, size = 24, color = '' }) => [
   {
     display: 'block',
     fill: 'currentColor',
