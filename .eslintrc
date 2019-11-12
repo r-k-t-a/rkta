@@ -18,7 +18,10 @@
     - prettier/@typescript-eslint
   parserOptions:
     ecmaVersion: 6
-    project: ./tsconfig.json
+    project:
+      - ./tsconfig.json
+      - "packages/**/tsconfig.json"
+
     sourceType: module
   rules:
     emotion/jsx-import: off
