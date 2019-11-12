@@ -3,18 +3,21 @@ import { ReactNode, SFC, useContext } from 'react';
 import { useTheme } from '@rkta/context';
 import { css, jsx } from '@emotion/core';
 
-interface Props {
-  children: ReactNode;
+interface CssProps {
   color?: string;
   inline?: boolean;
   size?: number | string;
+}
+
+interface Props extends CssProps {
+  children: ReactNode;
 }
 
 interface Theme {
   color: { [key: string]: string };
 }
 
-const getCss = (theme: Theme, { inline = false, size = 24, color = '' }) => [
+const getCss = (theme: Theme, { inline = false, size = 24, color = '' }: CssProps) => [
   {
     display: 'block',
     fill: 'currentColor',
@@ -32,7 +35,7 @@ const getCss = (theme: Theme, { inline = false, size = 24, color = '' }) => [
 
 const TsElement: SFC<Props> = ({ children, ...rest }: Props): JSX.Element => {
   const theme = useTheme();
-  const cssEmotion = getCss(rest, theme);
+  const cssEmotion = getCss(theme, rest);
   return <svg css={cssEmotion}>{children}</svg>;
 };
 
