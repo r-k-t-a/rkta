@@ -69,4 +69,7 @@ export const multiline: CssEmotion = css`
   height: auto;
   padding-bottom: 8px;
   padding-top: 8px;
+  .caption {
+    line-height: 20px;
+  }
 `;
