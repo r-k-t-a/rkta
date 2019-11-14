@@ -1,6 +1,6 @@
 {
   "name": "@rkta/ui",
-  "version": "0.0.62",
+  "version": "0.0.63",
   "description": "WIP Lightweight UI library for react",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
-    "@rkta/context": "^0.0.62"
+    "@rkta/context": "^0.0.63"
   },
   "peerDependencies": {
     "lodash": "^4.17.15",
