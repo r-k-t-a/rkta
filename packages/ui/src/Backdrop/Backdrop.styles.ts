@@ -6,7 +6,7 @@ export * from './fx/backdropLeave';
 
 export const initialStyle: CssRkta = {
   alignItems: 'center',
-  backgroundColor: 'rgba(0, 0, 0, 0)',
+  backgroundColor: 'rgba(0, 0, 0, 0.72)',
   display: 'flex',
   justifyContent: 'center',
   position: 'fixed',
