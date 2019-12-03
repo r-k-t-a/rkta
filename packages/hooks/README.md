@@ -2,14 +2,6 @@
 
 > TODO: description
 
-
-## Roadmap:
-Backdrop
-Modal
-Drawer
-Menu
-Popover
-
 ## Usage
 
 ```

@@ -1,0 +1,38 @@
+---
+menu: UI
+name: Modal
+---
+
+import { Playground, Props } from 'docz';
+import { useToggle } from '@rkta/hooks';
+import { Modal } from './';
+import { Button } from '../Button';
+import { Paper } from '../Paper';
+
+# Modal
+
+The component provides foundation for creating various modal UI elements.
+
+## Examples
+
+<Playground>
+  {() => {
+    const [visible, toggleVisible] = useToggle();
+    return (
+      <>
+        <Button onClick={toggleVisible} bgColor="primary" rize={1}>
+          Open modal
+        </Button>
+        <Modal css={{ padding: 40 }} onClose={toggleVisible} visible={visible}>
+          <Paper css={{ padding: 80 }} rize={1}>
+            Modal
+          </Paper>
+        </Modal>
+      </>
+    )
+  }}
+</Playground>
+
+## Props
+
+<Props of={Modal} />

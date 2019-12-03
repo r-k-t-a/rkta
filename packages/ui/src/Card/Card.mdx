@@ -1,0 +1,41 @@
+---
+menu: UI
+name: Card
+---
+
+import { Playground, Props } from 'docz';
+import { Addon } from '../Addon';
+import { Button } from '../Button';
+import { Card, CardHeader, CardBody, CardFooter } from './';
+import { DotsThreeVertical } from '../../../entypo/src';
+
+# Divider
+
+Divider is a horizontal rule (line) which usually separates content blocks
+
+## Examples
+
+<Playground>
+  <Card bgColor="color10" rize={1}>
+    <CardHeader fitRight>
+      CardHeader
+      <Addon>
+        <Button round>
+          <DotsThreeVertical />
+        </Button>
+      </Addon>
+    </CardHeader>
+    <CardBody color="textSecondary">
+      This impressive paella is a perfect party dish and a fun meal to cook together with your
+      guests. Add 1 cup of frozen peas along with the mussels, if you like.
+    </CardBody>
+    <CardFooter right>
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+    </CardFooter>
+  </Card>
+</Playground>
+
+## Props
+
+<Props of={Card} />

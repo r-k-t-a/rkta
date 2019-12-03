@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { AnimationEvent, useState, useEffect } from 'react';
 import upperFirst from 'lodash/upperFirst';
 
 import { useProviderContext } from '../Provider';
 import { CssEmotion } from '../Provider/theme/theme.type';
+import { isTargetEvent } from '../util';
 
 interface Handlers {
   onPopUp?: Function;
@@ -35,8 +36,8 @@ export const useFx = (initialFx: string, handlers: Handlers = {}): [FX, Function
     setFx(effect);
     emitBegin(effect);
   }
-  const onAnimationEnd = (): void => {
-    emitEvent(handlers[`on${upperFirst(fx)}`]);
+  const onAnimationEnd = (event: AnimationEvent): void => {
+    if (isTargetEvent(event)) emitEvent(handlers[`on${upperFirst(fx)}`]);
   };
   useEffect((): void => {
     if (isMounted) return;

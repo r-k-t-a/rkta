@@ -7,6 +7,7 @@ export const color = {
   secondary1: '#524FFA',
 
   text: '#414141',
+  textSecondary: 'rgba(0, 0, 0, 0.54)',
   divider: 'rgba(0,0,0, .16)',
 
   paper: '#FCFCFC',
