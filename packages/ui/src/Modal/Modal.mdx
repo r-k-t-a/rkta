@@ -8,12 +8,16 @@ import { useToggle } from '@rkta/hooks';
 import { Modal } from './';
 import { Button } from '../Button';
 import { Paper } from '../Paper';
+import { Card, CardHeader, CardBody, CardFooter } from '../Card';
+import { DotsThreeVertical } from '../../../entypo/src';
+import { Addon } from '../Addon';
 
 # Modal
 
 The component provides foundation for creating various modal UI elements.
 
 ## Examples
+
 
 <Playground>
   {() => {
@@ -23,10 +27,25 @@ The component provides foundation for creating various modal UI elements.
         <Button onClick={toggleVisible} bgColor="primary" rize={1}>
           Open modal
         </Button>
-        <Modal css={{ padding: 40 }} onClose={toggleVisible} visible={visible}>
-          <Paper css={{ padding: 80 }} rize={1}>
-            Modal
-          </Paper>
+        <Modal css={{ padding: 40 }} onClose={toggleVisible} visible={visible} align="top">
+          <Card rize={1} css={{ maxWidth: 560 }}>
+            <CardHeader fitRight>
+              CardHeader
+               <Addon>
+                 <Button round>
+                  <DotsThreeVertical />
+                 </Button>
+               </Addon>
+            </CardHeader>
+            <CardBody color="textSecondary">
+              This impressive paella is a perfect party dish and a fun meal to cook together with your
+              guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            </CardBody>
+            <CardFooter right>
+              <Button>Cancel</Button>
+              <Button bgColor="primary">OK</Button>
+            </CardFooter>
+          </Card>
         </Modal>
       </>
     )
