@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { forwardRef, SFC } from 'react';
+import { forwardRef, FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Spinner } from '../Spinner';
@@ -13,7 +13,7 @@ import { useRipple } from './Ripple/useRipple';
 
 const injectedProps = { element: 'button', normal: true, button: true };
 
-export const Button: SFC<Props> = forwardRef(
+export const Button: FC<Props> = forwardRef(
   (
     {
       noRipple,

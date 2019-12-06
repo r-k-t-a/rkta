@@ -36,6 +36,7 @@ export const useFx = (initialFx: string, handlers: Handlers = {}): [FX, Function
     emitBegin(effect);
   }
   const onAnimationEnd = (): void => {
+    // TODO: use isTargetEvent, currently blocked by: https://github.com/facebook/react/issues/17477
     emitEvent(handlers[`on${upperFirst(fx)}`]);
   };
   useEffect((): void => {
