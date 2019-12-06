@@ -7,6 +7,6 @@ import { useProviderContext } from '../Provider';
 
 export const Card: SFC<Props> = ({ children, ...rest }: Props): ReactElement => {
   const { applyStyles } = useProviderContext();
-  const [nextProps, Element] = applyStyles({ element: 'div', ...rest }, 'Paper');
+  const [nextProps, Element] = applyStyles(rest, 'Paper', 'Text');
   return <Element {...nextProps}>{children}</Element>;
 };

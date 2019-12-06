@@ -1,20 +1,5 @@
-import { RktaElement } from '../Provider/theme/theme.type';
+import { Props as PaperProps } from '../Paper/Paper.type';
+import { Props as TextProps } from '../Text/Text.type';
+// import { RktaElement } from '../Provider/theme/theme.type';
 
-export interface Props extends RktaElement {
-  /** Adds dotted style */
-  dotted?: boolean;
-  /** Resets margins */
-  fitAll?: boolean;
-  /** Resets bottom margin */
-  fitBottom?: boolean;
-  /** Resets top margin */
-  fitTop?: boolean;
-  /** Shifts to the right */
-  inset?: boolean;
-  /** Hide and keep the spase */
-  invisible?: boolean;
-  /** Set divider horizontal margins */
-  horizontalSpace?: number | string;
-  /** Set divider vertical margins */
-  verticalSpace?: number | string;
-}
+export interface Props extends PaperProps, TextProps {}
