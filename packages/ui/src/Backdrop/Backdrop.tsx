@@ -11,10 +11,7 @@ export const Backdrop: FC<Props> = forwardRef<HTMLElement, Props>(
   ({ onClick, visible, children, onFadeOut, ...rest }: Props, ref): JSX.Element => {
     const isMounted = useIsMounted();
     const { applyStyles } = useProviderContext();
-    const [nodeProps, Element] = applyStyles(
-      { backdropEnter: visible, backdropLeave: !visible, onClick, ...rest },
-      'Backdrop',
-    );
+    const [nodeProps, Element] = applyStyles({ visible, onClick, ...rest }, 'Backdrop');
     function handleClick(event: Event): void {
       if (onClick && isTargetEvent(event)) onClick();
     }

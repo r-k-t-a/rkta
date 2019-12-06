@@ -1,8 +1,6 @@
 export default {
-  base: '/rkta/',
-  dest: '/doc',
-  host: '0.0.0.0',
+  debug: true,
   src: 'packages',
-  title: 'RKTA',
+  title: 'R•K•T•A',
   typescript: true,
 };
