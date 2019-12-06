@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
+import { RktaElement } from '../Provider/theme/theme.type';
 
-export interface Props {
+export interface Align {
   align?:
     | 'center'
     | 'top'
@@ -11,9 +12,11 @@ export interface Props {
     | 'bottomRight'
     | 'bottomLeft'
     | 'left';
+}
+
+export interface Props extends Align, RktaElement {
   children: ReactNode;
-  close(): void;
-  invisible?: boolean;
-  isClosing: boolean;
-  onClose(): void;
+  onClick?(): void;
+  visible?: boolean;
+  onFadeOut?(): void;
 }

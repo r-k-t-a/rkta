@@ -12,7 +12,11 @@ import {
   modalBottomLeave,
 } from './fx';
 
-function getFx({ align, isClosing }: Props): CssEmotion {
+interface StyledProps extends Props {
+  isClosing: boolean;
+}
+
+function getFx({ align, isClosing }: StyledProps): CssEmotion {
   switch (align) {
     case 'bottom':
     case 'bottomLeft':
@@ -30,4 +34,4 @@ function getFx({ align, isClosing }: Props): CssEmotion {
   }
 }
 
-export const initialStyle = (theme: RktaTheme, props: Props): CssEmotion => getFx(props);
+export const initialStyle = (theme: RktaTheme, props: StyledProps): CssEmotion => getFx(props);

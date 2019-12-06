@@ -1,9 +1,8 @@
-import { AnimationEvent, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import upperFirst from 'lodash/upperFirst';
 
 import { useProviderContext } from '../Provider';
 import { CssEmotion } from '../Provider/theme/theme.type';
-import { isTargetEvent } from '../util';
 
 interface Handlers {
   onPopUp?: Function;
@@ -36,8 +35,9 @@ export const useFx = (initialFx: string, handlers: Handlers = {}): [FX, Function
     setFx(effect);
     emitBegin(effect);
   }
-  const onAnimationEnd = (event: AnimationEvent): void => {
-    if (isTargetEvent(event)) emitEvent(handlers[`on${upperFirst(fx)}`]);
+  const onAnimationEnd = (): void => {
+    // TODO: use isTargetEvent, currently blocked by: https://github.com/facebook/react/issues/17477
+    emitEvent(handlers[`on${upperFirst(fx)}`]);
   };
   useEffect((): void => {
     if (isMounted) return;

@@ -5,46 +5,38 @@ import { useProviderContext } from '../Provider';
 interface ReactiveState {
   modalQueue: symbol[];
 }
-
 interface Result {
-  close(): void;
-  isClosing: boolean;
-  onClose(): void;
+  backdropIsVisible: boolean;
+  onBackdropFade(): void;
   shouldRender: boolean;
 }
 
-export const useModal = (visible: boolean, emitClose?: Function): Result => {
+const CLOSED = 0;
+const CLOSING = 1;
+const OPEN = 2;
+
+export const useModal = (visible: boolean): Result => {
   const [symbol] = useState(Symbol(''));
   const { addModal, removeModal, modal } = useProviderContext();
   const shouldRender = modal === symbol;
-  const [isClosing, setIsClosing] = useState(false);
+  const [state, setState] = useState(visible ? OPEN : CLOSED);
   function close(): void {
-    setIsClosing(true);
+    setState(CLOSING);
   }
-  function switchOn(): void {
-    setIsClosing(false);
+  function push(): void {
+    setState(OPEN);
     addModal(symbol);
   }
-  function switchOff(): void {
-    removeModal(symbol);
+  const pop = (): void => removeModal(symbol);
+  function onBackdropFade(): void {
+    setState(CLOSED);
+    pop();
   }
-  function handleKeyDown(event: KeyboardEvent): void {
-    if (event.key === 'Escape') close();
+  function effect(): void {
+    if (visible && !shouldRender) push();
+    if (!visible && shouldRender) close();
   }
-  function onClose(): void {
-    if (isClosing) {
-      setIsClosing(false);
-      removeModal(symbol);
-      if (typeof emitClose === 'function') emitClose();
-    }
-  }
-  function effect(): () => void {
-    if (visible && !shouldRender) switchOn();
-    if (!visible && shouldRender) switchOff();
-    window.addEventListener('keydown', handleKeyDown, true);
-    return (): void => window.removeEventListener('keydown', handleKeyDown);
-  }
-  useEffect(effect, [visible, shouldRender]);
-  useUnmount(switchOff);
-  return { close, isClosing, onClose, shouldRender };
+  useEffect(effect, [shouldRender, visible]);
+  useUnmount(pop);
+  return { backdropIsVisible: state === OPEN, onBackdropFade, shouldRender };
 };

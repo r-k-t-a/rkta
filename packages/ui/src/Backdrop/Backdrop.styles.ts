@@ -19,6 +19,10 @@ export const initialStyle: CssRkta = {
   ':focus': {
     outline: '20px dotted #fff',
   },
+  '>*': {
+    cursor: 'auto',
+    pointerEvents: 'auto',
+  },
 };
 
 export const align = (theme: RktaTheme, props: Props): CssRkta => {
@@ -68,11 +72,6 @@ export const align = (theme: RktaTheme, props: Props): CssRkta => {
   }
 };
 
-export const invisible: CssRkta = {
-  animation: 'none !important',
-  backgroundColor: 'rgba(0, 0, 0, 0) !important',
-  pointerEvents: 'none',
-  '>*': {
-    pointerEvents: 'auto',
-  },
+export const onClick: CssRkta = {
+  cursor: 'pointer',
 };

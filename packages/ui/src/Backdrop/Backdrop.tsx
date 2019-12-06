@@ -1,32 +1,50 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { AnimationEvent, KeyboardEvent, SFC } from 'react';
-import { useProviderContext } from '../Provider';
-import { isTargetEvent } from '../util';
-import { Props } from './Backdrop.type';
+import { FC, forwardRef, useEffect, RefObject } from 'react';
+import { useIsMounted } from '@rkta/hooks';
 
-export const Backdrop: SFC<Props> = ({ close, isClosing, children, onClose, ...rest }: Props) => {
-  const { applyStyles } = useProviderContext();
-  const [nodeProps] = applyStyles(
-    { backdropEnter: !isClosing, backdropLeave: isClosing, ...rest },
-    'Backdrop',
-  );
-  function handleKey(event: KeyboardEvent<HTMLDivElement>): void {
-    if (event.key === 'Enter' && isTargetEvent(event)) close();
-  }
-  function handleClose(event: AnimationEvent): void {
-    if (isClosing && isTargetEvent(event)) onClose();
-  }
-  return (
-    <div
-      {...nodeProps}
-      onClick={close}
-      onKeyDown={handleKey}
-      onAnimationEnd={handleClose}
-      role="button"
-      tabIndex={0}
-    >
-      {children}
-    </div>
-  );
-};
+import { useProviderContext } from '../Provider';
+import { Props } from './Backdrop.type';
+import { isTargetEvent } from '../util';
+
+export const Backdrop: FC<Props> = forwardRef<HTMLElement, Props>(
+  ({ onClick, visible, children, onFadeOut, ...rest }: Props, ref): JSX.Element => {
+    const isMounted = useIsMounted();
+    const { applyStyles } = useProviderContext();
+    const [nodeProps, Element] = applyStyles(
+      { backdropEnter: visible, backdropLeave: !visible, onClick, ...rest },
+      'Backdrop',
+    );
+    function handleClick(event: Event): void {
+      if (onClick && isTargetEvent(event)) onClick();
+    }
+    function handleKey(event: KeyboardEvent): void {
+      if (event.key === 'Escape' && onClick) onClick();
+    }
+    function handleAnimationEnd(event: Event): void {
+      if (!visible && event.eventPhase === event.AT_TARGET && onFadeOut) onFadeOut();
+    }
+    const refObject = ref as RefObject<HTMLElement>;
+    const currentRef = refObject && refObject.current;
+    function effect(): () => void {
+      window.addEventListener('keydown', handleKey, false);
+      if (currentRef) {
+        currentRef.addEventListener('animationend', handleAnimationEnd, false);
+        currentRef.addEventListener('click', handleClick, false);
+      }
+      return (): void => {
+        window.removeEventListener('keydown', handleKey);
+        if (currentRef) {
+          currentRef.removeEventListener('animationend', handleAnimationEnd);
+          currentRef.removeEventListener('click', handleClick);
+        }
+      };
+    }
+    useEffect(effect, [isMounted, visible, currentRef]);
+    return (
+      <Element {...nodeProps} ref={ref} role={onClick ? 'button' : 'dialog'} tabIndex={0}>
+        {children}
+      </Element>
+    );
+  },
+);

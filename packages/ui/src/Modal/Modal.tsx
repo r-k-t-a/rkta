@@ -1,25 +1,44 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { SFC, SyntheticEvent } from 'react';
+import { forwardRef, FC, SyntheticEvent, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 
 import { Props } from './Modal.type';
 import { useModal } from './useModal';
+
 import { useProviderContext } from '../Provider';
 
-export const Modal: SFC<Props> = ({ align, children, onClose, visible, ...rest }: Props) => {
-  const { isClosing, shouldRender, ...backdropProps } = useModal(visible, onClose);
-  const { applyStyles } = useProviderContext();
-  if (!shouldRender) return null;
-  const [{ css }, Element] = applyStyles({ align, isClosing }, 'Modal');
-  return (
-    <Backdrop {...rest} {...backdropProps} align={align} isClosing={isClosing}>
-      <Element
-        css={css}
-        onClick={(event: SyntheticEvent<MouseEvent>): void => event.stopPropagation()}
+function findNode(id: string): HTMLElement {
+  const node = document.getElementById(id);
+  if (node) return node;
+  const element = document.createElement('div');
+  element.id = id;
+  document.body.appendChild(element);
+  return element;
+}
+
+export const Modal: FC<Props> = forwardRef<HTMLElement, Props>(
+  ({ align, children, onClose, visible, ...rest }: Props, ref): JSX.Element | null => {
+    const defaultRef = useRef<HTMLElement>(null);
+    const backdropRef = ref || defaultRef;
+    const { backdropIsVisible, onBackdropFade, shouldRender } = useModal(visible);
+    const { applyStyles } = useProviderContext();
+    if (!shouldRender) return null;
+    const [{ css }, Element] = applyStyles({ align, isClosing: !backdropIsVisible }, 'Modal');
+    const element = findNode('ui-modal');
+    return createPortal(
+      <Backdrop
+        {...rest}
+        align={align}
+        visible={backdropIsVisible}
+        onClick={onClose}
+        onFadeOut={onBackdropFade}
+        ref={backdropRef}
       >
-        {children}
-      </Element>
-    </Backdrop>
-  );
-};
+        <Element css={css}>{children}</Element>
+      </Backdrop>,
+      element,
+    );
+  },
+);

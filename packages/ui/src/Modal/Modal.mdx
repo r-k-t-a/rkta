@@ -5,6 +5,7 @@ name: Modal
 
 import { Playground, Props } from 'docz';
 import { useToggle } from '@rkta/hooks';
+import flow from 'lodash/flow';
 import { Modal } from './';
 import { Button } from '../Button';
 import { Paper } from '../Paper';
@@ -16,12 +17,12 @@ import { Addon } from '../Addon';
 
 The component provides foundation for creating various modal UI elements.
 
-## Examples
-
+## Basic Exampe
 
 <Playground>
   {() => {
     const [visible, toggleVisible] = useToggle();
+    const ok = flow(() => console.log('OK'), toggleVisible);
     return (
       <>
         <Button onClick={toggleVisible} bgColor="primary" rize={1}>
@@ -38,13 +39,47 @@ The component provides foundation for creating various modal UI elements.
                </Addon>
             </CardHeader>
             <CardBody color="textSecondary">
+              <p>
               This impressive paella is a perfect party dish and a fun meal to cook together with your
               guests. Add 1 cup of frozen peas along with the mussels, if you like.
+              </p>
+              <p>
+                Visible: {visible.toString()}
+              </p>
             </CardBody>
             <CardFooter right>
-              <Button>Cancel</Button>
-              <Button bgColor="primary">OK</Button>
+              <Button onClick={toggleVisible}>Cancel</Button>
+              <Button autoFocus bgColor="primary" onClick={ok} rize={2}>OK</Button>
             </CardFooter>
+          </Card>
+        </Modal>
+      </>
+    )
+  }}
+</Playground>
+
+## Concurrency
+
+<Playground>
+  {() => {
+    const [visible1, toggleVisible1] = useToggle();
+    const [visible2, toggleVisible2] = useToggle();
+    return (
+      <>
+        <Button onClick={toggleVisible1} bgColor="primary" rize={1}>
+          Modal 1
+        </Button>
+        <Modal css={{ padding: 40 }} onClose={toggleVisible1} visible={visible1}>
+          <Card rize={1} css={{ maxWidth: 560 }}>
+            Modal 1
+          </Card>
+        </Modal>
+        <Button onClick={toggleVisible2} bgColor="primary" rize={1}>
+          Modal 2
+        </Button>
+        <Modal css={{ padding: 40 }} onClose={toggleVisible2} visible={visible2} align="bottom">
+          <Card rize={1} css={{ maxWidth: 560 }}>
+            Modal 2
           </Card>
         </Modal>
       </>
