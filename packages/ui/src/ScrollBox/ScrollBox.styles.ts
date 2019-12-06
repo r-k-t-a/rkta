@@ -30,7 +30,7 @@ export const y: CssRkta = {
   overflowY: 'scroll',
 };
 
-export const animatedHeight: CssRkta = {
+export const animateHeight: CssRkta = {
   boxSizing: 'border-box',
   transition: 'height 0.24s ease',
   willChange: 'height',

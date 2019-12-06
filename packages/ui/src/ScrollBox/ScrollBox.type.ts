@@ -2,7 +2,7 @@ import { RktaElement } from '../Provider/theme/theme.type';
 import { Props as Paper } from '../Paper/Paper.type';
 
 export interface Props extends Paper, RktaElement {
-  animatedHeight?: boolean;
+  animateHeight?: boolean;
   height?: number | string;
   /** Hide scrollbars */
   hideScrollbars?: boolean;

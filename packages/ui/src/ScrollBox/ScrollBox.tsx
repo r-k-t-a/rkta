@@ -12,7 +12,7 @@ export const ScrollBox: SFC<Props> = ({ children, visible, ...rest }): ReactElem
 
   const ainmationProps = useAnimation(visible);
   const extraProps =
-    !rest.animatedHeight || typeof rest.height !== 'undefined' ? null : ainmationProps;
+    !rest.animateHeight || typeof rest.height !== 'undefined' ? null : ainmationProps;
 
   const [nextProps, Element] = applyStyles(
     { ...rest, ...extraProps },
