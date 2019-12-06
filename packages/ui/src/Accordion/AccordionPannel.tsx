@@ -3,8 +3,8 @@ import { jsx } from '@emotion/core';
 import { SFC, ReactElement, Fragment } from 'react';
 
 import { Props } from './AccordionPannel.type';
-import { useProviderContext } from '../Provider';
 import { Button } from '../Button';
+import { ScrollBox } from '../ScrollBox';
 
 const buttonCss = {
   marginBottom: 1,
@@ -17,19 +17,6 @@ export const AccordionPannel: SFC<Props> = ({
   label,
   ...rest
 }: Props): ReactElement => {
-  const { applyStyles } = useProviderContext();
-
-  const [contentProps, Content] = applyStyles(
-    {
-      animateHeight: true,
-      element: 'dd',
-      visible: active,
-    },
-    'ScrollBox',
-    'Paper',
-    'Text',
-  );
-
   return (
     <Fragment>
       <Button
@@ -43,7 +30,9 @@ export const AccordionPannel: SFC<Props> = ({
       >
         {label}
       </Button>
-      <Content {...contentProps}>{children}</Content>
+      <ScrollBox animateHeight element="dd" visible={active}>
+        {children}
+      </ScrollBox>
     </Fragment>
   );
 };
