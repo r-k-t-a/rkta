@@ -3,12 +3,10 @@ import { jsx } from '@emotion/core';
 import { SFC, ReactElement, Fragment } from 'react';
 
 import { Props } from './AccordionPannel.type';
-import { Button } from '../Button';
+import { Addon } from '../Addon';
+import { ListButton } from '../List';
 import { ScrollBox } from '../ScrollBox';
-
-const buttonCss = {
-  marginBottom: 1,
-};
+import { ChevronDownIcon } from '../util/ChevronDownIcon';
 
 /* eslint-disable react/jsx-fragments */
 export const AccordionPannel: SFC<Props> = ({
@@ -19,17 +17,12 @@ export const AccordionPannel: SFC<Props> = ({
 }: Props): ReactElement => {
   return (
     <Fragment>
-      <Button
-        bgColor="paper3"
-        hard
-        css={buttonCss}
-        element="dt"
-        composition={['ListItem', 'Button', 'Addon', 'Paper', 'Text']}
-        className={active ? 'active' : undefined}
-        {...rest}
-      >
-        {label}
-      </Button>
+      <ListButton hard element="dt" className={active ? 'active' : undefined} {...rest}>
+        <Addon main>{label}</Addon>
+        <Addon>
+          <ChevronDownIcon className="chevron" />
+        </Addon>
+      </ListButton>
       <ScrollBox animateHeight element="dd" visible={active}>
         {children}
       </ScrollBox>

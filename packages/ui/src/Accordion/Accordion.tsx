@@ -8,7 +8,13 @@ import { useProviderContext } from '../Provider';
 export const Accordion: SFC<Props> = ({ children, index, ...rest }: Props): ReactElement => {
   const [activeIndex, setActiveIndex] = useState(index);
   const { applyStyles } = useProviderContext();
-  const [nextProps, Element] = applyStyles({ element: 'dl', ...rest }, 'List', 'Paper', 'Text');
+  const [nextProps, Element] = applyStyles(
+    { element: 'dl', ...rest },
+    'Accordion',
+    'List',
+    'Paper',
+    'Text',
+  );
 
   const makeClickHandler = (currentIndex: number) => (event: SyntheticEvent): void => {
     event.stopPropagation();
