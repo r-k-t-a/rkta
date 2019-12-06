@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from '../ui/src';
+import { Provider } from '@rkta/ui';
 
 function DoczWrapper({ children }) {
   return <Provider>{children}</Provider>;

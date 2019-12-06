@@ -65,7 +65,6 @@ const FxComponent = () => {
         </ListItem>
       </List>
     );
-
     const [error, setError] = useState(false);
     const onFadeDown = () => setError(false);
     const [popoverProps, setFx] = useFx('popUp', { onFadeDown });
@@ -87,7 +86,5 @@ const FxComponent = () => {
         )}
       </>
     );
-
 }}
-
 </Playground>

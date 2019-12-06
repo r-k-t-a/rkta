@@ -8,6 +8,9 @@
   "references": [
     {
       "path": "../context"
+    },
+    {
+      "path": "../hooks"
     }
   ]
 }
