@@ -19,7 +19,8 @@
     "paths": {
       "@rkta/context": ["packages/context"],
       "@rkta/ui": ["packages/ui"],
-      "@rkta/entypo": ["packages/entypo"]
+      "@rkta/entypo": ["packages/entypo"],
+      "@rkta/hooks": ["packages/hooks"]
     },
     "removeComments": true,
     "rootDir": ".",
@@ -34,6 +35,7 @@
   "references": [
     { "path": "packages/context" },
     { "path": "packages/ui" },
-    { "path": "packages/entypo" }
+    { "path": "packages/entypo" },
+    { "path": "packages/hooks" }
   ]
 }
