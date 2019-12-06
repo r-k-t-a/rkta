@@ -17,14 +17,14 @@ export const AccordionPannel: SFC<Props> = ({
 }: Props): ReactElement => {
   return (
     <Fragment>
-      <ListButton hard element="dt" className={active ? 'active' : undefined} {...rest}>
+      <ListButton hard fitAll element="dt" className={active ? 'active' : undefined} {...rest}>
         <Addon main>{label}</Addon>
         <Addon>
           <ChevronDownIcon className="chevron" />
         </Addon>
       </ListButton>
       <ScrollBox animateHeight element="dd" visible={active}>
-        {children}
+        <Addon main>{children}</Addon>
       </ScrollBox>
     </Fragment>
   );
