@@ -6,8 +6,6 @@ import { Props } from './AccordionPannel.type';
 import { useProviderContext } from '../Provider';
 import { Button } from '../Button';
 
-import useAnimation from './useAnimation';
-
 const buttonCss = {
   marginBottom: 1,
 };
@@ -16,17 +14,16 @@ const buttonCss = {
 export const AccordionPannel: SFC<Props> = ({
   active,
   children,
-  buttonContent,
+  label,
   ...rest
 }: Props): ReactElement => {
-  const { visible, ...animationProps } = useAnimation(active || false);
   const { applyStyles } = useProviderContext();
 
   const [contentProps, Content] = applyStyles(
     {
-      ...animationProps,
-      animatedHeight: true,
+      animateHeight: true,
       element: 'dd',
+      visible: active,
     },
     'ScrollBox',
     'Paper',
@@ -44,9 +41,9 @@ export const AccordionPannel: SFC<Props> = ({
         className={active ? 'active' : undefined}
         {...rest}
       >
-        {buttonContent}
+        {label}
       </Button>
-      {visible && <Content {...contentProps}>{children}</Content>}
+      <Content {...contentProps}>{children}</Content>
     </Fragment>
   );
 };
