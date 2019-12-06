@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { forwardRef, FC, SyntheticEvent, useRef } from 'react';
+import { forwardRef, FC, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Backdrop } from '../Backdrop';
 
