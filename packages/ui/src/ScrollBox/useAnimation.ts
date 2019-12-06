@@ -3,18 +3,18 @@ import { CssEmotion } from '../Provider/theme/theme.type';
 
 interface AnimationProps {
   onTransitionEnd: Function;
-  ref: RefObject<null>;
+  ref: RefObject<HTMLElement>;
   style: CssEmotion;
 }
 
 export default (visible?: boolean): AnimationProps => {
-  const ref = useRef<any>(null); // eslint-disable-line @typescript-eslint/no-explicit-any
+  const ref = useRef<HTMLElement>(null);
   const [auto, setAuto] = useState(false);
   const [height, setHeight] = useState(0);
   const [nextHeight, setNextHeight] = useState<number | null>(null);
 
   useEffect(() => {
-    const domElement = ref.current;
+    const domElement = ref.current as HTMLElement;
     const targetHeight = visible ? domElement.scrollHeight : 0;
     if (targetHeight !== height) {
       setAuto(false);
