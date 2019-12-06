@@ -12,4 +12,6 @@ export interface Props extends Paper, RktaElement {
   x?: boolean;
   /** Vertical scroll mode */
   y?: boolean;
+  /** Show animated content or no */
+  visible?: boolean;
 }
