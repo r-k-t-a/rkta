@@ -2,6 +2,8 @@ import { RktaElement } from '../Provider/theme/theme.type';
 import { Props as Paper } from '../Paper/Paper.type';
 
 export interface Props extends Paper, RktaElement {
+  animateHeight?: boolean;
+  height?: number | string;
   /** Hide scrollbars */
   hideScrollbars?: boolean;
   /** Enable scroll snapping */
@@ -10,4 +12,6 @@ export interface Props extends Paper, RktaElement {
   x?: boolean;
   /** Vertical scroll mode */
   y?: boolean;
+  /** Show animated content or no */
+  visible?: boolean;
 }

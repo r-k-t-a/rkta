@@ -1,6 +1,7 @@
-import { CssRkta } from '../Provider/theme/theme.type';
+import { CssEmotion, RktaTheme, CssRkta } from '../Provider/theme/theme.type';
 
 export const initialStyle: CssRkta = {
+  display: 'block',
   overflow: 'hidden',
   overflowScrolling: 'touch',
   scrollBehavior: 'smooth',
@@ -28,3 +29,13 @@ export const x: CssRkta = {
 export const y: CssRkta = {
   overflowY: 'scroll',
 };
+
+export const animateHeight: CssRkta = {
+  boxSizing: 'border-box',
+  transition: 'height 0.24s ease',
+  willChange: 'height',
+};
+
+export const height = (theme: RktaTheme, props: { height: number | string }): CssEmotion => ({
+  height: props.height,
+});

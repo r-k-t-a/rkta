@@ -3,10 +3,11 @@ menu: UI
 name: ScrollBox
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import Range from 'lodash/range';
 import { ScrollBox } from './ScrollBox';
-import { Paper } from '../Paper';
+import { Button, Divider, Paper } from '../';
 
 # ScrollBox
 
@@ -24,6 +25,7 @@ Utility component preconfigured for easy use
         center
         size={50}
         css={{ margin: 4, flexShrink: 0, lineHeight: '50px' }}
+        key={item}
       >
         {item}
       </Paper>
@@ -44,6 +46,7 @@ Utility component preconfigured for easy use
         center
         size={50}
         css={{ margin: 4, flexShrink: 0, lineHeight: '50px' }}
+        key={item}
       >
         {item}
       </Paper>
@@ -64,11 +67,29 @@ Utility component preconfigured for easy use
           lineHeight: '80px',
           width: '100%',
         }}
+        key={item}
       >
         {item}
       </Paper>
     ))}
   </ScrollBox>
+</Playground>
+
+### Scroll animated height
+
+<Playground>
+  {() => {
+    const [visible, setVisible] = useState(false);
+    return (
+      <>
+        <Button onClick={() => setVisible(!visible)} bgColor="primary">Toggle content</Button>
+        <Divider invisible />
+        <ScrollBox animateHeight visible={visible} css={{ outline: '1px dotted' }}>
+          Animated content
+        </ScrollBox>
+      </>
+    )
+  }}
 </Playground>
 
 ## Props
