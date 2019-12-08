@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Provider } from '@rkta/ui/src';
+import { GlobalCss, Provider } from '@rkta/ui/src';
 
 function DoczWrapper({ children }) {
-  return <Provider>{children}</Provider>;
+  return (
+    <Provider>
+      <GlobalCss body links />
+      {children}
+    </Provider>
+  );
 }
 
 DoczWrapper.propTypes = { children: PropTypes.node.isRequired };

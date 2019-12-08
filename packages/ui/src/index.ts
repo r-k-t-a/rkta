@@ -4,6 +4,7 @@ export * from './Button';
 export * from './Cache';
 export * from './Card';
 export * from './Divider';
+export * from './GlobalCss';
 export * from './Heading';
 export * from './Input';
 export * from './InputGroup';
