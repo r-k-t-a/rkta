@@ -1,12 +1,9 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.type';
+import { css, keyframes } from '@emotion/core';
+import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
 import { Props } from './Backdrop.type';
 
-export * from './fx/backdropEnter';
-export * from './fx/backdropLeave';
-
-export const initialStyle: CssRkta = {
+export const initialStyle: CssEmotion = {
   alignItems: 'center',
-  backgroundColor: 'rgba(0, 0, 0, 0.72)',
   display: 'flex',
   justifyContent: 'center',
   position: 'fixed',
@@ -16,8 +13,14 @@ export const initialStyle: CssRkta = {
   left: 0,
   right: 0,
   bottom: 0,
-  ':focus': {
-    outline: '20px dotted #fff',
+  ':before': {
+    content: '""',
+    backgroundColor: '#000',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   '>*': {
     cursor: 'auto',
@@ -25,7 +28,7 @@ export const initialStyle: CssRkta = {
   },
 };
 
-export const align = (theme: RktaTheme, props: Props): CssRkta => {
+export const align = (theme: RktaTheme, props: Props): CssEmotion => {
   switch (props.align) {
     case 'bottom':
       return {
@@ -72,6 +75,31 @@ export const align = (theme: RktaTheme, props: Props): CssRkta => {
   }
 };
 
-export const onClick: CssRkta = {
+export const onClick: CssEmotion = {
   cursor: 'pointer',
+};
+
+export const visible: CssEmotion = (props: { visible: boolean }) => {
+  const Animation = props.visible
+    ? keyframes`
+      from {
+        transparency: 0;
+      }
+      to {
+        transparency: 1;
+      }
+    `
+    : keyframes`
+      to {
+        transparency: 0;
+      }
+    `;
+  const delay = props.visible ? 1.2 : 0.4;
+  console.log('visible', visible);
+  return css`
+    :before {
+      animation: ${Animation} ${delay}s ease;
+      will-change: transparency;
+    }
+  `;
 };
