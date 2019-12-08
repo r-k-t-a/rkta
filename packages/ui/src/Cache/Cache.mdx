@@ -1,0 +1,63 @@
+---
+menu: UI
+name: Cache
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import { Button } from '../Button';
+import { Cache } from './Cache';
+import { Divider } from '../Divider';
+
+# Cache
+
+Cache component allows to freeze react render subtree at runtime. We use it to freeze animated components.
+
+## Examples
+
+<Playground>
+  {() => {
+    const [cnt, setCnt] = useState(0);
+    const [cacheState, setCacheState] = useState(false);
+    return (
+      <>
+        <Button
+          rounded
+          hardRight
+          outline={1}
+          outlineColor="primary"
+          bgColor={cacheState ? 'primary' : 'paper'}
+          onClick={() => setCacheState(true)}
+        >
+          On
+        </Button>
+        <Button
+          rounded
+          hardLeft
+          outline={1}
+          outlineColor="primary"
+          bgColor={cacheState ? 'paper' : 'primary' }
+          onClick={() => setCacheState(false)}
+        >
+          Off
+        </Button>
+        <Button
+          bgColor="primary"
+          css={{ marginLeft: 8 }}
+          rounded
+          onClick={() => setCnt(cnt + 1)}
+        >
+          Counter: {cnt}
+        </Button>
+        <Divider />
+        <Cache disabled={!cacheState}>
+          Cached: {cnt}
+        </Cache>
+      </>
+    )
+  }}
+</Playground>
+
+## Props
+
+<Props of={Cache} />
