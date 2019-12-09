@@ -1,53 +1,56 @@
 ---
-  root: true
-  env:
-    browser: true
-    es6: true
-    node: true
-  parser: '@typescript-eslint/parser'
-  plugins:
-    - '@typescript-eslint'
-    - prettier
-    - react
-    - emotion
-  extends:
-    - airbnb
-    - plugin:@typescript-eslint/recommended
-    - plugin:import/typescript
-    - plugin:prettier/recommended
-    - prettier/@typescript-eslint
-  parserOptions:
-    ecmaVersion: 6
-    project:
-      - ./tsconfig.json
-      - "packages/**/tsconfig.json"
+root: true
+env:
+  browser: true
+  es6: true
+  node: true
+parser: "@typescript-eslint/parser"
+plugins:
+  - "@typescript-eslint"
+  - prettier
+  - react
+  - emotion
+extends:
+  - airbnb
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/typescript
+  - plugin:prettier/recommended
+  - prettier/@typescript-eslint
+parserOptions:
+  ecmaVersion: 6
+  project:
+    - ./tsconfig.json
+    - "src/packages/**/tsconfig.json"
 
-    sourceType: module
-  rules:
-    emotion/jsx-import: off
-    emotion/no-vanilla: error
-    emotion/import-from-emotion: error
-    emotion/styled-import: error
-    import/prefer-default-export: off
-    react/destructuring-assignment: off
-    quotes:
-      - error
-      - single
-    prettier/prettier: error
-    react/jsx-filename-extension:
-      - 1
-      - extensions:
+  sourceType: module
+rules:
+  import/extensions:
+    - error
+    - never
+  emotion/jsx-import: off
+  emotion/no-vanilla: error
+  emotion/import-from-emotion: error
+  emotion/styled-import: error
+  import/prefer-default-export: off
+  react/destructuring-assignment: off
+  quotes:
+    - error
+    - single
+  prettier/prettier: error
+  react/jsx-filename-extension:
+    - 1
+    - extensions:
         - .jsx
         - .tsx
-    react/jsx-props-no-spreading: off
-    jsx-a11y/anchor-is-valid:
-      - 2
-      - error:
-        aspects:
-         - invalidHref
-         - preferButton
-        components:
-          - Link
-        specialLink:
-          - hrefLeft
-          - hrefRight
+  react/jsx-props-no-spreading: off
+  jsx-a11y/anchor-is-valid:
+    - 2
+    - error:
+      aspects:
+        - invalidHref
+        - preferButton
+      components:
+        - Link
+      specialLink:
+        - hrefLeft
+        - hrefRight

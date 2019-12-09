@@ -1,20 +1,7 @@
 {
-  "name": "@rkta/entypo",
+  "name": "@rkta/hooks",
   "version": "0.0.65",
-  "description": "> TODO: description",
-  "author": "Daniel Bruce, Sergei Droganov",
-  "homepage": "https://github.com/r-k-t-a/rkta",
-  "license": "CC BY-SA",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "type": "module",
-  "directory": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/r-k-t-a/rkta.git"
-  },
+  "description": "WIP common react hooks",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
     "build:tsc": "tsc",
@@ -25,23 +12,31 @@
     "test": "echo \"Error: run tests from root\" && exit 1",
     "typecheck": "tsc --noEmit"
   },
+  "author": "Sergei Droganov <serge@droganov.ru>",
+  "homepage": "https://github.com/r-k-t-a/rkta",
+  "license": "MIT",
+  "main": "lib/index.js",
   "sideEffects": false,
+  "type": "module",
+  "types": "lib/index.d.ts",
+  "directory": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-k-t-a/rkta.git"
+  },
   "bugs": {
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
   "peerDependencies": {
-    "@rkta/ui": "*",
     "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2"
   },
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@emotion/core": "^10.0.16",
-    "@rkta/context": "^0.0.65"
-  },
-  "devDependencies": {
-    "@rkta/ui": "^0.0.65",
-    "@types/react": "^16.9.2"
-  }
+  "gitHead": "28b39e9d4f56c5a36c6766fc9302d72dc30c3f3a"
 }

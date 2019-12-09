@@ -17,10 +17,10 @@
     "noImplicitReturns": true,
     "noLib": false,
     "paths": {
-      "@rkta/context": ["packages/context"],
-      "@rkta/ui": ["packages/ui"],
-      "@rkta/entypo": ["packages/entypo"],
-      "@rkta/hooks": ["packages/hooks"]
+      "@rkta/context": ["src/packages/context"],
+      "@rkta/ui": ["src/packages/ui"],
+      "@rkta/entypo": ["src/packages/entypo"],
+      "@rkta/hooks": ["src/packages/hooks"]
     },
     "removeComments": true,
     "rootDir": ".",
@@ -30,12 +30,12 @@
     "target": "ES6"
   },
   "files": [],
-  "exclude": ["node_modules", "packages/**/lib", "packages/docz", "**/*.spec.ts"],
+  "exclude": ["node_modules", "src/packages/**/lib", "src/gatsby-theme-docz", "**/*.spec.ts"],
   "types": ["typePatches"],
   "references": [
-    { "path": "packages/context" },
-    { "path": "packages/ui" },
-    { "path": "packages/entypo" },
-    { "path": "packages/hooks" }
+    { "path": "src/packages/context" },
+    { "path": "src/packages/ui" },
+    { "path": "src/packages/entypo" },
+    { "path": "src/packages/hooks" }
   ]
 }
