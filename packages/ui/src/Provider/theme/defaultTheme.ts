@@ -11,6 +11,7 @@ import * as Card from '../../Card/Card.styles';
 import * as CardHeader from '../../Card/Header/Header.styles';
 import * as CardBody from '../../Card/Body/Body.styles';
 import * as CardFooter from '../../Card/Footer/Footer.styles';
+import * as Accordion from '../../Accordion/Accordion.styles';
 import * as Divider from '../../Divider/Divider.styles';
 import * as Fx from '../../Fx/Fx.styles';
 import * as Input from '../../Input/Input.styles';
@@ -32,6 +33,7 @@ export const defaultTheme: RktaTheme = {
   color,
   media: createMediaQueries(breakpoints),
   shadow,
+  Accordion,
   Addon,
   Backdrop,
   Bage,
