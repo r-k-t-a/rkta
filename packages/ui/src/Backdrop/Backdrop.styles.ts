@@ -2,12 +2,14 @@ import { css, keyframes } from '@emotion/core';
 import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
 import { Props } from './Backdrop.type';
 
-export const initialStyle: CssEmotion = {
+import { getContentInFx } from './getContentInFx';
+import { getContentOutFx } from './getContentOutFx';
+
+export const initialStyle = (theme: RktaTheme, props: Props): CssEmotion => ({
   alignItems: 'center',
   display: 'flex',
   justifyContent: 'center',
   position: 'fixed',
-  willChange: 'transition',
   zIndex: 1040,
   top: 0,
   left: 0,
@@ -16,6 +18,7 @@ export const initialStyle: CssEmotion = {
   ':before': {
     content: '""',
     backgroundColor: '#000',
+    opacity: props.opacity,
     position: 'absolute',
     top: 0,
     left: 0,
@@ -25,8 +28,9 @@ export const initialStyle: CssEmotion = {
   '>*': {
     cursor: 'auto',
     pointerEvents: 'auto',
+    position: 'relative',
   },
-};
+});
 
 export const align = (theme: RktaTheme, props: Props): CssEmotion => {
   switch (props.align) {
@@ -75,31 +79,37 @@ export const align = (theme: RktaTheme, props: Props): CssEmotion => {
   }
 };
 
-export const onClick: CssEmotion = {
-  cursor: 'pointer',
-};
-
-export const visible: CssEmotion = (props: { visible: boolean }) => {
-  const Animation = props.visible
-    ? keyframes`
-      from {
-        transparency: 0;
-      }
-      to {
-        transparency: 1;
-      }
-    `
-    : keyframes`
-      to {
-        transparency: 0;
-      }
-    `;
-  const delay = props.visible ? 1.2 : 0.4;
-  console.log('visible', visible);
+export const fadeIn = (theme: RktaTheme, props: Props): CssEmotion => {
+  const Animation = keyframes`
+    from { opacity: 0 }
+    to { opacity: ${props.opacity} }
+  `;
   return css`
     :before {
-      animation: ${Animation} ${delay}s ease;
-      will-change: transparency;
+      animation: ${Animation} 1.2s ease forwards;
+      will-change: opacity;
+    }
+    > * {
+      ${getContentInFx(props)}
     }
   `;
+};
+export const fadeOut = (theme: RktaTheme, props: Props): CssEmotion => {
+  const Animation = keyframes`
+    to { opacity: 0 }
+  `;
+  return css`
+    :before {
+      animation: ${Animation} 0.4s ease forwards;
+      will-change: opacity;
+    }
+    > * {
+      ${getContentOutFx(props)}
+      pointer-events: none;
+    }
+  `;
+};
+
+export const onClick: CssEmotion = {
+  cursor: 'pointer',
 };

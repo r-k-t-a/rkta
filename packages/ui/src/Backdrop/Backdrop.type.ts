@@ -17,6 +17,7 @@ export interface Align {
 export interface Props extends Align, RktaElement {
   children: ReactNode;
   onClick?(): void;
-  visible?: boolean;
+  opacity?: number;
   onFadeOut?(): void;
+  visible?: boolean;
 }

@@ -19,7 +19,6 @@ import * as InputGroup from '../../InputGroup/InputGroup.styles';
 import * as List from '../../List/List.styles';
 import * as ListItem from '../../List/ListItem/ListItem.styles';
 import * as ListText from '../../List/ListText/ListText.styles';
-import * as Modal from '../../Modal/Modal.styles';
 import * as Paper from '../../Paper/Paper.styles';
 import * as Select from '../../Select/Select.styles';
 import * as ScrollBox from '../../ScrollBox/ScrollBox.styles';
@@ -49,7 +48,6 @@ export const defaultTheme: RktaTheme = {
   List,
   ListItem,
   ListText,
-  Modal,
   Select,
   ScrollBox,
   Spinner,

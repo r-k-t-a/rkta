@@ -69,14 +69,14 @@ The component provides foundation for creating various modal UI elements.
         <Button onClick={toggleVisible1} bgColor="primary" rize={1}>
           Modal 1
         </Button>
-        <Modal css={{ padding: 40 }} onClose={toggleVisible1} visible={visible1}>
+        <Button onClick={toggleVisible2} bgColor="primary" rize={1}>
+          Modal 2
+        </Button>
+        <Modal onClose={toggleVisible1} visible={visible1}>
           <Card rize={1} css={{ maxWidth: 560 }}>
             Modal 1
           </Card>
         </Modal>
-        <Button onClick={toggleVisible2} bgColor="primary" rize={1}>
-          Modal 2
-        </Button>
         <Modal css={{ padding: 40 }} onClose={toggleVisible2} visible={visible2} align="bottom">
           <Card rize={1} css={{ maxWidth: 560 }}>
             Modal 2
