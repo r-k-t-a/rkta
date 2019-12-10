@@ -1,6 +1,6 @@
 export default {
   debug: true,
-  src: 'packages',
+  src: 'src/packages',
   title: 'R•K•T•A',
   typescript: true,
 };
