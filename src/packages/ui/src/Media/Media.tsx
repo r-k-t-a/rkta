@@ -4,9 +4,9 @@ import React, { Children, ReactElement, ReactNode, SFC, useEffect, useState } fr
 import { matchMedia } from './matchMedia';
 import { Props } from './Media.type';
 import { useProviderContext } from '../Provider';
-import { CssEmotion, CssRkta } from '../Provider/theme/theme.type';
+import { CssEmotion } from '../Provider/theme/theme.type';
 
-const toString = (query: CssRkta[]): string => query.join(', ');
+const toString = (query: string[]): string => query.join(', ');
 
 const cloneElement = (element: ReactElement, props: {}): ReactElement =>
   jsx(element.type, {
@@ -15,9 +15,8 @@ const cloneElement = (element: ReactElement, props: {}): ReactElement =>
     ...props,
   });
 
-const serverMedia = (children: ReactElement | ReactElement[], queries: CssRkta[]): ReactNode => {
-  const serverQueries = queries.map((query): string => `not ${query}`);
-  const mediaQuery = `@media ${toString(serverQueries)} { display: none; }`;
+const serverMedia = (children: ReactElement | ReactElement[], queries: string[]): ReactNode => {
+  const mediaQuery = `@media ${toString(queries)} { display: none; }`;
   return Children.map(
     children,
     (child: ReactElement & { css?: CssEmotion }): ReactElement => {
@@ -28,7 +27,7 @@ const serverMedia = (children: ReactElement | ReactElement[], queries: CssRkta[]
   );
 };
 
-function clientMedia(children: ReactNode, queries: CssRkta[]): ReactNode {
+function clientMedia(children: ReactNode, queries: string[]): ReactNode {
   const mq = toString(queries);
   return matchMedia(mq) ? children : null;
 }
@@ -47,7 +46,11 @@ export const Media: SFC<Props> = ({ children, ...queries }: Props): ReactElement
       window.removeEventListener('resize', updateState);
     };
   });
-  const mediaQueries = Object.keys(queries).map((name): CssRkta => media[name]);
+
+  const mediaQueries: string[] = Object.keys(queries).map((name): string =>
+    queries[name] === isMounted ? media[name] : `not ${media[name]}`,
+  );
+
   const resolve = isMounted ? clientMedia : serverMedia;
 
   return <>{resolve(children, mediaQueries)}</>;
