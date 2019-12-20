@@ -29,6 +29,7 @@ import * as Text from '../../Text/Text.styles';
 import { RktaTheme } from './theme.type';
 
 export const defaultTheme: RktaTheme = {
+  breakpoints,
   color,
   media: createMediaQueries(breakpoints),
   shadow,

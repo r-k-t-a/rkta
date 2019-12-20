@@ -132,8 +132,9 @@ export interface Breakpoint {
 }
 
 export interface RktaTheme {
+  breakpoints: Breakpoint[];
   color: Colors;
   media: MediaQueries;
   shadow: Shadows;
-  [key: string]: RktaComponentStyles;
+  [key: string]: RktaComponentStyles | Breakpoint[];
 }
