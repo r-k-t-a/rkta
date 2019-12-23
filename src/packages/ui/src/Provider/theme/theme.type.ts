@@ -64,23 +64,30 @@ export interface Colors {
   [key: string]: string;
 }
 
+export type MediaTuple = number[];
+
+export interface MediaQueryItem {
+  tuple: MediaTuple;
+  query: string;
+}
+
 export interface MediaQueries {
-  phone: string;
-  tablet: string;
-  laptop: string;
-  desktop: string;
-  jumbotron: string;
-  atLeastPhone: string;
-  atLeastTablet: string;
-  atLeastLaptop: string;
-  atLeastDesktop: string;
-  atLeastJumbotron: string;
-  atMostPhone: string;
-  atMostTablet: string;
-  atMostLaptop: string;
-  atMostDesktop: string;
-  atMostJumbotron: string;
-  [key: string]: string;
+  phone: MediaQueryItem;
+  tablet: MediaQueryItem;
+  laptop: MediaQueryItem;
+  desktop: MediaQueryItem;
+  jumbotron: MediaQueryItem;
+  atLeastPhone: MediaQueryItem;
+  atLeastTablet: MediaQueryItem;
+  atLeastLaptop: MediaQueryItem;
+  atLeastDesktop: MediaQueryItem;
+  atLeastJumbotron: MediaQueryItem;
+  atMostPhone: MediaQueryItem;
+  atMostTablet: MediaQueryItem;
+  atMostLaptop: MediaQueryItem;
+  atMostDesktop: MediaQueryItem;
+  atMostJumbotron: MediaQueryItem;
+  [key: string]: MediaQueryItem;
 }
 
 export interface Shadows {
@@ -135,7 +142,7 @@ export interface NotPrepairedTheme {
   breakpoints: Breakpoint[];
   color: Colors;
   shadow: Shadows;
-  [key: string]: RktaComponentStyles | Breakpoint[];
+  [key: string]: RktaComponentStyles | Breakpoint[] | MediaQueries;
 }
 
 export interface RktaTheme extends NotPrepairedTheme {
