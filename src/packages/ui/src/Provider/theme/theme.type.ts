@@ -131,10 +131,13 @@ export interface Breakpoint {
   [key: string]: number;
 }
 
-export interface RktaTheme {
+export interface NotPrepairedTheme {
   breakpoints: Breakpoint[];
   color: Colors;
-  media: MediaQueries;
   shadow: Shadows;
   [key: string]: RktaComponentStyles | Breakpoint[];
+}
+
+export interface RktaTheme extends NotPrepairedTheme {
+  media: MediaQueries;
 }
