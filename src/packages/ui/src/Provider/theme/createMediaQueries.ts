@@ -1,7 +1,7 @@
 import upperFirst from 'lodash/upperFirst';
 import { Breakpoint, MediaQueries, MediaQueryItem, MediaTuple } from './theme.type';
 
-function stringifyTuple(min: number, max: number): MediaQueryItem {
+export function stringifyTuple([min, max]: number[]): MediaQueryItem {
   let query = 'all';
   if (min > 0) query = `${query} and (min-width: ${min}px)`;
   if (max !== Infinity) query = `${query} and (max-width: ${max}px)`;
@@ -26,8 +26,8 @@ export const createMediaQueries = (breakpoints: Breakpoint[]): MediaQueries =>
     const upperKey = upperFirst(key);
     return {
       ...acc,
-      [key]: stringifyTuple(min, max),
-      [`atLeast${upperKey}`]: stringifyTuple(0, max),
-      [`atMost${upperKey}`]: stringifyTuple(min, Infinity),
+      [key]: stringifyTuple([min, max]),
+      [`atLeast${upperKey}`]: stringifyTuple([0, max]),
+      [`atMost${upperKey}`]: stringifyTuple([min, Infinity]),
     };
   }, {} as MediaQueries);

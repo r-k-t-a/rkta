@@ -3,9 +3,10 @@ import { Children, ReactElement, ReactNode, FC, useEffect } from 'react';
 import { useIsMounted, useToggle } from '@rkta/hooks';
 
 import { matchMedia } from './matchMedia';
-import { Props } from './Media.type';
+import { Props, PropsWithoutChildren } from './Media.type';
 import { useProviderContext } from '../Provider';
-import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
+import { CssEmotion, RktaTheme, MediaTuple } from '../Provider/theme/theme.type';
+import { stringifyTuple } from '../Provider/theme/createMediaQueries';
 
 const cloneElement = (element: ReactElement, props: {}): ReactElement =>
   jsx(element.type, {
@@ -14,70 +15,84 @@ const cloneElement = (element: ReactElement, props: {}): ReactElement =>
     ...props,
   });
 
-const getServerCss = (query: string, negate = false): string =>
-  `@media ${negate ? 'not' : ''} ${query} { display: none; }`;
+const makePropsFilter = (props: PropsWithoutChildren, theme: RktaTheme) => (
+  propName: string,
+): boolean => props[propName] === true && !!theme.media[propName];
+
+const makeGetTuple = (theme: RktaTheme) => (propName: string): MediaTuple =>
+  theme.media[propName].tuple;
+
+const sortTuples = ([min1]: MediaTuple, [min2]: MediaTuple): number => min1 - min2;
+
+const mergeMediaTuples = (acc: MediaTuple[], tuple: MediaTuple): MediaTuple[] => {
+  if (acc.length === 0) return [tuple];
+  const [min, max] = tuple;
+  if (min === 0 && max === Infinity) return [tuple];
+
+  const [lastMin, lastMax] = acc[acc.length - 1];
+  if (min > lastMax + 1) {
+    return [...acc, tuple];
+  }
+  return [...acc.slice(0, -1), [lastMin, Math.max(lastMax, max)]];
+};
+
+interface InvertMediaType {
+  result: MediaTuple[];
+  lastMax: number | null;
+}
+
+const invertMediaTuples = (
+  acc: InvertMediaType,
+  tuple: MediaTuple,
+  index: number,
+  tuples: MediaTuple[],
+): InvertMediaType => {
+  const [min, max] = tuple;
+  const newTuples = [];
+
+  if (index === 0 && min > 0) newTuples.push([0, min - 1]);
+
+  if (acc.lastMax !== null) newTuples.push([acc.lastMax + 1, min - 1]);
+
+  if (index === tuples.length - 1 && max !== Infinity) {
+    newTuples.push([max + 1, Infinity]);
+  }
+
+  return { result: [...acc.result, ...newTuples], lastMax: max };
+};
+
+const tupleToString = (tuple: MediaTuple): string =>
+  `@media ${stringifyTuple(tuple).query} { display: none; }`;
 
 const serverMedia = (
   children: ReactElement | ReactElement[],
-  props: Partial<Props>,
+  props: PropsWithoutChildren,
   theme: RktaTheme,
 ): ReactNode => {
-  const breakpointNames: string[] = [];
-  const breakpointsMap: { [key: string]: { value: number; visible: boolean } } = {};
-
-  theme.breakpoints.forEach(breakpoint => {
-    const name = Object.keys(breakpoint)[0];
-    breakpointNames.push(name);
-    breakpointsMap[name] = {
-      value: breakpoint[name],
-      visible: false,
-    };
-  }, {});
-
-  Object.keys(props).forEach(propName => {
-    const breakpointName = propName.toLowerCase().replace(/^at(lea|mo)st/i, '');
-    const breakpoint = breakpointsMap[breakpointName];
-    if (!breakpoint) return;
-    breakpoint.visible = true;
-
-    const breakpointIndex = breakpointNames.indexOf(breakpointName);
-    if (/^atmost/i.test(propName)) {
-      breakpointNames.slice(breakpointIndex).forEach(bn => {
-        breakpointsMap[bn].visible = true;
-      });
-    }
-    if (/^atleast/i.test(propName)) {
-      breakpointNames.slice(0, breakpointIndex).forEach(bn => {
-        breakpointsMap[bn].visible = true;
-      });
-    }
-  });
-
-  const visibleSegments = breakpointNames.filter(name => breakpointsMap[name].visible);
-
-  if (visibleSegments.length === 0) return children;
-
-  const mediaQuery =
-    visibleSegments.length === 1
-      ? getServerCss(theme.media[visibleSegments[0]], true)
-      : breakpointNames.reduce(
-          (acc, name) =>
-            breakpointsMap[name].visible ? acc : `${acc} ${getServerCss(theme.media[name])}`,
-          '',
-        );
+  const mediaQuery = Object.keys(props)
+    .filter(makePropsFilter(props, theme))
+    .map(makeGetTuple(theme))
+    .sort(sortTuples)
+    .reduce(mergeMediaTuples, [])
+    .reduce(invertMediaTuples, { result: [], lastMax: null })
+    .result.map(tupleToString)
+    .join('\n');
 
   function injectMediaQuery(child: ReactElement & { css?: CssEmotion }): ReactElement {
     const childrenCss: CssEmotion[] = Array.isArray(child.css) ? child.css : [child.css];
     const nextCss = childrenCss.concat(mediaQuery);
     return cloneElement(child, { css: nextCss });
   }
-
   return Children.map(children, injectMediaQuery);
 };
 
-function clientMedia(children: ReactNode, props: Partial<Props>, theme: RktaTheme): ReactNode {
+function clientMedia(
+  children: ReactNode,
+  props: PropsWithoutChildren,
+  theme: RktaTheme,
+): ReactNode {
   const key = (acc: string[], name: string): string[] =>
-    props[name] === true && theme.media[name] ? [...acc, theme.media[name]] : acc;
+    props[name] === true && theme.media[name] ? [...acc, theme.media[name].query] : acc;
   const queries = Object.keys(props).reduce(key, []);
   return queries.length > 0 && matchMedia(queries.join(', ')) ? children : null;
 }
