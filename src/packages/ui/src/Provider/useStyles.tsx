@@ -52,7 +52,7 @@ function applyStyles({
 
   for (let index = 0; index < composition.length; index += 1) {
     const name = composition[index];
-    const styles: RktaComponentStyles = theme[name] || {};
+    const styles = (theme[name] || {}) as RktaComponentStyles;
     const currentCssEmotion: CssEmotion[] = [thunk(styles.initialStyle)];
 
     for (let i = 0; i < keys.length; i += 1) {

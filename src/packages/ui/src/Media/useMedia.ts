@@ -11,7 +11,7 @@ const evaluate = (entries: EntriesType): UseMediaResult =>
   entries.reduce(
     (acc, [key, value]): {} => ({
       ...acc,
-      [key]: matchMedia(value),
+      [key]: matchMedia(value.query),
     }),
     {},
   ) as UseMediaResult;

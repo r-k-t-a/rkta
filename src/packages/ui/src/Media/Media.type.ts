@@ -1,8 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
+import { MediaTupleData } from '../Provider/theme/theme.type';
 
-export interface Props {
-  children: ReactElement | ReactElement[];
-
+export interface PropsWithoutChildren {
   phone?: boolean;
   tablet?: boolean;
   laptop?: boolean;
@@ -22,7 +21,11 @@ export interface Props {
   [key: string]: ReactNode;
 }
 
-export type EntriesType = string[][];
+export interface Props extends PropsWithoutChildren {
+  children: ReactElement | ReactElement[];
+}
+
+export type EntriesType = [string, MediaTupleData][];
 
 export interface UseMediaResult {
   phone: boolean | null;
