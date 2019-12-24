@@ -9,7 +9,7 @@ function getTuple(key: string, breakpoint: Breakpoint, nextBreakPoint: Breakpoin
   return tuple;
 }
 
-function getMediObject(tuple: MediaTuple): MediaTupleData {
+function getMediaObject(tuple: MediaTuple): MediaTupleData {
   return {
     tuple,
     query: stringifyMediaTuple(tuple),
@@ -23,8 +23,8 @@ export const createMediaQueries = (breakpoints: Breakpoint[]): MediaQueries =>
     const upperKey = upperFirst(key);
     return {
       ...acc,
-      [key]: getMediObject([min, max]),
-      [`atLeast${upperKey}`]: getMediObject([0, max]),
-      [`atMost${upperKey}`]: getMediObject([min, Infinity]),
+      [key]: getMediaObject([min, max]),
+      [`atLeast${upperKey}`]: getMediaObject([0, max]),
+      [`atMost${upperKey}`]: getMediaObject([min, Infinity]),
     };
   }, {} as MediaQueries);
