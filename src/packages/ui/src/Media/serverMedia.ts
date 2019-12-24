@@ -14,7 +14,7 @@ const cloneElement = (element: ReactElement, props: {}): ReactElement =>
 
 const makePropsFilter = (props: PropsWithoutChildren, theme: RktaTheme) => (
   propName: string,
-): boolean => props[propName] === true && !!theme.media[propName];
+): boolean => theme.media[propName] && props[propName] === true;
 
 const makeGetTuple = (theme: RktaTheme) => (propName: string): MediaTuple =>
   theme.media[propName].tuple;
@@ -48,12 +48,8 @@ const invertMediaTuples = (
   const newTuples = [];
 
   if (index === 0 && min > 0) newTuples.push([0, min - 1]);
-
   if (acc.lastMax !== null) newTuples.push([acc.lastMax + 1, min - 1]);
-
-  if (index === tuples.length - 1 && max !== Infinity) {
-    newTuples.push([max + 1, Infinity]);
-  }
+  if (index === tuples.length - 1 && max !== Infinity) newTuples.push([max + 1, Infinity]);
 
   return { result: [...acc.result, ...newTuples], lastMax: max };
 };
@@ -65,9 +61,11 @@ export const serverMedia = (
   props: PropsWithoutChildren,
   theme: RktaTheme,
 ): ReactNode => {
+  const truthy = makePropsFilter(props, theme);
+  const tupples = makeGetTuple(theme);
   const { result: mediaConditions } = Object.keys(props)
-    .filter(makePropsFilter(props, theme))
-    .map(makeGetTuple(theme))
+    .filter(truthy)
+    .map(tupples)
     .sort(sortTuples)
     .reduce(mergeMediaTuples, [])
     .reduce(invertMediaTuples, { result: [], lastMax: null });
