@@ -25,9 +25,9 @@ import * as Spinner from '../../Spinner/Spinner.styles';
 import * as Svg from '../../Svg/Svg.styles';
 import * as Text from '../../Text/Text.styles';
 
-import { NotPrepairedTheme } from './theme.type';
+import { RktaThemeSource } from './theme.type';
 
-export const defaultTheme: NotPrepairedTheme = {
+export const defaultTheme: RktaThemeSource = {
   breakpoints,
   color,
   shadow,

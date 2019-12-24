@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
-import { MediaQueryItem } from '../Provider/theme/theme.type';
+import { MediaTupleData } from '../Provider/theme/theme.type';
 
 export interface PropsWithoutChildren {
   phone?: boolean;
@@ -25,7 +25,7 @@ export interface Props extends PropsWithoutChildren {
   children: ReactElement | ReactElement[];
 }
 
-export type EntriesType = [string, MediaQueryItem][];
+export type EntriesType = [string, MediaTupleData][];
 
 export interface UseMediaResult {
   phone: boolean | null;
