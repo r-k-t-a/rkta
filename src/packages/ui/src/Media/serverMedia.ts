@@ -3,7 +3,7 @@ import { Children, ReactElement, ReactNode } from 'react';
 
 import { PropsWithoutChildren } from './Media.type';
 import { CssEmotion, RktaTheme, MediaTuple } from '../Provider/theme/theme.type';
-import { createTupleData } from '../util/createTupleData';
+import { stringifyMediaTuple } from '../util/stringifyMediaTuple';
 
 const cloneElement = (element: ReactElement, props: {}): ReactElement =>
   jsx(element.type, {
@@ -54,25 +54,26 @@ const invertMediaTuples = (
   return { result: [...acc.result, ...newTuples], lastMax: max };
 };
 
-const tupleToString = (tuple: MediaTuple): string => createTupleData(tuple).query;
-
 export const serverMedia = (
   children: ReactElement | ReactElement[],
   props: PropsWithoutChildren,
   theme: RktaTheme,
 ): ReactNode => {
   const truthy = makePropsFilter(props, theme);
-  const tupples = makeGetTuple(theme);
+  const tuples = makeGetTuple(theme);
+
   const { result: mediaConditions } = Object.keys(props)
     .filter(truthy)
-    .map(tupples)
+    .map(tuples)
     .sort(sortTuples)
     .reduce(mergeMediaTuples, [])
     .reduce(invertMediaTuples, { result: [], lastMax: null });
 
   if (mediaConditions.length === 0) return children;
 
-  const mediaQuery = `@media ${mediaConditions.map(tupleToString).join(', ')} { display: none; }`;
+  const mediaQuery = `@media ${mediaConditions
+    .map(stringifyMediaTuple)
+    .join(', ')} { display: none; }`;
 
   function injectMediaQuery(child: ReactElement & { css?: CssEmotion }): ReactElement {
     const childrenCss: CssEmotion[] = Array.isArray(child.css) ? child.css : [child.css];
