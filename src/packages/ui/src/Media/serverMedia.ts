@@ -14,10 +14,10 @@ const cloneElement = (element: ReactElement, props: {}): ReactElement =>
 
 const makePropsFilter = (props: PropsWithoutChildren, theme: RktaTheme) => (
   propName: string,
-): boolean => theme.media[propName] && props[propName] === true;
+): boolean => !!theme.media[propName] && props[propName] === true;
 
 const makeGetTuple = (theme: RktaTheme) => (propName: string): MediaTuple =>
-  theme.media[propName].tuple;
+  theme.mediaTuples[propName];
 
 const sortTuples = ([min1]: MediaTuple, [min2]: MediaTuple): number => min1 - min2;
 

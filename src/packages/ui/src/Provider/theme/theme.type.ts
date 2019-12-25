@@ -64,30 +64,44 @@ export interface Colors {
   [key: string]: string;
 }
 
-export type MediaTuple = number[];
-
-export interface MediaTupleData {
-  tuple: MediaTuple;
-  query: string;
+export interface MediaQueries {
+  phone: string;
+  tablet: string;
+  laptop: string;
+  desktop: string;
+  jumbotron: string;
+  atLeastPhone: string;
+  atLeastTablet: string;
+  atLeastLaptop: string;
+  atLeastDesktop: string;
+  atLeastJumbotron: string;
+  atMostPhone: string;
+  atMostTablet: string;
+  atMostLaptop: string;
+  atMostDesktop: string;
+  atMostJumbotron: string;
+  [key: string]: string;
 }
 
-export interface MediaQueries {
-  phone: MediaTupleData;
-  tablet: MediaTupleData;
-  laptop: MediaTupleData;
-  desktop: MediaTupleData;
-  jumbotron: MediaTupleData;
-  atLeastPhone: MediaTupleData;
-  atLeastTablet: MediaTupleData;
-  atLeastLaptop: MediaTupleData;
-  atLeastDesktop: MediaTupleData;
-  atLeastJumbotron: MediaTupleData;
-  atMostPhone: MediaTupleData;
-  atMostTablet: MediaTupleData;
-  atMostLaptop: MediaTupleData;
-  atMostDesktop: MediaTupleData;
-  atMostJumbotron: MediaTupleData;
-  [key: string]: MediaTupleData;
+export type MediaTuple = number[];
+
+export interface MediaTuples {
+  phone: MediaTuple;
+  tablet: MediaTuple;
+  laptop: MediaTuple;
+  desktop: MediaTuple;
+  jumbotron: MediaTuple;
+  atLeastPhone: MediaTuple;
+  atLeastTablet: MediaTuple;
+  atLeastLaptop: MediaTuple;
+  atLeastDesktop: MediaTuple;
+  atLeastJumbotron: MediaTuple;
+  atMostPhone: MediaTuple;
+  atMostTablet: MediaTuple;
+  atMostLaptop: MediaTuple;
+  atMostDesktop: MediaTuple;
+  atMostJumbotron: MediaTuple;
+  [key: string]: MediaTuple;
 }
 
 export interface Shadows {
@@ -142,9 +156,10 @@ export interface RktaThemeSource {
   breakpoints: Breakpoint[];
   color: Colors;
   shadow: Shadows;
-  [key: string]: RktaComponentStyles | Breakpoint[] | MediaQueries;
+  [key: string]: RktaComponentStyles | Breakpoint[] | MediaQueries | MediaTuples;
 }
 
 export interface RktaTheme extends RktaThemeSource {
   media: MediaQueries;
+  mediaTuples: MediaTuples;
 }
