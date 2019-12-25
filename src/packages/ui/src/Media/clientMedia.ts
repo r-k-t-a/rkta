@@ -10,7 +10,7 @@ export function clientMedia(
   theme: RktaTheme,
 ): ReactNode {
   const key = (acc: string[], name: string): string[] =>
-    props[name] === true && theme.media[name] ? [...acc, theme.media[name].query] : acc;
+    props[name] === true && theme.media[name] ? [...acc, theme.media[name]] : acc;
   const queries = Object.keys(props).reduce(key, []);
   return queries.length > 0 && matchMedia(queries.join(', ')) ? children : null;
 }
