@@ -10,6 +10,7 @@ export * from './Input';
 export * from './InputGroup';
 export * from './List';
 export * from './Media';
+export * from './Modal';
 export * from './Select';
 export * from './Fx';
 export * from './Paper';
