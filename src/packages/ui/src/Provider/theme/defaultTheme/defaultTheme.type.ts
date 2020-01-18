@@ -13,6 +13,9 @@ import { CardStyles } from '../../../Card/Card.styles.type';
 import { CardBodyStyles } from '../../../Card/Body/Body.styles.type';
 import { CardFooterStyles } from '../../../Card/Footer/Footer.styles.type';
 import { CardHeaderStyles } from '../../../Card/Header/Header.styles.type';
+import { DividerStyles } from '../../../Divider/Divider.styles.type';
+import { FxStyles } from '../../../Fx/Fx.styles.type';
+import { InputStyles } from '../../../Input/Input.styles.type';
 
 export interface RktaDefaultTheme {
   breakpoints: Breakpoint[];
@@ -26,6 +29,9 @@ export interface RktaDefaultTheme {
   CardBody: CardBodyStyles;
   CardFooter: CardFooterStyles;
   CardHeader: CardHeaderStyles;
+  Divider: DividerStyles;
+  Fx: FxStyles;
+  Input: InputStyles;
   [key: string]:
     | AddonStyles
     | BackdropStyles
@@ -35,6 +41,9 @@ export interface RktaDefaultTheme {
     | CardBodyStyles
     | CardFooterStyles
     | CardHeaderStyles
+    | DividerStyles
+    | FxStyles
+    | InputStyles
     | RktaComponentStyles
     | Breakpoint[]
     | MediaQueries

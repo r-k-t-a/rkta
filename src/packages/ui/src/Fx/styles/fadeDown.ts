@@ -1,5 +1,4 @@
-import { keyframes } from '@emotion/core';
-import { CssEmotion } from '../../Provider/theme';
+import { css, keyframes } from '@emotion/core';
 
 const FadeDown = keyframes`
   to {
@@ -7,7 +6,7 @@ const FadeDown = keyframes`
     transform: translateY(160px);
   }
 `;
-export const fadeDown: CssEmotion = {
-  animation: `${FadeDown} 0.32s ease forwards`,
-  willChange: 'opacity, transform',
-};
+export const fadeDown = css`
+  animation: ${FadeDown} 0.32s ease forwards;
+  will-change: opacity, transform;
+`;

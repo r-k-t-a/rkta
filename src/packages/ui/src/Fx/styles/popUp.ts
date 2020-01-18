@@ -1,5 +1,4 @@
-import { keyframes } from '@emotion/core';
-import { CssEmotion } from '../../Provider/theme';
+import { css, keyframes } from '@emotion/core';
 
 const PopUp = keyframes`
   from {
@@ -11,7 +10,7 @@ const PopUp = keyframes`
     transform: translateY(0px);
   }
 `;
-export const popUp: CssEmotion = {
-  animation: `${PopUp} 0.64s ease`,
-  willChange: 'opacity, transform',
-};
+export const popUp = css`
+  animation: ${PopUp} 0.64s ease;
+  will-change: opacity, transform;
+`;

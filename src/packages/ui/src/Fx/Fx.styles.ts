@@ -1,9 +1,9 @@
-import { CssEmotion } from '../Provider/theme';
+import { css } from '@emotion/core';
 
 export * from './styles/fadeDown';
 export * from './styles/popUp';
 export * from '../Backdrop/fx';
 
-export const initialStyle: CssEmotion = {
-  visibility: 'hidden',
-};
+export const initialStyle = css`
+  visibility: hidden;
+`;
