@@ -1,7 +1,7 @@
-import { CssEmotion } from '../Provider/theme';
+import { css } from '@emotion/core';
 
-export const initialStyle: CssEmotion = {
-  '> *': {
-    borderRadius: 'inherit',
-  },
-};
+export const initialStyle = css`
+  > * {
+    border-radius: inherit;
+  }
+`;

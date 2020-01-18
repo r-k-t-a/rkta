@@ -1,5 +1,5 @@
-import { CssEmotion } from '../../Provider/theme';
+import { css } from '@emotion/core';
 
-export const initialStyle: CssEmotion = {
-  padding: 16,
-};
+export const initialStyle = css`
+  padding: 16;
+`;
