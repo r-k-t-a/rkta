@@ -16,6 +16,7 @@ import { CardHeaderStyles } from '../../../Card/Header/Header.styles.type';
 import { DividerStyles } from '../../../Divider/Divider.styles.type';
 import { FxStyles } from '../../../Fx/Fx.styles.type';
 import { InputStyles } from '../../../Input/Input.styles.type';
+import { InputBaseStyles } from '../../../InputBase/InputBase.styles.type';
 
 export interface RktaDefaultTheme {
   breakpoints: Breakpoint[];
@@ -32,6 +33,7 @@ export interface RktaDefaultTheme {
   Divider: DividerStyles;
   Fx: FxStyles;
   Input: InputStyles;
+  InputBase: InputBaseStyles;
   [key: string]:
     | AddonStyles
     | BackdropStyles
@@ -44,6 +46,7 @@ export interface RktaDefaultTheme {
     | DividerStyles
     | FxStyles
     | InputStyles
+    | InputBaseStyles
     | RktaComponentStyles
     | Breakpoint[]
     | MediaQueries
