@@ -110,6 +110,6 @@ export const fadeOut = (theme: RktaTheme, props: Props): CssEmotion => {
   `;
 };
 
-export const onClick: CssEmotion = {
-  cursor: 'pointer',
-};
+export const onClick = css`
+  cursor: pointer;
+`;
