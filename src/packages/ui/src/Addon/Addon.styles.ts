@@ -1,55 +1,59 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
 
-export const initialStyle: CssRkta = {
-  display: 'block',
-  padding: '0 16px',
-};
+export const initialStyle = css`
+  display: block;
+  padding: 0 16px;
+`;
 
-export const big: CssRkta = {
-  minHeight: 56,
-};
+export const big = css`
+  min-height: 56px;
+`;
 
-export const fitAll: CssRkta = {
-  padding: 0,
-};
+export const fitAll = css`
+  padding: 0;
+`;
 
-export const fitLeft: CssRkta = {
-  paddingLeft: 0,
-};
+export const fitLeft = css`
+  padding-left: 0;
+`;
 
-export const fitRight: CssRkta = {
-  paddingRight: 0,
-};
+export const fitRight = css`
+  padding-right: 0;
+`;
 
-export const huge: CssRkta = {
-  minHeight: 64,
-};
+export const huge = css`
+  min-height: 64px;
+`;
 
-export const inset: CssRkta = {
-  paddingLeft: 72,
-};
+export const inset = css`
+  padding-left: 72px;
+`;
 
-export const main: CssRkta = {
-  flex: 1,
-};
-export const normal: CssRkta = {
-  minHeight: 48,
-};
+export const main = css`
+  flex: 1;
+`;
 
-export const paddingX = (theme: RktaTheme, props: { paddingX: number }): CssRkta => ({
-  paddingLeft: props.paddingX,
-  paddingRight: props.paddingX,
-});
+export const normal = css`
+  min-height: 48px;
+`;
 
-export const paddingY = (theme: RktaTheme, props: { paddingY: number }): CssRkta => ({
-  paddingTop: props.paddingY,
-  paddingBottom: props.paddingY,
-});
+export const paddingX = (theme: RktaTheme, props: { paddingX: number }): SerializedStyles =>
+  css`
+    padding-left: ${props.paddingX}px;
+    padding-right: ${props.paddingX}px;
+  `;
 
-export const small: CssRkta = {
-  minHeight: 40,
-};
+export const paddingY = (theme: RktaTheme, props: { paddingY: number }): SerializedStyles =>
+  css`
+    padding-top: ${props.paddingY}px;
+    padding-bottom: ${props.paddingY}px;
+  `;
 
-export const tiny: CssRkta = {
-  minHeight: 32,
-};
+export const small = css`
+  min-height: 40px;
+`;
+
+export const tiny = css`
+  min-height: 32px;
+`;

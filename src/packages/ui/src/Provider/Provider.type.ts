@@ -1,4 +1,4 @@
-import { RktaTheme } from './theme/theme.type';
+import { RktaTheme } from './theme';
 import { Resolver } from './getElement.type';
 import { useStylesFunctionType } from './useStyles';
 

@@ -1,4 +1,4 @@
-import { Color, RktaElement } from '../Provider/theme/theme.type';
+import { Color, RktaElement } from '../Provider/theme';
 
 export interface Props extends RktaElement {
   /** One of theme colors or CSS Value: Color. */

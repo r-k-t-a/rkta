@@ -1,4 +1,4 @@
-import { CssEmotion, RktaTheme, CssRkta } from '../Provider/theme/theme.type';
+import { CssEmotion, RktaTheme, CssRkta } from '../Provider/theme';
 
 export const initialStyle: CssRkta = {
   display: 'block',

@@ -1,4 +1,4 @@
-import { CssEmotion } from '../../Provider/theme/theme.type';
+import { CssEmotion } from '../../Provider/theme';
 
 export const initialStyle: CssEmotion = {
   padding: 16,

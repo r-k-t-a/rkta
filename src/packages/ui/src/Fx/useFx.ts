@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import upperFirst from 'lodash/upperFirst';
 
 import { useProviderContext } from '../Provider';
-import { CssEmotion, RktaComponentStyles } from '../Provider/theme/theme.type';
+import { CssEmotion, RktaComponentStyles } from '../Provider/theme';
 
 interface Handlers {
   onPopUp?: Function;

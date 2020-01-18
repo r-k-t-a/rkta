@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/core';
-import { CssEmotion } from '../../Provider/theme/theme.type';
+import { CssEmotion } from '../../Provider/theme';
 
 const FadeDown = keyframes`
   to {

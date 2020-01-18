@@ -1,4 +1,4 @@
-import { CssEmotion } from '../Provider/theme/theme.type';
+import { CssEmotion } from '../Provider/theme';
 
 export * from './styles/fadeDown';
 export * from './styles/popUp';

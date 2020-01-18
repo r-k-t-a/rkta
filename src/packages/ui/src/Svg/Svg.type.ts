@@ -1,4 +1,4 @@
-import { RktaElement } from '../Provider/theme/theme.type';
+import { RktaElement } from '../Provider/theme';
 
 export interface Props extends RktaElement {
   block?: boolean;

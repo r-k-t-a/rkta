@@ -1,5 +1,5 @@
 import { Props as Text } from '../Text/Text.type';
-import { Color } from '../Provider/theme/theme.type';
+import { Color } from '../Provider/theme';
 
 export interface PaperOwnProps {
   bgColor?: Color;

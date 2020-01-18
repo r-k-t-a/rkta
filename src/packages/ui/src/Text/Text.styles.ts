@@ -1,4 +1,4 @@
-import { Color, CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
+import { Color, CssEmotion, RktaTheme } from '../Provider/theme';
 
 export const color = (theme: RktaTheme, props: { color: Color }): CssEmotion => ({
   color: theme.color[props.color] || props.color,

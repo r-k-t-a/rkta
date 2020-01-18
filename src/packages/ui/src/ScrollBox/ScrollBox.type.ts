@@ -1,4 +1,4 @@
-import { RktaElement } from '../Provider/theme/theme.type';
+import { RktaElement } from '../Provider/theme';
 import { Props as Paper } from '../Paper/Paper.type';
 
 export interface Props extends Paper, RktaElement {

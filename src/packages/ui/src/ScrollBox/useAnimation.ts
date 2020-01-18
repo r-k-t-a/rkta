@@ -1,5 +1,5 @@
 import { RefObject, useRef, useEffect, useState } from 'react';
-import { CssEmotion } from '../Provider/theme/theme.type';
+import { CssEmotion } from '../Provider/theme';
 
 interface AnimationProps {
   ref: RefObject<HTMLElement>;

@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { CssEmotion } from '../Provider/theme/theme.type';
+import { CssEmotion } from '../Provider/theme';
 
 export const initialStyle: CssEmotion = css`
   align-items: center;

@@ -1,5 +1,6 @@
 import upperFirst from 'lodash/upperFirst';
-import { Breakpoint, MediaTuples, MediaTuple } from './theme.type';
+import { Breakpoint } from '../breakpoints';
+import { MediaTuples, MediaTuple } from './mediaTuples.type';
 
 function getTuple(key: string, breakpoint: Breakpoint, nextBreakPoint: Breakpoint): MediaTuple {
   const min = breakpoint[key];

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { keyframes } from '@emotion/core';
 
-import { CssEmotion } from '../../Provider/theme/theme.type';
+import { CssEmotion } from '../../Provider/theme';
 import { Wave } from './Ripple.type';
 
 export const BoxCss: CssEmotion = {

@@ -1,5 +1,5 @@
 import { css, keyframes } from '@emotion/core';
-import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
+import { CssEmotion, RktaTheme } from '../Provider/theme';
 import { Props } from './Backdrop.type';
 
 import { getContentInFx } from './getContentInFx';

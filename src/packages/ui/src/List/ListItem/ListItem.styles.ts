@@ -1,4 +1,4 @@
-import { CssRkta } from '../../Provider/theme/theme.type';
+import { CssRkta } from '../../Provider/theme';
 
 export const initialStyle: CssRkta = {
   alignItems: 'center',
