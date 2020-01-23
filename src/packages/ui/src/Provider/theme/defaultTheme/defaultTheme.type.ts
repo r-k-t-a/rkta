@@ -18,6 +18,9 @@ import { FxStyles } from '../../../Fx/Fx.styles.type';
 import { InputStyles } from '../../../Input/Input.styles.type';
 import { InputBaseStyles } from '../../../InputBase/InputBase.styles.type';
 import { InputGroupStyles } from '../../../InputGroup/InputGroup.styles.type';
+import { ListStyles } from '../../../List/List.styles.type';
+import { ListItemStyles } from '../../../List/ListItem/ListItem.styles.type';
+import { ListTextStyles } from '../../../List/ListText/ListText.styles.type';
 
 export interface RktaDefaultTheme {
   breakpoints: Breakpoint[];
@@ -36,6 +39,9 @@ export interface RktaDefaultTheme {
   Input: InputStyles;
   InputBase: InputBaseStyles;
   InputGroup: InputGroupStyles;
+  List: ListStyles;
+  ListItem: ListItemStyles;
+  ListText: ListTextStyles;
   [key: string]:
     | AddonStyles
     | BackdropStyles
