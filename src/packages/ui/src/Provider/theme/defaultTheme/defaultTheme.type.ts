@@ -17,6 +17,7 @@ import { DividerStyles } from '../../../Divider/Divider.styles.type';
 import { FxStyles } from '../../../Fx/Fx.styles.type';
 import { InputStyles } from '../../../Input/Input.styles.type';
 import { InputBaseStyles } from '../../../InputBase/InputBase.styles.type';
+import { InputGroupStyles } from '../../../InputGroup/InputGroup.styles.type';
 
 export interface RktaDefaultTheme {
   breakpoints: Breakpoint[];
@@ -34,6 +35,7 @@ export interface RktaDefaultTheme {
   Fx: FxStyles;
   Input: InputStyles;
   InputBase: InputBaseStyles;
+  InputGroup: InputGroupStyles;
   [key: string]:
     | AddonStyles
     | BackdropStyles
@@ -47,6 +49,7 @@ export interface RktaDefaultTheme {
     | FxStyles
     | InputStyles
     | InputBaseStyles
+    | InputGroupStyles
     | RktaComponentStyles
     | Breakpoint[]
     | MediaQueries
