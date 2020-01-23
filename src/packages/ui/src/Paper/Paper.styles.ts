@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { invariant } from '../util/invariant';
-import { CssEmotion, RktaTheme } from '../Provider/theme';
+import { RktaTheme } from '../Provider/theme';
 import { Props } from './Paper.type';
 
 export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
@@ -28,7 +28,7 @@ export const hard = css`
   border-radius: 0;
 `;
 
-export const hardBottom: CssEmotion = css`
+export const hardBottom = css`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 `;
@@ -82,7 +82,7 @@ export const rounded = css`
   border-radius: 9999vw;
 `;
 
-export const size = (theme: RktaTheme, props: { size: number }): SerializedStyles => css`
+export const size = (theme: RktaTheme, props: Props): SerializedStyles => css`
   width: ${props.size};
   height: ${props.size};
 `;

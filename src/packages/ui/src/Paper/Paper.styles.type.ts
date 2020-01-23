@@ -17,7 +17,7 @@ export interface PaperStyles {
   outlineColor: (theme: RktaTheme, props: Props) => SerializedStyles;
   readOnly: SerializedStyles;
   relative: SerializedStyles;
-  rize: SerializedStyles;
+  rize: (theme: RktaTheme, props: Props) => SerializedStyles;
   round: SerializedStyles;
   rounded: SerializedStyles;
   size: (theme: RktaTheme, props: Props) => SerializedStyles;
