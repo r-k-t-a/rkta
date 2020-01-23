@@ -24,6 +24,9 @@ import { ListTextStyles } from '../../../List/ListText/ListText.styles.type';
 import { PaperStyles } from '../../../Paper/Paper.styles.type';
 import { ScrollBoxStyles } from '../../../ScrollBox/ScrollBox.styles.type';
 import { SelectStyles } from '../../../Select/Select.styles.type';
+import { SpinnerStyles } from '../../../Spinner/Spinner.styles.type';
+import { SvgStyles } from '../../../Svg/Svg.styles.type';
+import { TextStyles } from '../../../Text/Text.styles.type';
 
 export interface RktaDefaultTheme {
   breakpoints: Breakpoint[];
@@ -48,6 +51,9 @@ export interface RktaDefaultTheme {
   Paper: PaperStyles;
   ScrollBox: ScrollBoxStyles;
   Select: SelectStyles;
+  Spinner: SpinnerStyles;
+  Svg: SvgStyles;
+  Text: TextStyles;
   [key: string]:
     | AddonStyles
     | BackdropStyles
@@ -65,6 +71,9 @@ export interface RktaDefaultTheme {
     | PaperStyles
     | ScrollBoxStyles
     | SelectStyles
+    | SpinnerStyles
+    | SvgStyles
+    | TextStyles
     | RktaComponentStyles
     | Breakpoint[]
     | MediaQueries
