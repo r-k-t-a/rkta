@@ -23,7 +23,7 @@ export const height = (theme: RktaTheme, props: Props): SerializedStyles => css`
 export const hideScrollbars = css`
   scrollbar-width: none;
   -ms-overflow-style: none;
-  &::-webkit-scrollbar: {
+  ::-webkit-scrollbar {
     display: none;
   }
 `;
