@@ -1,0 +1,3 @@
+---
+  rules:
+    import/no-cycle: off

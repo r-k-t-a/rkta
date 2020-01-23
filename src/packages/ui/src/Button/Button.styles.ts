@@ -1,5 +1,5 @@
 import { css, SerializedStyles } from '@emotion/core';
-import { Color, RktaTheme } from '../Provider/theme';
+import { RktaTheme } from '../Provider/theme';
 import { Props as Button } from './Button.type';
 
 export const initialStyle = css`
