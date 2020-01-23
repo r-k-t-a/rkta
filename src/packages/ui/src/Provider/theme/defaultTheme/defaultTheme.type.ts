@@ -21,6 +21,7 @@ import { InputGroupStyles } from '../../../InputGroup/InputGroup.styles.type';
 import { ListStyles } from '../../../List/List.styles.type';
 import { ListItemStyles } from '../../../List/ListItem/ListItem.styles.type';
 import { ListTextStyles } from '../../../List/ListText/ListText.styles.type';
+import { PaperStyles } from '../../../Paper/Paper.styles.type';
 
 export interface RktaDefaultTheme {
   breakpoints: Breakpoint[];
@@ -42,6 +43,7 @@ export interface RktaDefaultTheme {
   List: ListStyles;
   ListItem: ListItemStyles;
   ListText: ListTextStyles;
+  Paper: PaperStyles;
   [key: string]:
     | AddonStyles
     | BackdropStyles
@@ -56,6 +58,7 @@ export interface RktaDefaultTheme {
     | InputStyles
     | InputBaseStyles
     | InputGroupStyles
+    | PaperStyles
     | RktaComponentStyles
     | Breakpoint[]
     | MediaQueries
