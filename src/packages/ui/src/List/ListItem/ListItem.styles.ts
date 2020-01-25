@@ -1,8 +1,8 @@
-import { CssRkta } from '../../Provider/theme/theme.type';
+import { css } from '@emotion/core';
 
-export const initialStyle: CssRkta = {
-  alignItems: 'center',
-  display: 'flex',
-  justifyContent: 'flex-start',
-  textAlign: 'left',
-};
+export const initialStyle = css`
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+`;

@@ -1,7 +1,8 @@
-import { css } from '@emotion/core';
-import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
+import { Props } from './InputBase.type';
 
-export const initialStyle: CssEmotion = css`
+export const initialStyle = css`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -45,7 +46,7 @@ export const initialStyle: CssEmotion = css`
   }
 `;
 
-export const active: CssEmotion = css`
+export const active = css`
   justify-content: space-evenly;
   .caption {
     font-size: 10px;
@@ -59,13 +60,13 @@ export const active: CssEmotion = css`
   }
 `;
 
-export const maxRows = (theme: RktaTheme, props: { maxRows: number }): CssEmotion => css`
+export const maxRows = (theme: RktaTheme, { maxRows: max = 2 }: Props): SerializedStyles => css`
   textarea {
-    max-height: ${props.maxRows * 24}px;
+    max-height: ${max * 24}px;
   }
 `;
 
-export const multiline: CssEmotion = css`
+export const multiline = css`
   height: auto;
   padding-bottom: 8px;
   padding-top: 8px;

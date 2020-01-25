@@ -1,5 +1,6 @@
-import { css } from '@emotion/core';
-import { CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
+import { Props } from './Select.type';
 
 export const initialStyle = css`
   align-items: center;
@@ -20,12 +21,12 @@ export const initialStyle = css`
   }
 `;
 
-export const active = (theme: RktaTheme, props: { active: boolean }): CssEmotion => css`
+export const active = (theme: RktaTheme, props: Props): SerializedStyles => css`
   .chevron {
     transform: rotate(${props.active ? 180 : 0}deg);
   }
 `;
 
-export const main = {
-  flex: 1,
-};
+export const main = css`
+  flex: 1;
+`;

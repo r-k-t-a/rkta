@@ -1,4 +1,4 @@
-import { MediaTuple } from '../Provider/theme/theme.type';
+import { MediaTuple } from '../Provider/theme/mediaTuples';
 
 export function stringifyMediaTuple([min, max]: MediaTuple): string {
   let query = 'all';

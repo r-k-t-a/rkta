@@ -1,153 +1,155 @@
-import { Color, CssEmotion, RktaTheme } from '../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
+import { Props } from './Text.type';
 
-export const color = (theme: RktaTheme, props: { color: Color }): CssEmotion => ({
-  color: theme.color[props.color] || props.color,
-});
+export const color = (theme: RktaTheme, { color: textColor = '' }: Props): SerializedStyles => css`
+  color: ${theme.color[textColor] || textColor};
+`;
 
-export const sans: CssEmotion = {
-  fontFamily: '"San Francisco", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif',
-};
+export const sans = css`
+  font-family: 'San Francisco', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+`;
 
-export const serif: CssEmotion = {
-  fontFamily: '"Playfair Display", Bookman, Palatino, Georgia, serif',
-};
+export const serif = css`
+  font-family: 'Playfair Display', Bookman, Palatino, Georgia, serif;
+`;
 
-export const monospace: CssEmotion = {
-  fontFamily:
-    '"Lucida Sans Typewriter", "Lucida Console", "Consolas", "Andale Mono", "Monaco", "Courier New", Courier, monospace',
-};
+export const monospace = css`
+  font-family: 'Lucida Sans Typewriter', 'Lucida Console', 'Consolas', 'Andale Mono', 'Monaco',
+    'Courier New', Courier, monospace;
+`;
 
-export const uppercase: CssEmotion = {
-  textTransform: 'uppercase',
-  letterSpacing: '0.75px',
-};
+export const uppercase = css`
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+`;
 
-export const baseline: CssEmotion = {
-  margin: 0,
-  padding: 0,
-};
+export const baseline = css`
+  margin: 0;
+  padding: 0;
+`;
 
-export const muted: CssEmotion = {
-  opacity: 0.56,
-  userSelect: 'none',
-};
+export const muted = css`
+  opacity: 0.56;
+  user-select: none;
+`;
 
-export const center: CssEmotion = {
-  textAlign: 'center',
-};
+export const center = css`
+  text-align: center;
+`;
 
-export const etched: CssEmotion = {
-  textShadow: '0 1px rgba(255, 255, 255, 0.24)',
-};
+export const etched = css`
+  text-shadow: 0 1px rgba(255, 255 255, 0.24);
+`;
 
-export const readOnly: CssEmotion = {
-  pointerEvents: 'none',
-  userSelect: 'none',
-};
+export const readOnly = css`
+  pointer-events: none;
+  user-select: none;
+`;
 
-export const nowrap: CssEmotion = {
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
-  overflow: 'hidden',
-};
+export const nowrap = css`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
 
-export const wrapLongLines: CssEmotion = {
-  overflowWrap: 'break-word',
-  wordWrap: 'break-word',
-};
+export const wrapLongLines = css`
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+`;
 
-export const hyphens: CssEmotion = {
-  hyphens: 'auto',
-};
+export const hyphens = css`
+  hyphens: auto;
+`;
 
 // size
-export const h1: CssEmotion = {
-  fontSize: '96px',
-  fontWeight: 'lighter',
-  lineHeight: '96px',
-  letterSpacing: '-1.5px',
-};
+export const h1 = css`
+  font-size: 96px;
+  font-weight: lighter;
+  line-height: 96px;
+  letter-spacing: -1.5px;
+`;
 
-export const h2: CssEmotion = {
-  fontSize: '60px',
-  fontWeight: 'lighter',
-  lineHeight: '60px',
-  letterSpacing: '-0.5px',
-};
+export const h2 = css`
+  font-size: 60px;
+  font-weight: lighter;
+  line-height: 60px;
+  letter-spacing: -0.5px;
+`;
 
-export const h3: CssEmotion = {
-  fontSize: '48px',
-  fontWeight: 400,
-  lineHeight: '48px',
-};
+export const h3 = css`
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 48px;
+`;
 
-export const h4: CssEmotion = {
-  fontSize: '34px',
-  fontWeight: 400,
-  lineHeight: '40px',
-  letterSpacing: '0.25px',
-};
+export const h4 = css`
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.25px;
+`;
 
-export const h5: CssEmotion = {
-  fontSize: '24px',
-  fontWeight: 400,
-  lineHeight: '32px',
-};
+export const h5 = css`
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+`;
 
-export const h6: CssEmotion = {
-  fontSize: '22px',
-  fontWeight: 500,
-  lineHeight: '32px',
-  letterSpacing: '0.15px',
-};
+export const h6 = css`
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.15px;
+`;
 
-export const subtitle1: CssEmotion = {
-  fontSize: '16px',
-  lineHeight: '24px',
-  fontWeight: 400,
-  letterSpacing: '0.15px',
-};
+export const subtitle1 = css`
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.15px;
+  line-height: 24px;
+`;
 
-export const subtitle2: CssEmotion = {
-  fontSize: '14px',
-  lineHeight: '20px',
-  fontWeight: 500,
-  letterSpacing: '0.1px',
-};
+export const subtitle2 = css`
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  line-height: 20px;
+`;
 
-export const body: CssEmotion = {
-  fontSize: '16px',
-  fontWeight: 400,
-  letterSpacing: '0.15px',
-  lineHeight: '24px',
-  textRendering: 'optimizeLegibility',
-};
+export const body = css`
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.15px;
+  line-height: 24px;
+  text-rendering: optimizeLegibility;
+`;
 
-export const body2: CssEmotion = {
-  fontSize: '14px',
-  lineHeight: '20px',
-  fontWeight: 400,
-  letterSpacing: '0.1px',
-};
+export const body2 = css`
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+`;
 
-export const button: CssEmotion = {
-  fontSize: '14px',
-  lineHeight: '20px',
-  fontWeight: 500,
-  letterSpacing: '0.1px',
-  textDecoration: 'none',
-};
+export const button = css`
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  text-decoration: none;
+`;
 
-export const caption: CssEmotion = {
-  fontSize: '12px',
-  lineHeight: '20px',
-  fontWeight: 400,
-  letterSpacing: '0.4px',
-};
+export const caption = css`
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+`;
 
-export const overline: CssEmotion = {
-  fontSize: '10px',
-  lineHeight: '20px',
-  fontWeight: 400,
-  letterSpacing: '1px',
-};
+export const overline = css`
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 1px;
+`;

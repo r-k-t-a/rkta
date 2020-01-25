@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { RktaElement } from '../Provider/theme/theme.type';
+import { RktaElement } from '../Provider/theme';
 
 export interface Align {
   align?:

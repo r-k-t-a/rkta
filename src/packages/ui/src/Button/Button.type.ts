@@ -6,7 +6,6 @@ export interface Props extends Addon, Paper {
   blockLevel?: boolean;
   busy?: boolean;
   composition?: string[];
-
   noripple?: boolean;
   round?: boolean;
   size?: number | string;

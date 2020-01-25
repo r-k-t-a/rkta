@@ -1,41 +1,45 @@
-import { CssEmotion, RktaTheme, CssRkta } from '../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
+import { Props } from './ScrollBox.type';
 
-export const initialStyle: CssRkta = {
-  display: 'block',
-  overflow: 'hidden',
-  overflowScrolling: 'touch',
-  scrollBehavior: 'smooth',
-  WebkitOverflowScrolling: 'touch',
-};
+export const initialStyle = css`
+  display: block;
+  overflow: hidden;
+  overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  -webkit-overflows-crolling: touch;
+`;
 
-export const hideScrollbars: CssRkta = {
-  scrollbarWidth: 'none',
-  MsOverflowStyle: 'none',
-  '::-webkit-scrollbar': { display: 'none' },
-};
+export const animateHeight = css`
+  box-sizing: border-box;
+  transition: height 0.24s ease;
+  will-change: height;
+`;
 
-export const snap: CssRkta = {
-  scrollSnapType: 'both mandatory',
-  '> * ': {
-    scrollSnapAlign: 'start',
-  },
-};
+export const height = (theme: RktaTheme, props: Props): SerializedStyles => css`
+  height: ${props.height};
+`;
 
-export const x: CssRkta = {
-  display: 'flex',
-  overflowX: 'scroll',
-};
+export const hideScrollbars = css`
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
-export const y: CssRkta = {
-  overflowY: 'scroll',
-};
+export const snap = css`
+  scroll-snap-type: both mandatory;
+  > * {
+    scroll-snap-align: start;
+  }
+`;
 
-export const animateHeight: CssRkta = {
-  boxSizing: 'border-box',
-  transition: 'height 0.24s ease',
-  willChange: 'height',
-};
+export const x = css`
+  display: flex;
+  overflow-x: scroll;
+`;
 
-export const height = (theme: RktaTheme, props: { height: number | string }): CssEmotion => ({
-  height: props.height,
-});
+export const y = css`
+  overflow-y: scroll;
+`;

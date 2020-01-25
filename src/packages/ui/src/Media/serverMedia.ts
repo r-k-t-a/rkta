@@ -2,7 +2,7 @@ import { jsx } from '@emotion/core';
 import { Children, ReactElement, ReactNode } from 'react';
 
 import { PropsWithoutChildren } from './Media.type';
-import { CssEmotion, RktaTheme, MediaTuple } from '../Provider/theme/theme.type';
+import { CssEmotion, RktaTheme, MediaTuple } from '../Provider/theme';
 import { stringifyMediaTuple } from '../util/stringifyMediaTuple';
 
 const cloneElement = (element: ReactElement, props: {}): ReactElement =>

@@ -1,5 +1,6 @@
-import { keyframes } from '@emotion/core';
-import { Color, CssRkta, RktaTheme } from '../Provider/theme/theme.type';
+import { css, keyframes, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
+import { Props } from './Spinner.type';
 
 const spin = keyframes`
   0% {
@@ -15,29 +16,30 @@ const spin = keyframes`
   }
 `;
 
-export const initialStyle: CssRkta = {
-  animation: `${spin} 1.6s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
-  borderColor: 'currentColor',
-  borderLeftColor: 'transparent !important',
-  borderRightColor: 'transparent !important',
-  borderStyle: 'solid',
-  borderRadius: '50%',
-  boxSizing: 'border-box',
-  display: 'block',
-  willChange: 'transform',
-};
+export const initialStyle = css`
+  animation: ${spin} 1.6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: currentColor;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-style: solid;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+  will-change: transform;
+`;
 
-export const borderWidth = (
+export const borderWidth = (theme: RktaTheme, props: Props): SerializedStyles => css`
+  border-width: ${props.borderWidth};
+`;
+
+export const color = (
   theme: RktaTheme,
-  props: { borderWidth?: number | string },
-): CssRkta => ({
-  borderWidth: props.borderWidth,
-});
-export const size = (theme: RktaTheme, props: { size?: number | string }): CssRkta => ({
-  height: props.size,
-  width: props.size,
-});
+  { color: borderColor = '' }: Props,
+): SerializedStyles => css`
+  border-color: ${theme.color[borderColor] || borderColor};
+`;
 
-export const color = (theme: RktaTheme, props: { color: Color }): CssRkta => ({
-  borderColor: theme.color[props.color] || props.color,
-});
+export const size = (theme: RktaTheme, props: Props): SerializedStyles => css`
+  height: ${props.size};
+  width: ${props.size};
+`;

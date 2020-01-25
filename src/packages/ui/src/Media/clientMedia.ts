@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { matchMedia } from './matchMedia';
 import { PropsWithoutChildren } from './Media.type';
-import { RktaTheme } from '../Provider/theme/theme.type';
+import { RktaTheme } from '../Provider/theme';
 
 export function clientMedia(
   children: ReactNode,

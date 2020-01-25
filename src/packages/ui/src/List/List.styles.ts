@@ -1,17 +1,17 @@
-import { CssRkta } from '../Provider/theme/theme.type';
+import { css } from '@emotion/core';
 
-export const initialStyle: CssRkta = {
-  padding: '8px 0',
-};
+export const initialStyle = css`
+  padding: 8px 0;
+`;
 
-export const fitAll: CssRkta = {
-  padding: 0,
-};
+export const fitAll = css`
+  padding: 0;
+`;
 
-export const fitTop: CssRkta = {
-  paddingTop: 0,
-};
+export const fitBottom = css`
+  padding-bottom: 0;
+`;
 
-export const fitBottom: CssRkta = {
-  paddingBottom: 0,
-};
+export const fitTop = css`
+  padding-top: 0;
+`;

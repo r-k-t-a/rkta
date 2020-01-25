@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Color } from '../Provider/theme/theme.type';
+import { Color } from '../Provider/theme';
 import { PaperOwnProps } from '../Paper/Paper.type';
 import { Props as InputBase } from '../InputBase/InputBase.type';
 

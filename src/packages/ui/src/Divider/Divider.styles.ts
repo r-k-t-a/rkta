@@ -1,46 +1,45 @@
-import { CssRkta, RktaTheme } from '../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
 import { Props } from './Divider.type';
 
-export function initialStyle(theme: RktaTheme): CssRkta {
-  return {
-    border: '0',
-    height: '0',
-    borderTop: `1px solid ${theme.color.divider}`,
-    marginBottom: '8px',
-    marginTop: '8px',
-  };
-}
+export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
+  border: 0;
+  height: 0;
+  border-top: 1px solid ${theme.color.divider};
+  margin-bottom: 8px;
+  margin-top: 8px;
+`;
 
-export const dotted: CssRkta = {
-  borderStyle: 'dotted',
-};
+export const dotted = css`
+  border-style: 'dotted';
+`;
 
-export const fitAll: CssRkta = {
-  margin: 0,
-};
+export const fitAll = css`
+  margin: 0;
+`;
 
-export const fitBottom: CssRkta = {
-  marginBottom: 0,
-};
+export const fitBottom = css`
+  margin-bottom: 0;
+`;
 
-export const fitTop: CssRkta = {
-  marginTop: 0,
-};
+export const fitTop = css`
+  margin-top: 0;
+`;
 
-export const inset: CssRkta = {
-  marginLeft: '72px',
-};
+export const inset = css`
+  margin-left: '72px';
+`;
 
-export const invisible: CssRkta = {
-  visibility: 'hidden',
-};
+export const invisible = css`
+  visibility: 'hidden';
+`;
 
-export const horizontalSpace = (theme: RktaTheme, props: Props): CssRkta => ({
-  marginLeft: props.horizontalSpace,
-  marginRight: props.horizontalSpace,
-});
+export const horizontalSpace = (theme: RktaTheme, props: Props): SerializedStyles => css`
+  margin-left: ${props.horizontalSpace};
+  margin-right: ${props.horizontalSpace};
+`;
 
-export const verticalSpace = (theme: RktaTheme, props: Props): CssRkta => ({
-  marginBottom: props.verticalSpace,
-  marginTop: props.verticalSpace,
-});
+export const verticalSpace = (theme: RktaTheme, props: Props): SerializedStyles => css`
+  margin-bottom: ${props.verticalSpace};
+  margin-top: ${props.verticalSpace};
+`;

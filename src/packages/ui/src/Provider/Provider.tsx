@@ -2,8 +2,7 @@
 import React from 'react';
 import { Context, ThemeProvider } from '@rkta/context';
 
-import { prepareTheme } from './theme/prepare';
-import { RktaTheme } from './theme/theme.type';
+import { mountTheme, RktaTheme } from './theme';
 import { getElement } from './getElement';
 import { NextPropsAndElementType, useStyles, useStylesFunctionType } from './useStyles';
 import { Props, State, Context as ContextInterface } from './Provider.type';
@@ -19,14 +18,14 @@ export class Provider extends React.Component<Props, State> {
   // eslint-disable-next-line react/state-in-constructor
   public state = {
     modalQueue: [],
-    theme: prepareTheme(),
+    theme: mountTheme(),
   };
 
   private [USE_STYLES]: useStylesFunctionType = (props, ...composition): NextPropsAndElementType =>
     useStyles({ composition, getElement: this.props.getElement, theme: this.state.theme, props });
 
   private [REPLACE_THEME] = (nextTheme: RktaTheme): void => {
-    this.setState({ theme: prepareTheme(nextTheme) });
+    this.setState({ theme: mountTheme(nextTheme) });
   };
 
   private addModal = (symbol: symbol): void => {

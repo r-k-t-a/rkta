@@ -1,9 +1,9 @@
-import { CssEmotion } from '../../Provider/theme/theme.type';
+import { css } from '@emotion/core';
 
-export const initialStyle: CssEmotion = {
-  alignItems: 'center',
-  display: 'flex',
-  justifyContent: 'space-between',
-  paddingBottom: 16,
-  paddingTop: 16,
-};
+export const initialStyle = css`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16;
+  padding-top: 16;
+`;

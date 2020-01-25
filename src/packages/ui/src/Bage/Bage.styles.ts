@@ -1,20 +1,20 @@
-import { CssRkta } from '../Provider/theme/theme.type';
+import { css } from '@emotion/core';
 
-export const initialStyle: CssRkta = {
-  display: 'inline-block !important',
-  margin: '0 .3ex',
-  padding: '0 calc(.48ex + 4px)',
-  verticalAlign: 'middle',
-};
+export const initialStyle = css`
+  display: inline-block !important;
+  margin: 0 0.3ex;
+  padding: 0 calc(0.48ex + 4px);
+  vertical-align: middle;
+`;
 
-export const fitAll: CssRkta = {
-  margin: 0,
-};
+export const fitAll = css`
+  margin: 0;
+`;
 
-export const fitLeft: CssRkta = {
-  marginLeft: 0,
-};
+export const fitLeft = css`
+  margin-left: 0;
+`;
 
-export const fitRight: CssRkta = {
-  marginRight: 0,
-};
+export const fitRight = css`
+  margin-right: 0;
+`;

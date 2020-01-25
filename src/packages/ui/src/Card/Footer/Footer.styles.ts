@@ -1,14 +1,14 @@
-import { CssEmotion } from '../../Provider/theme/theme.type';
+import { css } from '@emotion/core';
 
-export const initialStyle: CssEmotion = {
-  alignItems: 'center',
-  display: 'flex',
-  padding: 8,
-  '> * + *': {
-    marginLeft: 8,
-  },
-};
+export const initialStyle = css`
+  align-items: center;
+  display: flex;
+  padding: 8;
+  > * + * {
+    margin-left: 8;
+  }
+`;
 
-export const right: CssEmotion = {
-  justifyContent: 'flex-end',
-};
+export const right = css`
+  justify-content: flex-end;
+`;

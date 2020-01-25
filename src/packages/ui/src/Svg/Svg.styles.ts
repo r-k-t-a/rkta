@@ -1,22 +1,24 @@
-import { Color, CssRkta, RktaTheme } from '../Provider/theme/theme.type';
+import { css, SerializedStyles } from '@emotion/core';
+import { RktaTheme } from '../Provider/theme';
+import { Props } from './Svg.type';
 
-export const initialStyle: CssRkta = {
-  fill: 'currentColor',
-  verticalAlign: 'middle',
-};
+export const initialStyle = css`
+  fill: currentColor;
+  vertical-align: middle;
+`;
 
-export const block: CssRkta = {
-  display: 'block',
-};
+export const block = css`
+  display: block;
+`;
 
-export const color = (theme: RktaTheme, props: { color: Color }): CssRkta => ({
-  fill: theme.color[props.color] || props.color,
-});
+export const color = (theme: RktaTheme, { color: fill = '' }: Props): SerializedStyles => css`
+  fill: ${theme.color[fill] || fill};
+`;
 
-export const size = (theme: RktaTheme, props: { size: number }): CssRkta => {
+export const size = (theme: RktaTheme, props: Props): SerializedStyles => {
   const { size: sizeValue } = props;
-  return {
-    height: sizeValue,
-    width: sizeValue,
-  };
+  return css`
+    height: ${sizeValue}px;
+    width: ${sizeValue}px;
+  `;
 };
