@@ -1,6 +1,6 @@
 import {
   FocusEvent,
-  ButtonHTMLAttributes,
+  HTMLAttributes,
   MouseEvent,
   PointerEvent,
   TouchEvent,
@@ -63,8 +63,10 @@ export const useRipple = ({
   onMouseOut,
   onPointerDown,
   onContextMenu,
+  onTouchCancel,
+  onTouchEnd,
   onTouchStart,
-}: ButtonHTMLAttributes<{}>): [Props, {}] => {
+}: HTMLAttributes<HTMLElement>): [Props, {}] => {
   const [state, setState] = useState(initialState);
   function patchState(payload: {}): void {
     setState({ ...state, ...payload, patched: Date.now() });
@@ -124,8 +126,16 @@ export const useRipple = ({
       addWave({ pointX, pointY, width, height }, { ...state, focus: true }, patchState);
       reEmit(event, onPointerDown);
     },
+    onTouchCancel: (event: TouchEvent): void => {
+      releaseWaves(state, patchState);
+      reEmit(event, onTouchCancel);
+    },
+    onTouchEnd: (event: TouchEvent): void => {
+      releaseWaves(state, patchState);
+      reEmit(event, onTouchEnd);
+    },
     onTouchStart: (event: TouchEvent): void => {
-      patchState({ touch: true });
+      patchState({ mouseover: false, touch: true });
       reEmit(event, onTouchStart);
     },
   };
