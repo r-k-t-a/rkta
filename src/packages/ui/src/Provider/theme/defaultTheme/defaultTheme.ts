@@ -23,6 +23,7 @@ import * as Select from '../../../Select/Select.styles';
 import * as ScrollBox from '../../../ScrollBox/ScrollBox.styles';
 import * as Spinner from '../../../Spinner/Spinner.styles';
 import * as Svg from '../../../Svg/Svg.styles';
+import * as Tabs from '../../../Tabs/Tabs.styles';
 import * as Text from '../../../Text/Text.styles';
 
 import { RktaDefaultTheme } from './defaultTheme.type';
@@ -52,5 +53,6 @@ export const defaultTheme: RktaDefaultTheme = {
   Spinner,
   Svg,
   Paper,
+  Tabs,
   Text,
 };

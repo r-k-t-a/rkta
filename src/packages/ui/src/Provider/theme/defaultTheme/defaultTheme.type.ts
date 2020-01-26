@@ -26,6 +26,7 @@ import { ScrollBoxStyles } from '../../../ScrollBox/ScrollBox.styles.type';
 import { SelectStyles } from '../../../Select/Select.styles.type';
 import { SpinnerStyles } from '../../../Spinner/Spinner.styles.type';
 import { SvgStyles } from '../../../Svg/Svg.styles.type';
+import { TabsStyles } from '../../../Tabs/Tabs.styles.type';
 import { TextStyles } from '../../../Text/Text.styles.type';
 
 export interface RktaDefaultTheme {
@@ -53,6 +54,7 @@ export interface RktaDefaultTheme {
   Select: SelectStyles;
   Spinner: SpinnerStyles;
   Svg: SvgStyles;
+  Tabs: TabsStyles;
   Text: TextStyles;
   [key: string]:
     | AddonStyles
@@ -73,6 +75,7 @@ export interface RktaDefaultTheme {
     | SelectStyles
     | SpinnerStyles
     | SvgStyles
+    | TabsStyles
     | TextStyles
     | RktaComponentStyles
     | Breakpoint[]
