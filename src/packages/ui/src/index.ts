@@ -18,4 +18,5 @@ export * from './Provider';
 export * from './ScrollBox';
 export * from './Spinner';
 export * from './Svg';
+export * from './Tabs';
 export * from './Text';

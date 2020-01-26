@@ -1,0 +1,74 @@
+---
+menu: UI
+name: Tabs
+---
+
+import { Playground, Props } from 'docz';
+import { useState } from 'react';
+import { Tabs } from './Tabs';
+import { Button } from '../Button';
+
+# Tabs
+
+Tabs navigation container with animated indication
+
+## Examples
+
+<Playground>
+  {() => {
+    const [index, setIndex] = useState(0);
+    return (
+      <Tabs index={index}>
+        {[1, 2, 39999].map((key, currentIndex) => (
+          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+        ))}
+      </Tabs>
+    );
+  }}
+</Playground>
+
+### Overline
+<Playground>
+  {() => {
+    const [index, setIndex] = useState(0);
+    return (
+      <Tabs index={index} color="secondary" overline>
+        {[1, 2, 39999].map((key, currentIndex) => (
+          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+        ))}
+      </Tabs>
+    );
+  }}
+</Playground>
+
+### Vertical
+<Playground>
+  {() => {
+    const [index, setIndex] = useState(0);
+    return (
+      <Tabs index={index} vertical>
+        {[1, 2, 39999].map((key, currentIndex) => (
+          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+        ))}
+      </Tabs>
+    );
+  }}
+</Playground>
+
+### Vertical and overline
+<Playground>
+  {() => {
+    const [index, setIndex] = useState(0);
+    return (
+      <Tabs index={index} overline vertical>
+        {[1, 2, 39999].map((key, currentIndex) => (
+          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+        ))}
+      </Tabs>
+    );
+  }}
+</Playground>
+
+## Props
+
+<Props of={Tabs} />
