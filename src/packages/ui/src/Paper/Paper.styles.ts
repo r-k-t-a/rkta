@@ -82,10 +82,13 @@ export const rounded = css`
   border-radius: 9999vw;
 `;
 
-export const size = (theme: RktaTheme, props: Props): SerializedStyles => css`
-  width: ${props.size};
-  height: ${props.size};
-`;
+export const size = (theme: RktaTheme, { size: rawSize }: Props): SerializedStyles => {
+  const cssSize = typeof rawSize === 'number' ? `${rawSize}px` : rawSize;
+  return css`
+    width: ${cssSize}px;
+    height: ${cssSize}px;
+  `;
+};
 
 export const transparent = css`
   background-color: transparent;
