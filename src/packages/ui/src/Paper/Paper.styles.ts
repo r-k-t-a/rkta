@@ -85,8 +85,8 @@ export const rounded = css`
 export const size = (theme: RktaTheme, { size: rawSize }: Props): SerializedStyles => {
   const cssSize = typeof rawSize === 'number' ? `${rawSize}px` : rawSize;
   return css`
-    width: ${cssSize}px;
-    height: ${cssSize}px;
+    width: ${cssSize};
+    height: ${cssSize};
   `;
 };
 
