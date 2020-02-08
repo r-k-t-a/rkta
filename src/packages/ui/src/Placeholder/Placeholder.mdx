@@ -1,0 +1,54 @@
+---
+menu: UI
+name: Placeholder
+---
+
+import { Playground, Props } from 'docz';
+import { Heading } from '../Heading';
+import { Divider } from '../Divider';
+import { Text } from '../Text';
+import { Placeholder } from './Placeholder';
+
+# Placeholder
+
+Wrap texts to create placeholders
+
+## Default usage
+
+<Playground>
+  <Text caption element="div">
+    Before load:
+  </Text>
+  <Text>
+    <Placeholder>{undefined}</Placeholder>
+  </Text>
+  <Divider />
+  <Text caption element="div">
+    After load:
+  </Text>
+  <Text>
+    <Placeholder>Some text</Placeholder>
+  </Text>
+</Playground>
+
+## Set width and color
+
+<Playground>
+  <Text caption element="div">
+    Before load:
+  </Text>
+  <Text color="primary">
+    <Placeholder width="7em">{undefined}</Placeholder>
+  </Text>
+  <Divider />
+  <Text caption element="div">
+    After load:
+  </Text>
+  <Text color="primary">
+    <Placeholder width="7em">Some text longer</Placeholder>
+  </Text>
+</Playground>
+
+## Props
+
+<Props of={Placeholder} />
