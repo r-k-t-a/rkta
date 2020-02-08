@@ -11,7 +11,7 @@ export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
 `;
 
 export const dotted = css`
-  border-style: 'dotted';
+  border-style: dotted;
 `;
 
 export const fitAll = css`
@@ -27,11 +27,11 @@ export const fitTop = css`
 `;
 
 export const inset = css`
-  margin-left: '72px';
+  margin-left: 72px;
 `;
 
 export const invisible = css`
-  visibility: 'hidden';
+  visibility: hidden;
 `;
 
 export const horizontalSpace = (theme: RktaTheme, props: Props): SerializedStyles => css`
