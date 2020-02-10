@@ -39,7 +39,7 @@ const initialState: UseRippliState = {
 const releaseWave = (wave: Wave): Wave => ({ ...wave, released: true });
 function releaseWaves(state: UseRippliState, patchState: Function): void {
   const waves = state.waves.map(releaseWave);
-  patchState({ ...state, waves });
+  patchState({ ...state, focus: false, mouseover: false, waves });
 }
 
 function addWave(
@@ -61,7 +61,7 @@ export const useRipple = ({
   onFocus,
   onMouseOver,
   onMouseOut,
-  onPointerDown,
+  onMouseDown,
   onContextMenu,
   onTouchCancel,
   onTouchEnd,
@@ -69,7 +69,7 @@ export const useRipple = ({
 }: HTMLAttributes<HTMLElement>): [Props, {}] => {
   const [state, setState] = useState(initialState);
   function patchState(payload: {}): void {
-    setState({ ...state, ...payload, patched: Date.now() });
+    setState(prevState => ({ ...prevState, ...payload, patched: Date.now() }));
   }
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   useEffect(() => {
@@ -84,7 +84,7 @@ export const useRipple = ({
   }, [state.patched]);
   const buttonProps = {
     onBlur: (event: FocusEvent): void => {
-      releaseWaves({ ...state, focus: false, mouseover: false }, patchState);
+      releaseWaves({ ...state }, patchState);
       reEmit(event, onBlur);
     },
     onClick: (event: MouseEvent<HTMLElement>): void => {
@@ -117,25 +117,25 @@ export const useRipple = ({
       patchState({ mouseover: false });
       reEmit(event, onMouseOut);
     },
-    onPointerDown: (event: PointerEvent): void => {
+    onMouseDown: (event: MouseEvent): void => {
       const { clientY, clientX } = event;
       const node = event.target as HTMLElement;
       const { top, left, width, height } = node.getBoundingClientRect();
       const pointX = clientX - left;
       const pointY = clientY - top;
       addWave({ pointX, pointY, width, height }, { ...state, focus: true }, patchState);
-      reEmit(event, onPointerDown);
+      reEmit(event, onMouseDown);
     },
     onTouchCancel: (event: TouchEvent): void => {
-      releaseWaves(state, patchState);
+      patchState({ mouseover: false, overlayIsVisible: false });
       reEmit(event, onTouchCancel);
     },
     onTouchEnd: (event: TouchEvent): void => {
-      releaseWaves(state, patchState);
+      patchState({ mouseover: false, overlayIsVisible: false });
       reEmit(event, onTouchEnd);
     },
     onTouchStart: (event: TouchEvent): void => {
-      patchState({ mouseover: false, touch: true });
+      patchState({ mouseover: true, overlayIsVisible: true });
       reEmit(event, onTouchStart);
     },
   };
