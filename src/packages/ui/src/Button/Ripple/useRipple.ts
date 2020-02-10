@@ -1,12 +1,4 @@
-import {
-  FocusEvent,
-  HTMLAttributes,
-  MouseEvent,
-  PointerEvent,
-  TouchEvent,
-  useEffect,
-  useState,
-} from 'react';
+import { FocusEvent, HTMLAttributes, MouseEvent, TouchEvent, useEffect, useState } from 'react';
 
 import { Props, Wave } from './Ripple.type';
 import { reEmit } from '../../util/reEmit';

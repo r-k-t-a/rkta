@@ -1,6 +1,7 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { Props } from './Svg.type';
+import { cssUnitToString } from '../util';
 
 export const initialStyle = css`
   fill: currentColor;
@@ -16,9 +17,9 @@ export const color = (theme: RktaTheme, { color: fill = '' }: Props): Serialized
 `;
 
 export const size = (theme: RktaTheme, props: Props): SerializedStyles => {
-  const { size: sizeValue } = props;
+  const value = cssUnitToString(props.size);
   return css`
-    height: ${sizeValue}px;
-    width: ${sizeValue}px;
+    height: ${value};
+    width: ${value};
   `;
 };

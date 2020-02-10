@@ -1,6 +1,7 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { Props as Button } from './Button.type';
+import { cssUnitToString } from '../util';
 
 export const initialStyle = css`
   align-items: center;
@@ -47,7 +48,7 @@ export const color = (theme: RktaTheme, props: Button): SerializedStyles => {
 };
 
 export const round = (theme: RktaTheme, props: Button): SerializedStyles => {
-  const size = props.size || 48;
+  const size = cssUnitToString(props.size || 48);
   return css`
     border-radius: ${size};
     height: ${size};
@@ -57,12 +58,15 @@ export const round = (theme: RktaTheme, props: Button): SerializedStyles => {
   `;
 };
 
-export const size = (theme: RktaTheme, props: Button): SerializedStyles => css`
-  flex-direction: column;
-  height: ${props.size};
-  min-height: ${props.size};
-  width: ${props.size};
-`;
+export const size = (theme: RktaTheme, props: Button): SerializedStyles => {
+  const value = cssUnitToString(props.size);
+  return css`
+    flex-direction: column;
+    height: ${value};
+    min-height: ${value};
+    width: ${value};
+  `;
+};
 
 export const spinnerCss = css`
   align-items: center;

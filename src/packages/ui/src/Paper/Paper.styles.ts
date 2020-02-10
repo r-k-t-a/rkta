@@ -2,6 +2,7 @@ import { css, SerializedStyles } from '@emotion/core';
 import { invariant } from '../util/invariant';
 import { RktaTheme } from '../Provider/theme';
 import { Props } from './Paper.type';
+import { cssUnitToString } from '../util';
 
 export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
   border: 0px solid currentColor;
@@ -48,9 +49,12 @@ export const hardRight = css`
   border-top-right-radius: 0;
 `;
 
-export const outline = (theme: RktaTheme, props: Props): SerializedStyles => css`
-  border-width: ${props.outline}px;
-`;
+export const outline = (theme: RktaTheme, props: Props): SerializedStyles => {
+  const value = cssUnitToString(props.outline);
+  return css`
+    border-width: ${value};
+  `;
+};
 export const outlineColor = (
   theme: RktaTheme,
   { outlineColor: borderColor = '' }: Props,
@@ -83,7 +87,7 @@ export const rounded = css`
 `;
 
 export const size = (theme: RktaTheme, { size: rawSize }: Props): SerializedStyles => {
-  const cssSize = typeof rawSize === 'number' ? `${rawSize}px` : rawSize;
+  const cssSize = cssUnitToString(rawSize);
   return css`
     width: ${cssSize};
     height: ${cssSize};

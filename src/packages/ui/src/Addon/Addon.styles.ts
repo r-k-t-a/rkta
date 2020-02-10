@@ -1,5 +1,7 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
+import { cssUnitToString } from '../util';
+import { Props } from './Addon.type';
 
 export const initialStyle = css`
   display: block;
@@ -38,17 +40,21 @@ export const normal = css`
   min-height: 48px;
 `;
 
-export const paddingX = (theme: RktaTheme, props: { paddingX: number }): SerializedStyles =>
-  css`
-    padding-left: ${props.paddingX}px;
-    padding-right: ${props.paddingX}px;
+export const paddingX = (theme: RktaTheme, props: Props): SerializedStyles => {
+  const value = cssUnitToString(props.paddingX);
+  return css`
+    padding-left: ${value};
+    padding-right: ${value};
   `;
+};
 
-export const paddingY = (theme: RktaTheme, props: { paddingY: number }): SerializedStyles =>
-  css`
-    padding-top: ${props.paddingY}px;
-    padding-bottom: ${props.paddingY}px;
+export const paddingY = (theme: RktaTheme, props: Props): SerializedStyles => {
+  const value = cssUnitToString(props.paddingY);
+  return css`
+    padding-top: ${value};
+    padding-bottom: ${value};
   `;
+};
 
 export const small = css`
   min-height: 40px;
