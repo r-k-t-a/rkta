@@ -36,7 +36,7 @@ export function useIndicator(
     return (): void => clearInterval(interval);
   }
 
-  useEffect(effect, [index, ref.current, ...Object.values(state || {})]);
+  useEffect(effect, [index, ref.current, state?.height, state?.left, state?.top, state?.width]);
 
   return [ref, state];
 }
