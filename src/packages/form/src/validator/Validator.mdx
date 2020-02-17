@@ -1,0 +1,94 @@
+---
+menu: Form
+name: use validator
+---
+
+import { Playground, Props } from 'docz';
+import { useState } from 'react';
+import { Form, useErrors } from '../Form';
+import { makeValidator } from './makeValidator';
+import { Button, Card, CardBody, Divider, Text, Input } from '@rkta/ui';
+
+## Validator
+
+Validate form inputs
+
+## Arguments
+
+- schema - ajv validation schema, js object
+- options - ajv option
+
+[AJV](https://www.npmjs.com/package/ajv)
+
+## Usage
+```
+import { Form, makeValidator } from '@rkta/form';
+
+const schema = {
+  type: 'object',
+  properties: {
+    login: { type: 'string' }
+  },
+  required: ['login']
+}
+
+const validate = makeValidator(schema, { useDefaults: false });
+
+<Form validate={validate} onFormSubmit={(form) => { console.log(form) }}>
+  <Input name="login" />
+</Form>
+
+```
+
+## Examples
+
+<Playground>
+  {() => {
+    const prevent = event => event.preventDefault()
+    const handleSubmit = (form) => {
+      alert('Form is sbumitted with login=' + form.login + ', password=' + form.password);
+    }
+    const schema = {
+      type: 'object',
+      properties: {
+        login: {
+          type: 'string',
+          format: 'email',
+          messages: {
+            required: 'Enter login',
+            format: 'Wrong format'
+          }
+        },
+        password: {
+          type: 'string',
+          messages: {
+            required: 'Enter password',
+          }
+        }
+      },
+      required: ['login', 'password']
+    }
+    const validate = makeValidator(schema);
+    const FieldError = ({ name }) => {
+      const [error] = useErrors(name);
+      return error ? <Text color="warning" subtitle2 css={{ marginLeft: 16, marginBottom: 8 }}>{error.message}</Text> : null;
+    }
+    return (
+      <Card rize={1} css={{ maxWidth: '450px', margin: 'auto' }}>
+        <CardBody>
+          <Form onSubmit={prevent} validate={validate} onFormSubmit={handleSubmit}>
+            <Input caption="Login" name="login" bgColor="paper2" />
+            <FieldError name="login" />
+            <Divider invisible />
+            <Input caption="Password" name="password" bgColor="paper2" type="password" />
+            <FieldError name="password" />
+            <Divider invisible />
+            <Button bgColor="primary" type="submit" blockLevel>
+              Submit
+            </Button>
+          </Form>
+        </CardBody>
+      </Card>
+    )
+  }}
+</Playground>

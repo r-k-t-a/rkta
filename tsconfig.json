@@ -18,6 +18,7 @@
     "noLib": false,
     "paths": {
       "@rkta/context": ["src/packages/context"],
+      "@rkta/form": ["src/packages/form"],
       "@rkta/ui": ["src/packages/ui"],
       "@rkta/entypo": ["src/packages/entypo"],
       "@rkta/hooks": ["src/packages/hooks"]
@@ -34,6 +35,7 @@
   "types": ["typePatches"],
   "references": [
     { "path": "src/packages/context" },
+    { "path": "src/packages/form" },
     { "path": "src/packages/ui" },
     { "path": "src/packages/entypo" },
     { "path": "src/packages/hooks" }

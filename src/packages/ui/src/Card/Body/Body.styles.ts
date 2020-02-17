@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
 
 export const initialStyle = css`
-  padding: 16;
+  padding: 16px;
 `;

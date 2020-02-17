@@ -5,10 +5,10 @@ import omitEmpty from './omitEmpty';
 import mergeErrors from './mergeErrors';
 
 export const makeValidator = (schema: {}, options?: {}) => (
-  formData: FormData,
+  formData: CustomFormData,
   prevErrors: ValidationError[],
   inputName?: string,
-): Promise<FormData> => {
+): Promise<CustomFormData> => {
   const defaultOptions = {
     allErrors: true,
     $data: true,

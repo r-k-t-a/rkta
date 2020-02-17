@@ -5,5 +5,5 @@ const ignoredValues = ['', null, undefined, NaN];
 const makeOmitPredicate = (ignored?: any[]) => (value: any): boolean =>
   ignoredValues.concat(ignored).indexOf(value) !== -1;
 
-export default (formData: FormData, ignored?: any[]): FormData =>
+export default (formData: CustomFormData, ignored?: any[]): CustomFormData =>
   omitBy(formData, makeOmitPredicate(ignored));
