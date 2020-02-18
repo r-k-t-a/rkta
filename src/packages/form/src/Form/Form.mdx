@@ -6,27 +6,39 @@ name: Form
 import { Playground, Props } from 'docz';
 import { useState } from 'react';
 import { Form } from './Form';
-import { Button, Card, CardBody, Divider, Input } from '@rkta/ui';
+import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Input } from '@rkta/ui';
 import flow from 'lodash/flow';
 
 ## Form
 
 Capture entire react forms with no effort and state management.
 
-## Examples
+
+## Usage
+```jsx
+import { Form } from '@rkta/form';
+
+<Form>...</Form>;
+```
+
+## Example
 <Playground>
   <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-    <CardBody>
-      <Form onFormSubmit={flow(Object.entries, alert)}>
+    <Form onFormSubmit={flow(Object.entries, alert)}>
+      <CardHeader>
+        Please Sign In
+      </CardHeader>
+      <CardBody>
         <Input caption="Login" name="login" bgColor="paper2" />
         <Divider invisible />
         <Input caption="Password" name="pass" bgColor="paper2" type="password" />
-        <Divider invisible />
-        <Button blockLevel bgColor="primary" type="submit">
-          Submit
+      </CardBody>
+      <CardFooter right>
+        <Button bgColor="primary" type="submit">
+          Sign In
         </Button>
-      </Form>
-    </CardBody>
+      </CardFooter>
+    </Form>
   </Card>
 </Playground>
 
