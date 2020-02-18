@@ -37,7 +37,6 @@ export const makeValidator = (schema: SchemaType, options?: {}) => (
     errorDataPath: 'property',
     format: 'full',
     useDefaults: true,
-    v5: true,
   };
   const ajv = new Ajv({ ...defaultOptions, ...options });
   const schemaAsObject =
