@@ -112,6 +112,7 @@ export function useForm(
   };
   const handleSubmit = (event: InputEvent): void => {
     handleEvent(event, onSubmit, onFormSubmit);
+    event.preventDefault();
   };
 
   return { errors, handleBlur, handleChange, handleSubmit };

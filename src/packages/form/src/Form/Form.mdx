@@ -1,51 +1,33 @@
 ---
 menu: Form
-name: use form
+name: Form
 ---
 
 import { Playground, Props } from 'docz';
 import { useState } from 'react';
 import { Form } from './Form';
 import { Button, Card, CardBody, Divider, Input } from '@rkta/ui';
+import flow from 'lodash/flow';
 
 ## Form
 
-Form to send info
-
-## Usage
-```
-import { Form } from '@rkta/form';
-
-<Form onFormSubmit={(form) => { console.log(form) }}>
-  <Input name="login" />
-</Form>
-
-```
+Capture entire react forms with no effort and state management.
 
 ## Examples
-
 <Playground>
-  {() => {
-    const prevent = event => event.preventDefault()
-    const handleSubmit = (form) => {
-      alert('Form is sbumitted with login=' + form.login + ', password=' + form.pass);
-    }
-    return (
-      <Card rize={1} css={{ maxWidth: '450px', margin: 'auto' }}>
-        <CardBody>
-          <Form onSubmit={prevent} onFormSubmit={handleSubmit}>
-            <Input caption="Login" name="login" bgColor="paper2" />
-            <Divider invisible />
-            <Input caption="Password" name="pass" bgColor="paper2" type="password" />
-            <Divider invisible />
-            <Button blockLevel bgColor="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </CardBody>
-      </Card>
-    )
-  }}
+  <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+    <CardBody>
+      <Form onFormSubmit={flow(Object.entries, alert)}>
+        <Input caption="Login" name="login" bgColor="paper2" />
+        <Divider invisible />
+        <Input caption="Password" name="pass" bgColor="paper2" type="password" />
+        <Divider invisible />
+        <Button blockLevel bgColor="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </CardBody>
+  </Card>
 </Playground>
 
 ## Props
