@@ -1,10 +1,23 @@
 import Ajv from 'ajv';
 
+import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
 import { humanizeErrors, AjvError, ValidationError } from './error';
 import omitEmpty from './omitEmpty';
 import mergeErrors from './mergeErrors';
 
-export const makeValidator = (schema: {}, options?: {}) => (
+export interface ExtentedSchema extends JSONSchema7 {
+  properties?: {
+    [key: string]: JSONSchema7Definition & {
+      messages?: {
+        [key: string]: string;
+      };
+    };
+  };
+}
+
+type SchemaType = ExtentedSchema | Function;
+
+export const makeValidator = (schema: SchemaType, options?: {}) => (
   formData: CustomFormData,
   prevErrors: ValidationError[],
   inputName?: string,
