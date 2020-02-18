@@ -19,7 +19,7 @@ export interface ExtentedSchema extends JSONSchema7 {
 interface SchemaGetterPayload {
   formData: CustomFormData;
   inputName: string | undefined;
-  prevErrors: ValidationError[];
+  errors: ValidationError[];
 }
 
 type SchemaGetter = (payload?: SchemaGetterPayload) => SchemaType;
@@ -28,7 +28,7 @@ type SchemaType = ExtentedSchema | SchemaGetter;
 
 export const makeValidator = (schema: SchemaType, options?: {}) => (
   formData: CustomFormData,
-  prevErrors: ValidationError[],
+  errors: ValidationError[],
   inputName?: string,
 ): Promise<CustomFormData> => {
   const defaultOptions = {
@@ -41,7 +41,7 @@ export const makeValidator = (schema: SchemaType, options?: {}) => (
   };
   const ajv = new Ajv({ ...defaultOptions, ...options });
   const schemaAsObject =
-    typeof schema === 'function' ? schema({ formData, inputName, prevErrors }) : schema;
+    typeof schema === 'function' ? schema({ formData, inputName, errors }) : schema;
 
   const validate = ajv.compile(schemaAsObject);
   const nextData = omitEmpty(formData);
@@ -50,7 +50,7 @@ export const makeValidator = (schema: SchemaType, options?: {}) => (
   if (valid) return Promise.resolve(nextData);
 
   const currentErrors = humanizeErrors((validate.errors as unknown) as AjvError[], schemaAsObject);
-  const finalErrors = inputName ? mergeErrors(prevErrors, currentErrors, inputName) : currentErrors;
+  const finalErrors = inputName ? mergeErrors(errors, currentErrors, inputName) : currentErrors;
 
   return finalErrors.length > 0 ? Promise.reject(finalErrors) : Promise.resolve(nextData);
 };
