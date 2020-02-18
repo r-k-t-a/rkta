@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Ajv from 'ajv';
 
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
