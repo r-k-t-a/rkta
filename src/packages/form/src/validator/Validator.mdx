@@ -7,7 +7,7 @@ import { Playground, Props } from 'docz';
 import { useState } from 'react';
 import { Form, useErrors } from '../Form';
 import { makeValidator } from './makeValidator';
-import { Button, Card, CardBody, Divider, Text, Input } from '@rkta/ui';
+import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Addon, Input } from '@rkta/ui';
 import flow from 'lodash/flow';
 
 ## Validation
@@ -50,23 +50,27 @@ const validate = makeValidator(schema);
     const validate = makeValidator(schema);
     const FieldError = ({ name }) => {
       const [error] = useErrors(name);
-      return error ? <Text color="warning" subtitle2 css={{ marginLeft: 16, marginBottom: 8 }}>{error.message}</Text> : null;
+      return error ? <Addon color="warning" subtitle2>{error.message}</Addon> : null;
     }
     return (
       <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-        <CardBody>
-          <Form validate={validate} onFormSubmit={flow(Object.entries, alert)}>
+        <Form validate={validate} onFormSubmit={flow(Object.entries, alert)}>
+          <CardHeader>
+            Please Sign In
+          </CardHeader>
+          <CardBody>
             <Input caption="Login" name="login" bgColor="paper2" />
             <FieldError name="login" />
             <Divider invisible />
             <Input caption="Password" name="password" bgColor="paper2" type="password" />
             <FieldError name="password" />
-            <Divider invisible />
-            <Button bgColor="primary" type="submit" blockLevel>
-              Submit
+          </CardBody>
+          <CardFooter right>
+            <Button bgColor="primary" type="submit">
+              Sign In
             </Button>
-          </Form>
-        </CardBody>
+          </CardFooter>
+        </Form>
       </Card>
     )
   }}
