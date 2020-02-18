@@ -1,4 +1,5 @@
 .docz
+.tmp
 debug.log
 lerna-debug.log
 node_modules

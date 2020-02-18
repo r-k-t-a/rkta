@@ -1,0 +1,82 @@
+---
+menu: Form
+name: makeValidator
+---
+
+import { Playground, Props } from 'docz';
+import { useState } from 'react';
+import { Form, useErrors } from '../Form';
+import { makeValidator } from './makeValidator';
+import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Addon, Input } from '@rkta/ui';
+import flow from 'lodash/flow';
+
+## Validation
+
+Declaratively validate forms against JSON schema.
+
+
+## Usage
+```javascript
+import { makeValidator } from '@rkta/form';
+
+const validate = makeValidator(schema);
+```
+
+
+## Example
+
+<Playground>
+  {() => {
+    const schema = {
+      type: 'object',
+      properties: {
+        login: {
+          type: 'string',
+          format: 'email',
+          messages: {
+            required: 'Please enter login',
+            format: 'Wrong format'
+          }
+        },
+        password: {
+          type: 'string',
+          messages: {
+            required: 'Please enter password',
+          }
+        }
+      },
+      required: ['login', 'password']
+    }
+    const validate = makeValidator(schema);
+    const FieldError = ({ name }) => {
+      const [error] = useErrors(name);
+      return error ? <Addon color="warning" subtitle2>{error.message}</Addon> : null;
+    }
+    return (
+      <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+        <Form validate={validate} onFormSubmit={flow(Object.entries, alert)}>
+          <CardHeader>
+            Please Sign In
+          </CardHeader>
+          <CardBody>
+            <Input caption="Login" name="login" bgColor="paper2" />
+            <FieldError name="login" />
+            <Divider invisible />
+            <Input caption="Password" name="password" bgColor="paper2" type="password" />
+            <FieldError name="password" />
+          </CardBody>
+          <CardFooter right>
+            <Button bgColor="primary" type="submit">
+              Sign In
+            </Button>
+          </CardFooter>
+        </Form>
+      </Card>
+    )
+  }}
+</Playground>
+
+## Arguments
+
+- schema - JSON schema object
+- options - [ajv](https://github.com/epoberezkin/ajv) options
