@@ -15,7 +15,13 @@ export interface ExtentedSchema extends JSONSchema7 {
   };
 }
 
-type SchemaType = ExtentedSchema | Function;
+type SchemaGetter = (
+  formData: CustomFormData,
+  inputName: string | undefined,
+  prevErrors: ValidationError[],
+) => SchemaType;
+
+type SchemaType = ExtentedSchema | SchemaGetter;
 
 export const makeValidator = (schema: SchemaType, options?: {}) => (
   formData: CustomFormData,

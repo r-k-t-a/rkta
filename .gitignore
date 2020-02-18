@@ -1,11 +1,11 @@
 .docz
+.tmp
 debug.log
 lerna-debug.log
 node_modules
 tsconfig.tsbuildinfo
 yarn.lock
 yarn-error.log
-.tmp
 
 benchmarks/build
 src/packages/**/lib
