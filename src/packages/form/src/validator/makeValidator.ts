@@ -16,11 +16,13 @@ export interface ExtentedSchema extends JSONSchema7 {
   };
 }
 
-type SchemaGetter = (
-  formData: CustomFormData,
-  inputName: string | undefined,
-  prevErrors: ValidationError[],
-) => SchemaType;
+interface SchemaGetterPayload {
+  formData: CustomFormData;
+  inputName: string | undefined;
+  prevErrors: ValidationError[];
+}
+
+type SchemaGetter = (payload?: SchemaGetterPayload) => SchemaType;
 
 type SchemaType = ExtentedSchema | SchemaGetter;
 
@@ -39,7 +41,7 @@ export const makeValidator = (schema: SchemaType, options?: {}) => (
   };
   const ajv = new Ajv({ ...defaultOptions, ...options });
   const schemaAsObject =
-    typeof schema === 'function' ? schema(formData, inputName, prevErrors) : schema;
+    typeof schema === 'function' ? schema({ formData, inputName, prevErrors }) : schema;
 
   const validate = ajv.compile(schemaAsObject);
   const nextData = omitEmpty(formData);
