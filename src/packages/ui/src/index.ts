@@ -6,6 +6,7 @@ export * from './Card';
 export * from './Divider';
 export * from './GlobalCss';
 export * from './Heading';
+export * from './Image';
 export * from './Input';
 export * from './InputGroup';
 export * from './List';
