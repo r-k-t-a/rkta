@@ -28,7 +28,6 @@ import { SpinnerStyles } from '../../../Spinner/Spinner.styles.type';
 import { SvgStyles } from '../../../Svg/Svg.styles.type';
 import { TabsStyles } from '../../../Tabs/Tabs.styles.type';
 import { TextStyles } from '../../../Text/Text.styles.type';
-import { PlaceholderStyles } from '../../../Placeholder/Placeholder.styles.type';
 
 export interface RktaDefaultTheme {
   breakpoints: Breakpoint[];
@@ -51,7 +50,6 @@ export interface RktaDefaultTheme {
   ListItem: ListItemStyles;
   ListText: ListTextStyles;
   Paper: PaperStyles;
-  Placeholder: PlaceholderStyles;
   ScrollBox: ScrollBoxStyles;
   Select: SelectStyles;
   Spinner: SpinnerStyles;
@@ -73,7 +71,6 @@ export interface RktaDefaultTheme {
     | InputBaseStyles
     | InputGroupStyles
     | PaperStyles
-    | PlaceholderStyles
     | ScrollBoxStyles
     | SelectStyles
     | SpinnerStyles

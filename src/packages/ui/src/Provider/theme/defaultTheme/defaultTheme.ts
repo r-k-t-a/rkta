@@ -19,7 +19,6 @@ import * as List from '../../../List/List.styles';
 import * as ListItem from '../../../List/ListItem/ListItem.styles';
 import * as ListText from '../../../List/ListText/ListText.styles';
 import * as Paper from '../../../Paper/Paper.styles';
-import * as Placeholder from '../../../Placeholder/Placeholder.styles';
 import * as Select from '../../../Select/Select.styles';
 import * as ScrollBox from '../../../ScrollBox/ScrollBox.styles';
 import * as Spinner from '../../../Spinner/Spinner.styles';
@@ -50,7 +49,6 @@ export const defaultTheme: RktaDefaultTheme = {
   ListItem,
   ListText,
   Paper,
-  Placeholder,
   Select,
   ScrollBox,
   Spinner,
