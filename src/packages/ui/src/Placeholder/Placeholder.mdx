@@ -11,9 +11,19 @@ import { Placeholder } from './Placeholder';
 
 # Placeholder
 
-Wrap texts to create placeholders
+Text placeholders made simple.
 
-## Default usage
+## How to use
+
+4 placelder blocks will be rendered unless `myText` is undefined:
+
+```jsx
+import { Placeholder } from '@rkta/ui';
+
+<Placeholder size={4}>{myText}</Placeholder>;
+```
+
+## Default size and symbol
 
 <Playground>
   <Text caption element="div">
@@ -31,21 +41,39 @@ Wrap texts to create placeholders
   </Text>
 </Playground>
 
-## Set width and color
+## Custom size
 
 <Playground>
   <Text caption element="div">
     Before load:
   </Text>
   <Text color="primary">
-    <Placeholder width="7em">{undefined}</Placeholder>
+    <Placeholder size={7}>{undefined}</Placeholder>
   </Text>
   <Divider />
   <Text caption element="div">
     After load:
   </Text>
   <Text color="primary">
-    <Placeholder width="7em">Some text longer</Placeholder>
+    <Placeholder size={7}>Some text longer</Placeholder>
+  </Text>
+</Playground>
+
+## Custom symbol
+
+<Playground>
+  <Text caption element="div">
+    Before load:
+  </Text>
+  <Text color="secondary">
+    <Placeholder symbol="\u25A2">{undefined}</Placeholder>
+  </Text>
+  <Divider />
+  <Text caption element="div">
+    After load:
+  </Text>
+  <Text color="secondary">
+    <Placeholder symbol="H">Some text longer</Placeholder>
   </Text>
 </Playground>
 

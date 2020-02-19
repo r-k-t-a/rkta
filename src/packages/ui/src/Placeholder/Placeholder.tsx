@@ -1,15 +1,11 @@
-/** @jsx jsx */
-import { FC } from 'react';
-import { jsx } from '@emotion/core';
+import { ReactNode } from 'react';
 
-import { useProviderContext } from '../Provider';
 import { Props } from './Placeholder.type';
+import { makePlaceHolder } from '../util';
 
-export const Placeholder: FC<Props> = ({ children, element, ...rest }: Props): JSX.Element => {
-  if (children) return children as JSX.Element;
-  const { applyStyles } = useProviderContext();
-  const [nextProps, Element] = applyStyles({ element, ...rest }, 'Placeholder');
-  return <Element {...nextProps} />;
+export const Placeholder = ({ children, size = 3, symbol }: Props): ReactNode => {
+  if (children === undefined) return makePlaceHolder(symbol)(size);
+  return children as JSX.Element;
 };
 
 Placeholder.defaultProps = {
