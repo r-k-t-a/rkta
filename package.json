@@ -9,6 +9,7 @@
     "bump": "npm run make && lerna version patch",
     "clean:tsbuildinfo": "rm -rf src/packages/*/tsconfig.tsbuildinfo",
     "clean:docz-cache": "rm -rf .docz/.cache",
+    "clean:lib": "rm -rf src/packages/*/lib",
     "predocz:dev": "npm run clean:docz-cache",
     "docz:dev": "docz dev",
     "docz:build": "docz build",

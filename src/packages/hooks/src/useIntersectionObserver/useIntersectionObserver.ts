@@ -1,10 +1,10 @@
-// import IntersectionObserver from 'intersection-observer';
+import 'intersection-observer';
 import { useEffect, useState } from 'react';
 
-export function useIntersectionObserver(
-  ref: Element | null,
-  options?: IntersectionObserverInit,
-): number {
+import { useIsMounted } from '../useIsMounted';
+
+export function useIntersectionObserver(ref: Element, options?: IntersectionObserverInit): number {
+  useIsMounted();
   const [state, setState] = useState<number>(0);
   function handleIntersect(entries: IntersectionObserverEntry[]): void {
     const { intersectionRatio } = entries[0];

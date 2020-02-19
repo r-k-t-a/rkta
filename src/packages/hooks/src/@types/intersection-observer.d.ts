@@ -1,4 +1,1 @@
-type IntersectionObserver: new (
-  callback: IntersectionObserverCallback,
-  options?: IntersectionObserverInit | undefined,
-) => IntersectionObserver;
+declare module 'intersection-observer' {}

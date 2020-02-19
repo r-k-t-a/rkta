@@ -8,9 +8,12 @@ export const Image: FC<Props> = forwardRef<HTMLImageElement, Props>(
   ({ alt, srcSet, ...rest }: Props, externalRef): JSX.Element => {
     const internalRef = useRef<HTMLImageElement>(null);
     const ref = (externalRef as RefObject<HTMLImageElement>) || internalRef;
-    const intersetionRation = useIntersectionObserver(ref.current);
+    const intersectionRation = useIntersectionObserver(ref.current as Element);
     const { applyStyles } = useProviderContext();
-    const [nextProps, Element] = applyStyles({ element: 'img', ...rest }, 'Image');
-    return <Element {...nextProps} alt={alt} srcSet={intersetionRation > 0 ? srcSet : undefined} />;
+    const [nextProps, Element] = applyStyles({ element: 'img', ...rest, ref }, 'Image');
+
+    return (
+      <Element {...nextProps} alt={alt} srcSet={intersectionRation > 0 ? srcSet : undefined} />
+    );
   },
 );
