@@ -1,6 +1,6 @@
 {
   "name": "@rkta/form",
-  "version": "0.0.82",
+  "version": "0.0.83",
   "description": "Capture entire react forms with no effort",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
