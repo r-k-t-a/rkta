@@ -10,6 +10,7 @@ export interface Props extends AddonOwnProps {
   disabled?: boolean;
   maxRows?: number;
   multiline?: boolean;
+  name?: string;
   onBlur?: (event: FormEvent<InputElement>) => void;
   onChange?: (event: FormEvent<InputElement>) => void;
   onFocus?: (event: FormEvent<InputElement>) => void;
