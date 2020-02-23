@@ -14,6 +14,7 @@ import { CardBodyStyles } from '../../../Card/Body/Body.styles.type';
 import { CardFooterStyles } from '../../../Card/Footer/Footer.styles.type';
 import { CardHeaderStyles } from '../../../Card/Header/Header.styles.type';
 import { DividerStyles } from '../../../Divider/Divider.styles.type';
+import { DrawerStyles } from '../../../Drawer/Drawer.styles.type';
 import { FxStyles } from '../../../Fx/Fx.styles.type';
 import { InputStyles } from '../../../Input/Input.styles.type';
 import { InputBaseStyles } from '../../../InputBase/InputBase.styles.type';
@@ -43,6 +44,7 @@ export interface RktaDefaultTheme {
   CardFooter: CardFooterStyles;
   CardHeader: CardHeaderStyles;
   Divider: DividerStyles;
+  Drawer: DrawerStyles;
   Fx: FxStyles;
   Input: InputStyles;
   InputBase: InputBaseStyles;
@@ -68,6 +70,7 @@ export interface RktaDefaultTheme {
     | CardFooterStyles
     | CardHeaderStyles
     | DividerStyles
+    | DrawerStyles
     | FxStyles
     | InputStyles
     | InputBaseStyles
