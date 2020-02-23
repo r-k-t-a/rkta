@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 
 import { useProviderContext } from '../Provider';
 import { Text } from '../Text';
@@ -8,7 +8,7 @@ import { InputElement, Props } from './InputBase.type';
 import { useAutoHeight } from './useAutoHeight';
 
 export const InputBase = forwardRef<InputElement, Props>(
-  ({ active, autoheight, caption, multiline, value, ...rest }: Props, ref): JSX.Element => {
+  ({ active, autoHeight, caption, multiline, value, ...rest }: Props, ref): JSX.Element => {
     const { applyStyles } = useProviderContext();
     const styledProps = {
       normal: true,
@@ -19,7 +19,7 @@ export const InputBase = forwardRef<InputElement, Props>(
       multiline,
     };
     const [{ css, ...inputProps }, WrapperElement] = applyStyles(styledProps, 'InputBase', 'Addon');
-    const elementProps = useAutoHeight(autoheight && multiline, value);
+    const elementProps = useAutoHeight(autoHeight && multiline, value);
 
     return (
       <WrapperElement {...elementProps} css={css}>
