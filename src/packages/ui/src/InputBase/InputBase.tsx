@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, forwardRef } from 'react';
+import { FC, forwardRef, Ref } from 'react';
 
 import { useProviderContext } from '../Provider';
 import { Text } from '../Text';
 import { InputElement, Props } from './InputBase.type';
 import { useAutoHeight } from './useAutoHeight';
 
-export const InputBase: FC<Props> = forwardRef<InputElement, Props>(
+export const InputBase = forwardRef<InputElement, Props>(
   ({ active, autoheight, caption, multiline, value, ...rest }: Props, ref): JSX.Element => {
     const { applyStyles } = useProviderContext();
     const styledProps = {
@@ -19,7 +19,6 @@ export const InputBase: FC<Props> = forwardRef<InputElement, Props>(
       multiline,
     };
     const [{ css, ...inputProps }, WrapperElement] = applyStyles(styledProps, 'InputBase', 'Addon');
-    const Input = multiline ? 'textarea' : 'input';
     const elementProps = useAutoHeight(autoheight && multiline, value);
 
     return (
@@ -29,7 +28,11 @@ export const InputBase: FC<Props> = forwardRef<InputElement, Props>(
             {caption}
           </Text>
         )}
-        <Input {...inputProps} ref={ref} value={value} />
+        {multiline ? (
+          <textarea {...inputProps} ref={ref as Ref<HTMLTextAreaElement>} value={value} />
+        ) : (
+          <input {...inputProps} ref={ref as Ref<HTMLInputElement>} value={value} />
+        )}
       </WrapperElement>
     );
   },
