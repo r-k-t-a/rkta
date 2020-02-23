@@ -9,7 +9,7 @@ import { reEmit } from '../util/reEmit';
 import { Props } from './Input.type';
 import { InputElement } from '../InputBase/InputBase.type';
 
-export const Input: FC<Props> = forwardRef<InputElement, Props>(
+export const Input = forwardRef<InputElement, Props>(
   (
     {
       append,
