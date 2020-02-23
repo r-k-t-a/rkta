@@ -11,6 +11,7 @@ import * as CardHeader from '../../../Card/Header/Header.styles';
 import * as CardBody from '../../../Card/Body/Body.styles';
 import * as CardFooter from '../../../Card/Footer/Footer.styles';
 import * as Divider from '../../../Divider/Divider.styles';
+import * as Drawer from '../../../Drawer/Drawer.styles';
 import * as Fx from '../../../Fx/Fx.styles';
 import * as Input from '../../../Input/Input.styles';
 import * as InputBase from '../../../InputBase/InputBase.styles';
@@ -42,6 +43,7 @@ export const defaultTheme: RktaDefaultTheme = {
   CardBody,
   CardFooter,
   Divider,
+  Drawer,
   Fx,
   Input,
   InputBase,
