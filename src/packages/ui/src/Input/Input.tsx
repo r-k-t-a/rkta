@@ -65,6 +65,7 @@ export const Input: FC<Props> = forwardRef<InputElement, Props>(
         <InputBase
           {...inputProps}
           active={active}
+          autoComplete="off"
           caption={caption}
           disabled={disabled}
           onBlur={handleBlur}
