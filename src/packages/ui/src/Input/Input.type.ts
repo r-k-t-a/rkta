@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
+import { ReactNode, HTMLProps } from 'react';
 
 import { Color } from '../Provider/theme';
 import { PaperOwnProps } from '../Paper/Paper.type';
-import { Props as InputBase } from '../InputBase/InputBase.type';
+import { Props as InputBase, InputElement } from '../InputBase/InputBase.type';
 
-export interface Props extends PaperOwnProps, InputBase {
+export interface Props extends InputBase, PaperOwnProps, HTMLProps<InputElement> {
   active?: never;
   append?: ReactNode;
   color?: Color;

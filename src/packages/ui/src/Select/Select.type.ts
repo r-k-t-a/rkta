@@ -1,10 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode, HTMLProps } from 'react';
 import { PaperOwnProps } from '../Paper/Paper.type';
-import { Props as InputBase } from '../InputBase/InputBase.type';
 
-export interface Props extends PaperOwnProps, InputBase {
+export interface Props extends PaperOwnProps, HTMLProps<HTMLSelectElement> {
+  active?: boolean;
+  caption?: ReactNode;
   children?: ReactNode;
-  prepend?: ReactNode;
   main?: boolean;
+  prepend?: ReactNode;
   size?: never;
 }

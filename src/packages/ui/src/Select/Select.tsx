@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import { FormEvent, ReactElement, FC, useState, forwardRef } from 'react';
+import { FormEvent, ReactElement, useState, forwardRef } from 'react';
 import { jsx } from '@emotion/core';
 import { Addon } from '../Addon';
 import { Svg } from '../Svg';
 import { useProviderContext } from '../Provider';
 import { Props } from './Select.type';
 
-export const Select: FC<Props> = forwardRef<HTMLSelectElement, Props>(
+export const Select = forwardRef<HTMLSelectElement, Props>(
   ({ caption, prepend, value, children, ...rest }: Props, ref): ReactElement => {
     const { applyStyles } = useProviderContext();
     const [isActive, setIsActive] = useState(false);
