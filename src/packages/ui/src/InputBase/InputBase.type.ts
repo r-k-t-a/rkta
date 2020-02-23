@@ -1,16 +1,17 @@
-import { FormEvent, HTMLProps, ReactNode } from 'react';
+import { FormEvent, ReactNode } from 'react';
 import { AddonOwnProps } from '../Addon/Addon.type';
 
-export interface Props extends AddonOwnProps, HTMLProps<HTMLInputElement | HTMLTextAreaElement> {
+export type InputElement = HTMLInputElement | HTMLTextAreaElement;
+export interface Props extends AddonOwnProps {
   active?: boolean;
   autoheight?: boolean;
   caption?: ReactNode;
   disabled?: boolean;
   maxRows?: number;
   multiline?: boolean;
-  onBlur?: (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onChange?: (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onFocus?: (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onBlur?: (event: FormEvent<InputElement>) => void;
+  onChange?: (event: FormEvent<InputElement>) => void;
+  onFocus?: (event: FormEvent<InputElement>) => void;
   placeholder?: string;
   readOnly?: boolean;
   value?: string;
