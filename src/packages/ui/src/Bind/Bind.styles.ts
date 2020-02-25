@@ -8,8 +8,8 @@ import { Bounds } from './Bind.styles.type';
 
 export const initialStyle = css`
   position: fixed;
-  transition: top 0.48s ease;
-  will-change: top;
+  transition: left 0.48s ease, top 0.48s ease, transform 0.48s ease;
+  will-change: left, top, transform;
   z-index: 2040;
 `;
 
