@@ -3,7 +3,7 @@ import { css, keyframes, SerializedStyles } from '@emotion/core';
 const Keyframes = keyframes`
   from {
     opacity: 0;
-    transform: translateY(-160px);
+    transform: translateY(-88px);
   }
   to {
     opacity: 1;
