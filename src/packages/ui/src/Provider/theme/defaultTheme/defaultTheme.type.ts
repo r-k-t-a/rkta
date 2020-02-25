@@ -8,6 +8,7 @@ import { RktaComponentStyles } from '../types';
 import { AddonStyles } from '../../../Addon/Addon.styles.type';
 import { BackdropStyles } from '../../../Backdrop/Backdrop.styles.type';
 import { BageStyles } from '../../../Bage/Bage.styles.type';
+import { BindStyles } from '../../../Bind/Bind.styles.type';
 import { ButtonStyles } from '../../../Button/Button.styles.type';
 import { CardStyles } from '../../../Card/Card.styles.type';
 import { CardBodyStyles } from '../../../Card/Body/Body.styles.type';
@@ -24,7 +25,6 @@ import { ListItemStyles } from '../../../List/ListItem/ListItem.styles.type';
 import { ListTextStyles } from '../../../List/ListText/ListText.styles.type';
 import { PaperStyles } from '../../../Paper/Paper.styles.type';
 import { PlaceholderStyles } from '../../../Placeholder/Placeholder.styles.type';
-import { PopoverStyles } from '../../../Popover/Content/Content.styles.type';
 import { ScrollBoxStyles } from '../../../ScrollBox/ScrollBox.styles.type';
 import { SelectStyles } from '../../../Select/Select.styles.type';
 import { SpinnerStyles } from '../../../Spinner/Spinner.styles.type';
@@ -39,6 +39,7 @@ export interface RktaDefaultTheme {
   Addon: AddonStyles;
   Backdrop: BackdropStyles;
   Bage: BageStyles;
+  Bind: BindStyles;
   Button: ButtonStyles;
   Card: CardStyles;
   CardBody: CardBodyStyles;
@@ -55,7 +56,6 @@ export interface RktaDefaultTheme {
   ListText: ListTextStyles;
   Paper: PaperStyles;
   Placeholder: PlaceholderStyles;
-  Popover: PopoverStyles;
   ScrollBox: ScrollBoxStyles;
   Select: SelectStyles;
   Spinner: SpinnerStyles;
@@ -79,7 +79,6 @@ export interface RktaDefaultTheme {
     | InputGroupStyles
     | PaperStyles
     | PlaceholderStyles
-    | PopoverStyles
     | ScrollBoxStyles
     | SelectStyles
     | SpinnerStyles

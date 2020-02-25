@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { RktaElement } from '../../Provider';
+import { RktaElement } from '../Provider';
 
 export type Align =
   | 'top'
@@ -12,10 +12,11 @@ export type Align =
   | 'left';
 
 export interface Props extends RktaElement {
-  align: Align;
+  align?: Align;
   children: ReactNode;
   handleAnimationEnd: Function;
-  fxState: symbol;
-  offset: number;
-  triggerBounds: DOMRect;
+  fx?: 'in' | 'out';
+  offset?: number;
+  to: Element;
+  // triggerBounds: DOMRect;
 }

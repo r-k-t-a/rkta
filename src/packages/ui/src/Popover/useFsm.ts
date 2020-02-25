@@ -1,17 +1,15 @@
-import { useEffect, useReducer } from 'react';
-import debounce from 'lodash/debounce';
+import { useReducer } from 'react';
 
-export const FX_ENTER = Symbol('FX_ENTER');
-export const FX_LEAVE = Symbol('FX_LEAVE');
+export const FX_ENTER = 'in';
+export const FX_LEAVE = 'out';
 
 const EXIT = Symbol('EXIT');
 const HIDE = Symbol('HIDE');
 const SET_TRIGGER_ELEMENT = Symbol('SET_TRIGGER_ELEMENT');
 const SHOW = Symbol('SHOW');
-const UPDATE_BOUNDS = Symbol('UPDATE_BOUNDS');
 
 interface State {
-  fxState: symbol;
+  fx: string;
   isVisible: boolean;
   triggerBounds?: DOMRect;
   triggerElement?: Element;
@@ -23,22 +21,20 @@ interface Action {
 }
 
 const defaultState = {
-  fxState: FX_ENTER,
+  fx: FX_ENTER,
   isVisible: false,
 };
 
-function reducer(state: State, { type, triggerBounds, triggerElement }: Action): State {
+function reducer(state: State, { type, triggerElement }: Action): State {
   switch (type) {
     case EXIT:
-      return { ...state, isVisible: false, fxState: FX_ENTER };
+      return { ...state, isVisible: false, fx: FX_ENTER };
     case HIDE:
-      return { ...state, fxState: FX_LEAVE };
+      return { ...state, fx: FX_LEAVE };
     case SET_TRIGGER_ELEMENT:
-      return { ...state, triggerBounds: triggerElement.getBoundingClientRect(), triggerElement };
+      return { ...state, triggerElement };
     case SHOW:
       return { ...state, isVisible: true };
-    case UPDATE_BOUNDS:
-      return { ...state, triggerBounds };
     default:
       return state;
   }
@@ -47,28 +43,10 @@ function reducer(state: State, { type, triggerBounds, triggerElement }: Action):
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function useFsm() {
   const [state, dispatch] = useReducer(reducer, defaultState);
-  function updateBounds(): void {
-    const triggerBounds = state.triggerElement?.getBoundingClientRect();
-    const prevValues = Object.values(state?.triggerBounds || {});
-    const nextValues = Object.values(triggerBounds || {});
-    if (prevValues !== nextValues) dispatch({ type: UPDATE_BOUNDS, triggerBounds });
-  }
-  const debouncedUpdateBounds = debounce(updateBounds, 32);
-  function effect(): () => void {
-    const interval = setInterval(updateBounds, 1024);
-    window.addEventListener('scroll', debouncedUpdateBounds);
-    window.addEventListener('resize', debouncedUpdateBounds);
-    return (): void => {
-      clearInterval(interval);
-      window.removeEventListener('scroll', debouncedUpdateBounds);
-      window.removeEventListener('resize', debouncedUpdateBounds);
-    };
-  }
-  useEffect(effect, [state.isVisible]);
   return {
     ...state,
     handleAnimationEnd(): void {
-      if (state.fxState === FX_LEAVE) dispatch({ type: EXIT });
+      if (state.fx === FX_LEAVE) dispatch({ type: EXIT });
     },
     hide(): void {
       if (state.isVisible) dispatch({ type: HIDE });

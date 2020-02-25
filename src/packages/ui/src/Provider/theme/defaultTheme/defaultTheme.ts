@@ -5,6 +5,7 @@ import { shadow } from '../shadow';
 import * as Addon from '../../../Addon/Addon.styles';
 import * as Backdrop from '../../../Backdrop/Backdrop.styles';
 import * as Bage from '../../../Bage/Bage.styles';
+import * as Bind from '../../../Bind/Bind.styles';
 import * as Button from '../../../Button/Button.styles';
 import * as Card from '../../../Card/Card.styles';
 import * as CardHeader from '../../../Card/Header/Header.styles';
@@ -21,7 +22,6 @@ import * as ListItem from '../../../List/ListItem/ListItem.styles';
 import * as ListText from '../../../List/ListText/ListText.styles';
 import * as Paper from '../../../Paper/Paper.styles';
 import * as Placeholder from '../../../Placeholder/Placeholder.styles';
-import * as Popover from '../../../Popover/Content/Content.styles';
 import * as Select from '../../../Select/Select.styles';
 import * as ScrollBox from '../../../ScrollBox/ScrollBox.styles';
 import * as Spinner from '../../../Spinner/Spinner.styles';
@@ -38,6 +38,7 @@ export const defaultTheme: RktaDefaultTheme = {
   Addon,
   Backdrop,
   Bage,
+  Bind,
   Button,
   Card,
   CardHeader,
@@ -54,7 +55,6 @@ export const defaultTheme: RktaDefaultTheme = {
   ListText,
   Paper,
   Placeholder,
-  Popover,
   Select,
   ScrollBox,
   Spinner,

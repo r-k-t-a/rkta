@@ -1,5 +1,6 @@
 export * from './Addon';
 export * from './Bage';
+export * from './Bind';
 export * from './Button';
 export * from './Cache';
 export * from './Card';

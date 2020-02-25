@@ -4,25 +4,25 @@ import useClickAway from 'react-use/lib/useClickAway';
 
 import { Props } from './Popover.type';
 import { useFsm } from './useFsm';
-import { Content } from './Content';
+import { Bind } from '../Bind';
 
 const defaultAlign = 'bottom';
 const defaultOffset = 0;
 
 export const Popover: FC<Props> = ({
-  align = defaultAlign,
+  align,
   children: [Trigger, ...restChildren],
-  offset = defaultOffset,
+  offset,
   ...rest
 }: Props): JSX.Element => {
   const {
     handleAnimationEnd,
     hide,
-    fxState,
+    fx,
     isVisible,
+    triggerElement,
     setTriggerElement,
     show,
-    triggerBounds,
   } = useFsm();
   const contentRef = useRef<HTMLElement>(null);
 
@@ -47,18 +47,18 @@ export const Popover: FC<Props> = ({
   return (
     <Fragment>
       {EnhacedTrigger}
-      {isVisible && triggerBounds && (
-        <Content
+      {isVisible && (
+        <Bind
           {...rest}
           align={align}
-          fxState={fxState}
-          handleAnimationEnd={handleAnimationEnd}
-          ref={contentRef}
-          triggerBounds={triggerBounds}
+          fx={fx}
+          onAnimationEnd={handleAnimationEnd}
           offset={offset}
+          ref={contentRef}
+          to={triggerElement}
         >
           {restChildren}
-        </Content>
+        </Bind>
       )}
     </Fragment>
   );
