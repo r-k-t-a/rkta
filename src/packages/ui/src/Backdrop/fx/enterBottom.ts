@@ -11,6 +11,6 @@ const Keyframes = keyframes`
   }
 `;
 export const enterBottom: SerializedStyles = css`
-  animation: ${Keyframes} 0.64s ease forwards;
+  animation: ${Keyframes} 0.64s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   will-change: opacity, transform;
 `;
