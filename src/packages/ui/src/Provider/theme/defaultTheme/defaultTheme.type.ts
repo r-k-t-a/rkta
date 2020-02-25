@@ -24,6 +24,7 @@ import { ListItemStyles } from '../../../List/ListItem/ListItem.styles.type';
 import { ListTextStyles } from '../../../List/ListText/ListText.styles.type';
 import { PaperStyles } from '../../../Paper/Paper.styles.type';
 import { PlaceholderStyles } from '../../../Placeholder/Placeholder.styles.type';
+import { PopoverStyles } from '../../../Popover/Content/Content.styles.type';
 import { ScrollBoxStyles } from '../../../ScrollBox/ScrollBox.styles.type';
 import { SelectStyles } from '../../../Select/Select.styles.type';
 import { SpinnerStyles } from '../../../Spinner/Spinner.styles.type';
@@ -54,6 +55,7 @@ export interface RktaDefaultTheme {
   ListText: ListTextStyles;
   Paper: PaperStyles;
   Placeholder: PlaceholderStyles;
+  Popover: PopoverStyles;
   ScrollBox: ScrollBoxStyles;
   Select: SelectStyles;
   Spinner: SpinnerStyles;
@@ -77,6 +79,7 @@ export interface RktaDefaultTheme {
     | InputGroupStyles
     | PaperStyles
     | PlaceholderStyles
+    | PopoverStyles
     | ScrollBoxStyles
     | SelectStyles
     | SpinnerStyles

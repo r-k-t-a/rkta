@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, FormEvent, FC, forwardRef } from 'react';
+import { useState, FormEvent, forwardRef } from 'react';
 
 import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';

@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core';
 import { FC, forwardRef, useEffect, RefObject } from 'react';
 import { useIsMounted } from '@rkta/hooks';
+import { useLockBodyScroll } from 'react-use';
 
 import { useProviderContext } from '../Provider';
 import { Props } from './Backdrop.type';
@@ -41,6 +42,7 @@ export const Backdrop: FC<Props> = forwardRef<HTMLElement, Props>(
       };
     }
     useEffect(effect, [isMounted, visible, currentRef]);
+    useLockBodyScroll();
     return (
       <Element {...nodeProps} ref={ref} role={onClick ? 'button' : 'dialog'} tabIndex={0}>
         {children}

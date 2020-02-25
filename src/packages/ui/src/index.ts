@@ -17,6 +17,7 @@ export * from './Select';
 export * from './Fx';
 export * from './Paper';
 export * from './Placeholder';
+export * from './Popover';
 export * from './Provider';
 export * from './ScrollBox';
 export * from './Spinner';

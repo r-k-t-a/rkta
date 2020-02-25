@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
-    "@rkta/context": "^0.0.88"
+    "@rkta/context": "^0.0.88",
+    "react-use": "^13.26.1"
   },
   "peerDependencies": {
     "@rkta/hooks": "*",
