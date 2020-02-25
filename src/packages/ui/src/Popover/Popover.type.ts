@@ -1,16 +1,9 @@
 import { ReactElement, ReactNode } from 'react';
+import { RktaElement } from '../Provider';
 
-export type Align =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'right'
-  | 'bottom'
-  | 'bottomRight'
-  | 'bottomLeft'
-  | 'left';
+import { Align } from './Content/Content.type';
 
-export interface Props {
+export interface Props extends RktaElement {
   align?: Align;
   children: [ReactElement, ReactNode];
   offset?: number;

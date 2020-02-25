@@ -24,7 +24,7 @@ import { ListItemStyles } from '../../../List/ListItem/ListItem.styles.type';
 import { ListTextStyles } from '../../../List/ListText/ListText.styles.type';
 import { PaperStyles } from '../../../Paper/Paper.styles.type';
 import { PlaceholderStyles } from '../../../Placeholder/Placeholder.styles.type';
-import { PopoverStyles } from '../../../Popover/Popover.styles.type';
+import { PopoverStyles } from '../../../Popover/Content/Content.styles.type';
 import { ScrollBoxStyles } from '../../../ScrollBox/ScrollBox.styles.type';
 import { SelectStyles } from '../../../Select/Select.styles.type';
 import { SpinnerStyles } from '../../../Spinner/Spinner.styles.type';

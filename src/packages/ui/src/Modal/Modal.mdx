@@ -12,6 +12,8 @@ import { Paper } from '../Paper';
 import { Card, CardHeader, CardBody, CardFooter } from '../Card';
 import { DotsThreeVertical } from '../../../entypo/src';
 import { Addon } from '../Addon';
+import { Popover } from '../Popover';
+import { List, ListTitle, ListButton } from '../List';
 
 # Modal
 
@@ -33,9 +35,16 @@ The component provides foundation for creating various modal UI elements.
             <CardHeader fitRight>
               CardHeader
                <Addon>
-                 <Button round>
-                  <DotsThreeVertical />
-                 </Button>
+                 <Popover align="bottomRight">
+                  <Button round>
+                    <DotsThreeVertical />
+                  </Button>
+                  <List rize={2}>
+                    <ListTitle>Popover</ListTitle>
+                    <ListButton nowrap>Menu option 1</ListButton>
+                    <ListButton nowrap>Menu option 1</ListButton>
+                  </List>
+                 </Popover>
                </Addon>
             </CardHeader>
             <CardBody color="textSecondary">

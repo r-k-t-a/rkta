@@ -1,14 +1,18 @@
 /* eslint-disable react/jsx-fragments */
-import React, { cloneElement, FC, Fragment, useRef } from 'react';
-import useKey from 'react-use/lib/useKey';
+import React, { cloneElement, FC, Fragment, useRef, useEffect } from 'react';
 import useClickAway from 'react-use/lib/useClickAway';
 
 import { Props } from './Popover.type';
 import { useFsm } from './useFsm';
-import { useProviderContext } from '../Provider';
+import { Content } from './Content';
+
+const defaultAlign = 'bottom';
+const defaultOffset = 0;
 
 export const Popover: FC<Props> = ({
-  children: [Trigger, ...Content],
+  align = defaultAlign,
+  children: [Trigger, ...restChildren],
+  offset = defaultOffset,
   ...rest
 }: Props): JSX.Element => {
   const {
@@ -20,36 +24,47 @@ export const Popover: FC<Props> = ({
     show,
     triggerBounds,
   } = useFsm();
-  const { applyStyles } = useProviderContext();
-  const popoverRef = useRef<HTMLElement>(null);
-  const nextProps = isVisible ? { ...rest, fxState, triggerBounds } : rest;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [{ triggerBounds: omitTriggerBounds, ...elementProps }, Element] = applyStyles(
-    nextProps,
-    'Popover',
-  );
-  function handleClick(event: MouseEvent): void {
-    setTriggerElement(event.currentTarget as Element);
-    show();
-  }
+  const contentRef = useRef<HTMLElement>(null);
+
   const EnhacedTrigger = cloneElement(Trigger, {
-    onClick: handleClick,
+    onClick: (event: MouseEvent): void => {
+      setTriggerElement(event.target as Element);
+      show();
+    },
   });
-  useKey('Escape', hide, {}, [isVisible]);
-  useClickAway(popoverRef, hide);
+  function handleEscape(event: KeyboardEvent): void {
+    if (isVisible && event.key === 'Escape') {
+      event.stopPropagation();
+      hide();
+    }
+  }
+  function effect(): () => void {
+    document.addEventListener('keydown', handleEscape, false);
+    return (): void => document.removeEventListener('keydown', handleEscape);
+  }
+  useEffect(effect, [isVisible]);
+  useClickAway(contentRef, hide);
   return (
     <Fragment>
       {EnhacedTrigger}
-      {isVisible && (
-        <Element {...elementProps} ref={popoverRef} onAnimationEnd={handleAnimationEnd}>
-          {Content}
-        </Element>
+      {isVisible && triggerBounds && (
+        <Content
+          {...rest}
+          align={align}
+          fxState={fxState}
+          handleAnimationEnd={handleAnimationEnd}
+          ref={contentRef}
+          triggerBounds={triggerBounds}
+          offset={offset}
+        >
+          {restChildren}
+        </Content>
       )}
     </Fragment>
   );
 };
 
 Popover.defaultProps = {
-  align: 'bottom',
-  offset: 8,
+  align: defaultAlign,
+  offset: defaultOffset,
 };
