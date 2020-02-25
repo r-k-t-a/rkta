@@ -1,0 +1,59 @@
+---
+menu: UI
+name: Popover
+---
+
+import { useState } from 'react';
+import { Link, Playground, Props } from 'docz';
+import { Popover } from './Popover';
+import { Button } from '../Button';
+
+# Popover
+
+## Import
+```javascript
+import { Popover } from '@rkta/ui';
+```
+
+## Examples
+
+<Playground>
+  <div style={{ padding: 8 }}>
+    <Popover align="top">
+      <Button bgColor="primary" rounded hardRight>top</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+    <Popover align="topLeft">
+      <Button bgColor="primary" hard>topLeft</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+    <Popover align="topRight">
+      <Button bgColor="primary" hard>topRight</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+    <Popover align="right">
+      <Button bgColor="primary" hard>right</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+    <Popover align="bottom">
+      <Button bgColor="primary" hard>bottom</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+    <Popover align="bottomRight">
+      <Button bgColor="primary" hard>bottomRight</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+    <Popover align="bottomLeft">
+      <Button bgColor="primary" hard>bottomLeft</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+    <Popover align="left">
+      <Button bgColor="primary" rounded hardLeft>left</Button>
+      <div>Popover content and some more text</div>
+    </Popover>
+  </div>
+</Playground>
+
+## Props
+
+<Props of={Popover} />
