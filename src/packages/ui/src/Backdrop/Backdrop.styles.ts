@@ -2,8 +2,8 @@ import { css, keyframes, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { Props } from './Backdrop.type';
 
-import { getContentInFx } from './getContentInFx';
-import { getContentOutFx } from './getContentOutFx';
+import { fxIn } from './fxIn';
+import { fxOut } from './fxOut';
 
 export const initialStyle = (theme: RktaTheme, props: Props): SerializedStyles => css`
   align-items: center;
@@ -90,7 +90,7 @@ export const fadeIn = (theme: RktaTheme, props: Props): SerializedStyles => {
       will-change: opacity;
     }
     > * {
-      ${getContentInFx(props)}
+      ${fxIn(props)}
     }
   `;
 };
@@ -104,7 +104,7 @@ export const fadeOut = (theme: RktaTheme, props: Props): SerializedStyles => {
       will-change: opacity;
     }
     > * {
-      ${getContentOutFx(props)}
+      ${fxOut(props)}
       pointer-events: none;
     }
   `;

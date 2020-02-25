@@ -11,16 +11,22 @@ export const Popover: FC<Props> = ({
   children: [Trigger, ...Content],
   ...rest
 }: Props): JSX.Element => {
-  const { hide, isVisible, setTriggerElement, show, triggerBounds } = useFsm();
+  const {
+    handleAnimationEnd,
+    hide,
+    fxState,
+    isVisible,
+    setTriggerElement,
+    show,
+    triggerBounds,
+  } = useFsm();
   const { applyStyles } = useProviderContext();
   const popoverRef = useRef<HTMLElement>(null);
-  const nextProps = isVisible ? { ...rest, triggerBounds } : rest;
+  const nextProps = isVisible ? { ...rest, fxState, triggerBounds } : rest;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [{ triggerBounds: omitTriggerBounds, ...elementProps }, Element] = applyStyles(
     nextProps,
     'Popover',
-    'Paper',
-    'Text',
   );
   function handleClick(event: MouseEvent): void {
     setTriggerElement(event.currentTarget as Element);
@@ -29,13 +35,13 @@ export const Popover: FC<Props> = ({
   const EnhacedTrigger = cloneElement(Trigger, {
     onClick: handleClick,
   });
-  useKey('Escape', hide);
+  useKey('Escape', hide, {}, [isVisible]);
   useClickAway(popoverRef, hide);
   return (
     <Fragment>
       {EnhacedTrigger}
       {isVisible && (
-        <Element {...elementProps} ref={popoverRef}>
+        <Element {...elementProps} ref={popoverRef} onAnimationEnd={handleAnimationEnd}>
           {Content}
         </Element>
       )}
@@ -45,6 +51,5 @@ export const Popover: FC<Props> = ({
 
 Popover.defaultProps = {
   align: 'bottom',
-  rize: 1,
   offset: 8,
 };

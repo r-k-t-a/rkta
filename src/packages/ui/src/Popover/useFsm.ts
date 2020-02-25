@@ -1,7 +1,17 @@
 import { useEffect, useReducer } from 'react';
 import debounce from 'lodash/debounce';
 
+export const FX_ENTER = Symbol('FX_ENTER');
+export const FX_LEAVE = Symbol('FX_LEAVE');
+
+const EXIT = Symbol('EXIT');
+const HIDE = Symbol('HIDE');
+const SET_TRIGGER_ELEMENT = Symbol('SET_TRIGGER_ELEMENT');
+const SHOW = Symbol('SHOW');
+const UPDATE_BOUNDS = Symbol('UPDATE_BOUNDS');
+
 interface State {
+  fxState: symbol;
   isVisible: boolean;
   triggerBounds?: DOMRect;
   triggerElement?: Element;
@@ -13,18 +23,16 @@ interface Action {
 }
 
 const defaultState = {
+  fxState: FX_ENTER,
   isVisible: false,
 };
 
-const HIDE = Symbol('HIDE');
-const SET_TRIGGER_ELEMENT = Symbol('SET_TRIGGER_ELEMENT');
-const SHOW = Symbol('SHOW');
-const UPDATE_BOUNDS = Symbol('UPDATE_BOUNDS');
-
 function reducer(state: State, { type, triggerBounds, triggerElement }: Action): State {
   switch (type) {
+    case EXIT:
+      return { ...state, isVisible: false, fxState: FX_ENTER };
     case HIDE:
-      return { ...state, isVisible: false };
+      return { ...state, fxState: FX_LEAVE };
     case SET_TRIGGER_ELEMENT:
       return { ...state, triggerBounds: triggerElement.getBoundingClientRect(), triggerElement };
     case SHOW:
@@ -47,7 +55,7 @@ export function useFsm() {
   }
   const debouncedUpdateBounds = debounce(updateBounds, 32);
   function effect(): () => void {
-    const interval = setInterval(updateBounds, 320);
+    const interval = setInterval(updateBounds, 1024);
     window.addEventListener('scroll', debouncedUpdateBounds);
     window.addEventListener('resize', debouncedUpdateBounds);
     return (): void => {
@@ -59,8 +67,11 @@ export function useFsm() {
   useEffect(effect, [state.isVisible]);
   return {
     ...state,
+    handleAnimationEnd(): void {
+      if (state.fxState === FX_LEAVE) dispatch({ type: EXIT });
+    },
     hide(): void {
-      dispatch({ type: HIDE });
+      if (state.isVisible) dispatch({ type: HIDE });
     },
     setTriggerElement(triggerElement: Element): void {
       dispatch({ type: SET_TRIGGER_ELEMENT, triggerElement });

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Link, Playground, Props } from 'docz';
 import { Popover } from './Popover';
 import { Button } from '../Button';
+import { List, ListTitle, ListButton } from '../List';
 
 # Popover
 
@@ -18,40 +19,51 @@ import { Popover } from '@rkta/ui';
 ## Examples
 
 <Playground>
-  <div style={{ padding: 8 }}>
-    <Popover align="top">
-      <Button bgColor="primary" rounded hardRight>top</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-    <Popover align="topLeft">
-      <Button bgColor="primary" hard>topLeft</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-    <Popover align="topRight">
-      <Button bgColor="primary" hard>topRight</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-    <Popover align="right">
-      <Button bgColor="primary" hard>right</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-    <Popover align="bottom">
-      <Button bgColor="primary" hard>bottom</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-    <Popover align="bottomRight">
-      <Button bgColor="primary" hard>bottomRight</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-    <Popover align="bottomLeft">
-      <Button bgColor="primary" hard>bottomLeft</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-    <Popover align="left">
-      <Button bgColor="primary" rounded hardLeft>left</Button>
-      <div>Popover content and some more text</div>
-    </Popover>
-  </div>
+  {() => {
+    const dropDownContent = (
+      <List rize={2}>
+        <ListTitle>Popover</ListTitle>
+        <ListButton>Click me</ListButton>
+        <ListButton>No, me!</ListButton>
+      </List>
+    )
+    return (
+      <div style={{ padding: 8 }}>
+        <Popover align="top">
+          <Button bgColor="primary" rounded hardRight>top</Button>
+          {dropDownContent}
+        </Popover>
+        <Popover align="topLeft">
+          <Button bgColor="primary" hard>topLeft</Button>
+          {dropDownContent}
+        </Popover>
+        <Popover align="topRight">
+          <Button bgColor="primary" hard>topRight</Button>
+          {dropDownContent}
+        </Popover>
+        <Popover align="right">
+          <Button bgColor="primary" hard>right</Button>
+          {dropDownContent}
+        </Popover>
+        <Popover align="bottom">
+          <Button bgColor="primary" hard>bottom</Button>
+          {dropDownContent}
+        </Popover>
+        <Popover align="bottomRight">
+          <Button bgColor="primary" hard>bottomRight</Button>
+          {dropDownContent}
+        </Popover>
+        <Popover align="bottomLeft">
+          <Button bgColor="primary" hard>bottomLeft</Button>
+          {dropDownContent}
+        </Popover>
+        <Popover align="left">
+          <Button bgColor="primary" rounded hardLeft>left</Button>
+          {dropDownContent}
+        </Popover>
+      </div>
+    );
+  }}
 </Playground>
 
 ## Props

@@ -1,7 +1,10 @@
 import { css, SerializedStyles } from '@emotion/core';
 
 import { RktaTheme } from '../Provider/theme';
-// import { Props } from './Popover.type';
+import { Align } from './Popover.type';
+import { fxIn } from '../Backdrop/fxIn';
+import { fxOut } from '../Backdrop/fxOut';
+import { FX_LEAVE } from './useFsm';
 
 export const initialStyle = css`
   position: fixed;
@@ -9,6 +12,18 @@ export const initialStyle = css`
   will-change: top;
   z-index: 10;
 `;
+
+export const fxState = (
+  theme: RktaTheme,
+  props: { align: Align; fxState: symbol },
+): SerializedStyles => {
+  const fx = props.fxState === FX_LEAVE ? fxOut : fxIn;
+  return css`
+    > * {
+      ${fx(props)}
+    }
+  `;
+};
 
 export const triggerBounds = (
   theme: RktaTheme,
