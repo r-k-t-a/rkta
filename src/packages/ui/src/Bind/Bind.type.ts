@@ -14,9 +14,8 @@ export type Align =
 export interface Props extends RktaElement {
   align?: Align;
   children: ReactNode;
-  handleAnimationEnd: Function;
-  fx?: 'in' | 'out';
   offset?: number;
+  onHide: () => void;
   to: Element;
-  // triggerBounds: DOMRect;
+  visible: boolean;
 }

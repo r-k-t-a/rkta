@@ -1,9 +1,7 @@
-/* eslint-disable react/jsx-fragments */
-import React, { cloneElement, FC, Fragment, useRef, useEffect } from 'react';
-import useClickAway from 'react-use/lib/useClickAway';
+import React, { cloneElement, FC, MouseEvent } from 'react';
 
 import { Props } from './Popover.type';
-import { useFsm } from './useFsm';
+import { usePopover } from './usePopover';
 import { Bind } from '../Bind';
 
 const defaultAlign = 'bottom';
@@ -15,52 +13,30 @@ export const Popover: FC<Props> = ({
   offset,
   ...rest
 }: Props): JSX.Element => {
-  const {
-    handleAnimationEnd,
-    hide,
-    fx,
-    isVisible,
-    triggerElement,
-    setTriggerElement,
-    show,
-  } = useFsm();
-  const contentRef = useRef<HTMLElement>(null);
+  const { isVisible, hide, setTriggerElement, toggle, triggerElement } = usePopover();
 
   const EnhacedTrigger = cloneElement(Trigger, {
     onClick: (event: MouseEvent): void => {
       setTriggerElement(event.target as Element);
-      show();
+      if (!isVisible) toggle();
     },
   });
-  function handleEscape(event: KeyboardEvent): void {
-    if (isVisible && event.key === 'Escape') {
-      event.stopPropagation();
-      hide();
-    }
-  }
-  function effect(): () => void {
-    document.addEventListener('keydown', handleEscape, false);
-    return (): void => document.removeEventListener('keydown', handleEscape);
-  }
-  useEffect(effect, [isVisible]);
-  useClickAway(contentRef, hide);
   return (
-    <Fragment>
+    <>
       {EnhacedTrigger}
-      {isVisible && (
+      {triggerElement && (
         <Bind
           {...rest}
           align={align}
-          fx={fx}
-          onAnimationEnd={handleAnimationEnd}
+          onHide={hide}
           offset={offset}
-          ref={contentRef}
           to={triggerElement}
+          visible={isVisible}
         >
           {restChildren}
         </Bind>
       )}
-    </Fragment>
+    </>
   );
 };
 

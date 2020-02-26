@@ -5,6 +5,7 @@ import { fxIn } from '../Backdrop/fxIn';
 import { fxOut } from '../Backdrop/fxOut';
 import { Props } from './Bind.type';
 import { Bounds } from './Bind.styles.type';
+import { VISIBLE } from './useBind';
 
 export const initialStyle = css`
   position: fixed;
@@ -15,10 +16,16 @@ export const initialStyle = css`
 `;
 
 export const fx = (theme: RktaTheme, props: Props): SerializedStyles => {
-  const fxFunc = props.fx === 'in' ? fxIn : fxOut;
+  if (props.fx === VISIBLE)
+    return css`
+      > * {
+        ${fxIn(props)}
+      }
+    `;
   return css`
+    pointer-events: none;
     > * {
-      ${fxFunc(props)}
+      ${fxOut(props)}
     }
   `;
 };
