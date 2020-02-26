@@ -42,7 +42,7 @@ export const Backdrop: FC<Props> = forwardRef<HTMLElement, Props>(
       };
     }
     useEffect(effect, [isMounted, visible, currentRef]);
-    useLockBodyScroll();
+    useLockBodyScroll(visible);
     return (
       <Element {...nodeProps} ref={ref} role={onClick ? 'button' : 'dialog'} tabIndex={0}>
         {children}
