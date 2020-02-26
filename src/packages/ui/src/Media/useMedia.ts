@@ -28,11 +28,11 @@ const evaluateServer = (entries: EntriesType): UseMediaResult =>
 
 export function useMedia(): UseMediaResult {
   const { theme } = useProviderContext();
-  const [state, setState] = useState();
+  const [state, setState] = useState<UseMediaResult>();
   const entries = Object.entries(theme.media);
 
   function updateState(): void {
-    const nextState: {} = evaluateMemo(entries);
+    const nextState: UseMediaResult = evaluateMemo(entries);
     if (!isEqual(nextState, state)) setState(nextState);
   }
 

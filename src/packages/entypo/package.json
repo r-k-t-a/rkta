@@ -23,7 +23,7 @@
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
     "prepare": "cp package.json lib/package.json || exit 0",
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --emitDeclarationOnly"
   },
   "sideEffects": false,
   "bugs": {
