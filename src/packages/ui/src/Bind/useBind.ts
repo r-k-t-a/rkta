@@ -1,4 +1,4 @@
-import { useReducer, useEffect, RefObject } from 'react';
+import { useReducer, useEffect, RefObject, ReactElement } from 'react';
 import debounce from 'lodash/debounce';
 import useClickAway from 'react-use/lib/useClickAway';
 
@@ -96,7 +96,11 @@ export function useBind(args: Args): State {
       window.removeEventListener('resize', debouncedUpdateBounds);
     };
   }
-  useClickAway(args.container, args.onHide, ['click']);
+
+  function handleClickAway(event: MouseEvent): void {
+    if (!args.trigger.contains(event.target as Element)) args.onHide();
+  }
+  useClickAway(args.container, handleClickAway);
   useEffect(effect, [...Object.values(args), state.bounds, container, state.fx]);
   return state;
 }

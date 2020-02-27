@@ -1,13 +1,15 @@
-import { ReactNode, HTMLProps } from 'react';
+import { ReactNode } from 'react';
 
 import { Color } from '../Provider/theme';
 import { PaperOwnProps } from '../Paper/Paper.type';
-import { Props as InputBase, InputElement } from '../InputBase/InputBase.type';
+import { Props as InputBase } from '../InputBase/InputBase.type';
 
-export interface Props extends InputBase, PaperOwnProps, HTMLProps<InputElement> {
+export type Value = string | number | string[] | undefined;
+
+export interface Props extends InputBase, PaperOwnProps {
   active?: never;
   append?: ReactNode;
-  children?: (value: string, setValue?: Function) => JSX.Element;
+  children?: (value?: Value, setValue?: (value?: Value) => void) => JSX.Element | ReactNode;
   color?: Color;
   defaultValue?: string;
   disabled?: boolean;

@@ -1,19 +1,24 @@
+/* eslint-disable react/jsx-fragments */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useState, FormEvent, forwardRef } from 'react';
+import { Fragment, useRef, FormEvent, forwardRef } from 'react';
 
 import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
+import { Bind } from '../Bind';
+import { Media } from '../Media';
 import { reEmit } from '../util/reEmit';
 
-import { Props } from './Input.type';
+import { Props, Value } from './Input.type';
 import { InputElement } from '../InputBase/InputBase.type';
+import { useInput } from './useInput';
 
 export const Input = forwardRef<InputElement, Props>(
   (
     {
       append,
       caption,
+      children,
       defaultValue = '',
       disabled,
       fancy,
@@ -29,8 +34,18 @@ export const Input = forwardRef<InputElement, Props>(
     ref,
   ): JSX.Element => {
     const isControlled = typeof value === 'string';
-    const [ownValue, setOwnValue] = useState(isControlled ? value : defaultValue);
-    const [hasFocus, setHasFocus] = useState(false);
+    const {
+      hasFocus,
+      lockSuggest,
+      ownValue,
+      removeFocus,
+      setFocus,
+      setOwnValue,
+      suggestIsVisible,
+      unlockSuggest,
+    } = useInput(isControlled ? value : defaultValue);
+
+    const boxRef = useRef<HTMLElement>(null);
 
     const currentValue = isControlled ? value : ownValue;
     const active = hasFocus || !!(currentValue || placeholder);
@@ -48,7 +63,7 @@ export const Input = forwardRef<InputElement, Props>(
     const [{ css, ...inputProps }, Element] = applyStyles(wrapperProps, 'Input', 'Paper');
 
     const handleBlur = (event: FormEvent<InputElement>): void => {
-      setHasFocus(false);
+      removeFocus();
       reEmit(event, onBlur);
     };
     const handleChange = (event: FormEvent<InputElement>): void => {
@@ -56,27 +71,59 @@ export const Input = forwardRef<InputElement, Props>(
       reEmit(event, onChange);
     };
     const handleFocus = (event: FormEvent<InputElement>): void => {
-      setHasFocus(true);
+      setFocus();
       reEmit(event, onFocus);
     };
+    function handleSuggest(nextValue?: Value): void {
+      setOwnValue(nextValue);
+      unlockSuggest();
+    }
+    const suggest =
+      boxRef.current && typeof children === 'function' && children(currentValue, handleSuggest);
     return (
-      <Element css={css}>
-        {prepend}
-        <InputBase
-          {...inputProps}
-          active={active}
-          caption={caption}
-          disabled={disabled}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          ref={ref}
-          value={currentValue}
-        />
-        {append}
-      </Element>
+      <Fragment>
+        <Element css={css} ref={boxRef}>
+          {prepend}
+          <InputBase
+            {...inputProps}
+            active={active}
+            caption={caption}
+            disabled={disabled}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            placeholder={placeholder}
+            readOnly={readOnly}
+            ref={ref}
+            value={currentValue}
+          />
+          {append}
+        </Element>
+        {suggest && (
+          <Fragment>
+            {suggestIsVisible && (
+              <Media phone>
+                <div onFocus={lockSuggest} onPointerDown={lockSuggest}>
+                  {suggest}
+                </div>
+              </Media>
+            )}
+            <Media atMostTablet>
+              <Bind
+                align="bottomLeft"
+                blockLevel
+                onHide={unlockSuggest}
+                onFocus={lockSuggest}
+                onPointerDown={lockSuggest}
+                to={boxRef.current as Element}
+                visible={suggestIsVisible}
+              >
+                {suggest}
+              </Bind>
+            </Media>
+          </Fragment>
+        )}
+      </Fragment>
     );
   },
 );
