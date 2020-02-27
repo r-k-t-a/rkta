@@ -4,7 +4,7 @@ import { RktaTheme } from '../Provider/theme';
 import { fxIn } from '../Backdrop/fxIn';
 import { fxOut } from '../Backdrop/fxOut';
 import { Props } from './Bind.type';
-import { Bounds } from './Bind.styles.type';
+import { Bounds, BindStyles } from './Bind.styles.type';
 import { VISIBLE } from './useBind';
 
 export const initialStyle = css`
@@ -29,6 +29,10 @@ export const fx = (theme: RktaTheme, props: Props): SerializedStyles => {
     }
   `;
 };
+
+export const blockLevel = (theme: RktaTheme, { bounds }: Bounds): SerializedStyles => css`
+  width: ${bounds.width}px;
+`;
 
 export const bounds = (
   theme: RktaTheme,

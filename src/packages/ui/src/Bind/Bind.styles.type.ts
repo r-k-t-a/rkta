@@ -9,7 +9,8 @@ export interface Bounds extends Props {
 
 export interface BindStyles {
   initialStyle: SerializedStyles;
-  fx: (theme: RktaTheme, props: Props) => SerializedStyles;
+  blockLevel: (theme: RktaTheme, props: Bounds) => SerializedStyles;
   bounds: (theme: RktaTheme, props: Bounds) => SerializedStyles;
+  fx: (theme: RktaTheme, props: Props) => SerializedStyles;
   [key: string]: CssRkta;
 }

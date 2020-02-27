@@ -4,17 +4,45 @@ name: Input
 ---
 
 import { Link, Playground, Props } from 'docz';
-import { Addon, Input } from '../';
+import { Addon, Input, List, ListTitle, ListButton } from '../';
 import { New } from '../../../entypo/src';
 
-# Bage
+# Input
 
-<span>
-  Bage composes paper <Link to="/rkta/packages-ui-src-paper-paper">Paper</Link> and&nbsp;
-  <Link to="/rkta/packages-ui-src-text-text">Text</Link> components.
-</span>
+Allows creating both single and multiline inputs with optional suggest popover.
 
-## Input
+## Import
+```javascript
+import { Input } from '@rkta/ui';
+```
+
+## Basic Example
+
+<Playground>
+  <Input caption="Text Input" />
+</Playground>
+
+
+## Suggest Example
+
+<Playground>
+  <Input caption="Suggest Input">
+    {(value, setValue) => {
+      const search = option => !value || option.toLowerCase().includes(value.toLowerCase());
+      const options = ['London', 'Paris', 'New York'].filter(search);
+      const title = options.length ? 'Suggestions' : 'No Suggestions';
+      return (
+        <List rize={1}>
+          <ListTitle>{title}</ListTitle>
+          {options.map(option => <ListButton key={option} onClick={() => setValue(option)}>{option}</ListButton>)}
+        </List>
+      );
+    }}
+  </Input>
+</Playground>
+
+
+## Examples
 
 <Playground>
   <Input caption="Tiny" tiny outline={1} />

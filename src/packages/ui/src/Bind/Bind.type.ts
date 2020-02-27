@@ -13,6 +13,7 @@ export type Align =
 
 export interface Props extends RktaElement {
   align?: Align;
+  blockLevel?: boolean;
   children: ReactNode;
   offset?: number;
   onHide: () => void;
