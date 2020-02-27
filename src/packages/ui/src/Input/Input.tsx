@@ -7,8 +7,9 @@ import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
 import { Bind } from '../Bind';
 import { Media } from '../Media';
-import { reEmit } from '../util/reEmit';
+import { reEmit } from '../util';
 
+import { dispatchDomEvent } from './dispatchDomEvent';
 import { Props, Value } from './Input.type';
 import { InputElement } from '../InputBase/InputBase.type';
 import { useInput } from './useInput';
@@ -36,18 +37,19 @@ export const Input = forwardRef<InputElement, Props>(
     const isControlled = typeof value === 'string';
     const {
       hasFocus,
+      inputElement,
       lockSuggest,
-      ownValue,
+      localValue,
       removeFocus,
       setFocus,
-      setOwnValue,
+      setLocalValue,
       suggestIsVisible,
       unlockSuggest,
     } = useInput(isControlled ? value : defaultValue);
 
     const boxRef = useRef<HTMLElement>(null);
 
-    const currentValue = isControlled ? value : ownValue;
+    const currentValue = isControlled ? value : localValue;
     const active = hasFocus || !!(currentValue || placeholder);
 
     const { applyStyles } = useProviderContext();
@@ -67,16 +69,17 @@ export const Input = forwardRef<InputElement, Props>(
       reEmit(event, onBlur);
     };
     const handleChange = (event: FormEvent<InputElement>): void => {
-      setOwnValue(event.currentTarget.value);
+      setLocalValue(event.currentTarget.value);
       reEmit(event, onChange);
     };
     const handleFocus = (event: FormEvent<InputElement>): void => {
-      setFocus();
+      setFocus(event.nativeEvent.target as Element);
       reEmit(event, onFocus);
     };
     function handleSuggest(nextValue?: Value): void {
-      setOwnValue(nextValue);
+      setLocalValue(nextValue);
       unlockSuggest();
+      if (inputElement) dispatchDomEvent(inputElement, 'change', nextValue);
     }
     const suggest =
       boxRef.current && typeof children === 'function' && children(currentValue, handleSuggest);
