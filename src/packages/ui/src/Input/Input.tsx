@@ -82,7 +82,9 @@ export const Input = forwardRef<InputElement, Props>(
       if (inputElement) dispatchDomEvent(inputElement, 'change', nextValue);
     }
     const suggest =
-      boxRef.current && typeof children === 'function' && children(currentValue, handleSuggest);
+      boxRef.current &&
+      typeof children === 'function' &&
+      children({ value: currentValue, setValue: handleSuggest });
     return (
       <Fragment>
         <Element css={css} ref={boxRef}>
