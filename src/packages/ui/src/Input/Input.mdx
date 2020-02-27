@@ -27,7 +27,7 @@ import { Input } from '@rkta/ui';
 
 <Playground>
   <Input caption="Suggest Input">
-    {(value, setValue) => {
+    {({ value, setValue }) => {
       const search = option => !value || option.toLowerCase().includes(value.toLowerCase());
       const options = ['London', 'Paris', 'New York'].filter(search);
       const title = options.length ? 'Suggestions' : 'No Suggestions';

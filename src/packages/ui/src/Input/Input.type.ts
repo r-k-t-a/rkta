@@ -6,10 +6,15 @@ import { Props as InputBase } from '../InputBase/InputBase.type';
 
 export type Value = string | number | string[] | undefined;
 
+interface ChildrenArgs {
+  value?: Value;
+  setValue?(value?: Value): void;
+}
+
 export interface Props extends InputBase, PaperOwnProps {
   active?: never;
   append?: ReactNode;
-  children?: (value?: Value, setValue?: (value?: Value) => void) => JSX.Element | ReactNode;
+  children?: (args: ChildrenArgs) => JSX.Element | ReactNode;
   color?: Color;
   defaultValue?: string;
   disabled?: boolean;
