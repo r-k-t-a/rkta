@@ -35,6 +35,6 @@ export function useInput(initialValue?: Value): Results {
     setFocus: (inputElement: Element): void => patchState({ hasFocus: true, inputElement }),
     setLocalValue: (localValue?: Value): void => patchState({ localValue }),
     suggestIsVisible: state.suggestIsLocked || state.hasFocus || false,
-    unlockSuggest: (): void => patchState({ suggestIsLocked: false }),
+    unlockSuggest: (): void => patchState({ hasFocus: false, suggestIsLocked: false }),
   };
 }

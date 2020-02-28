@@ -69,6 +69,7 @@ export const Input = forwardRef<InputElement, Props>(
       reEmit(event, onBlur);
     };
     const handleChange = (event: FormEvent<InputElement>): void => {
+      setFocus(event.nativeEvent.target as Element);
       setLocalValue(event.currentTarget.value);
       reEmit(event, onChange);
     };
