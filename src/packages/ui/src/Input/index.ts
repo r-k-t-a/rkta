@@ -1,2 +1,2 @@
 export * from './Input';
-export { Value } from './Input.type';
+export { Value as InputValue } from './Input.type';
