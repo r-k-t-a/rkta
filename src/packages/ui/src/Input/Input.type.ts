@@ -8,7 +8,7 @@ export type Value = string | number | string[] | undefined;
 
 interface ChildrenArgs {
   value?: Value;
-  setValue?(value?: Value): void;
+  setValue(value: Value): void;
 }
 
 export interface Props extends InputBase, PaperOwnProps {
