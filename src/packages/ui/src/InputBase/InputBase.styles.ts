@@ -24,6 +24,7 @@ export const initialStyle = css`
     color: inherit;
     display: block;
     font: inherit;
+    font-size: 16px;
     margin: 0;
     outline: none;
     padding: 0;
