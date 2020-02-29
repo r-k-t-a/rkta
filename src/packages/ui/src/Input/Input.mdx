@@ -4,7 +4,7 @@ name: Input
 ---
 
 import { Link, Playground, Props } from 'docz';
-import { Addon, Input, List, ListTitle, ListButton } from '../';
+import { Addon, ArrowKeys, Input, List, ListTitle, ListButton } from '../';
 import { New } from '../../../entypo/src';
 
 # Input
@@ -34,7 +34,9 @@ import { Input } from '@rkta/ui';
       return (
         <List rize={1}>
           <ListTitle>{title}</ListTitle>
-          {options.map(option => <ListButton key={option} onClick={() => setValue(option)}>{option}</ListButton>)}
+          <ArrowKeys vertical>
+            {options.map(option => <ListButton key={option} onClick={() => setValue(option)}>{option}</ListButton>)}
+          </ArrowKeys>
         </List>
       );
     }}

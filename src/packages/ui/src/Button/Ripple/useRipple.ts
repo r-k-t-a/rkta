@@ -48,6 +48,7 @@ function addWave(
 }
 
 export const useRipple = ({
+  'aria-selected': ariaSelected,
   onBlur,
   onClick,
   onFocus,
@@ -63,17 +64,16 @@ export const useRipple = ({
   function patchState(payload: {}): void {
     setState(prevState => ({ ...prevState, ...payload, patched: Date.now() }));
   }
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  useEffect(() => {
-    function handlePointerUp(): void {
-      releaseWaves(state, patchState);
-    }
+
+  function effect(): () => void {
+    const handlePointerUp = (): void => releaseWaves(state, patchState);
     window.addEventListener('pointerup', handlePointerUp);
-    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    return () => {
+    return (): void => {
       window.removeEventListener('pointerup', handlePointerUp);
     };
-  }, [state.patched]);
+  }
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  useEffect(effect, [state.patched]);
   const buttonProps = {
     onBlur: (event: FocusEvent): void => {
       releaseWaves({ ...state }, patchState);
@@ -139,9 +139,10 @@ export const useRipple = ({
     patchState({ waves });
   }
   const { mouseover, overlayIsVisible, waves } = state;
+  const isSelected = ariaSelected === true || ariaSelected === 'true';
   const rippeProps = {
-    mouseover,
-    overlayIsVisible,
+    mouseover: isSelected || mouseover,
+    overlayIsVisible: isSelected || overlayIsVisible,
     waves,
     onOverlayAnimationEnd,
     onWaveDissolve,

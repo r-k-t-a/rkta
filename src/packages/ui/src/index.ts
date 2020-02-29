@@ -1,4 +1,5 @@
 export * from './Addon';
+export * from './ArrowKeys';
 export * from './Bage';
 export * from './Bind';
 export * from './Button';

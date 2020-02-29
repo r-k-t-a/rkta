@@ -1,0 +1,44 @@
+---
+menu: UI
+name: ArrowKeys
+---
+
+import { Playground, Props } from 'docz';
+import { ArrowKeys } from './ArrowKeys';
+import { Divider } from '../Divider';
+import { List, ListButton, ListTitle } from '../List';
+
+# ArrowKeys
+
+ArrowKeys enable keyboard navigation for list and nav components.
+
+## Note
+
+ArrowKeys has a few side-effects:
+
+- `aria-selected` is injected to all `validType` elements
+- `ref` is injected to selected element
+
+## Import
+
+```javascript
+import { ArrowKeys } from '@rkta/ui';
+```
+
+## Examples
+
+<Playground>
+  <List rize={1} sans>
+    <ArrowKeys vertical>
+      <ListTitle>Menu List</ListTitle>
+      <Divider fitAll horizontalSpace={16} />
+      <ListButton>Option 1</ListButton>
+      <ListButton>Option 2</ListButton>
+      <ListButton>Option 3</ListButton>
+    </ArrowKeys>
+  </List>
+</Playground>
+
+## Props
+
+<Props of={ArrowKeys} />
