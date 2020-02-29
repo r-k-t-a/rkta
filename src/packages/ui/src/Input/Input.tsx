@@ -9,7 +9,7 @@ import { Bind } from '../Bind';
 import { Media } from '../Media';
 import { reEmit } from '../util';
 
-import { dispatchDomEvent } from './dispatchDomEvent';
+import { dispatchDomEvent } from '../util/dispatchDomEvent';
 import { Props, Value } from './Input.type';
 import { InputElement } from '../InputBase/InputBase.type';
 import { useInput } from './useInput';
@@ -80,7 +80,7 @@ export const Input = forwardRef<InputElement, Props>(
     function handleSuggest(nextValue?: Value): void {
       setLocalValue(nextValue);
       unlockSuggest();
-      if (inputElement) dispatchDomEvent(inputElement, 'change', nextValue);
+      if (inputElement) dispatchDomEvent(inputElement, 'change', { value: nextValue });
     }
     const suggest =
       boxRef.current &&
