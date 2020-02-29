@@ -1,6 +1,6 @@
 {
   "name": "@rkta/hooks",
-  "version": "0.0.93",
+  "version": "0.0.94",
   "description": "WIP common react hooks",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
