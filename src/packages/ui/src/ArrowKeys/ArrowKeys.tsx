@@ -76,7 +76,7 @@ export const ArrowKeys: FC<Props> = ({
     document.addEventListener('keydown', handleKey);
     return (): void => document.removeEventListener('keydown', handleKey);
   }
-  useEffect(effect, [horizontal, vertical, index, ...validTypes]);
+  useEffect(effect, [children.length, horizontal, vertical, index, ...validTypes]);
 
   return (Children.map(children, (child: ReactElement, key) => {
     const { type } = child;
