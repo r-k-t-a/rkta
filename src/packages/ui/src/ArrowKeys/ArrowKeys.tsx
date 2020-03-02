@@ -67,6 +67,7 @@ export const ArrowKeys: FC<Props> = ({
     if (action && map.length) {
       setIndex(action);
       event.preventDefault();
+      event.stopImmediatePropagation();
     }
     if (event.keyCode === 13 && selectedRef.current) {
       dispatchDomEvent(selectedRef.current, 'click');
