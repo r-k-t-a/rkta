@@ -14,7 +14,7 @@ export const fancy = (theme: RktaTheme, props: Props): SerializedStyles => css`
     bottom: 0;
     content: '';
     display: block;
-    height: 1;
+    height: 1px;
     left: 0;
     right: 0;
     opacity: 0.48;
@@ -25,7 +25,7 @@ export const fancy = (theme: RktaTheme, props: Props): SerializedStyles => css`
     bottom: 0;
     content: '';
     display: block;
-    height: 2;
+    height: 2px;
     left: 0;
     right: 0;
     position: absolute;
