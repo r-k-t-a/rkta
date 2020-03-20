@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { RktaElement } from '../Provider/theme';
 
 export interface Align {
@@ -15,7 +14,6 @@ export interface Align {
 }
 
 export interface Props extends Align, RktaElement {
-  children: ReactNode;
   onClick?(): void;
   opacity?: number;
   onFadeOut?(): void;

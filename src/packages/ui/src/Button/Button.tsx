@@ -13,7 +13,7 @@ import { useRipple } from './Ripple/useRipple';
 
 const injectedProps = { element: 'button', normal: true, button: true };
 
-export const Button: FC<Props> = forwardRef(
+export const Button = forwardRef(
   (
     {
       noRipple,
