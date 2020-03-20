@@ -20,4 +20,6 @@ export interface PaperOwnProps {
   transparent?: boolean;
 }
 
-export interface Props extends PaperOwnProps, Text {}
+type OmitColor = Omit<Text, 'color'>;
+
+export interface Props extends PaperOwnProps, Omit<OmitColor, 'size'> {}

@@ -8,7 +8,7 @@ import { useProviderContext } from '../Provider';
 import { Props } from './Backdrop.type';
 import { isTargetEvent } from '../util';
 
-export const Backdrop: FC<Props> = forwardRef<HTMLElement, Props>(
+export const Backdrop = forwardRef<HTMLElement, Props>(
   ({ onClick, opacity, visible, children, onFadeOut, ...rest }: Props, ref): JSX.Element => {
     const isMounted = useIsMounted();
     const { applyStyles } = useProviderContext();

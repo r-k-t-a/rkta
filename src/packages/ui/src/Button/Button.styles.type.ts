@@ -7,7 +7,7 @@ export interface ButtonStyles {
   initialStyle: SerializedStyles;
   blockLevel: SerializedStyles;
   busy: SerializedStyles;
-  color: (theme: RktaTheme, props: Props) => SerializedStyles;
+  color: (theme: RktaTheme, props: { color: string }) => SerializedStyles;
   round: (theme: RktaTheme, props: Props) => SerializedStyles;
   size: (theme: RktaTheme, props: Props) => SerializedStyles;
   spinnerCss: SerializedStyles;
