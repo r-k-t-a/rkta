@@ -1,4 +1,4 @@
-import { useReducer, useEffect, RefObject, ReactElement } from 'react';
+import { useReducer, useEffect, RefObject } from 'react';
 import debounce from 'lodash/debounce';
 import useClickAway from 'react-use/lib/useClickAway';
 

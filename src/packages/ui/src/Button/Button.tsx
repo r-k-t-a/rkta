@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { forwardRef, FC } from 'react';
+import { forwardRef } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Spinner } from '../Spinner';
