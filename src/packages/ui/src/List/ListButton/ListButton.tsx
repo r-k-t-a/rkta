@@ -1,4 +1,4 @@
-import React, { forwardRef, FC } from 'react';
+import React, { forwardRef } from 'react';
 
 import { Button } from '../../Button';
 import { Props } from './ListButton.type';

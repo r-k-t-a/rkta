@@ -35,7 +35,7 @@ export const busy = css`
   }
 `;
 
-export const color = (theme: RktaTheme, props: {color: string}): SerializedStyles => {
+export const color = (theme: RktaTheme, props: { color: string }): SerializedStyles => {
   const cssColor = theme.color[props.color] || props.color;
   return css`
     color: ${cssColor};

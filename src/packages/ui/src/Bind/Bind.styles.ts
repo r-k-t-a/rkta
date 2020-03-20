@@ -4,7 +4,7 @@ import { RktaTheme } from '../Provider/theme';
 import { fxIn } from '../Backdrop/fxIn';
 import { fxOut } from '../Backdrop/fxOut';
 import { Props } from './Bind.type';
-import { Bounds, BindStyles } from './Bind.styles.type';
+import { Bounds } from './Bind.styles.type';
 import { VISIBLE } from './useBind';
 
 export const initialStyle = css`

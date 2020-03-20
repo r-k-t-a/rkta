@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { FC, forwardRef, useEffect, RefObject } from 'react';
+import { forwardRef, useEffect, RefObject } from 'react';
 import { useIsMounted } from '@rkta/hooks';
 import { useLockBodyScroll } from 'react-use';
 
