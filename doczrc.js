@@ -1,5 +1,5 @@
 export default {
-  base: '/docz',
+  base: '/rkta',
   debug: true,
   dest: '/docs',
   src: 'src/packages',

@@ -7,5 +7,5 @@
 ```
 const provider = require('provider');
 
-// TODO: DEMONSTRATE API
+// TODO: DEMONSTRATE API src/packages/hooks/README.md
 ```

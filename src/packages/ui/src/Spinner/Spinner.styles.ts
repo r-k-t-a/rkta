@@ -1,6 +1,7 @@
 import { css, keyframes, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { Props } from './Spinner.type';
+import { cssUnitToString } from '../util';
 
 const spin = keyframes`
   0% {
@@ -29,7 +30,7 @@ export const initialStyle = css`
 `;
 
 export const borderWidth = (theme: RktaTheme, props: Props): SerializedStyles => css`
-  border-width: ${props.borderWidth};
+  border-width: ${cssUnitToString(props.borderWidth)};
 `;
 
 export const color = (
@@ -39,7 +40,10 @@ export const color = (
   border-color: ${theme.color[borderColor] || borderColor};
 `;
 
-export const size = (theme: RktaTheme, props: Props): SerializedStyles => css`
-  height: ${props.size};
-  width: ${props.size};
-`;
+export const size = (theme: RktaTheme, props: Props): SerializedStyles => {
+  const cssUnit = cssUnitToString(props.size);
+  return css`
+    height: ${cssUnit};
+    width: ${cssUnit};
+  `;
+};
