@@ -1,5 +1,9 @@
 import { Props as AddonProps } from '../../Addon/Addon.type';
 
 export interface Props extends AddonProps {
-  right?: boolean;
+  center?: boolean;
+  flexEnd?: boolean;
+  spaceAround?: boolean;
+  spaceBetween?: boolean;
+  spaceEvenly?: boolean;
 }
