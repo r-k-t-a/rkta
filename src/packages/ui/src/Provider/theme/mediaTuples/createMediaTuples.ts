@@ -17,7 +17,7 @@ export const createMediaTuples = (breakpoints: Breakpoint[]): MediaTuples =>
     return {
       ...acc,
       [key]: [min, max],
-      [`atLeast${upperKey}`]: [0, max],
-      [`atMost${upperKey}`]: [min, Infinity],
+      [`atMost${upperKey}`]: [0, max],
+      [`atLeast${upperKey}`]: [min, Infinity],
     };
   }, {} as MediaTuples);
