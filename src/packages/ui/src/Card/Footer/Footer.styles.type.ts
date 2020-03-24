@@ -3,6 +3,10 @@ import { CssRkta } from '../../Provider/theme/types';
 
 export interface CardFooterStyles {
   initialStyle: SerializedStyles;
-  right: SerializedStyles;
+  center: SerializedStyles;
+  flexEnd: SerializedStyles;
+  spaceAround: SerializedStyles;
+  spaceBetween: SerializedStyles;
+  spaceEvenly: SerializedStyles;
   [key: string]: CssRkta;
 }
