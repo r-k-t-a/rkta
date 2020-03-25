@@ -15,7 +15,7 @@ export const Tabs: FC<Props> = forwardRef<HTMLElement, Props>(
       'Tabs',
     );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { overline, vertical, ...elementProps } = props;
+    const { indicatorSize, overline, vertical, ...elementProps } = props;
     return (
       <Element {...elementProps} ref={ref}>
         {children}
