@@ -6,7 +6,6 @@ import { Spinner } from '../Spinner';
 import { useProviderContext } from '../Provider';
 
 import { Props } from './Button.type';
-import { spinnerCss } from './Button.styles';
 
 import { Ripple } from './Ripple';
 import { useRipple } from './Ripple/useRipple';
@@ -24,18 +23,17 @@ export const Button = forwardRef(
     }: Props,
     ref,
   ): JSX.Element => {
-    const { applyStyles, getElement } = useProviderContext();
+    const { applyStyles } = useProviderContext();
     const [nextProps, Element] = applyStyles({ ...injectedProps, ...rest }, ...composition);
     const [rippleProps, buttonProps] = useRipple(nextProps);
-    const SpinnerWrapper = getElement('span', {});
     return (
       <Element {...nextProps} {...buttonProps} ref={ref}>
         {children}
         {!noRipple && <Ripple {...rippleProps} />}
         {rest.busy && (
-          <SpinnerWrapper css={spinnerCss}>
+          <span>
             <Spinner {...spinnerProps} />
-          </SpinnerWrapper>
+          </span>
         )}
       </Element>
     );
@@ -44,7 +42,6 @@ export const Button = forwardRef(
 
 Button.defaultProps = {
   busy: false,
-  color: 'currentColor',
   tabIndex: 0,
   type: 'button',
 };

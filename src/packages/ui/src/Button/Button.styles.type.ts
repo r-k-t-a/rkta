@@ -6,10 +6,9 @@ import { Props } from './Button.type';
 export interface ButtonStyles {
   initialStyle: SerializedStyles;
   blockLevel: SerializedStyles;
-  busy: SerializedStyles;
+  busy: (theme: RktaTheme, props: { color: string }) => SerializedStyles;
   color: (theme: RktaTheme, props: { color: string }) => SerializedStyles;
   round: (theme: RktaTheme, props: Props) => SerializedStyles;
   size: (theme: RktaTheme, props: Props) => SerializedStyles;
-  spinnerCss: SerializedStyles;
   [key: string]: CssRkta;
 }

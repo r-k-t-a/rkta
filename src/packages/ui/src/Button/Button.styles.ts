@@ -7,6 +7,7 @@ export const initialStyle = css`
   align-items: center;
   box-sizing: border-box;
   cursor: pointer;
+  color: currentColor;
   justify-content: center;
   display: inline-flex;
   outline: none;
@@ -28,12 +29,26 @@ export const blockLevel = css`
   width: 100%;
 `;
 
-export const busy = css`
-  font-size: 0;
-  > * {
-    visibility: hidden;
-  }
-`;
+export const busy = (theme: RktaTheme, props: { color: string }): SerializedStyles => {
+  return css`
+    color: transparent;
+    > * {
+      visibility: hidden;
+      &:last-child {
+        align-items: center;
+        color: ${theme.color[props.color] || props.color || theme.color.text};
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        visibility: visible;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  `;
+};
 
 export const color = (theme: RktaTheme, props: { color: string }): SerializedStyles => {
   const cssColor = theme.color[props.color] || props.color;
@@ -67,15 +82,3 @@ export const size = (theme: RktaTheme, props: Button): SerializedStyles => {
     width: ${value};
   `;
 };
-
-export const spinnerCss = css`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  visibility: visible !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
