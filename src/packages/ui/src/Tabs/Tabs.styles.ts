@@ -2,6 +2,7 @@ import { css, SerializedStyles } from '@emotion/core';
 import { Color, RktaTheme } from '../Provider/theme';
 import { Indicator } from './useIndicator';
 import { IndicatorProps } from './Tabs.styles.type';
+import { cssUnitToString } from '../util';
 
 export const initialStyle = css`
   position: relative;
@@ -19,13 +20,16 @@ export const color = (theme: RktaTheme, { color: bgColor }: { color: Color }): S
 
 function getPlacement({
   indicator,
+  indicatorSize = 2,
   overline,
   vertical,
 }: {
   indicator: Indicator;
+  indicatorSize?: number | string;
   overline?: boolean;
   vertical?: boolean;
 }): SerializedStyles {
+  const size = cssUnitToString(indicatorSize);
   if (overline && vertical)
     return css`
       flex-direction: column;
@@ -34,13 +38,13 @@ function getPlacement({
         top: 0;
         transform: translateY(${indicator.top}px);
         height: ${indicator.height}px;
-        width: 2px;
+        width: ${size};
       }
     `;
   if (overline && !vertical)
     return css`
       &:after {
-        height: 2px;
+        height: ${size};
         left: 0;
         top: 0;
         transform: translateX(${indicator.left}px);

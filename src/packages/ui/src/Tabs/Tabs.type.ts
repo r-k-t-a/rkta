@@ -5,6 +5,7 @@ export interface Props {
   index: number;
   children: ReactNode;
   color?: Color;
+  indicatorSize?: number | string;
   overline?: boolean;
   vertical?: boolean;
 }
