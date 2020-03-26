@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-fragments */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Fragment, useRef, FormEvent, forwardRef } from 'react';
+import { Fragment, useRef, FormEvent, forwardRef, FC } from 'react';
 
 import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
@@ -14,7 +14,7 @@ import { Props, Value } from './Input.type';
 import { InputElement } from '../InputBase/InputBase.type';
 import { useInput } from './useInput';
 
-export const Input = forwardRef<InputElement, Props>(
+export const Input: FC<Omit<Props, 'ref'>> = forwardRef<InputElement, Props>(
   (
     {
       append,
@@ -31,7 +31,7 @@ export const Input = forwardRef<InputElement, Props>(
       readOnly,
       value,
       ...rest
-    }: Props,
+    },
     ref,
   ): JSX.Element => {
     const isControlled = typeof value === 'string';
@@ -114,7 +114,7 @@ export const Input = forwardRef<InputElement, Props>(
                 </div>
               </Media>
             )}
-            <Media atMostTablet>
+            <Media atLeastTablet>
               <Bind
                 align="bottomLeft"
                 blockLevel
