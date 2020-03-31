@@ -1,10 +1,10 @@
-import React, { FC, forwardRef, RefObject, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, RefObject, useEffect, useRef, useState } from 'react';
 import { useIntersectionObserver } from '@rkta/hooks';
 import { useProviderContext } from '../Provider';
 
 import { Props } from './Image.type';
 
-export const Image: FC<Props> = forwardRef<HTMLImageElement, Props>(
+export const Image = forwardRef<HTMLImageElement, Props>(
   ({ alt, srcSet, ...rest }, externalRef): JSX.Element => {
     const internalRef = useRef<HTMLImageElement>(null);
     const [enableSrcSet, setEnableSrcSet] = useState(false);
