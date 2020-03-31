@@ -5,7 +5,7 @@ import { useProviderContext } from '../Provider';
 import { Props } from './Image.type';
 
 export const Image: FC<Props> = forwardRef<HTMLImageElement, Props>(
-  ({ alt, srcSet, ...rest }: Props, externalRef): JSX.Element => {
+  ({ alt, srcSet, ...rest }, externalRef): JSX.Element => {
     const internalRef = useRef<HTMLImageElement>(null);
     const [enableSrcSet, setEnableSrcSet] = useState(false);
     const ref = (externalRef as RefObject<HTMLImageElement>) || internalRef;
