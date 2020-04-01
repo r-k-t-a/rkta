@@ -1,7 +1,7 @@
-import { ReactElement, ReactType } from 'react';
+import { ReactNode, ReactType } from 'react';
 
 export interface Props {
-  children: ReactElement[];
+  children: ReactNode[];
   horizontal?: boolean;
   defaultIndex?: number;
   loop?: boolean;

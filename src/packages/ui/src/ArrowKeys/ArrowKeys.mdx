@@ -28,15 +28,25 @@ import { ArrowKeys } from '@rkta/ui';
 ## Examples
 
 <Playground>
-  <List rize={1} sans>
-    <ArrowKeys vertical>
-      <ListTitle>Menu List</ListTitle>
-      <Divider fitAll horizontalSpace={16} />
-      <ListButton>Option 1</ListButton>
-      <ListButton>Option 2</ListButton>
-      <ListButton>Option 3</ListButton>
-    </ArrowKeys>
-  </List>
+  {() => {
+    const list1 = [1, 2, 3];
+    const list2 = [4, 5];
+    return (
+      <List rize={1} sans>
+        <ArrowKeys vertical>
+          <ListTitle>Menu List</ListTitle>
+          <Divider horizontalSpace={16} />
+          {list1.map(item => (
+            <ListButton key={item}>Option {item}</ListButton>
+          ))}
+          <Divider horizontalSpace={16} />
+          {list2.map(item => (
+            <ListButton key={item}>Option {item}</ListButton>
+          ))}
+        </ArrowKeys>
+      </List>
+    );
+  }}
 </Playground>
 
 ## Props
