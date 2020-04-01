@@ -4,10 +4,11 @@ import {
   useEffect,
   useState,
   Children,
-  ReactElement,
-  ReactType,
+  ReactNode,
   useRef,
+  ReactElement,
 } from 'react';
+import get from 'lodash/get';
 
 import { ListButton } from '../List';
 import { Button } from '../Button';
@@ -29,14 +30,16 @@ export const ArrowKeys: FC<Props> = ({
 }: Props): JSX.Element => {
   const [index, setIndex] = useState(defaultIndex);
   const selectedRef = useRef<HTMLElement>(null);
-  const isValidType = (type: ReactType | string): boolean =>
-    validTypes.findIndex(currentType => currentType === type) > -1;
+  const isValidType = (child: ReactNode): boolean =>
+    validTypes.findIndex(currentType => get(child, 'type') === currentType) > -1;
+
+  const childrenArray = Children.toArray(children);
 
   const getMap = (): Map[] =>
-    children
-      .map(({ type }, key) => ({
+    childrenArray
+      .map((child, key) => ({
         key,
-        valid: isValidType(type),
+        valid: isValidType(child),
       }))
       .filter(({ valid }) => valid);
 
@@ -79,12 +82,12 @@ export const ArrowKeys: FC<Props> = ({
   }
   useEffect(effect, [children.length, horizontal, vertical, index, ...validTypes]);
 
-  return (Children.map(children, (child: ReactElement, key) => {
-    const { type } = child;
-    if (!isValidType(type)) return child;
+  return (childrenArray.map((child: ReactNode, key) => {
+    if (!isValidType(child)) return child;
+    const element = child as ReactElement;
     const isSelected = key === index;
-    const ref = isSelected ? selectedRef : child.props.ref;
-    return cloneElement(child, {
+    const ref = isSelected ? selectedRef : element.props.ref;
+    return cloneElement(element, {
       key: `${key}-${isSelected}`,
       'aria-selected': isSelected,
       ref,
