@@ -80,7 +80,7 @@ export const ArrowKeys: FC<Props> = ({
     document.addEventListener('keydown', handleKey);
     return (): void => document.removeEventListener('keydown', handleKey);
   }
-  useEffect(effect, [children.length, horizontal, vertical, index, ...validTypes]);
+  useEffect(effect, [childrenArray.length, horizontal, vertical, index, ...validTypes]);
 
   return (childrenArray.map((child: ReactNode, key) => {
     if (!isValidType(child)) return child;
