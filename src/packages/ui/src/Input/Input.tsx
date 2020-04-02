@@ -50,7 +50,7 @@ export const Input: FC<Omit<Props, 'ref'>> = forwardRef<InputElement, Props>(
     const boxRef = useRef<HTMLElement>(null);
 
     const currentValue = isControlled ? value : localValue;
-    const active = hasFocus || !!(currentValue || placeholder);
+    const active = (!readOnly && hasFocus) || !!(currentValue || placeholder);
 
     const { applyStyles } = useProviderContext();
     const wrapperProps = {
@@ -58,7 +58,6 @@ export const Input: FC<Omit<Props, 'ref'>> = forwardRef<InputElement, Props>(
       disabled,
       element: 'label',
       fancy,
-      readOnly,
       transparent: fancy,
       ...rest,
     };
