@@ -7,6 +7,7 @@ import { Playground, Props } from 'docz';
 import { useState } from 'react';
 import { Form } from './Form';
 import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Input } from '@rkta/ui';
+import get from 'lodash/get';
 import flow from 'lodash/flow';
 
 ## Form
@@ -24,7 +25,7 @@ import { Form } from '@rkta/form';
 ## Example
 <Playground>
   <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-    <Form onFormSubmit={flow(Object.entries, alert)}>
+    <Form onFormSubmit={flow(Object.entries, get(window, 'alert'))}>
       <CardHeader>
         Please Sign In
       </CardHeader>
