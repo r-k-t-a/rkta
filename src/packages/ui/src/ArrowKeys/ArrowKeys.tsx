@@ -35,26 +35,24 @@ export const ArrowKeys: FC<Props> = ({
 
   const childrenArray = Children.toArray(children);
 
-  const getMap = (): Map[] =>
-    childrenArray
-      .map((child, key) => ({
-        key,
-        valid: isValidType(child),
-      }))
-      .filter(({ valid }) => valid);
+  const validChildren: Map[] = childrenArray
+    .map((child, key) => ({
+      key,
+      valid: isValidType(child),
+    }))
+    .filter(({ valid }) => valid);
 
   function next(prevIndex: number): number {
-    const map = getMap();
-    const cursor = map.findIndex(({ key }) => key === prevIndex);
-    const key = map[cursor + 1]?.key;
-    const fallBackKey = loop ? defaultIndex : map[map.length - 1]?.key;
+    const cursor = validChildren.findIndex(({ key }) => key === prevIndex);
+    const key = validChildren[cursor + 1]?.key;
+    const fallBackKey = loop ? defaultIndex : validChildren[validChildren.length - 1]?.key;
     return typeof key === 'number' ? key : fallBackKey;
   }
   function prev(prevIndex: number): number {
-    const map = getMap();
-    const cursor = map.findIndex(({ key }) => key === prevIndex);
-    const key = map[cursor - 1]?.key;
-    const fallBackKey = loop && prevIndex === -1 ? map[map.length - 1]?.key : defaultIndex;
+    const cursor = validChildren.findIndex(({ key }) => key === prevIndex);
+    const key = validChildren[cursor - 1]?.key;
+    const fallBackKey =
+      loop && prevIndex === -1 ? validChildren[validChildren.length - 1]?.key : defaultIndex;
     return typeof key === 'number' ? key : fallBackKey;
   }
   function getAction({ keyCode }: KeyboardEvent): Setter | null {
@@ -65,9 +63,8 @@ export const ArrowKeys: FC<Props> = ({
     return null;
   }
   function handleKey(event: KeyboardEvent): void {
-    const map = getMap();
     const action = getAction(event);
-    if (action && map.length) {
+    if (action && validChildren.length) {
       setIndex(action);
       event.preventDefault();
       event.stopImmediatePropagation();
@@ -80,7 +77,14 @@ export const ArrowKeys: FC<Props> = ({
     document.addEventListener('keydown', handleKey);
     return (): void => document.removeEventListener('keydown', handleKey);
   }
-  useEffect(effect, [childrenArray.length, horizontal, vertical, index, ...validTypes]);
+  useEffect(effect, [
+    childrenArray.length,
+    validChildren.length,
+    horizontal,
+    vertical,
+    index,
+    ...validTypes,
+  ]);
 
   return (childrenArray.map((child: ReactNode, key) => {
     if (!isValidType(child)) return child;
