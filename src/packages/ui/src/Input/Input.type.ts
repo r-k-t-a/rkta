@@ -16,7 +16,6 @@ export interface Props extends InputBase, PaperOwnProps {
   append?: ReactNode;
   children?: (args: ChildrenArgs) => JSX.Element | ReactNode;
   color?: Color;
-  defaultValue?: string;
   disabled?: boolean;
   hasFocus?: never;
   fancy?: boolean;
