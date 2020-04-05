@@ -15,7 +15,7 @@
   "author": "Sergei Droganov <serge@droganov.ru>",
   "homepage": "https://github.com/r-k-t-a/rkta",
   "license": "MIT",
-  "main": "lib/index.mjs",
+  "main": "lib/index.js",
   "sideEffects": false,
   "type": "module",
   "types": "lib/index.d.ts",

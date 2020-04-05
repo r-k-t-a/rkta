@@ -11,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": ["dom", "esnext"],
-    "module": "es2015",
+    "module": "ES6",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -28,7 +28,7 @@
     "skipLibCheck": false,
     "sourceMap": true,
     "strict": true,
-    "target": "ES2017"
+    "target": "ES6"
   },
   "files": [],
   "exclude": ["node_modules", "src/packages/**/lib", "src/gatsby-theme-docz", "**/*.spec.ts"],
