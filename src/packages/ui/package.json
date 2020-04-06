@@ -32,7 +32,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.16",
     "@rkta/context": "^0.0.114",
-    "react-use": "^13.26.1"
+    "react-use": "^14.0.0"
   },
   "peerDependencies": {
     "@rkta/hooks": "*",
