@@ -1,6 +1,6 @@
 {
   "name": "@rkta/context",
-  "version": "0.0.115",
+  "version": "0.0.116",
   "description": "WIP Lightweight UI library for react",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
