@@ -30,12 +30,12 @@
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
   "dependencies": {
+    "@rkta/hooks": "^0.0.115",
     "@emotion/core": "^10.0.16",
     "@rkta/context": "^0.0.115",
     "react-use": "^13.26.1"
   },
   "peerDependencies": {
-    "@rkta/hooks": "*",
     "lodash": "^4.17.15",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
