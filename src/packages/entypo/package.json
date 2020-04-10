@@ -30,7 +30,6 @@
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
   "peerDependencies": {
-    "@rkta/ui": "*",
     "react": "^16.9.0"
   },
   "publishConfig": {
@@ -38,10 +37,10 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
-    "@rkta/context": "^0.0.116"
+    "@rkta/context": "^0.0.116",
+    "@rkta/ui": "^0.0.116"
   },
   "devDependencies": {
-    "@rkta/ui": "^0.0.116",
     "@types/react": "^16.9.2"
   }
 }
