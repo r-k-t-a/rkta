@@ -33,7 +33,7 @@
     "@emotion/core": "^10.0.16",
     "@rkta/context": "^0.0.117",
     "@rkta/hooks": "^0.0.117",
-    "react-use": "^13.26.1"
+    "react-use": "^14.1.1"
   },
   "peerDependencies": {
     "lodash": "^4.17.15",
