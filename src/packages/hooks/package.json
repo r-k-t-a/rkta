@@ -40,6 +40,6 @@
   },
   "gitHead": "28b39e9d4f56c5a36c6766fc9302d72dc30c3f3a",
   "dependencies": {
-    "intersection-observer": "^0.7.0"
+    "intersection-observer": "^0.9.0"
   }
 }
