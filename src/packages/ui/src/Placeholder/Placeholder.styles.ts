@@ -5,7 +5,7 @@ import { Props } from './Placeholder.type';
 export const initialStyle = css`
   background-color: currentColor;
   border-radius: 3px;
-  display: block;
+  display: inline-block;
   pointer-events: none;
   height: 1em;
   user-select: none;

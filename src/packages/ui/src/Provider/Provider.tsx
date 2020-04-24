@@ -1,5 +1,5 @@
 /* eslint-disable react/static-property-placement */
-import React from 'react';
+import React, { Component } from 'react';
 import { Context, ThemeProvider } from '@rkta/context';
 
 import { mountTheme, RktaTheme } from './theme';
@@ -10,7 +10,7 @@ import { Props, State, Context as ContextInterface } from './Provider.type';
 const REPLACE_THEME = Symbol('');
 const USE_STYLES = Symbol('');
 
-export class Provider extends React.Component<Props, State> {
+export class Provider extends Component<Props, State> {
   public static defaultProps = {
     getElement,
   };
