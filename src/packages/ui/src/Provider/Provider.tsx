@@ -44,12 +44,12 @@ export class Provider extends React.Component<Props, State> {
     const { theme } = this.state;
     const context: ContextInterface = {
       addModal: this.addModal,
+      applyStyles: this[USE_STYLES],
+      getElement: this.props.getElement,
       modal: this.state.modalQueue[0],
       removeModal: this.removeModal,
-      getElement: this.props.getElement,
       replaceTheme: this[REPLACE_THEME],
       theme,
-      applyStyles: this[USE_STYLES],
     };
     return (
       <ThemeProvider theme={theme}>
