@@ -7,8 +7,8 @@ import { getElement } from './getElement';
 import { NextPropsAndElementType, useStyles, useStylesFunctionType } from './useStyles';
 import { Props, State, Context as ContextInterface } from './Provider.type';
 
-const REPLACE_THEME = Symbol('');
-const USE_STYLES = Symbol('');
+const REPLACE_THEME = Symbol('REPLACE_THEME');
+const USE_STYLES = Symbol('USE_STYLES');
 
 export class Provider extends React.Component<Props, State> {
   public static defaultProps = {
