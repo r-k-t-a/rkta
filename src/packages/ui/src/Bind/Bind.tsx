@@ -8,7 +8,13 @@ import { useProviderContext } from '../Provider';
 import { useBind } from './useBind';
 import { Props } from './Bind.type';
 
-export const Bind: FC<Props> = ({ children, onHide, to, visible, ...rest }: Props): JSX.Element => {
+export const Bind: FC<Props> = ({
+  children,
+  onHide,
+  to,
+  visible,
+  ...rest
+}: Props): JSX.Element | null => {
   const ref = useRef<HTMLElement>(null);
   const { fx, bounds, shouldRender } = useBind({
     container: ref,
@@ -24,12 +30,13 @@ export const Bind: FC<Props> = ({ children, onHide, to, visible, ...rest }: Prop
     'Bind',
   );
 
-  return createPortal(
-    shouldRender && (
-      <Element {...elementProps} ref={ref}>
-        {children}
-      </Element>
-    ),
-    mountTo,
-  );
+  return shouldRender
+    ? createPortal(
+        // eslint-disable-next-line react/jsx-indent
+        <Element {...elementProps} ref={ref}>
+          {children}
+        </Element>,
+        mountTo,
+      )
+    : null;
 };
