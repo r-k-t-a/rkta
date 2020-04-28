@@ -14,7 +14,7 @@ interface Handlers {
 }
 
 interface FX {
-  css: CssEmotion;
+  css: Interpolation;
   onAnimationEnd: Function;
 }
 
