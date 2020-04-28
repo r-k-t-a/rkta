@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import upperFirst from 'lodash/upperFirst';
+import { Interpolation } from '@emotion/core';
 
 import { useProviderContext } from '../Provider';
-import { CssEmotion, RktaComponentStyles } from '../Provider/theme';
+import { RktaComponentStyles } from '../Provider/theme';
 
 interface Handlers {
   onPopUp?: Function;
@@ -13,7 +14,7 @@ interface Handlers {
 }
 
 interface FX {
-  css: CssEmotion;
+  css: Interpolation;
   onAnimationEnd: Function;
 }
 
@@ -27,7 +28,7 @@ export const useFx = (initialFx: string, handlers: Handlers = {}): [FX, Function
   } = useProviderContext();
   const [fx, setFx] = useState('initialStyle');
   const [isMounted, setIsMounted] = useState(false);
-  const css: CssEmotion = (Fx as RktaComponentStyles)[fx] as CssEmotion;
+  const css: Interpolation = (Fx as RktaComponentStyles)[fx] as Interpolation;
   function emitBegin(transition: string): void {
     emitEvent(handlers[`on${upperFirst(transition)}Begin`]);
   }
