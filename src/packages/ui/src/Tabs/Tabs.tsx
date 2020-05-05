@@ -7,11 +7,11 @@ import { Props } from './Tabs.type';
 import { useIndicator } from './useIndicator';
 
 export const Tabs: FC<Props> = forwardRef<HTMLElement, Props>(
-  ({ children, color = 'primary', index, ...rest }, externalRef): JSX.Element => {
+  ({ children, color = 'primary', index, element = 'nav', ...rest }, externalRef): JSX.Element => {
     const [ref, indicator] = useIndicator(index, externalRef as RefObject<HTMLElement>);
     const { applyStyles } = useProviderContext();
     const [props, Element] = applyStyles(
-      { element: 'nav', ...rest, indicator: index > -1 && indicator, color },
+      { element, ...rest, indicator: index > -1 && indicator, color },
       'Tabs',
       'Paper',
       'Text',
