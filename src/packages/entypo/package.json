@@ -1,6 +1,6 @@
 {
   "name": "@rkta/entypo",
-  "version": "0.0.122",
+  "version": "0.0.123",
   "description": "> TODO: description",
   "author": "Daniel Bruce, Sergei Droganov",
   "homepage": "https://github.com/r-k-t-a/rkta",
@@ -37,8 +37,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
-    "@rkta/context": "^0.0.122",
-    "@rkta/ui": "^0.0.122"
+    "@rkta/context": "^0.0.123",
+    "@rkta/ui": "^0.0.123"
   },
   "devDependencies": {
     "@types/react": "^16.9.2"
