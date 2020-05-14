@@ -2,8 +2,8 @@
 
 > TODO: description
 
-
 ## Roadmap:
+
 Backdrop
 Modal
 Drawer
@@ -15,5 +15,5 @@ Popover
 ```
 const provider = require('provider');
 
-// TODO: DEMONSTRATE API
+// TODO: Demonstrate API
 ```
