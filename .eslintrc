@@ -21,7 +21,6 @@ parserOptions:
   project:
     - ./tsconfig.json
     - "src/packages/**/tsconfig.json"
-
   sourceType: module
 rules:
   import/extensions:

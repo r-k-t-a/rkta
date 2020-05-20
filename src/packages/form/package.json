@@ -5,17 +5,16 @@
   "scripts": {
     "build:esm": "tsc -m esnext --outDir lib/esm",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
-    "prebuild": "rm -rf lib; mkdir -p lib; cp package.json lib/package.json; exit 0",
+    "prebuild": "rm -rf lib; mkdir -p lib/esm; cp package.json lib/package.json; cp ../../esm.json lib/esm/package.json; exit 0",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "typecheck": "tsc --emitDeclarationOnly"
   },
   "author": "Sergei Droganov <serge@droganov.ru>",
   "homepage": "https://github.com/r-k-t-a/rkta",
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "module": "esm/index.js",
   "sideEffects": false,
-  "type": "module",
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
