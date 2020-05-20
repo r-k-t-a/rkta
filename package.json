@@ -3,9 +3,8 @@
   "version": "0.0.6",
   "scripts": {
     "bootstrap": "lerna clean && npm run clean:tsbuildinfo && lerna bootstrap",
-    "build:babel": "lerna run build",
-    "prebuild": "npm run clean:tsbuildinfo",
-    "build": "tsc --build",
+    "prebuild": "npm run clean:tsbuildinfo && lerna run prebuild",
+    "build": "tsc --build && lerna run build:esm",
     "bump": "npm run make && lerna version patch",
     "clean:tsbuildinfo": "rm -rf src/packages/*/tsconfig.tsbuildinfo",
     "clean:docz-cache": "rm -rf .docz/.cache",
@@ -50,7 +49,7 @@
     "npm-check-updates": "^4.0.1",
     "prettier": "^1.19.1",
     "react-dom": "^16.12.0",
-    "typescript": "^3.8.2"
+    "typescript": "3.7.2"
   },
   "licence": "MIT",
   "private": true,
