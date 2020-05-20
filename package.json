@@ -14,7 +14,7 @@
     "docz:build": "docz build",
     "lint": "lerna run lint",
     "make": "npm run lint && npm run build",
-    "publish": "npm run make && lerna publish --contents lib --yes patch",
+    "release": "npm run make && lerna publish --contents lib --yes patch",
     "updatedeps": "ncu -u && npm update",
     "typecheck": "lerna run typecheck"
   },
