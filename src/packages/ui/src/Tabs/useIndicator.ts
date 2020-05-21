@@ -7,17 +7,23 @@ export interface Indicator {
   width: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isElement(element: any): boolean {
+  if (typeof window === 'undefined') return false;
+  return element instanceof Element || element instanceof HTMLElement;
+}
+
 export function useIndicator(
   index: number,
   externalRef?: RefObject<HTMLElement>,
 ): [RefObject<HTMLElement>, Indicator | undefined] {
   const defaultRef = useRef<HTMLElement>(null);
   const [state, setState] = useState<Indicator | undefined>(undefined);
-  const ref = externalRef || defaultRef;
+  const ref = externalRef && isElement(externalRef.current) ? externalRef : defaultRef;
 
   function update(): void {
     const { current } = ref;
-    const tabNode = current && (current.childNodes[index] as HTMLElement);
+    const tabNode = current?.childNodes[index] as HTMLElement;
     if (!tabNode) return;
     const { offsetLeft: left, offsetTop: top, offsetHeight: height, offsetWidth: width } = tabNode;
     if (
