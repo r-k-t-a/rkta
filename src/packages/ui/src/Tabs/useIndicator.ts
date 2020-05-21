@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, RefObject } from 'react';
+import { isElement } from '../util';
 
 export interface Indicator {
   height: number;
@@ -13,11 +14,11 @@ export function useIndicator(
 ): [RefObject<HTMLElement>, Indicator | undefined] {
   const defaultRef = useRef<HTMLElement>(null);
   const [state, setState] = useState<Indicator | undefined>(undefined);
-  const ref = externalRef || defaultRef;
+  const ref = externalRef && isElement(externalRef.current) ? externalRef : defaultRef;
 
   function update(): void {
     const { current } = ref;
-    const tabNode = current && (current.childNodes[index] as HTMLElement);
+    const tabNode = current?.childNodes[index] as HTMLElement;
     if (!tabNode) return;
     const { offsetLeft: left, offsetTop: top, offsetHeight: height, offsetWidth: width } = tabNode;
     if (
