@@ -1,16 +1,11 @@
 import { useEffect, useState, useRef, RefObject } from 'react';
+import { isElement } from '../util';
 
 export interface Indicator {
   height: number;
   left: number;
   top: number;
   width: number;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function isElement(element: any): boolean {
-  if (typeof window === 'undefined') return false;
-  return element instanceof Element || element instanceof HTMLElement;
 }
 
 export function useIndicator(
