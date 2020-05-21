@@ -1,6 +1,6 @@
 {
   "name": "@rkta/ui",
-  "version": "0.0.125",
+  "version": "0.0.124",
   "description": "WIP Lightweight UI library for react",
   "scripts": {
     "build:esm": "tsc -m esnext --outDir lib/esm",
@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
-    "@rkta/context": "^0.0.125",
-    "@rkta/hooks": "^0.0.125",
+    "@rkta/context": "^0.0.124",
+    "@rkta/hooks": "^0.0.124",
     "react-use": "^13.26.1"
   },
   "peerDependencies": {
