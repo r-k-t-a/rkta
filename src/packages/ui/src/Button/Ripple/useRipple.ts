@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { FocusEvent, HTMLAttributes, MouseEvent, TouchEvent, useEffect, useState } from 'react';
 
 import { Props, Wave } from './Ripple.type';
@@ -62,7 +63,7 @@ export const useRipple = ({
 }: HTMLAttributes<HTMLElement>): [Props, {}] => {
   const [state, setState] = useState(initialState);
   function patchState(payload: {}): void {
-    setState(prevState => ({ ...prevState, ...payload, patched: Date.now() }));
+    setState((prevState) => ({ ...prevState, ...payload, patched: Date.now() }));
   }
 
   function effect(): () => void {

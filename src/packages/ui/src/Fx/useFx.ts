@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { useState, useEffect } from 'react';
 import upperFirst from 'lodash/upperFirst';
 import { SerializedStyles } from '@emotion/core';

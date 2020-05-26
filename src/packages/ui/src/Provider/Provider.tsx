@@ -36,7 +36,7 @@ export class Provider extends React.Component<Props, State> {
 
   private removeModal = (symbol: symbol): void => {
     this.setState(({ modalQueue }) => ({
-      modalQueue: modalQueue.filter(item => item !== symbol),
+      modalQueue: modalQueue.filter((item) => item !== symbol),
     }));
   };
 

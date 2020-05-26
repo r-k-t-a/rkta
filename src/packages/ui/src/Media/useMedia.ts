@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { useEffect, useState } from 'react';
 import isEqual from 'lodash/isEqual';
 import flatten from 'lodash/flatten';
