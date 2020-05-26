@@ -70,7 +70,7 @@ export function useForm(
     formData: CustomFormData,
   ): Promise<CustomFormData> => {
     if (!validate) return Promise.resolve(formData);
-    return validate(formData, errors, inputName).catch(nextErrors => {
+    return validate(formData, errors, inputName).catch((nextErrors) => {
       setErrors(nextErrors);
       return Promise.reject(nextErrors);
     });
@@ -96,10 +96,7 @@ export function useForm(
     }
     const { name } = event.currentTarget;
     const validateForm = makeValidate(name);
-    prevalidateForm(formData)
-      .then(validateForm)
-      .then(postvalidateForm)
-      .then(customHandler);
+    prevalidateForm(formData).then(validateForm).then(postvalidateForm).then(customHandler);
   }
 
   const handleBlur = (event: InputEvent): void => {

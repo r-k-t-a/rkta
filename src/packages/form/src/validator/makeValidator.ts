@@ -26,6 +26,7 @@ type SchemaGetter = (payload?: SchemaGetterPayload) => SchemaType;
 
 type SchemaType = ExtentedSchema | SchemaGetter;
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const makeValidator = (schema: SchemaType, options?: {}) => (
   formData: CustomFormData,
   errors: ValidationError[],
