@@ -5,7 +5,7 @@ import { defaultIconSize } from '../constants';
 
 type Props = {
   viewBox?: never;
-} & typeof Svg;
+} & Parameters<typeof Svg>[0];
 
 const VkWithCircle: FC<Props> = (props): JSX.Element => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
