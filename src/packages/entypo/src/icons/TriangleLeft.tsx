@@ -1,9 +1,13 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
 
 import { Svg } from '@rkta/ui';
 import { defaultIconSize } from '../constants';
 
-const TriangleLeft = <T extends {}>(props: T): ReactElement => (
+type Props = {
+  viewBox?: never;
+} & typeof Svg;
+
+const TriangleLeft: FC<Props> = (props): JSX.Element => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
     <path d="M14,5v10l-9-5L14,5z" />
   </Svg>
