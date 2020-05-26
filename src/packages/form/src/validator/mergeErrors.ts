@@ -1,10 +1,10 @@
 import { ValidationError } from './error';
 
 const keepOtherErrors = (errors: ValidationError[], inputName: string): ValidationError[] =>
-  errors.filter(error => error.property !== inputName);
+  errors.filter((error) => error.property !== inputName);
 
 const filterInputErrors = (errors: ValidationError[], inputName: string): ValidationError[] =>
-  errors.filter(error => error.property === inputName);
+  errors.filter((error) => error.property === inputName);
 
 export default (
   oldErrors: ValidationError[],

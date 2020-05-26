@@ -1,9 +1,13 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
 
 import { Svg } from '@rkta/ui';
 import { defaultIconSize } from '../constants';
 
-const ArrowDown = <T extends {}>(props: T): ReactElement => (
+type Props = {
+  viewBox?: never;
+} & typeof Svg;
+
+const ArrowDown: FC<Props> = (props): JSX.Element => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
     <path d="M10,17.5L3.5,11H7V3h6v8h3.5L10,17.5z" />
   </Svg>

@@ -26,7 +26,7 @@ interface Results extends State {
 export function useInput(initialValue?: Value): Results {
   const [state, setState] = useState<State>({ localValue: initialValue });
   const patchState = (payload: Partial<State>): void =>
-    setState(prevState => ({ ...prevState, ...payload }));
+    setState((prevState) => ({ ...prevState, ...payload }));
 
   return {
     ...state,

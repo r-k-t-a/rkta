@@ -1,3 +1,3 @@
 declare module 'get-form-data' {
-  export default function(node: HTMLFormElement): CustomFormData;
+  export default function (node: HTMLFormElement): CustomFormData;
 }

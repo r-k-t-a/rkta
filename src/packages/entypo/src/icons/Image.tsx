@@ -1,9 +1,13 @@
-import React, { ReactElement } from 'react';
+import React, { FC } from 'react';
 
 import { Svg } from '@rkta/ui';
 import { defaultIconSize } from '../constants';
 
-const Image = <T extends {}>(props: T): ReactElement => (
+type Props = {
+  viewBox?: never;
+} & typeof Svg;
+
+const Image: FC<Props> = (props): JSX.Element => (
   <Svg size={defaultIconSize} {...props} viewBox="0 0 20 20">
     <path
       fillRule="evenodd"

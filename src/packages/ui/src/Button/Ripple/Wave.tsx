@@ -7,6 +7,7 @@ import { Wave as WaveCommon } from './Ripple.type';
 import { getElement } from '../../Provider/getElement';
 
 interface Props extends WaveCommon {
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onWaveDissolve: Function;
 }
 
