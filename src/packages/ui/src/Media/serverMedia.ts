@@ -1,16 +1,8 @@
-import { jsx } from '@emotion/core';
-import { Children, ReactElement, ReactNode } from 'react';
+import { Children, ReactElement, ReactNode, cloneElement } from 'react';
 
 import { PropsWithoutChildren } from './Media.type';
 import { CssEmotion, RktaTheme, MediaTuple } from '../Provider/theme';
 import { stringifyMediaTuple } from '../util/stringifyMediaTuple';
-
-const cloneElement = (element: ReactElement, props: {}): ReactElement =>
-  jsx(element.type, {
-    key: element.key,
-    ...element.props,
-    ...props,
-  });
 
 const makePropsFilter = (props: PropsWithoutChildren, theme: RktaTheme) => (
   propName: string,
@@ -76,9 +68,11 @@ export const serverMedia = (
     .join(', ')} { display: none; }`;
 
   function injectMediaQuery(child: ReactElement & { css?: CssEmotion }): ReactElement {
-    const childrenCss: CssEmotion[] = Array.isArray(child.css) ? child.css : [child.css];
+    const childrenCss: CssEmotion[] = Array.isArray(child.props.css)
+      ? child.props.css
+      : [child.props.css];
     const nextCss = childrenCss.concat(mediaQuery);
-    return cloneElement(child, { css: nextCss });
+    return cloneElement(child, { key: child.key, ...child.props, css: nextCss });
   }
   return Children.map(children, injectMediaQuery);
 };
