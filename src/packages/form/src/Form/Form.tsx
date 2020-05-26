@@ -1,13 +1,23 @@
-import React, { ReactNode, FC, useRef, forwardRef, RefObject } from 'react';
+import React, {
+  ReactNode,
+  useRef,
+  forwardRef,
+  RefObject,
+  DetailedHTMLProps,
+  FormHTMLAttributes,
+} from 'react';
 
 import { Context } from './Context';
 import { useForm, Props as HookProps } from './useForm/useForm';
 
-interface Props extends HookProps {
+type HTMLFormProps = DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> &
+  HookProps;
+
+interface Props extends HTMLFormProps {
   children: ReactNode;
 }
 
-export const Form: FC<Props> = forwardRef<HTMLFormElement, Props>(
+export const Form = forwardRef<HTMLFormElement, Props>(
   (
     {
       children,

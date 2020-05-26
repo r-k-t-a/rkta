@@ -10,7 +10,7 @@ export interface ExtentedSchema extends JSONSchema7 {
   properties?: {
     [key: string]: JSONSchema7Definition & {
       messages?: {
-        [key: string]: string;
+        [key: string]: string | undefined;
       };
     };
   };
