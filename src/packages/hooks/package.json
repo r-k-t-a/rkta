@@ -1,6 +1,6 @@
 {
   "name": "@rkta/hooks",
-  "version": "0.0.128",
+  "version": "0.0.127",
   "description": "WIP common react hooks",
   "scripts": {
     "build:esm": "tsc -m esnext --outDir lib/esm",
