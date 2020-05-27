@@ -14,6 +14,7 @@
     "docz:build": "docz build",
     "lint": "lerna run lint",
     "make": "yarn run lint && yarn run build",
+    "postinstall": "yarn run build",
     "release": "yarn run make && lerna publish --contents lib --yes patch",
     "updatedeps": "ncu -u && yarn",
     "typecheck": "lerna run typecheck"
