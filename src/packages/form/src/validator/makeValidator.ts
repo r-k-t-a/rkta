@@ -1,4 +1,5 @@
-import Ajv from 'ajv';
+/* eslint-disable import/no-extraneous-dependencies */
+import Ajv, { Options } from 'ajv';
 
 import { humanizeErrors, AjvError, ValidationError } from './error';
 import omitEmpty from './omitEmpty';
@@ -15,13 +16,12 @@ type SchemaGetter = (payload?: SchemaGetterPayload) => SchemaType;
 
 type SchemaType = ExtentedSchema | SchemaGetter;
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const makeValidator = (schema: SchemaType, options?: {}) => (
+export const makeValidator = (schema: SchemaType, options?: Options) => (
   formData: CustomFormData,
   errors: ValidationError[],
   inputName?: string,
 ): Promise<CustomFormData> => {
-  const defaultOptions = {
+  const defaultOptions: Options = {
     allErrors: true,
     $data: true,
     errorDataPath: 'property',

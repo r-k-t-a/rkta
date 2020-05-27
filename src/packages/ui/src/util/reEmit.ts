@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
-export const reEmit = (event: {}, handle?: Function): void => {
+export const reEmit = <EventType>(event: EventType, handle?: (event: EventType) => void): void => {
   if (typeof handle === 'function') handle(event);
 };

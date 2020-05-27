@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-fragments */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Fragment, useRef, FormEvent, forwardRef, FC } from 'react';
+import { Fragment, useRef, FocusEvent, FormEvent, forwardRef, FC } from 'react';
 
 import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
@@ -63,7 +63,7 @@ export const Input: FC<Omit<Props, 'ref'>> = forwardRef<InputElement, Props>(
     };
     const [{ css, ...inputProps }, Element] = applyStyles(wrapperProps, 'Input', 'Paper');
 
-    const handleBlur = (event: FormEvent<InputElement>): void => {
+    const handleBlur = (event: FocusEvent<InputElement>): void => {
       removeFocus();
       reEmit(event, onBlur);
     };
@@ -72,7 +72,7 @@ export const Input: FC<Omit<Props, 'ref'>> = forwardRef<InputElement, Props>(
       setLocalValue(event.currentTarget.value);
       reEmit(event, onChange);
     };
-    const handleFocus = (event: FormEvent<InputElement>): void => {
+    const handleFocus = (event: FocusEvent<InputElement>): void => {
       setFocus(event.nativeEvent.target as Element);
       reEmit(event, onFocus);
     };

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import { useEffect, useState } from 'react';
 import isEqual from 'lodash/isEqual';
 import flatten from 'lodash/flatten';
@@ -10,7 +9,7 @@ import { EntriesType, UseMediaResult } from './Media.type';
 
 const evaluate = (entries: EntriesType): UseMediaResult =>
   entries.reduce(
-    (acc, [key, value]): {} => ({
+    (acc, [key, value]): Record<string, boolean> => ({
       ...acc,
       [key]: matchMedia(value),
     }),
@@ -25,7 +24,10 @@ function resolver(entries: EntriesType): string {
 const evaluateMemo = memoize(evaluate, resolver);
 
 const evaluateServer = (entries: EntriesType): UseMediaResult =>
-  entries.reduce((acc, [key]): {} => ({ ...acc, [key]: null }), {}) as UseMediaResult;
+  entries.reduce(
+    (acc, [key]): Record<string, boolean> => ({ ...acc, [key]: null }),
+    {},
+  ) as UseMediaResult;
 
 export function useMedia(): UseMediaResult {
   const { theme } = useProviderContext();

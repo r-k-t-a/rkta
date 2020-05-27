@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import React from 'react';
-import { Global, css } from '@emotion/core';
+import { Global, css, Interpolation } from '@emotion/core';
 
 import { Props } from './GlobalCss.type';
 
 export const GlobalCss = ({ body, links }: Props): JSX.Element => (
   <Global
-    styles={({ color, Text }): {} => [
+    styles={({ color, Text }): Interpolation => [
       body && {
         body: {
           ...Text.body,
