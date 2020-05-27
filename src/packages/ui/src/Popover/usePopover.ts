@@ -31,7 +31,7 @@ function reducer(state: State, { type, triggerElement }: Action): State {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function usePopover() {
   const [state, dispatch] = useReducer(reducer, defaultState);
   return {
