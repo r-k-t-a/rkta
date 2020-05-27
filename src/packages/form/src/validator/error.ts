@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ExtentedSchema } from './ExtentedSchema';
+
 export interface AjvError {
   dataPath: string;
   keyword: string;
@@ -12,12 +13,11 @@ export interface ValidationError {
   property: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const humanizeErrors = (errors: AjvError[], schema: any): ValidationError[] =>
+export const humanizeErrors = (errors: AjvError[], schema: ExtentedSchema): ValidationError[] =>
   errors.map((error) => {
     const property = error.dataPath.replace('.', '');
-    const schemaProperty = schema.properties[property];
-    const schemaMessage = schemaProperty.messages && schemaProperty.messages[error.keyword];
+    const schemaProperty = schema.properties && schema.properties[property];
+    const schemaMessage = schemaProperty?.messages && schemaProperty.messages[error.keyword];
     return {
       error,
       message: schemaMessage || error.message,

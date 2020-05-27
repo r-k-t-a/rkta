@@ -1,20 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import Ajv from 'ajv';
 
-import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
 import { humanizeErrors, AjvError, ValidationError } from './error';
 import omitEmpty from './omitEmpty';
 import mergeErrors from './mergeErrors';
-
-export interface ExtentedSchema extends JSONSchema7 {
-  properties?: {
-    [key: string]: JSONSchema7Definition & {
-      messages?: {
-        [key: string]: string | undefined;
-      };
-    };
-  };
-}
+import { ExtentedSchema } from './ExtentedSchema';
 
 interface SchemaGetterPayload {
   formData: CustomFormData;
@@ -40,8 +29,9 @@ export const makeValidator = (schema: SchemaType, options?: {}) => (
     useDefaults: true,
   };
   const ajv = new Ajv({ ...defaultOptions, ...options });
-  const schemaAsObject =
-    typeof schema === 'function' ? schema({ formData, inputName, errors }) : schema;
+  const schemaAsObject = (typeof schema === 'function'
+    ? schema({ formData, inputName, errors })
+    : schema) as ExtentedSchema;
 
   const validate = ajv.compile(schemaAsObject);
   const nextData = omitEmpty(formData);
