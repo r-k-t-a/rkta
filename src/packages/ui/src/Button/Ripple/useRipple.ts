@@ -76,7 +76,7 @@ export const useRipple = ({
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   useEffect(effect, [state.patched]);
   const buttonProps = {
-    onBlur: (event: FocusEvent): void => {
+    onBlur: (event: FocusEvent<HTMLElement>): void => {
       releaseWaves({ ...state }, patchState);
       reEmit(event, onBlur);
     },
@@ -84,11 +84,11 @@ export const useRipple = ({
       releaseWaves(state, patchState);
       reEmit(event, onClick);
     },
-    onContextMenu: (event: TouchEvent): void => {
+    onContextMenu: (event: MouseEvent<HTMLElement>): void => {
       releaseWaves(state, patchState);
       reEmit(event, onContextMenu);
     },
-    onFocus: (event: FocusEvent): void => {
+    onFocus: (event: FocusEvent<HTMLElement>): void => {
       if (!state.focus) {
         const node = event.target as HTMLElement;
         const { clientWidth: width, clientHeight: height } = node;
@@ -102,15 +102,15 @@ export const useRipple = ({
       }
       reEmit(event, onFocus);
     },
-    onMouseOver: (event: MouseEvent): void => {
+    onMouseOver: (event: MouseEvent<HTMLElement>): void => {
       patchState({ mouseover: true, overlayIsVisible: !state.touch });
       reEmit(event, onMouseOver);
     },
-    onMouseOut: (event: MouseEvent): void => {
+    onMouseOut: (event: MouseEvent<HTMLElement>): void => {
       patchState({ mouseover: false });
       reEmit(event, onMouseOut);
     },
-    onMouseDown: (event: MouseEvent): void => {
+    onMouseDown: (event: MouseEvent<HTMLElement>): void => {
       const { clientY, clientX } = event;
       const node = event.target as HTMLElement;
       const { top, left, width, height } = node.getBoundingClientRect();
@@ -119,15 +119,15 @@ export const useRipple = ({
       addWave({ pointX, pointY, width, height }, { ...state, focus: true }, patchState);
       reEmit(event, onMouseDown);
     },
-    onTouchCancel: (event: TouchEvent): void => {
+    onTouchCancel: (event: TouchEvent<HTMLElement>): void => {
       patchState({ mouseover: false, overlayIsVisible: false });
       reEmit(event, onTouchCancel);
     },
-    onTouchEnd: (event: TouchEvent): void => {
+    onTouchEnd: (event: TouchEvent<HTMLElement>): void => {
       patchState({ mouseover: false, overlayIsVisible: false });
       reEmit(event, onTouchEnd);
     },
-    onTouchStart: (event: TouchEvent): void => {
+    onTouchStart: (event: TouchEvent<HTMLElement>): void => {
       patchState({ mouseover: true, overlayIsVisible: true });
       reEmit(event, onTouchStart);
     },
