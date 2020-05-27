@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import { FocusEvent, HTMLAttributes, MouseEvent, TouchEvent, useEffect, useState } from 'react';
 
 import { Props, Wave } from './Ripple.type';
@@ -29,8 +28,11 @@ const initialState: UseRippliState = {
   touch: false,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type PatchState = (payload: any) => void;
+
 const releaseWave = (wave: Wave): Wave => ({ ...wave, released: true });
-function releaseWaves(state: UseRippliState, patchState: Function): void {
+function releaseWaves(state: UseRippliState, patchState: PatchState): void {
   const waves = state.waves.map(releaseWave);
   patchState({ ...state, focus: false, mouseover: false, waves });
 }
@@ -38,7 +40,7 @@ function releaseWaves(state: UseRippliState, patchState: Function): void {
 function addWave(
   { width, height, pointX, pointY }: AddWaveInput,
   state: UseRippliState,
-  patchState: Function,
+  patchState: PatchState,
 ): void {
   const size = Math.max(width, height);
   const x = pointX;

@@ -1,28 +1,30 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, AnimationEventHandler } from 'react';
 import upperFirst from 'lodash/upperFirst';
 import { SerializedStyles } from '@emotion/core';
 
 import { useProviderContext } from '../Provider';
 
+type Handler = () => void;
+type EffectSetter = (effect: string) => void;
+
 interface Handlers {
-  onPopUp?: Function;
-  onPopUpBegin?: Function;
-  onFadeDown?: Function;
-  onFadeDownBegin?: Function;
-  [key: string]: Function | undefined;
+  onPopUp?: Handler;
+  onPopUpBegin?: Handler;
+  onFadeDown?: Handler;
+  onFadeDownBegin?: Handler;
+  [key: string]: Handler | undefined;
 }
 
 interface FX {
   css: SerializedStyles;
-  onAnimationEnd: Function;
+  onAnimationEnd: AnimationEventHandler;
 }
 
-function emitEvent(emit: Function | undefined): void {
+function emitEvent(emit: Handler | undefined): void {
   if (typeof emit === 'function') emit();
 }
 
-export const useFx = (initialFx: string, handlers: Handlers = {}): [FX, Function] => {
+export const useFx = (initialFx: string, handlers: Handlers = {}): [FX, EffectSetter] => {
   const {
     theme: { Fx },
   } = useProviderContext();

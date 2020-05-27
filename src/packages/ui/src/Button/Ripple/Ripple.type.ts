@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-types */
+import { AnimationEventHandler } from 'react';
+
 export interface Wave {
   id: number;
   x: number;
@@ -10,7 +11,7 @@ export interface Wave {
 export interface Props {
   mouseover: boolean;
   overlayIsVisible: boolean;
-  onOverlayAnimationEnd: Function;
-  onWaveDissolve: Function;
+  onOverlayAnimationEnd: AnimationEventHandler;
+  onWaveDissolve: () => void;
   waves: Wave[];
 }

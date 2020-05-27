@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactElement } from 'react';
+import { ReactElement, AnimationEventHandler } from 'react';
 import { jsx } from '@emotion/core';
 
 import { OverlayCss } from './Ripple.styles';
@@ -7,8 +7,7 @@ import { getElement } from '../../Provider/getElement';
 
 interface Props {
   mouseover: boolean;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onOverlayAnimationEnd: Function;
+  onOverlayAnimationEnd: AnimationEventHandler;
 }
 
 export const Overlay = ({ mouseover, onOverlayAnimationEnd }: Props): ReactElement => {
