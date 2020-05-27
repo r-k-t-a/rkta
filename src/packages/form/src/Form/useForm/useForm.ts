@@ -1,4 +1,4 @@
-import { useState, RefObject, FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import getFormData from 'get-form-data';
 
 import { compareNodes } from './compareNodes';
@@ -35,25 +35,21 @@ export interface Props {
   postvalidate?: Hook | AsyncHook;
 }
 
-export function useForm(
-  ref: RefObject<HTMLFormElement>,
-  {
-    live,
-    onBlur,
-    onChange,
-    onSubmit,
-    onFormBlur,
-    onFormChange,
-    onFormSubmit,
-    prevalidate,
-    validate,
-    postvalidate,
-  }: Props,
-): UseForm {
+export function useForm({
+  live,
+  onBlur,
+  onChange,
+  onSubmit,
+  onFormBlur,
+  onFormChange,
+  onFormSubmit,
+  prevalidate,
+  validate,
+  postvalidate,
+}: Props): UseForm {
   const [errors, setErrors] = useState<ValidationError[]>([]);
   const [lastNode, setLastNode] = useState<EventTarget | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const getForm = (): CustomFormData => getFormData(ref.current!);
+  const getForm = (event: InputEvent): CustomFormData => getFormData(event.currentTarget);
 
   function shouldValidate(customHandler?: CustomHandler): boolean {
     if (errors.length || live) return true;
@@ -88,7 +84,7 @@ export function useForm(
     reactHandler?: ReactHandler,
     customHandler?: CustomHandler,
   ): void {
-    const formData = getForm() as CustomFormData;
+    const formData = getForm(event) as CustomFormData;
     if (reactHandler) reactHandler(event);
     if (!shouldValidate(customHandler)) {
       if (customHandler) customHandler(formData);

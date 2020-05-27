@@ -1,11 +1,4 @@
-import React, {
-  ReactNode,
-  useRef,
-  forwardRef,
-  RefObject,
-  DetailedHTMLProps,
-  FormHTMLAttributes,
-} from 'react';
+import React, { ReactNode, forwardRef, DetailedHTMLProps, FormHTMLAttributes } from 'react';
 
 import { Context } from './Context';
 import { useForm, Props as HookProps } from './useForm/useForm';
@@ -35,9 +28,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
     }: Props,
     externalRef,
   ): JSX.Element => {
-    const internalRef = useRef(null);
-    const ref = (externalRef || internalRef) as RefObject<HTMLFormElement>;
-    const { errors, handleBlur, handleChange, handleSubmit } = useForm(ref, {
+    const { errors, handleBlur, handleChange, handleSubmit } = useForm({
       onBlur,
       live,
       onChange,
@@ -50,7 +41,13 @@ export const Form = forwardRef<HTMLFormElement, Props>(
       postvalidate,
     });
     return (
-      <form {...rest} onChange={handleChange} onBlur={handleBlur} onSubmit={handleSubmit} ref={ref}>
+      <form
+        {...rest}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        onSubmit={handleSubmit}
+        ref={externalRef}
+      >
         <Context.Provider value={{ errors }}>{children}</Context.Provider>
       </form>
     );
