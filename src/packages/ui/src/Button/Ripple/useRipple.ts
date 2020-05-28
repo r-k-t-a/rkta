@@ -62,9 +62,9 @@ export const useRipple = ({
   onTouchCancel,
   onTouchEnd,
   onTouchStart,
-}: HTMLAttributes<HTMLElement>): [Props, {}] => {
+}: HTMLAttributes<HTMLElement>): [Props, Record<string, unknown>] => {
   const [state, setState] = useState(initialState);
-  function patchState(payload: {}): void {
+  function patchState(payload: Record<string, unknown>): void {
     setState((prevState) => ({ ...prevState, ...payload, patched: Date.now() }));
   }
 
