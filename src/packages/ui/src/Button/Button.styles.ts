@@ -14,11 +14,6 @@ export const initialStyle = css`
   position: relative;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  &:active,
-  &:hover,
-  &:visited {
-    color: currentColor;
-  }
   > * {
     pointer-events: none;
   }
@@ -31,7 +26,7 @@ export const blockLevel = css`
 
 export const busy = (theme: RktaTheme, props: { color: string }): SerializedStyles => {
   return css`
-    color: transparent;
+    color: transparent !important;
     > * {
       visibility: hidden;
       &:last-child {
@@ -54,10 +49,10 @@ export const color = (theme: RktaTheme, props: { color: string }): SerializedSty
   const cssColor = theme.color[props.color] || props.color;
   return css`
     color: ${cssColor};
-    &:active,
-    &:hover,
-    &:visited {
-      color: cssColor;
+    :active,
+    :hover,
+    :visited {
+      color: ${cssColor};
     }
   `;
 };
