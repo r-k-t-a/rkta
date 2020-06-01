@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, RefObject } from 'react';
+import { useIsMounted } from '@rkta/hooks';
 import { isElement } from '../util';
 
 export interface Indicator {
@@ -12,9 +13,11 @@ export function useIndicator(
   index: number,
   externalRef?: RefObject<HTMLElement>,
 ): [RefObject<HTMLElement>, Indicator | undefined] {
+  const mounted = useIsMounted();
   const defaultRef = useRef<HTMLElement>(null);
   const [state, setState] = useState<Indicator | undefined>(undefined);
-  const ref = externalRef && isElement(externalRef.current) ? externalRef : defaultRef;
+  const ref =
+    externalRef && (isElement(externalRef.current) || !mounted) ? externalRef : defaultRef;
 
   function update(): void {
     const { current } = ref;
