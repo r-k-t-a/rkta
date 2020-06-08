@@ -9,6 +9,8 @@ import { Props } from './Modal.type';
 import { useModal } from './useModal';
 import { upsertNode } from '../util';
 
+export type ModalProps = Props;
+
 export const Modal: FC<Props> = forwardRef<HTMLElement, Props>(
   ({ align, children, onClose, visible, ...rest }: Props, ref): JSX.Element | null => {
     const defaultRef = useRef<HTMLElement>(null);

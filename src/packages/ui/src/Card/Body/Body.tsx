@@ -5,6 +5,8 @@ import { jsx } from '@emotion/core';
 import { Props } from './Body.type';
 import { useProviderContext } from '../../Provider';
 
+export type CardBodyProps = Props;
+
 export const CardBody: FC<Props> = ({ children, ...rest }: Props): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element: 'section', ...rest }, 'CardBody', 'Text');

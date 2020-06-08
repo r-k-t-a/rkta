@@ -7,6 +7,8 @@ import { useProviderContext } from '../Provider';
 import { clientMedia } from './clientMedia';
 import { serverMedia } from './serverMedia';
 
+export type MediaProps = Props;
+
 export const Media: FC<Props> = ({ children, ...queries }: Props): JSX.Element => {
   const isMounted = useIsMounted();
   const [, toggle] = useToggle();

@@ -1,9 +1,11 @@
 /** @jsx jsx */
-import { ReactElement, FC } from 'react';
+import { ReactElement, FC, Attributes } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Props } from './Divider.type';
 import { useProviderContext } from '../Provider';
+
+export type DividerProps = Props;
 
 export const Divider: FC<Props> = ({ children, ...rest }: Props): ReactElement => {
   const { applyStyles } = useProviderContext();

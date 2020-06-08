@@ -8,6 +8,8 @@ import { Wave } from './Wave';
 import { Overlay } from './Overlay';
 import { getElement } from '../../Provider/getElement';
 
+export type RippleProps = Props;
+
 /* eslint-disable react/jsx-fragments */
 export const Ripple = ({
   mouseover,

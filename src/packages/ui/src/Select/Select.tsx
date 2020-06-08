@@ -6,6 +6,8 @@ import { Svg } from '../Svg';
 import { useProviderContext } from '../Provider';
 import { Props } from './Select.type';
 
+export type SelectProps = Props;
+
 export const Select = forwardRef<HTMLSelectElement, Props>(
   ({ caption, prepend, value, children, ...rest }: Props, ref): ReactElement => {
     const { applyStyles } = useProviderContext();

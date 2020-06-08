@@ -5,6 +5,8 @@ import { jsx } from '@emotion/core';
 import { Props } from './List.type';
 import { useProviderContext } from '../Provider';
 
+export type ListProps = Props;
+
 export const List: FC<Props> = forwardRef<HTMLElement, Props>(
   ({ children, ...rest }: Props, ref): ReactElement => {
     const { applyStyles } = useProviderContext();

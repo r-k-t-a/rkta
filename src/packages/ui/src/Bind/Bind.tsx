@@ -8,6 +8,8 @@ import { useProviderContext } from '../Provider';
 import { useBind } from './useBind';
 import { Props } from './Bind.type';
 
+export type BindProps = Props;
+
 export const Bind: FC<Props> = ({
   children,
   onHide,

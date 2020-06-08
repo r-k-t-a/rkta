@@ -10,6 +10,8 @@ import { Props, State, Context as ContextInterface } from './Provider.type';
 const REPLACE_THEME = Symbol('REPLACE_THEME');
 const USE_STYLES = Symbol('USE_STYLES');
 
+export type ProviderProps = Props;
+
 export class Provider extends React.Component<Props, State> {
   public static defaultProps = {
     getElement,

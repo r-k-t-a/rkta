@@ -6,11 +6,12 @@ import { Spinner } from '../Spinner';
 import { useProviderContext } from '../Provider';
 
 import { Props } from './Button.type';
-
 import { Ripple } from './Ripple';
 import { useRipple } from './Ripple/useRipple';
 
 const injectedProps = { element: 'button', normal: true, button: true };
+
+export type ButtonProps = Props;
 
 export const Button = forwardRef(
   (

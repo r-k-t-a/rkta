@@ -8,6 +8,8 @@ import { useProviderContext } from '../Provider';
 import { Props } from './Backdrop.type';
 import { isTargetEvent } from '../util';
 
+export type BackdropProps = Props;
+
 export const Backdrop = forwardRef<HTMLElement, Props>(
   ({ onClick, opacity, visible, children, onFadeOut, ...rest }: Props, ref): JSX.Element => {
     const isMounted = useIsMounted();

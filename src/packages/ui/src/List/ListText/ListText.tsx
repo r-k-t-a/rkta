@@ -6,6 +6,8 @@ import { useProviderContext } from '../../Provider';
 import { Text } from '../../Text';
 import { Props } from './ListText.type';
 
+export type ListTextProps = Props;
+
 export const ListText: FC<Props> = ({
   label,
   children,

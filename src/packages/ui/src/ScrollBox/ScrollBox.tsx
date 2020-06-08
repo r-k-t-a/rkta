@@ -6,6 +6,8 @@ import { Props } from './ScrollBox.type';
 import { useProviderContext } from '../Provider';
 import useAnimation from './useAnimation';
 
+export type ScrollBoxProps = Props;
+
 // eslint-disable-next-line react/prop-types
 export const ScrollBox: FC<Props> = ({ children, visible, ...rest }): ReactElement => {
   const { applyStyles } = useProviderContext();

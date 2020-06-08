@@ -5,6 +5,8 @@ import { jsx } from '@emotion/core';
 import { useProviderContext } from '../Provider';
 import { Props } from './Bage.type';
 
+export type BageProps = Props;
+
 export const Bage: FC<Props> = ({ children, ...rest }: Props): ReactElement => {
   const { applyStyles } = useProviderContext();
 
