@@ -1,4 +1,4 @@
-import React, { ReactElement, SFC } from 'react';
+import React, { ReactElement, FC } from 'react';
 
 import { Text } from '../Text';
 import { Props as TextProps } from '../Text/Text.type';
@@ -12,6 +12,6 @@ const getHeading = (level: number, rest: Partial<Props>): TextProps => {
   return { element: 'header', ...rest };
 };
 
-export const Heading: SFC<Props> = ({ level, ...rest }: Props): ReactElement => (
+export const Heading: FC<Props> = ({ level, ...rest }: Props): ReactElement => (
   <Text {...getHeading(level, rest)} />
 );

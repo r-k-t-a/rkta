@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactElement, SFC } from 'react';
+import { ReactElement, FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Props } from './ScrollBox.type';
@@ -7,7 +7,7 @@ import { useProviderContext } from '../Provider';
 import useAnimation from './useAnimation';
 
 // eslint-disable-next-line react/prop-types
-export const ScrollBox: SFC<Props> = ({ children, visible, ...rest }): ReactElement => {
+export const ScrollBox: FC<Props> = ({ children, visible, ...rest }): ReactElement => {
   const { applyStyles } = useProviderContext();
 
   const ainmationProps = useAnimation(visible);
