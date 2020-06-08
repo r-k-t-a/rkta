@@ -7,6 +7,8 @@ import { Bind } from '../Bind';
 const defaultAlign = 'bottom';
 const defaultOffset = 0;
 
+export type PopoverProps = Props;
+
 export const Popover: FC<Props> = ({
   align,
   children: [Trigger, ...restChildren],

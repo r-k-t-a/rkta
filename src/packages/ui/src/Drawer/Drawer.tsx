@@ -3,6 +3,8 @@ import { Modal } from '../Modal';
 import { Props } from './Drawer.type';
 import { useProviderContext } from '../Provider';
 
+export type DrawerProps = Props;
+
 export const Drawer: FC<Props> = ({
   align = 'bottom',
   children,

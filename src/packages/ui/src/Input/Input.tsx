@@ -14,6 +14,8 @@ import { Props, Value } from './Input.type';
 import { InputElement } from '../InputBase/InputBase.type';
 import { useInput } from './useInput';
 
+export type InputProps = Props;
+
 export const Input: FC<Omit<Props, 'ref'>> = forwardRef<InputElement, Props>(
   (
     {

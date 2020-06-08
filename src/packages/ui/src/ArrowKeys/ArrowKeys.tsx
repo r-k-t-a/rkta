@@ -17,6 +17,8 @@ import { dispatchDomEvent } from '../util';
 
 const defaultTypes = [Button, ListButton];
 
+export type ArrowKeysProps = Props;
+
 type Setter = (prevIndex: number) => number;
 type Map = { key: number; valid: boolean };
 

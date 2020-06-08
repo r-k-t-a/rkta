@@ -5,6 +5,8 @@ import { jsx } from '@emotion/core';
 import { useProviderContext } from '../Provider';
 import { Props } from './Spinner.type';
 
+export type SpinnerProps = Props;
+
 export const Spinner: FC<Props> = (props): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(props, 'Spinner');
