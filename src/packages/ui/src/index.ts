@@ -21,6 +21,7 @@ export * from './Paper';
 export * from './Placeholder';
 export * from './Popover';
 export * from './Provider';
+export * from './Radio';
 export * from './ScrollBox';
 export * from './Spinner';
 export * from './Svg';
