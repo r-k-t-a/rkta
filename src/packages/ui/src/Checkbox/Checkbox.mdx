@@ -1,0 +1,36 @@
+---
+menu: UI
+name: Checkbox
+---
+
+import { Link, Playground, Props } from 'docz';
+import { Checkbox } from './Checkbox';
+import { Addon } from '../Addon';
+import { List, ListButton } from '../List';
+
+# Checkbox
+
+Basic Checkbox input component.
+
+## Example
+
+<Playground>
+  <List element="form">
+    <ListButton element="label" fitAll>
+      <Addon>
+        <Checkbox color="primary2" name="Checkbox" />
+      </Addon>
+      <Addon main>Option One</Addon>
+    </ListButton>
+    <ListButton element="label" fitAll>
+      <Addon>
+        <Checkbox color="secondary" name="Checkbox" />
+      </Addon>
+      <Addon main>Option Two</Addon>
+    </ListButton>
+  </List>
+</Playground>
+
+## Props
+
+<Props of={Checkbox} />

@@ -1,0 +1,36 @@
+---
+menu: UI
+name: Radio
+---
+
+import { Link, Playground, Props } from 'docz';
+import { Radio } from './Radio';
+import { Addon } from '../Addon';
+import { List, ListButton } from '../List';
+
+# Radio
+
+Basic radio input component.
+
+## Example
+
+<Playground>
+  <List element="form">
+    <ListButton element="label" fitAll>
+      <Addon>
+        <Radio color="primary2" name="radio" />
+      </Addon>
+      <Addon main>Option One</Addon>
+    </ListButton>
+    <ListButton element="label" fitAll>
+      <Addon>
+        <Radio color="secondary" name="radio" />
+      </Addon>
+      <Addon main>Option Two</Addon>
+    </ListButton>
+  </List>
+</Playground>
+
+## Props
+
+<Props of={Radio} />
