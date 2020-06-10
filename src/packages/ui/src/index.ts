@@ -5,6 +5,7 @@ export * from './Bind';
 export * from './Button';
 export * from './Cache';
 export * from './Card';
+export * from './Checkbox';
 export * from './Divider';
 export * from './Drawer';
 export * from './GlobalCss';

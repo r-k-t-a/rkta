@@ -1,10 +1,10 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { cssUnitToString } from '../util';
-import { Props } from './Addon.type';
+import { AddonProps } from './Addon.type';
 
 export const initialStyle = css`
-  display: block;
+  display: flex;
   padding: 0 16px;
 `;
 
@@ -40,7 +40,7 @@ export const normal = css`
   min-height: 48px;
 `;
 
-export const paddingX = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const paddingX = (theme: RktaTheme, props: AddonProps): SerializedStyles => {
   const value = cssUnitToString(props.paddingX);
   return css`
     padding-left: ${value};
@@ -48,7 +48,7 @@ export const paddingX = (theme: RktaTheme, props: Props): SerializedStyles => {
   `;
 };
 
-export const paddingY = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const paddingY = (theme: RktaTheme, props: AddonProps): SerializedStyles => {
   const value = cssUnitToString(props.paddingY);
   return css`
     padding-top: ${value};

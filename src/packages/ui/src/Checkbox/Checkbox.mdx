@@ -1,16 +1,16 @@
 ---
 menu: UI
-name: Radio
+name: Checkbox
 ---
 
 import { Link, Playground, Props } from 'docz';
-import { Radio } from './Radio';
+import { Checkbox } from './Checkbox';
 import { Addon } from '../Addon';
 import { List, ListButton } from '../List';
 
-# Radio
+# Checkbox
 
-Basic radio input component.
+Basic Checkbox input component.
 
 ## Example
 
@@ -18,13 +18,13 @@ Basic radio input component.
   <List element="form">
     <ListButton element="label" fitAll>
       <Addon>
-        <Radio color="primary2" name="radio" />
+        <Checkbox color="primary2" name="Checkbox" />
       </Addon>
       <Addon main>Option One</Addon>
     </ListButton>
     <ListButton element="label" fitAll>
       <Addon>
-        <Radio color="secondary" name="radio" />
+        <Checkbox color="secondary" name="Checkbox" />
       </Addon>
       <Addon main>Option Two</Addon>
     </ListButton>
@@ -33,4 +33,4 @@ Basic radio input component.
 
 ## Props
 
-<Props of={Radio} />
+<Props of={Checkbox} />

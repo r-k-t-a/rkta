@@ -9,7 +9,7 @@
     "clean:tsbuildinfo": "rm -rf src/packages/*/tsconfig.tsbuildinfo",
     "clean:docz-cache": "rm -rf .docz/.cache",
     "clean:lib": "rm -rf src/packages/*/lib",
-    "predocz:dev": "yarn run clean:docz-cache",
+    "disabled-predocz:dev": "yarn run clean:docz-cache",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "lint": "lerna run lint",
