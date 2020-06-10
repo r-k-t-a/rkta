@@ -32,7 +32,7 @@ import { SvgStyles } from '../../../Svg/Svg.styles.type';
 import { TabsStyles } from '../../../Tabs/Tabs.styles.type';
 import { TextStyles } from '../../../Text/Text.styles.type';
 
-type ExtendComponentStyles = {
+type StylesOverload = {
   [key: string]: CssRkta;
 };
 
@@ -50,7 +50,7 @@ export interface RktaDefaultTheme {
   CardBody: CardBodyStyles;
   CardFooter: CardFooterStyles;
   CardHeader: CardHeaderStyles;
-  Checkbox: typeof CheckboxStyles & ExtendComponentStyles;
+  Checkbox: typeof CheckboxStyles & StylesOverload;
   Divider: DividerStyles;
   Drawer: DrawerStyles;
   Fx: FxStyles;
@@ -62,7 +62,7 @@ export interface RktaDefaultTheme {
   ListText: ListTextStyles;
   Paper: PaperStyles;
   Placeholder: PlaceholderStyles;
-  Radio: typeof RadioStyles & ExtendComponentStyles;
+  Radio: typeof RadioStyles & StylesOverload;
   ScrollBox: ScrollBoxStyles;
   Select: SelectStyles;
   Spinner: SpinnerStyles;
