@@ -1,3 +1,4 @@
+import { jsx, ClassNames } from '@emotion/core';
 import { Children, ReactElement, ReactNode, cloneElement } from 'react';
 
 import { PropsWithoutChildren } from './Media.type';
@@ -72,7 +73,9 @@ export const serverMedia = (
       ? child.props.css
       : [child.props.css];
     const nextCss = childrenCss.concat(mediaQuery);
-    return cloneElement(child, { key: child.key, ...child.props, css: nextCss });
+    return jsx(ClassNames, null, ({ css }: { css: any }) =>
+      cloneElement(child, { ...child.props, className: css(nextCss) }),
+    );
   }
   return Children.map(children, injectMediaQuery);
 };
