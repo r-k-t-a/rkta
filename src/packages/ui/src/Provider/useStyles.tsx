@@ -46,6 +46,7 @@ function applyStyles({
 
   for (let index = 0; index < composition.length; index += 1) {
     const name = composition[index];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const styles = (name in theme ? (theme as any)[name] : {}) as RktaComponentStyles;
     const currentCssEmotion: CssEmotion[] = [thunk(styles.initialStyle)];
 
