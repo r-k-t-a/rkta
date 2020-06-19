@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactElement, FC, Attributes } from 'react';
+import { ReactElement, FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Props } from './Divider.type';

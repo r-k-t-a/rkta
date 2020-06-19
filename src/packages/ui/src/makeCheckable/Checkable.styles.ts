@@ -1,4 +1,5 @@
 import { css } from '@emotion/core';
+
 export { color } from '../Text/Text.styles';
 
 export const initialStyle = css`

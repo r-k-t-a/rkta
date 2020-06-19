@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
+import { forwardRef } from 'react';
 
 import { useProviderContext } from '../Provider';
 import { Props } from './Checkable.type';
-import { forwardRef } from 'react';
 
 export type CheckableProps = Props;
 
