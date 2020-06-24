@@ -1,17 +1,17 @@
 import { ExtentedSchema } from './ExtentedSchema';
 
-export interface AjvError {
+export type AjvError = {
   dataPath: string;
   keyword: string;
   message: string;
   property: string;
-}
+};
 
-export interface ValidationError {
+export type ValidationError = {
   error: AjvError;
   message: string;
   property: string;
-}
+};
 
 export const humanizeErrors = (errors: AjvError[], schema: ExtentedSchema): ValidationError[] =>
   errors.map((error) => {
