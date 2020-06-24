@@ -7,18 +7,18 @@ import { useProviderContext } from '../Provider';
 type Handler = () => void;
 type EffectSetter = (effect: string) => void;
 
-interface Handlers {
+type Handlers = {
   onPopUp?: Handler;
   onPopUpBegin?: Handler;
   onFadeDown?: Handler;
   onFadeDownBegin?: Handler;
   [key: string]: Handler | undefined;
-}
+};
 
-interface FX {
+type FX = {
   css: SerializedStyles;
   onAnimationEnd: AnimationEventHandler;
-}
+};
 
 function emitEvent(emit: Handler | undefined): void {
   if (typeof emit === 'function') emit();

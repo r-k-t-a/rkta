@@ -3,8 +3,8 @@ import { RktaElement } from '../Provider';
 
 import { Align } from '../Bind/Bind.type';
 
-export interface Props extends RktaElement {
+export type Props = RktaElement & {
   align?: Align;
   children: [ReactElement, ReactNode];
   offset?: number;
-}
+};

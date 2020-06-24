@@ -1,17 +1,17 @@
 import { AnimationEventHandler } from 'react';
 
-export interface Wave {
+export type Wave = {
   id: number;
   x: number;
   y: number;
   released: boolean;
   size: number;
-}
+};
 
-export interface Props {
+export type Props = {
   mouseover: boolean;
   overlayIsVisible: boolean;
   onOverlayAnimationEnd: AnimationEventHandler;
   onWaveDissolve: () => void;
   waves: Wave[];
-}
+};

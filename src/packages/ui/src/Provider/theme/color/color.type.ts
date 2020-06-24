@@ -17,7 +17,7 @@ export declare type Color =
   | 'color16'
   | string;
 
-export interface Colors {
+export type Colors = {
   primary: string;
   primary1: string;
   primary2: string;
@@ -54,4 +54,4 @@ export interface Colors {
   color15: string;
   color16: string;
   [key: string]: string;
-}
+};

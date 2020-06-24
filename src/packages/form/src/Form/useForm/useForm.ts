@@ -6,19 +6,19 @@ import { ValidationError } from '../../validator/error';
 
 type InputEvent = FormEvent<HTMLFormElement>;
 
-interface UseForm {
+type UseForm = {
   errors: ValidationError[];
   handleBlur: (event: InputEvent) => void;
   handleChange: (event: InputEvent) => void;
   handleSubmit: (event: InputEvent) => void;
-}
+};
 
 type ReactHandler = (event: FormEvent) => void;
 type CustomHandler = (formData: CustomFormData) => void;
 type Hook = (formData: CustomFormData) => CustomFormData;
 type AsyncHook = (formData: CustomFormData) => Promise<CustomFormData>;
 
-export interface Props {
+export type Props = {
   live?: boolean;
   onBlur?: ReactHandler;
   onChange?: ReactHandler;
@@ -33,7 +33,7 @@ export interface Props {
     inputName?: string,
   ) => Promise<CustomFormData>;
   postvalidate?: Hook | AsyncHook;
-}
+};
 
 export function useForm({
   live,

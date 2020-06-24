@@ -1,15 +1,15 @@
 import toString from 'lodash/toString';
 import { Value } from '../InputBase/InputBase.type';
 
-interface Options {
+type Options = {
   bubbles?: boolean;
   cancelable?: boolean;
   value?: Value;
-}
+};
 
-interface CustomEvent extends Event {
+type CustomEvent = Event & {
   eventName: string;
-}
+};
 
 export function dispatchDomEvent(element: Element, eventName: string, options?: Options): void {
   const { bubbles = true, cancelable = true, value } = options || {};

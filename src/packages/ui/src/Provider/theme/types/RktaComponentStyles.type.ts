@@ -1,6 +1,6 @@
 import { CssRkta } from './CssRkta.type';
 
-export interface RktaComponentStyles {
+export type RktaComponentStyles = {
   [key: string]: CssRkta;
   [key: number]: string;
-}
+};

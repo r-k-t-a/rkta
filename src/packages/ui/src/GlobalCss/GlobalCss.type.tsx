@@ -1,4 +1,4 @@
-export interface Props {
+export type Props = {
   body?: boolean;
   links?: boolean;
-}
+};

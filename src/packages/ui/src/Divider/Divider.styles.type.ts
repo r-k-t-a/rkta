@@ -3,7 +3,7 @@ import { RktaTheme } from '../Provider/theme';
 import { CssRkta } from '../Provider/theme/types';
 import { Props } from './Divider.type';
 
-export interface DividerStyles {
+export type DividerStyles = {
   initialStyle: (theme: RktaTheme) => SerializedStyles;
   dotted: SerializedStyles;
   fitAll: SerializedStyles;
@@ -14,4 +14,4 @@ export interface DividerStyles {
   horizontalSpace: (theme: RktaTheme, props: Props) => SerializedStyles;
   verticalSpace: (theme: RktaTheme, props: Props) => SerializedStyles;
   [key: string]: CssRkta;
-}
+};

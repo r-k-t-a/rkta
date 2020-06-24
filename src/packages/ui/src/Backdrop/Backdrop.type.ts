@@ -1,6 +1,6 @@
 import { RktaElement } from '../Provider/theme';
 
-export interface Align {
+export type Align = {
   align?:
     | 'center'
     | 'top'
@@ -11,11 +11,12 @@ export interface Align {
     | 'bottomRight'
     | 'bottomLeft'
     | 'left';
-}
+};
 
-export interface Props extends Align, RktaElement {
-  onClick?(): void;
-  opacity?: number;
-  onFadeOut?(): void;
-  visible?: boolean;
-}
+export type Props = Align &
+  RktaElement & {
+    onClick?(): void;
+    opacity?: number;
+    onFadeOut?(): void;
+    visible?: boolean;
+  };

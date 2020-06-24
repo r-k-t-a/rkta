@@ -2,12 +2,12 @@ import { useEffect, useState, useRef, RefObject } from 'react';
 import { useIsMounted } from '@rkta/hooks';
 import { isElement } from '../util';
 
-export interface Indicator {
+export type Indicator = {
   height: number;
   left: number;
   top: number;
   width: number;
-}
+};
 
 export function useIndicator(
   index: number,

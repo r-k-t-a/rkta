@@ -3,7 +3,7 @@ import { RktaTheme } from '../Provider/theme';
 import { CssRkta } from '../Provider/theme/types';
 import { Props } from './Text.type';
 
-export interface TextStyles {
+export type TextStyles = {
   color: (theme: RktaTheme, props: Props) => SerializedStyles;
   sans: SerializedStyles;
   serif: SerializedStyles;
@@ -31,4 +31,4 @@ export interface TextStyles {
   caption: SerializedStyles;
   overline: SerializedStyles;
   [key: string]: CssRkta;
-}
+};

@@ -1,6 +1,6 @@
 export type MediaTuple = number[];
 
-export interface MediaTuples {
+export type MediaTuples = {
   phone: MediaTuple;
   tablet: MediaTuple;
   laptop: MediaTuple;
@@ -17,4 +17,4 @@ export interface MediaTuples {
   atMostDesktop: MediaTuple;
   atMostJumbotron: MediaTuple;
   [key: string]: MediaTuple;
-}
+};

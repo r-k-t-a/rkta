@@ -1,6 +1,6 @@
 import { RktaElement } from '../Provider/theme';
 
-export interface Props extends RktaElement {
+export type Props = RktaElement & {
   /** Adds dotted style */
   dotted?: boolean;
   /** Resets margins */
@@ -17,4 +17,4 @@ export interface Props extends RktaElement {
   horizontalSpace?: number | string;
   /** Set divider vertical margins */
   verticalSpace?: number | string;
-}
+};

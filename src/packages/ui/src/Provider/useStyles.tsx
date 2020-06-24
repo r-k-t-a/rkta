@@ -7,9 +7,9 @@ import { CssEmotion, CssRkta, RktaComponentStyles, RktaThemed, RktaTheme } from 
 
 import { Resolver, ElementResolverProps } from './getElement.type';
 
-export interface NextProps {
+export type NextProps = {
   [key: string]: CssRkta | React.ReactNode;
-}
+};
 
 export type NextPropsAndElementType = [NextProps, React.ElementType];
 
@@ -18,13 +18,13 @@ export type useStylesFunctionType = (
   ...names: string[]
 ) => NextPropsAndElementType;
 
-interface ApplyStylesArgType {
+type ApplyStylesArgType = {
   composition: string[];
   getElement: Resolver;
   memo?: boolean;
   props: RktaThemed & ElementResolverProps & { element?: ElementType };
   theme: RktaTheme;
-}
+};
 
 function applyStyles({
   getElement,
