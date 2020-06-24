@@ -13,6 +13,9 @@ export const initialStyle = css`
   outline: none;
   position: relative;
   user-select: none;
+  ::-moz-focus-inner {
+    border: 0;
+  }
   -webkit-tap-highlight-color: transparent;
   > * {
     pointer-events: none;
