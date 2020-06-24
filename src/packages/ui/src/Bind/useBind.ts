@@ -11,23 +11,23 @@ const HIDE = Symbol('HIDE');
 const SHOW = Symbol('SHOW');
 const UPDATE_BOUNDS = Symbol('UPDATE_BOUNDS');
 
-interface State {
+type State = {
   bounds: DOMRect;
   fx: 0 | 1 | 2;
   shouldRender: boolean;
-}
+};
 
-interface Args {
+type Args = {
   container: RefObject<HTMLElement>;
   isVisible: boolean;
   onHide: () => void;
   trigger: Element;
-}
+};
 
-interface Action {
+type Action = {
   type: symbol;
   bounds?: DOMRect;
-}
+};
 
 const init = ({ isVisible, trigger }: Args): State => ({
   bounds: trigger.getBoundingClientRect(),

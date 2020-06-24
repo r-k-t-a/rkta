@@ -1,4 +1,4 @@
-export interface Shadows {
+export type Shadows = {
   1: string;
   2: string;
   3: string;
@@ -24,4 +24,4 @@ export interface Shadows {
   23: string;
   24: string;
   [key: string]: string;
-}
+};

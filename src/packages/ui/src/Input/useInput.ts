@@ -2,26 +2,26 @@ import { useState } from 'react';
 
 import { Value } from '../InputBase/InputBase.type';
 
-interface State {
+type State = {
   hasFocus?: boolean;
   inputElement?: Element;
   suggestIsLocked?: boolean;
   localValue?: Value;
-}
+};
 
-interface Action {
+type Action = {
   type: symbol;
   value?: Value;
-}
+};
 
-interface Results extends State {
+type Results = State & {
   lockSuggest(): void;
   removeFocus(): void;
   setFocus(inputElement: Element): void;
   setLocalValue(value: Value): void;
   suggestIsVisible: boolean;
   unlockSuggest(): void;
-}
+};
 
 export function useInput(initialValue?: Value): Results {
   const [state, setState] = useState<State>({ localValue: initialValue });

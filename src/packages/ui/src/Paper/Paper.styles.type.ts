@@ -3,7 +3,7 @@ import { RktaTheme } from '../Provider/theme';
 import { CssRkta } from '../Provider/theme/types';
 import { Props } from './Paper.type';
 
-export interface PaperStyles {
+export type PaperStyles = {
   initialStyle: (theme: RktaTheme) => SerializedStyles;
   bgColor: (theme: RktaTheme, props: Props) => SerializedStyles;
   clip: SerializedStyles;
@@ -23,4 +23,4 @@ export interface PaperStyles {
   size: (theme: RktaTheme, props: Props) => SerializedStyles;
   transparent: SerializedStyles;
   [key: string]: CssRkta;
-}
+};

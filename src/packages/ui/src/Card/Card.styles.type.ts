@@ -1,7 +1,7 @@
 import { SerializedStyles } from '@emotion/core';
 import { CssRkta } from '../Provider/theme/types';
 
-export interface CardStyles {
+export type CardStyles = {
   initialStyle: SerializedStyles;
   [key: string]: CssRkta;
-}
+};

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Props as Paper } from '../Paper/Paper.type';
 
-export interface Props extends Paper {
+export type Props = Paper & {
   children: ReactNode;
   /** Reset Margins */
   fitAll?: boolean;
@@ -9,4 +9,4 @@ export interface Props extends Paper {
   fitLeft?: boolean;
   /** Reset Right Margin */
   fitRight?: boolean;
-}
+};

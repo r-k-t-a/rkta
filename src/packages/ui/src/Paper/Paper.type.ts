@@ -1,7 +1,7 @@
 import { Props as Text } from '../Text/Text.type';
 import { Color } from '../Provider/theme';
 
-export interface PaperOwnProps {
+export type PaperOwnProps = {
   bgColor?: Color;
   clip?: boolean;
   disabled?: boolean;
@@ -18,8 +18,8 @@ export interface PaperOwnProps {
   rounded?: boolean;
   size?: number | string;
   transparent?: boolean;
-}
+};
 
 type OmitColor = Omit<Text, 'color'>;
 
-export interface Props extends PaperOwnProps, Omit<OmitColor, 'size'> {}
+export type Props = PaperOwnProps & Omit<OmitColor, 'size'> & {};

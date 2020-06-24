@@ -2,7 +2,7 @@ import { SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { CssRkta } from '../Provider/theme/types/CssRkta.type';
 
-export interface AddonStyles {
+export type AddonStyles = {
   initialStyle: SerializedStyles;
   big: SerializedStyles;
   fitAll: SerializedStyles;
@@ -17,4 +17,4 @@ export interface AddonStyles {
   small: SerializedStyles;
   tiny: SerializedStyles;
   [key: string]: CssRkta;
-}
+};

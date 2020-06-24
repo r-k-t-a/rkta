@@ -4,21 +4,21 @@ import { ReactNode, FC } from 'react';
 import { useTheme } from '@rkta/context';
 import { jsx, InterpolationWithTheme } from '@emotion/core';
 
-interface CssProps {
+type CssProps = {
   color?: string;
   inline?: boolean;
   size?: number | string;
-}
+};
 
-interface Props extends CssProps {
+type Props = CssProps & {
   children: ReactNode;
-}
+};
 
-interface Theme {
+type Theme = {
   color: {
     [key: string]: string | number;
   };
-}
+};
 
 const getCss = (
   theme: Theme,

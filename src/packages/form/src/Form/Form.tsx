@@ -6,9 +6,9 @@ import { useForm, Props as HookProps } from './useForm/useForm';
 type HTMLFormProps = DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> &
   HookProps;
 
-interface Props extends HTMLFormProps {
+type Props = HTMLFormProps & {
   children: ReactNode;
-}
+};
 
 export const Form = forwardRef<HTMLFormElement, Props>(
   (

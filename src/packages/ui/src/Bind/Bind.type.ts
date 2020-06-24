@@ -11,7 +11,7 @@ export type Align =
   | 'bottomLeft'
   | 'left';
 
-export interface Props extends RktaElement {
+export type Props = RktaElement & {
   align?: Align;
   blockLevel?: boolean;
   children: ReactNode;
@@ -19,4 +19,4 @@ export interface Props extends RktaElement {
   onHide: () => void;
   to: Element;
   visible: boolean;
-}
+};

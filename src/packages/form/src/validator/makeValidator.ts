@@ -6,11 +6,11 @@ import omitEmpty from './omitEmpty';
 import mergeErrors from './mergeErrors';
 import { ExtentedSchema } from './ExtentedSchema';
 
-interface SchemaGetterPayload {
+type SchemaGetterPayload = {
   formData: CustomFormData;
   inputName: string | undefined;
   errors: ValidationError[];
-}
+};
 
 type SchemaGetter = (payload?: SchemaGetterPayload) => SchemaType;
 

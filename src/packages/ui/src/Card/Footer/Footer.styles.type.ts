@@ -1,7 +1,7 @@
 import { SerializedStyles } from '@emotion/core';
 import { CssRkta } from '../../Provider/theme/types';
 
-export interface CardFooterStyles {
+export type CardFooterStyles = {
   initialStyle: SerializedStyles;
   center: SerializedStyles;
   flexEnd: SerializedStyles;
@@ -9,4 +9,4 @@ export interface CardFooterStyles {
   spaceBetween: SerializedStyles;
   spaceEvenly: SerializedStyles;
   [key: string]: CssRkta;
-}
+};

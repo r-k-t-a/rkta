@@ -1,3 +1,3 @@
-export interface Breakpoint {
+export type Breakpoint = {
   [key: string]: number;
-}
+};

@@ -1,6 +1,6 @@
 import { Color, RktaElement } from '../Provider/theme';
 
-export interface Props extends RktaElement {
+export type Props = RktaElement & {
   /** One of theme colors or CSS Value: Color. */
   color?: Color;
   h1?: boolean;
@@ -32,4 +32,4 @@ export interface Props extends RktaElement {
   /** force wrap long lines. */
   wrapLongLines?: boolean;
   hyphens?: boolean;
-}
+};
