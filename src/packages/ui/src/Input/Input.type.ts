@@ -2,9 +2,7 @@ import { ReactNode } from 'react';
 
 import { Color } from '../Provider/theme';
 import { PaperOwnProps } from '../Paper/Paper.type';
-import { Props as InputBase } from '../InputBase/InputBase.type';
-
-export type Value = string | number | string[] | undefined;
+import { Props as InputBase, Value } from '../InputBase/InputBase.type';
 
 interface ChildrenArgs {
   value?: Value;

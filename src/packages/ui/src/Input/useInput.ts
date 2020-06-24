@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Value } from './Input.type';
+import { Value } from '../InputBase/InputBase.type';
 
 interface State {
   hasFocus?: boolean;

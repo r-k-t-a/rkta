@@ -1,5 +1,5 @@
 import toString from 'lodash/toString';
-import { Value } from '../Input/Input.type';
+import { Value } from '../InputBase/InputBase.type';
 
 interface Options {
   bubbles?: boolean;
