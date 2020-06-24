@@ -10,8 +10,8 @@ import { Media } from '../Media';
 import { reEmit } from '../util';
 
 import { dispatchDomEvent } from '../util/dispatchDomEvent';
-import { Props, Value } from './Input.type';
-import { InputElement } from '../InputBase/InputBase.type';
+import { Props } from './Input.type';
+import { InputElement, Value } from '../InputBase/InputBase.type';
 import { useInput } from './useInput';
 
 export type InputProps = Props;

@@ -1,6 +1,8 @@
 import { ReactNode, HTMLProps } from 'react';
 import { AddonOwnProps } from '../Addon/Addon.type';
 
+export type Value = string | number | string[] | undefined;
+
 export type InputElement = HTMLInputElement | HTMLTextAreaElement;
 export interface Props extends AddonOwnProps, HTMLProps<InputElement> {
   active?: boolean;
@@ -8,4 +10,6 @@ export interface Props extends AddonOwnProps, HTMLProps<InputElement> {
   caption?: ReactNode;
   maxRows?: number;
   multiline?: boolean;
+  defaultValue?: Value;
+  value?: Value;
 }
