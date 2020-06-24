@@ -1,6 +1,6 @@
 import { Props as Text } from '../Text/Text.type';
 
-export interface AddonOwnProps {
+export type AddonOwnProps = {
   big?: boolean;
   /** Reset Paddings */
   fitAll?: boolean;
@@ -16,6 +16,6 @@ export interface AddonOwnProps {
   paddingY?: number | string;
   small?: boolean;
   tiny?: boolean;
-}
+};
 
-export interface AddonProps extends AddonOwnProps, Text {}
+export type AddonProps = AddonOwnProps & Text & {};
