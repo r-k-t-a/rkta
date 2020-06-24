@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 
-export interface PropsWithoutChildren {
+export type PropsWithoutChildren = {
   phone?: boolean;
   tablet?: boolean;
   laptop?: boolean;
@@ -18,15 +18,15 @@ export interface PropsWithoutChildren {
   atMostJumbotron?: boolean;
 
   [key: string]: ReactNode;
-}
+};
 
-export interface Props extends PropsWithoutChildren {
+export type Props = PropsWithoutChildren & {
   children: ReactElement | ReactElement[];
-}
+};
 
 export type EntriesType = [string, string][];
 
-export interface UseMediaResult {
+export type UseMediaResult = {
   phone: boolean | null;
   tablet: boolean | null;
   laptop: boolean | null;
@@ -42,4 +42,4 @@ export interface UseMediaResult {
   atMostLaptop: boolean | null;
   atMostDesktop: boolean | null;
   atMostJumbotron: boolean | null;
-}
+};

@@ -1,10 +1,10 @@
 import { RefObject, useRef, useEffect, useState } from 'react';
 import { CssEmotion } from '../Provider/theme';
 
-interface AnimationProps {
+type AnimationProps = {
   ref: RefObject<HTMLElement>;
   style: CssEmotion;
-}
+};
 
 export default (visible?: boolean): AnimationProps => {
   const ref = useRef<HTMLElement>(null);

@@ -1,4 +1,4 @@
-export interface MediaQueries {
+export type MediaQueries = {
   phone: string;
   tablet: string;
   laptop: string;
@@ -15,4 +15,4 @@ export interface MediaQueries {
   atMostDesktop: string;
   atMostJumbotron: string;
   [key: string]: string;
-}
+};

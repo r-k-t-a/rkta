@@ -5,10 +5,10 @@ import { jsx } from '@emotion/core';
 import { OverlayCss } from './Ripple.styles';
 import { getElement } from '../../Provider/getElement';
 
-interface Props {
+type Props = {
   mouseover: boolean;
   onOverlayAnimationEnd: AnimationEventHandler;
-}
+};
 
 export const Overlay = ({ mouseover, onOverlayAnimationEnd }: Props): ReactElement => {
   const Element = getElement('span', {});

@@ -1,6 +1,6 @@
 import { Props as Paper } from '../Paper/Paper.type';
 
-export interface Props extends Paper {
+export type Props = Paper & {
   animateHeight?: boolean;
   height?: number | string;
   /** Hide scrollbars */
@@ -13,4 +13,4 @@ export interface Props extends Paper {
   y?: boolean;
   /** Show animated content or no */
   visible?: boolean;
-}
+};

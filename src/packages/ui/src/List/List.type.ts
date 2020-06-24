@@ -1,7 +1,7 @@
 import { Props as Paper } from '../Paper/Paper.type';
 
-export interface Props extends Paper {
+export type Props = Paper & {
   fitAll?: boolean;
   fitTop?: boolean;
   fitBottom?: boolean;
-}
+};

@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { useUnmount } from '@rkta/hooks';
 import { useProviderContext } from '../Provider';
 
-interface ReactiveState {
+type ReactiveState = {
   modalQueue: symbol[];
-}
-interface Result {
+};
+type Result = {
   backdropIsVisible: boolean;
   onBackdropFade(): void;
   shouldRender: boolean;
-}
+};
 
 const CLOSED = 0;
 const CLOSING = 1;

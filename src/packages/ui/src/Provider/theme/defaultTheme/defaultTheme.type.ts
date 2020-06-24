@@ -36,7 +36,7 @@ type StylesOverload = {
   [key: string]: CssRkta;
 };
 
-export interface RktaDefaultTheme {
+export type RktaDefaultTheme = {
   breakpoints: Breakpoint[];
   color: Colors;
   shadow: Shadows;
@@ -69,4 +69,4 @@ export interface RktaDefaultTheme {
   Svg: SvgStyles;
   Tabs: TabsStyles;
   Text: TextStyles;
-}
+};

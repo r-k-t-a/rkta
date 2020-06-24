@@ -26,10 +26,10 @@ const mergeMediaTuples = (acc: MediaTuple[], tuple: MediaTuple): MediaTuple[] =>
   return [...acc.slice(0, -1), [lastMin, Math.max(lastMax, max)]];
 };
 
-interface InvertMediaType {
+type InvertMediaType = {
   result: MediaTuple[];
   lastMax: number | null;
-}
+};
 
 const invertMediaTuples = (
   acc: InvertMediaType,

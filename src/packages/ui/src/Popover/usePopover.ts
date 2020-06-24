@@ -4,15 +4,15 @@ const HIDE = Symbol('HIDE');
 const TOGGLE = Symbol('TOGGLE');
 const SET_TRIGGER_ELEMENT = Symbol('SET_TRIGGER_ELEMENT');
 
-interface State {
+type State = {
   isVisible: boolean;
   triggerElement?: Element;
-}
-interface Action {
+};
+type Action = {
   type: symbol;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
-}
+};
 
 const defaultState = {
   isVisible: false,

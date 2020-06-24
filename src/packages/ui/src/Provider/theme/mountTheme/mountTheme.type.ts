@@ -2,7 +2,7 @@ import { RktaDefaultTheme } from '../defaultTheme';
 import { MediaQueries } from '../mediaQueries';
 import { MediaTuples } from '../mediaTuples';
 
-export interface RktaTheme extends RktaDefaultTheme {
+export type RktaTheme = RktaDefaultTheme & {
   media: MediaQueries;
   mediaTuples: MediaTuples;
-}
+};

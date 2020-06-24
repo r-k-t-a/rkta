@@ -3,21 +3,21 @@ import { FocusEvent, HTMLAttributes, MouseEvent, TouchEvent, useEffect, useState
 import { Props, Wave } from './Ripple.type';
 import { reEmit } from '../../util/reEmit';
 
-interface AddWaveInput {
+type AddWaveInput = {
   width: number;
   height: number;
   pointX: number;
   pointY: number;
-}
+};
 
-interface UseRippliState {
+type UseRippliState = {
   focus: boolean;
   mouseover: boolean;
   overlayIsVisible: boolean;
   patched: number;
   touch: boolean;
   waves: Wave[];
-}
+};
 
 const initialState: UseRippliState = {
   focus: false,

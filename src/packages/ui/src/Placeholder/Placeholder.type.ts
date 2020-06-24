@@ -1,5 +1,5 @@
 import { RktaElement } from '../Provider/theme';
 
-export interface Props extends RktaElement {
+export type Props = RktaElement & {
   width?: string;
-}
+};

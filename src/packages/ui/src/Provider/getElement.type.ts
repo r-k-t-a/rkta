@@ -1,7 +1,7 @@
 import { ElementType } from 'react';
 
-export interface ElementResolverProps {
+export type ElementResolverProps = {
   href?: string;
-}
+};
 
 export type Resolver = (element: ElementType, props: ElementResolverProps) => ElementType;

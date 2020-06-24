@@ -1,9 +1,9 @@
 import { RefObject, useRef, useEffect } from 'react';
 
-interface Shape {
+type Shape = {
   ref: RefObject<HTMLLabelElement>;
   onInput: () => void;
-}
+};
 
 export const useAutoHeight = (
   isActive?: boolean,

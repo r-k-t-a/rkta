@@ -3,7 +3,7 @@ import { RktaTheme } from '../Provider/theme';
 import { CssRkta } from '../Provider/theme/types';
 import { Props } from './ScrollBox.type';
 
-export interface ScrollBoxStyles {
+export type ScrollBoxStyles = {
   initialStyle: SerializedStyles;
   animateHeight: SerializedStyles;
   height: (theme: RktaTheme, props: Props) => SerializedStyles;
@@ -12,4 +12,4 @@ export interface ScrollBoxStyles {
   x: SerializedStyles;
   y: SerializedStyles;
   [key: string]: CssRkta;
-}
+};

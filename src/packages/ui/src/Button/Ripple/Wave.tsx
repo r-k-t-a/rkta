@@ -6,9 +6,9 @@ import { WaveCss } from './Ripple.styles';
 import { Props as RippleProps, Wave as WaveCommon } from './Ripple.type';
 import { getElement } from '../../Provider/getElement';
 
-interface Props extends WaveCommon {
+type Props = WaveCommon & {
   onWaveDissolve: RippleProps['onWaveDissolve'];
-}
+};
 
 export const Wave: FC<Props> = ({ onWaveDissolve, ...wave }: Props): ReactElement => {
   const Element = getElement('span', {});

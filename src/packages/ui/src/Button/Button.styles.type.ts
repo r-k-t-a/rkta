@@ -3,7 +3,7 @@ import { RktaTheme } from '../Provider/theme';
 import { CssRkta } from '../Provider/theme/types';
 import { Props } from './Button.type';
 
-export interface ButtonStyles {
+export type ButtonStyles = {
   initialStyle: SerializedStyles;
   blockLevel: SerializedStyles;
   busy: (theme: RktaTheme, props: { color: string }) => SerializedStyles;
@@ -11,4 +11,4 @@ export interface ButtonStyles {
   round: (theme: RktaTheme, props: Props) => SerializedStyles;
   size: (theme: RktaTheme, props: Props) => SerializedStyles;
   [key: string]: CssRkta;
-}
+};

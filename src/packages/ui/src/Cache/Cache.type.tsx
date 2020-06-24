@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface Props {
+export type Props = {
   children: ReactNode;
   disabled?: boolean;
-}
+};
