@@ -15,7 +15,7 @@
   "scripts": {
     "build:esm": "tsc -m esnext --outDir lib/esm",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx src",
-    "prebuild": "rm -rf lib; mkdir -p lib/esm; cp package.json lib/package.json; cp ../../esm.json lib/esm/package.json; exit 0",
+    "prebuild": "rimraf lib; mkdir -p lib/esm; cp package.json lib/package.json; cp ../../esm.json lib/esm/package.json; exit 0",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "typecheck": "tsc --emitDeclarationOnly"
   },
@@ -35,7 +35,8 @@
     "@rkta/ui": "^0.0.145"
   },
   "devDependencies": {
-    "@types/react": "^16.9.2"
+    "@types/react": "^16.9.2",
+    "rimraf": "^3.0.2"
   },
   "gitHead": "91cba48face87da520768df1507e46308777bd8f"
 }

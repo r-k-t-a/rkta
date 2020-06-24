@@ -50,7 +50,6 @@
     "npm-check-updates": "^6.0.1",
     "prettier": "^2.0.5",
     "react-dom": "^16.13.1",
-    "rimraf": "^3.0.2",
     "typescript": "3.8.3"
   },
   "licence": "MIT",
