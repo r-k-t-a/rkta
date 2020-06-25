@@ -1,8 +1,13 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { Color, RktaTheme } from '../Provider/theme';
 import { Indicator } from './useIndicator';
-import { IndicatorProps } from './Tabs.styles.type';
 import { cssUnitToString } from '../util';
+
+type IndicatorProps = {
+  indicator: Indicator;
+  overline?: boolean;
+  vertical?: boolean;
+};
 
 export const initialStyle = css`
   position: relative;

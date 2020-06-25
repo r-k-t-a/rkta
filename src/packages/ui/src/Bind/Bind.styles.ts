@@ -4,8 +4,11 @@ import { RktaTheme } from '../Provider/theme';
 import { fxIn } from '../Backdrop/fxIn';
 import { fxOut } from '../Backdrop/fxOut';
 import { Props } from './Bind.type';
-import { Bounds } from './Bind.styles.type';
 import { VISIBLE } from './useBind';
+
+type Bounds = Props & {
+  bounds: DOMRect;
+};
 
 export const initialStyle = css`
   position: fixed;
