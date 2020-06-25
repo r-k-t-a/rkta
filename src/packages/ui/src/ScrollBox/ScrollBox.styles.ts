@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './ScrollBox.type';
+import { ScrollBoxProps } from './ScrollBox.type';
 
 export const initialStyle = css`
   display: block;
@@ -16,7 +16,7 @@ export const animateHeight = css`
   will-change: height;
 `;
 
-export const height = (theme: RktaTheme, props: Props): SerializedStyles => css`
+export const height = (theme: RktaTheme, props: ScrollBoxProps): SerializedStyles => css`
   height: ${props.height};
 `;
 

@@ -1,13 +1,13 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Input.type';
+import { InputProps } from './Input.type';
 
 export const initialStyle = css`
   align-items: center;
   display: flex;
 `;
 
-export const fancy = (theme: RktaTheme, props: Props): SerializedStyles => css`
+export const fancy = (theme: RktaTheme, props: InputProps): SerializedStyles => css`
   position: relative;
   &:before {
     background-color: currentColor;

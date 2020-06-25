@@ -6,17 +6,15 @@ import { createPortal } from 'react-dom';
 import { upsertNode } from '../util';
 import { useProviderContext } from '../Provider';
 import { useBind } from './useBind';
-import { Props } from './Bind.type';
+import { BindProps } from './Bind.type';
 
-export type BindProps = Props;
-
-export const Bind: FC<Props> = ({
+export const Bind: FC<BindProps> = ({
   children,
   onHide,
   to,
   visible,
   ...rest
-}: Props): JSX.Element | null => {
+}: BindProps): JSX.Element | null => {
   const ref = useRef<HTMLElement>(null);
   const { fx, bounds, shouldRender } = useBind({
     container: ref,

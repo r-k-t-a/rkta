@@ -1,6 +1,6 @@
 import { AddonProps } from '../../Addon/Addon.type';
 
-export type Props = AddonProps & {
+export type FooterProps = AddonProps & {
   center?: boolean;
   flexEnd?: boolean;
   spaceAround?: boolean;

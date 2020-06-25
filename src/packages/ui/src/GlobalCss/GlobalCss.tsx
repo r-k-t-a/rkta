@@ -1,11 +1,9 @@
 import React from 'react';
 import { Global, css, Interpolation } from '@emotion/core';
 
-import { Props } from './GlobalCss.type';
+import { GlobalCssProps } from './GlobalCss.type';
 
-export type GlobalCssProps = Props;
-
-export const GlobalCss = ({ body, links }: Props): JSX.Element => (
+export const GlobalCss = ({ body, links }: GlobalCssProps): JSX.Element => (
   <Global
     styles={({ color, Text }): Interpolation => [
       body && {

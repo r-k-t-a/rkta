@@ -1,6 +1,6 @@
-import { Props as Paper } from '../Paper/Paper.type';
+import { PaperProps } from '../Paper/Paper.type';
 
-export type Props = Paper & {
+export type ScrollBoxProps = PaperProps & {
   animateHeight?: boolean;
   height?: number | string;
   /** Hide scrollbars */

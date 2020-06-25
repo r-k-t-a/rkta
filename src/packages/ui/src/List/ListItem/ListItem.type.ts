@@ -1,1 +1,1 @@
-export { Props } from '../../Paper/Paper.type';
+export { PaperProps } from '../../Paper/Paper.type';

@@ -3,11 +3,13 @@ import { FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../Provider';
-import { Props } from './Placeholder.type';
+import { PlaceholderProps } from './Placeholder.type';
 
-export type PlaceholderProps = Props;
-
-export const Placeholder: FC<Props> = ({ children, element, ...rest }: Props): JSX.Element => {
+export const Placeholder: FC<PlaceholderProps> = ({
+  children,
+  element,
+  ...rest
+}: PlaceholderProps): JSX.Element => {
   if (children) return children as JSX.Element;
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element, ...rest }, 'Placeholder');

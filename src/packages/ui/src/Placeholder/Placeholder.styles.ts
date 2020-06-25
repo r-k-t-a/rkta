@@ -1,6 +1,6 @@
 import { css, keyframes, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Placeholder.type';
+import { PlaceholderProps } from './Placeholder.type';
 
 const fadeIn = keyframes`
   0% {
@@ -26,6 +26,6 @@ export const initialStyle = css`
   width: 100%;
 `;
 
-export const width = (theme: RktaTheme, props: Props): SerializedStyles => css`
+export const width = (theme: RktaTheme, props: PlaceholderProps): SerializedStyles => css`
   width: ${props.width};
 `;

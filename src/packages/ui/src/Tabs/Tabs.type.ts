@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { Color } from '../Provider/theme';
-import { Props as Paper } from '../Paper/Paper.type';
+import { PaperProps } from '../Paper/Paper.type';
 
-export type Props = Omit<Paper, 'size'> & {
+export type TabsProps = Omit<PaperProps, 'size'> & {
   index: number;
   children: ReactNode;
   color?: Color;

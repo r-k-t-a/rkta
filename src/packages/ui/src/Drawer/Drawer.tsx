@@ -1,18 +1,16 @@
 import React, { FC } from 'react';
 import { Modal } from '../Modal';
-import { Props } from './Drawer.type';
+import { DrawerProps } from './Drawer.type';
 import { useProviderContext } from '../Provider';
 
-export type DrawerProps = Props;
-
-export const Drawer: FC<Props> = ({
+export const Drawer: FC<DrawerProps> = ({
   align = 'bottom',
   children,
   close,
   onClose,
   open,
   ...rest
-}: Props): JSX.Element => {
+}: DrawerProps): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(
     { align, element: 'div', hard: true, rize: 2, ...rest },

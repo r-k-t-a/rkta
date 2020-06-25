@@ -8,7 +8,7 @@ export type Wave = {
   size: number;
 };
 
-export type Props = {
+export type RippleProps = {
   mouseover: boolean;
   overlayIsVisible: boolean;
   onOverlayAnimationEnd: AnimationEventHandler;

@@ -10,13 +10,11 @@ import { Media } from '../Media';
 import { reEmit } from '../util';
 
 import { dispatchDomEvent } from '../util/dispatchDomEvent';
-import { Props } from './Input.type';
+import { InputProps } from './Input.type';
 import { InputElement, Value } from '../InputBase/InputBase.type';
 import { useInput } from './useInput';
 
-export type InputProps = Props;
-
-export const Input: FC<Omit<Props, 'ref'>> = forwardRef<InputElement, Props>(
+export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, InputProps>(
   (
     {
       append,

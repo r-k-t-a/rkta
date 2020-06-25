@@ -3,11 +3,9 @@ import { jsx } from '@emotion/core';
 import { FC } from 'react';
 
 import { useProviderContext } from '../Provider';
-import { Props } from './InputGroup.type';
+import { PaperProps } from './InputGroup.type';
 
-export type InputGroupProps = Props;
-
-export const InputGroup: FC<Props> = ({ children, ...props }: Props): JSX.Element => {
+export const InputGroup: FC<PaperProps> = ({ children, ...props }: PaperProps): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [{ css, ...elementProps }, Element] = applyStyles(props, 'Paper', 'InputGroup');
   return (

@@ -1,12 +1,10 @@
 import React, { ReactElement, FC } from 'react';
 
 import { Text } from '../Text';
-import { Props as TextProps } from '../Text/Text.type';
-import { Props } from './Heading.type';
+import { TextProps } from '../Text/Text.type';
+import { HeadingProps } from './Heading.type';
 
-export type HeadingProps = Props;
-
-const getHeading = (level: number, rest: Partial<Props>): TextProps => {
+const getHeading = (level: number, rest: Partial<HeadingProps>): TextProps => {
   if (level >= 1 && level <= 6) {
     const element = `h${level}` as React.ElementType;
     return { element, [element as string]: true, ...rest };
@@ -14,6 +12,6 @@ const getHeading = (level: number, rest: Partial<Props>): TextProps => {
   return { element: 'header', ...rest };
 };
 
-export const Heading: FC<Props> = ({ level, ...rest }: Props): ReactElement => (
+export const Heading: FC<HeadingProps> = ({ level, ...rest }: HeadingProps): ReactElement => (
   <Text {...getHeading(level, rest)} />
 );

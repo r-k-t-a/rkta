@@ -1,4 +1,4 @@
-export type Props = {
+export type GlobalCssProps = {
   body?: boolean;
   links?: boolean;
 };

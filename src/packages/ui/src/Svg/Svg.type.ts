@@ -1,7 +1,7 @@
 import { SVGAttributes } from 'react';
 import { RktaElement } from '../Provider/theme';
 
-export type Props = {
+export type SvgProps = {
   block?: boolean;
   /** One of theme colors or CSS Value: Color. */
   color?: string;

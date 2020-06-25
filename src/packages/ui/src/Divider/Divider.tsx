@@ -2,12 +2,10 @@
 import { ReactElement, FC } from 'react';
 import { jsx } from '@emotion/core';
 
-import { Props } from './Divider.type';
+import { DividerProps } from './Divider.type';
 import { useProviderContext } from '../Provider';
 
-export type DividerProps = Props;
-
-export const Divider: FC<Props> = ({ children, ...rest }: Props): ReactElement => {
+export const Divider: FC<DividerProps> = ({ children, ...rest }: DividerProps): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element: 'hr', ...rest }, 'Divider');
   return <Element {...nextProps}>{children}</Element>;

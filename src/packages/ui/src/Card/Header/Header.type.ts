@@ -1,1 +1,1 @@
-export { AddonProps as Props } from '../../Addon/Addon.type';
+export { AddonProps } from '../../Addon/Addon.type';

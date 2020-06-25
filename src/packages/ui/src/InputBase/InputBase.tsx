@@ -4,13 +4,14 @@ import { forwardRef, Ref } from 'react';
 
 import { useProviderContext } from '../Provider';
 import { Text } from '../Text';
-import { InputElement, Props } from './InputBase.type';
+import { InputElement, InputBaseProps } from './InputBase.type';
 import { useAutoHeight } from './useAutoHeight';
 
-export type InputBaseProps = Props;
-
-export const InputBase = forwardRef<InputElement, Props>(
-  ({ active, autoHeight, caption, multiline, value, ...rest }: Props, ref): JSX.Element => {
+export const InputBase = forwardRef<InputElement, InputBaseProps>(
+  (
+    { active, autoHeight, caption, multiline, value, ...rest }: InputBaseProps,
+    ref,
+  ): JSX.Element => {
     const { applyStyles } = useProviderContext();
     const styledProps = {
       normal: true,

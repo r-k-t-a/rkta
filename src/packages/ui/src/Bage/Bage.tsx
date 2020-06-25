@@ -3,11 +3,9 @@ import { ReactElement, FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../Provider';
-import { Props } from './Bage.type';
+import { BageProps } from './Bage.type';
 
-export type BageProps = Props;
-
-export const Bage: FC<Props> = ({ children, ...rest }: Props): ReactElement => {
+export const Bage: FC<BageProps> = ({ children, ...rest }: BageProps): ReactElement => {
   const { applyStyles } = useProviderContext();
 
   const [nextProps, Element] = applyStyles(

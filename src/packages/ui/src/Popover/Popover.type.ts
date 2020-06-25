@@ -3,7 +3,7 @@ import { RktaElement } from '../Provider';
 
 import { Align } from '../Bind/Bind.type';
 
-export type Props = RktaElement & {
+export type PopoverProps = RktaElement & {
   align?: Align;
   children: [ReactElement, ReactNode];
   offset?: number;

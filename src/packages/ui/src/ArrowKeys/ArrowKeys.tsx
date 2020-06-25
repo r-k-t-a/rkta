@@ -12,24 +12,22 @@ import get from 'lodash/get';
 
 import { ListButton } from '../List';
 import { Button } from '../Button';
-import { Props } from './ArrowKeys.type';
+import { ArrowKeysProps } from './ArrowKeys.type';
 import { dispatchDomEvent } from '../util';
 
 const defaultTypes = [Button, ListButton];
 
-export type ArrowKeysProps = Props;
-
 type Setter = (prevIndex: number) => number;
 type Map = { key: number; valid: boolean };
 
-export const ArrowKeys: FC<Props> = ({
+export const ArrowKeys: FC<ArrowKeysProps> = ({
   children,
   defaultIndex = -1,
   horizontal,
   loop,
   validTypes = defaultTypes,
   vertical,
-}: Props): JSX.Element => {
+}: ArrowKeysProps): JSX.Element => {
   const [index, setIndex] = useState(defaultIndex);
   const selectedRef = useRef<HTMLElement>(null);
   const isValidType = (child: ReactNode): boolean =>

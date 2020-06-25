@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Align } from '../Backdrop/Backdrop.type';
 
-export type Props = Align & {
+export type ModalProps = Align & {
   children?: ReactNode;
   close?: never;
   visible: boolean;
