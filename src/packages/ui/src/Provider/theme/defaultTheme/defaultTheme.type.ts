@@ -3,7 +3,7 @@ import { Colors } from '../color';
 import { Shadows } from '../shadow';
 import { CssRkta } from '../types/CssRkta.type';
 
-import { AddonStyles } from '../../../Addon/Addon.styles.type';
+import * as AddonStyles from '../../../Addon/Addon.styles';
 import { BackdropStyles } from '../../../Backdrop/Backdrop.styles.type';
 import { BageStyles } from '../../../Bage/Bage.styles.type';
 import { BindStyles } from '../../../Bind/Bind.styles.type';
@@ -41,7 +41,7 @@ export type RktaDefaultTheme = {
   color: Colors;
   shadow: Shadows;
   ts: number;
-  Addon: AddonStyles;
+  Addon: typeof AddonStyles & StylesOverload;
   Backdrop: BackdropStyles;
   Bage: BageStyles;
   Bind: BindStyles;
