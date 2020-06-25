@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { ButtonProps as Button } from './Button.type';
+import { ButtonProps } from './Button.type';
 import { cssUnitToString } from '../util';
 
 export const initialStyle = css`
@@ -30,6 +30,7 @@ export const blockLevel = css`
 export const busy = (theme: RktaTheme, props: { color: string }): SerializedStyles => {
   return css`
     color: transparent !important;
+    pointer-events: none;
     > * {
       visibility: hidden;
       &:last-child {
@@ -60,7 +61,7 @@ export const color = (theme: RktaTheme, props: { color: string }): SerializedSty
   `;
 };
 
-export const round = (theme: RktaTheme, props: Button): SerializedStyles => {
+export const round = (theme: RktaTheme, props: ButtonProps): SerializedStyles => {
   const size = cssUnitToString(props.size || 48);
   return css`
     border-radius: ${size};
@@ -71,7 +72,7 @@ export const round = (theme: RktaTheme, props: Button): SerializedStyles => {
   `;
 };
 
-export const size = (theme: RktaTheme, props: Button): SerializedStyles => {
+export const size = (theme: RktaTheme, props: ButtonProps): SerializedStyles => {
   const value = cssUnitToString(props.size);
   return css`
     flex-direction: column;
