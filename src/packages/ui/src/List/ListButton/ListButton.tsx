@@ -1,12 +1,10 @@
 import React, { forwardRef } from 'react';
 
 import { Button } from '../../Button';
-import { Props } from './ListButton.type';
-
-export type ListButtonProps = Props;
+import { ListButtonProps } from './ListButton.type';
 
 export const ListButton = forwardRef(function ListButton(
-  { children, ...rest }: Props,
+  { children, ...rest }: ListButtonProps,
   ref,
 ): JSX.Element {
   return (

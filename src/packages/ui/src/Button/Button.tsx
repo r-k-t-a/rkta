@@ -5,13 +5,11 @@ import { jsx } from '@emotion/core';
 import { Spinner } from '../Spinner';
 import { useProviderContext } from '../Provider';
 
-import { Props } from './Button.type';
+import { ButtonProps } from './Button.type';
 import { Ripple } from './Ripple';
 import { useRipple } from './Ripple/useRipple';
 
 const injectedProps = { element: 'button', normal: true, button: true };
-
-export type ButtonProps = Props;
 
 export const Button = forwardRef(
   (
@@ -21,7 +19,7 @@ export const Button = forwardRef(
       composition = ['Button', 'Paper', 'Addon', 'Text'],
       spinnerProps,
       ...rest
-    }: Props,
+    }: ButtonProps,
     ref,
   ): JSX.Element => {
     const { applyStyles } = useProviderContext();

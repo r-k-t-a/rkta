@@ -1,8 +1,11 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Text.type';
+import { TextProps } from './Text.type';
 
-export const color = (theme: RktaTheme, { color: textColor = '' }: Props): SerializedStyles => css`
+export const color = (
+  theme: RktaTheme,
+  { color: textColor = '' }: TextProps,
+): SerializedStyles => css`
   color: ${theme.color[textColor] || textColor};
 `;
 

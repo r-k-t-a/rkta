@@ -1,6 +1,6 @@
 import { FocusEvent, HTMLAttributes, MouseEvent, TouchEvent, useEffect, useState } from 'react';
 
-import { Props, Wave } from './Ripple.type';
+import { RippleProps, Wave } from './Ripple.type';
 import { reEmit } from '../../util/reEmit';
 
 type AddWaveInput = {
@@ -62,7 +62,7 @@ export const useRipple = ({
   onTouchCancel,
   onTouchEnd,
   onTouchStart,
-}: HTMLAttributes<HTMLElement>): [Props, Record<string, unknown>] => {
+}: HTMLAttributes<HTMLElement>): [RippleProps, Record<string, unknown>] => {
   const [state, setState] = useState(initialState);
   function patchState(payload: Record<string, unknown>): void {
     setState((prevState) => ({ ...prevState, ...payload, patched: Date.now() }));

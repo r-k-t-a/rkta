@@ -20,7 +20,7 @@ export type PropsWithoutChildren = {
   [key: string]: ReactNode;
 };
 
-export type Props = PropsWithoutChildren & {
+export type MediaProps = PropsWithoutChildren & {
   children: ReactElement | ReactElement[];
 };
 

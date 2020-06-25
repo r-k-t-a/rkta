@@ -1,6 +1,6 @@
-import { Props as Text } from '../Text/Text.type';
+import { TextProps } from '../Text/Text.type';
 
-export type Props = Text & {
+export type HeadingProps = TextProps & {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   h1?: never;
   h2?: never;

@@ -1,5 +1,5 @@
 import { makeCheckable } from '../makeCheckable';
 
-export { Props as RadioProps } from './Radio.type';
+export { CheckableProps } from './Radio.type';
 
 export const Radio = makeCheckable(false);

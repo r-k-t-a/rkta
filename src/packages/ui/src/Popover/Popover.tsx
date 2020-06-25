@@ -1,20 +1,18 @@
 import React, { cloneElement, FC, MouseEvent } from 'react';
 
-import { Props } from './Popover.type';
+import { PopoverProps } from './Popover.type';
 import { usePopover } from './usePopover';
 import { Bind } from '../Bind';
 
 const defaultAlign = 'bottom';
 const defaultOffset = 0;
 
-export type PopoverProps = Props;
-
-export const Popover: FC<Props> = ({
+export const Popover: FC<PopoverProps> = ({
   align,
   children: [Trigger, ...restChildren],
   offset,
   ...rest
-}: Props): JSX.Element => {
+}: PopoverProps): JSX.Element => {
   const { isVisible, hide, setTriggerElement, toggle, triggerElement } = usePopover();
 
   const EnhacedTrigger = cloneElement(Trigger, {

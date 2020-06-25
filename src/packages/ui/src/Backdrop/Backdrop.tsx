@@ -5,13 +5,14 @@ import { useIsMounted } from '@rkta/hooks';
 import { useLockBodyScroll } from 'react-use';
 
 import { useProviderContext } from '../Provider';
-import { Props } from './Backdrop.type';
+import { BackdropProps } from './Backdrop.type';
 import { isTargetEvent } from '../util';
 
-export type BackdropProps = Props;
-
-export const Backdrop = forwardRef<HTMLElement, Props>(
-  ({ onClick, opacity, visible, children, onFadeOut, ...rest }: Props, ref): JSX.Element => {
+export const Backdrop = forwardRef<HTMLElement, BackdropProps>(
+  (
+    { onClick, opacity, visible, children, onFadeOut, ...rest }: BackdropProps,
+    ref,
+  ): JSX.Element => {
     const isMounted = useIsMounted();
     const { applyStyles } = useProviderContext();
     const [nodeProps, Element] = applyStyles(

@@ -4,12 +4,10 @@ import { jsx } from '@emotion/core';
 import { Addon } from '../Addon';
 import { Svg } from '../Svg';
 import { useProviderContext } from '../Provider';
-import { Props } from './Select.type';
+import { SelectProps } from './Select.type';
 
-export type SelectProps = Props;
-
-export const Select = forwardRef<HTMLSelectElement, Props>(
-  ({ caption, prepend, value, children, ...rest }: Props, ref): ReactElement => {
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  ({ caption, prepend, value, children, ...rest }: SelectProps, ref): ReactElement => {
     const { applyStyles } = useProviderContext();
     const [isActive, setIsActive] = useState(false);
     const [currentValue, setCurrentValue] = useState('');

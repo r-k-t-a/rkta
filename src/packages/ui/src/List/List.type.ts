@@ -1,6 +1,6 @@
-import { Props as Paper } from '../Paper/Paper.type';
+import { PaperProps } from '../Paper/Paper.type';
 
-export type Props = Paper & {
+export type ListProps = PaperProps & {
   fitAll?: boolean;
   fitTop?: boolean;
   fitBottom?: boolean;

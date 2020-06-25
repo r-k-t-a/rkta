@@ -13,7 +13,7 @@ export type Align = {
     | 'left';
 };
 
-export type Props = Align &
+export type BackdropProps = Align &
   RktaElement & {
     onClick?(): void;
     opacity?: number;

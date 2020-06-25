@@ -1,5 +1,5 @@
 import { RktaElement } from '../Provider/theme';
 
-export type Props = RktaElement & {
+export type PlaceholderProps = RktaElement & {
   width?: string;
 };

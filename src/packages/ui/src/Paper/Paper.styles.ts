@@ -1,7 +1,7 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { invariant } from '../util/invariant';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Paper.type';
+import { PaperProps } from './Paper.type';
 import { cssUnitToString } from '../util';
 
 export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
@@ -11,7 +11,10 @@ export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
   background-color: ${theme.color.paper};
 `;
 
-export const bgColor = (theme: RktaTheme, { bgColor: color = '' }: Props): SerializedStyles => css`
+export const bgColor = (
+  theme: RktaTheme,
+  { bgColor: color = '' }: PaperProps,
+): SerializedStyles => css`
   background-color: ${theme.color[color] || color};
 `;
 
@@ -49,7 +52,7 @@ export const hardRight = css`
   border-top-right-radius: 0;
 `;
 
-export const outline = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const outline = (theme: RktaTheme, props: PaperProps): SerializedStyles => {
   const value = cssUnitToString(props.outline);
   return css`
     border-width: ${value};
@@ -57,7 +60,7 @@ export const outline = (theme: RktaTheme, props: Props): SerializedStyles => {
 };
 export const outlineColor = (
   theme: RktaTheme,
-  { outlineColor: borderColor = '' }: Props,
+  { outlineColor: borderColor = '' }: PaperProps,
 ): SerializedStyles => css`
   border-color: ${theme.color[borderColor] || borderColor};
 `;
@@ -70,7 +73,7 @@ export const relative = css`
   position: relative;
 `;
 
-export const rize = (theme: RktaTheme, { rize: elevation = 0 }: Props): SerializedStyles => {
+export const rize = (theme: RktaTheme, { rize: elevation = 0 }: PaperProps): SerializedStyles => {
   const rizeBy = elevation.toString();
   invariant(rizeBy in theme.shadow, `Key "${rizeBy}" does not exist in "theme.shadow".`);
   return css`
@@ -86,7 +89,7 @@ export const rounded = css`
   border-radius: 9999vw;
 `;
 
-export const size = (theme: RktaTheme, { size: rawSize }: Props): SerializedStyles => {
+export const size = (theme: RktaTheme, { size: rawSize }: PaperProps): SerializedStyles => {
   const cssSize = cssUnitToString(rawSize);
   return css`
     width: ${cssSize};

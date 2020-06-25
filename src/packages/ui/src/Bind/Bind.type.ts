@@ -11,7 +11,7 @@ export type Align =
   | 'bottomLeft'
   | 'left';
 
-export type Props = RktaElement & {
+export type BindProps = RktaElement & {
   align?: Align;
   blockLevel?: boolean;
   children: ReactNode;

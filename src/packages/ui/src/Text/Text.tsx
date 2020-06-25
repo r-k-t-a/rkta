@@ -3,11 +3,9 @@ import { FC, ReactElement } from 'react';
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../Provider';
-import { Props } from './Text.type';
+import { TextProps } from './Text.type';
 
-export type TextProps = Props;
-
-export const Text: FC<Props> = ({ children, element, ...rest }: Props): ReactElement => {
+export const Text: FC<TextProps> = ({ children, element, ...rest }: TextProps): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element, ...rest }, 'Text');
   return <Element {...nextProps}>{children}</Element>;

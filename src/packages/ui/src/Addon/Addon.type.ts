@@ -1,4 +1,4 @@
-import { Props as Text } from '../Text/Text.type';
+import { TextProps } from '../Text/Text.type';
 
 export type AddonOwnProps = {
   big?: boolean;
@@ -18,4 +18,4 @@ export type AddonOwnProps = {
   tiny?: boolean;
 };
 
-export type AddonProps = AddonOwnProps & Text & {};
+export type AddonProps = AddonOwnProps & TextProps & {};

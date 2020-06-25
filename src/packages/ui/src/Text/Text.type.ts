@@ -1,6 +1,6 @@
 import { Color, RktaElement } from '../Provider/theme';
 
-export type Props = RktaElement & {
+export type TextProps = RktaElement & {
   /** One of theme colors or CSS Value: Color. */
   color?: Color;
   h1?: boolean;

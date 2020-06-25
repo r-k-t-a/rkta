@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './InputBase.type';
+import { InputBaseProps } from './InputBase.type';
 
 export const initialStyle = css`
   display: flex;
@@ -61,7 +61,10 @@ export const active = css`
   }
 `;
 
-export const maxRows = (theme: RktaTheme, { maxRows: max = 2 }: Props): SerializedStyles => css`
+export const maxRows = (
+  theme: RktaTheme,
+  { maxRows: max = 2 }: InputBaseProps,
+): SerializedStyles => css`
   textarea {
     max-height: ${max * 24}px;
   }

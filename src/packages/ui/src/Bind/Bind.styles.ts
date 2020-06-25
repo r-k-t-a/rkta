@@ -3,10 +3,10 @@ import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { fxIn } from '../Backdrop/fxIn';
 import { fxOut } from '../Backdrop/fxOut';
-import { Props } from './Bind.type';
+import { BindProps } from './Bind.type';
 import { VISIBLE } from './useBind';
 
-type Bounds = Props & {
+type Bounds = BindProps & {
   bounds: DOMRect;
 };
 
@@ -18,7 +18,7 @@ export const initialStyle = css`
   z-index: 2040;
 `;
 
-export const fx = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const fx = (theme: RktaTheme, props: BindProps): SerializedStyles => {
   if (props.fx === VISIBLE)
     return css`
       > * {

@@ -1,7 +1,7 @@
-import { Props as ModalProps } from '../Modal/Modal.type';
-import { Props as PaperProps } from '../Paper/Paper.type';
+import { ModalProps } from '../Modal/Modal.type';
+import { PaperProps } from '../Paper/Paper.type';
 
-export type Props = ModalProps &
+export type DrawerProps = ModalProps &
   PaperProps & {
     align: 'left' | 'top' | 'right' | 'bottom';
     open: boolean;

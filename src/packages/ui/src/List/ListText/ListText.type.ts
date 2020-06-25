@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { AddonProps } from '../../Addon/Addon.type';
 
-export type Props = Omit<AddonProps, 'label'> & {
+export type ListTextProps = Omit<AddonProps, 'label'> & {
   label: ReactNode;
   description?: ReactNode;
   reverse?: boolean;

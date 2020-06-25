@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Select.type';
+import { SelectProps } from './Select.type';
 
 export const initialStyle = css`
   align-items: center;
@@ -21,7 +21,7 @@ export const initialStyle = css`
   }
 `;
 
-export const active = (theme: RktaTheme, props: Props): SerializedStyles => css`
+export const active = (theme: RktaTheme, props: SelectProps): SerializedStyles => css`
   .chevron {
     transform: rotate(${props.active ? 180 : 0}deg);
   }

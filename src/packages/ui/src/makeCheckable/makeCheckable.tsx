@@ -3,13 +3,11 @@ import { jsx } from '@emotion/core';
 import { forwardRef } from 'react';
 
 import { useProviderContext } from '../Provider';
-import { Props } from './Checkable.type';
-
-export type CheckableProps = Props;
+import { CheckableProps } from './Checkable.type';
 
 export const makeCheckable = (multiple: boolean) =>
-  forwardRef<HTMLInputElement, Props>(
-    ({ className, ...rest }: Props, ref): JSX.Element => {
+  forwardRef<HTMLInputElement, CheckableProps>(
+    ({ className, ...rest }: CheckableProps, ref): JSX.Element => {
       const { applyStyles } = useProviderContext();
 
       const [{ css, ...nextProps }, Element] = applyStyles(

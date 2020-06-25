@@ -1,8 +1,8 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Drawer.type';
+import { DrawerProps } from './Drawer.type';
 
-export const align = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const align = (theme: RktaTheme, props: DrawerProps): SerializedStyles => {
   switch (props.align) {
     case 'bottom':
     case 'top':

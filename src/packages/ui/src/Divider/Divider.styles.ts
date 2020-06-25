@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Divider.type';
+import { DividerProps } from './Divider.type';
 import { cssUnitToString } from '../util';
 
 export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
@@ -35,7 +35,7 @@ export const invisible = css`
   visibility: hidden;
 `;
 
-export const horizontalSpace = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const horizontalSpace = (theme: RktaTheme, props: DividerProps): SerializedStyles => {
   const value = cssUnitToString(props.horizontalSpace);
   return css`
     margin-left: ${value};
@@ -43,7 +43,7 @@ export const horizontalSpace = (theme: RktaTheme, props: Props): SerializedStyle
   `;
 };
 
-export const verticalSpace = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const verticalSpace = (theme: RktaTheme, props: DividerProps): SerializedStyles => {
   const value = cssUnitToString(props.verticalSpace);
   return css`
     margin-bottom: ${value};

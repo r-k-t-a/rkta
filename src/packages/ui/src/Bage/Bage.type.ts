@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { Props as Paper } from '../Paper/Paper.type';
+import { PaperProps } from '../Paper/Paper.type';
 
-export type Props = Paper & {
+export type BageProps = PaperProps & {
   children: ReactNode;
   /** Reset Margins */
   fitAll?: boolean;

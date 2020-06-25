@@ -4,7 +4,7 @@ import { AddonOwnProps } from '../Addon/Addon.type';
 export type Value = string | number | string[] | undefined;
 
 export type InputElement = HTMLInputElement | HTMLTextAreaElement;
-export type Props = AddonOwnProps &
+export type InputBaseProps = AddonOwnProps &
   HTMLProps<InputElement> & {
     active?: boolean;
     autoHeight?: boolean;

@@ -1,1 +1,1 @@
-export { CheckableProps as Props } from '../makeCheckable';
+export { CheckableProps } from '../makeCheckable';

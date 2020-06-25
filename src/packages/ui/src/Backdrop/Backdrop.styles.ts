@@ -1,11 +1,11 @@
 import { css, keyframes, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
-import { Props } from './Backdrop.type';
+import { BackdropProps } from './Backdrop.type';
 
 import { fxIn } from './fxIn';
 import { fxOut } from './fxOut';
 
-export const initialStyle = (theme: RktaTheme, props: Props): SerializedStyles => css`
+export const initialStyle = (theme: RktaTheme, props: BackdropProps): SerializedStyles => css`
   align-items: center;
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@ export const initialStyle = (theme: RktaTheme, props: Props): SerializedStyles =
   }
 `;
 
-export const align = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const align = (theme: RktaTheme, props: BackdropProps): SerializedStyles => {
   switch (props.align) {
     case 'bottom':
       return css`
@@ -79,7 +79,7 @@ export const align = (theme: RktaTheme, props: Props): SerializedStyles => {
   }
 };
 
-export const fadeIn = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const fadeIn = (theme: RktaTheme, props: BackdropProps): SerializedStyles => {
   const Animation = keyframes`
     from { opacity: 0 }
     to { opacity: ${props.opacity} }
@@ -94,7 +94,7 @@ export const fadeIn = (theme: RktaTheme, props: Props): SerializedStyles => {
     }
   `;
 };
-export const fadeOut = (theme: RktaTheme, props: Props): SerializedStyles => {
+export const fadeOut = (theme: RktaTheme, props: BackdropProps): SerializedStyles => {
   const Animation = keyframes`
     to { opacity: 0 }
   `;

@@ -1,9 +1,8 @@
 import React, { ReactNode } from 'react';
-import { Props } from './Cache.type';
+import { CacheProps } from './Cache.type';
 
-export type CacheProps = Props;
-export class Cache extends React.Component<Props> {
-  shouldComponentUpdate({ disabled = false }: Props): boolean {
+export class Cache extends React.Component<CacheProps> {
+  shouldComponentUpdate({ disabled = false }: CacheProps): boolean {
     return disabled;
   }
 
