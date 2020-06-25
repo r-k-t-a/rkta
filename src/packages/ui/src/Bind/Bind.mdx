@@ -10,9 +10,11 @@ import { Button } from '../Button';
 import { List, ListTitle, ListButton } from '../List';
 
 # Bind
+
 Helper component used by `@rkta/ui` to bind stuff to a DOM Elements.
 
 ## Import
+
 ```javascript
 import { Bind } from '@rkta/ui';
 ```
@@ -22,7 +24,7 @@ import { Bind } from '@rkta/ui';
 <Playground>
   {() => {
     const [target, setTarget] = useState(null);
-    const bind = event => setTarget(event.target);
+    const bind = (event) => setTarget(event.target);
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
         <Button bgColor="primary" onClick={bind}>
@@ -34,8 +36,8 @@ import { Bind } from '@rkta/ui';
         <Button bgColor="primary" onClick={bind}>
           Target 3
         </Button>
-        {target && ( 
-          <Bind to={target}>
+        {target && (
+          <Bind to={target} visible={!!target}>
             <List rize={1}>
               <ListTitle>Bind</ListTitle>
               <ListButton nowrap>Option 1</ListButton>
