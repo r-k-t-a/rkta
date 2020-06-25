@@ -98,7 +98,7 @@ export function useBind(args: Args): State {
   }
 
   function handleClickAway(event: MouseEvent): void {
-    if (!args.trigger.contains(event.target as Element)) args.onHide();
+    if (args.onHide && !args.trigger.contains(event.target as Element)) args.onHide();
   }
   useClickAway(args.container, handleClickAway);
   useEffect(effect, [...Object.values(args), state.bounds, container, state.fx]);
