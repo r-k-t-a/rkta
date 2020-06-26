@@ -1,10 +1,12 @@
 ---
-menu: Surfaces
+menu: Data display
 name: Addon
 ---
 
 import { Playground, Props } from 'docz';
 import { Addon } from './Addon';
+import { ListItem } from '../List/ListItem';
+import { ChevronSmallRight } from '../../../entypo/src';
 
 # Addon
 
@@ -13,7 +15,12 @@ Addons are meant to be used along with ListItems, to append or prepend to main c
 ## Examples
 
 <Playground>
-  <Addon>Addon</Addon>
+  <ListItem fitAll>
+    <Addon>
+      <ChevronSmallRight />
+    </Addon>
+    <Addon main>Addon</Addon>
+  </ListItem>
 </Playground>
 
 ## Props
