@@ -14,7 +14,7 @@ export const Bind: FC<BindProps> = ({
   to,
   visible,
   ...rest
-}: BindProps): JSX.Element | null => {
+}): JSX.Element | null => {
   const ref = useRef<HTMLElement>(null);
   const { fx, bounds, shouldRender } = useBind({
     container: ref,

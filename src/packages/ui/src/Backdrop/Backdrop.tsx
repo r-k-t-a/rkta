@@ -9,10 +9,7 @@ import { BackdropProps } from './Backdrop.type';
 import { isTargetEvent } from '../util';
 
 export const Backdrop = forwardRef<HTMLElement, BackdropProps>(
-  (
-    { onClick, opacity, visible, children, onFadeOut, ...rest }: BackdropProps,
-    ref,
-  ): JSX.Element => {
+  ({ onClick, opacity, visible, children, onFadeOut, ...rest }, ref): JSX.Element => {
     const isMounted = useIsMounted();
     const { applyStyles } = useProviderContext();
     const [nodeProps, Element] = applyStyles(

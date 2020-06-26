@@ -12,7 +12,7 @@ export const Popover: FC<PopoverProps> = ({
   children: [Trigger, ...restChildren],
   offset,
   ...rest
-}: PopoverProps): JSX.Element => {
+}): JSX.Element => {
   const { isVisible, hide, setTriggerElement, toggle, triggerElement } = usePopover();
 
   const EnhacedTrigger = cloneElement(Trigger, {
