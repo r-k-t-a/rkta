@@ -11,7 +11,7 @@ export const ListText: FC<ListTextProps> = ({
   children,
   description,
   ...props
-}: ListTextProps): ReactElement => {
+}): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextStylesProps, Element] = applyStyles(
     { paddingY: 8, ...props },

@@ -10,7 +10,7 @@ export const Drawer: FC<DrawerProps> = ({
   onClose,
   open,
   ...rest
-}: DrawerProps): JSX.Element => {
+}): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(
     { align, element: 'div', hard: true, rize: 2, ...rest },

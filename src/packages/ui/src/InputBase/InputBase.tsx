@@ -8,10 +8,7 @@ import { InputElement, InputBaseProps } from './InputBase.type';
 import { useAutoHeight } from './useAutoHeight';
 
 export const InputBase = forwardRef<InputElement, InputBaseProps>(
-  (
-    { active, autoHeight, caption, multiline, value, ...rest }: InputBaseProps,
-    ref,
-  ): JSX.Element => {
+  ({ active, autoHeight, caption, multiline, value, ...rest }, ref): JSX.Element => {
     const { applyStyles } = useProviderContext();
     const styledProps = {
       normal: true,

@@ -10,9 +10,9 @@ import useAnimation from './useAnimation';
 export const ScrollBox: FC<ScrollBoxProps> = ({ children, visible, ...rest }): ReactElement => {
   const { applyStyles } = useProviderContext();
 
-  const ainmationProps = useAnimation(visible);
+  const animationProps = useAnimation(visible);
   const extraProps =
-    !rest.animateHeight || typeof rest.height !== 'undefined' ? null : ainmationProps;
+    !rest.animateHeight || typeof rest.height !== 'undefined' ? null : animationProps;
 
   const [nextProps, Element] = applyStyles(
     { ...rest, ...extraProps },

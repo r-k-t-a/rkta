@@ -27,11 +27,11 @@ export const ArrowKeys: FC<ArrowKeysProps> = ({
   loop,
   validTypes = defaultTypes,
   vertical,
-}: ArrowKeysProps): JSX.Element => {
+}): JSX.Element => {
   const [index, setIndex] = useState(defaultIndex);
   const selectedRef = useRef<HTMLElement>(null);
   const isValidType = (child: ReactNode): boolean =>
-    validTypes.findIndex((currentType) => get(child, 'type') === currentType) > -1;
+    validTypes.findIndex((currentType: any) => get(child, 'type') === currentType) > -1;
 
   const childrenArray = Children.toArray(children);
 
