@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../Provider';
 import { SpinnerProps } from './Spinner.type';
 
-export const Spinner: FC<SpinnerProps> = (props): ReactElement => {
+export const Spinner: FC<SpinnerProps> = (props): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(props, 'Spinner');
   return <Element {...nextProps} />;
