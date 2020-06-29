@@ -3,6 +3,13 @@ import { Global, css, Interpolation } from '@emotion/core';
 
 import { GlobalCssProps } from './GlobalCss.type';
 
+/**
+ * ```js
+ * import { GlobalCss} from '@rkta/ui';
+ *
+ * <GlobalCss body links />
+ * ```
+ */
 export const GlobalCss = ({ body, links }: GlobalCssProps): JSX.Element => (
   <Global
     styles={({ color, Text }): Interpolation => [

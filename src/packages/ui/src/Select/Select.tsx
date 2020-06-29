@@ -6,6 +6,28 @@ import { Svg } from '../Svg';
 import { useProviderContext } from '../Provider';
 import { SelectProps } from './Select.type';
 
+/**
+ * ```js
+ * import { Select, Addon } from '@rkta/ui';
+ * import { Bug } from '@rkta/entypo'
+ * 
+ * <Select
+    caption="Normal"
+    prepend={
+      <Addon>
+        <Bug />
+      </Addon>
+    }
+    rize={1}
+  >
+    <option>option 1</option>
+    <option>option 2</option>
+    <option>option 3</option>
+    <option>option 4</option>
+    <option>option 5</option>
+  </Select>
+  ```
+ */
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ caption, prepend, value, children, ...rest }: SelectProps, ref): ReactElement => {
     const { applyStyles } = useProviderContext();

@@ -8,6 +8,36 @@ import { useProviderContext } from '../Provider';
 import { useBind } from './useBind';
 import { BindProps } from './Bind.type';
 
+/**
+ * ```js
+ * import { Bind } from '@rkta/ui';
+ *
+ * const [target, setTarget] = useState(null);
+ * const bind = (event) => setTarget(event.target);
+ *
+ * return (
+ *  <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
+ *    <Button bgColor="primary" onClick={bind}>
+ *      Target 1
+ *    </Button>
+ *    <Button bgColor="primary" onClick={bind}>
+ *      Target 2
+ *    </Button>
+ *  {target && (
+ *         <Bind to={target} visible={!!target}>
+ *           <List rize={1}>
+ *             <ListTitle>Bind</ListTitle>
+ *             <ListButton nowrap>Option 1</ListButton>
+ *             <ListButton nowrap>Option 2</ListButton>
+ *             <ListButton nowrap>Option 3</ListButton>
+ *          </List>
+ *        </Bind>
+ *         )}
+ *     </div>
+ *   );
+ * }}
+ * ```
+ */
 export const Bind: FC<BindProps> = ({
   children,
   onHide,

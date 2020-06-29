@@ -5,6 +5,15 @@ import { jsx } from '@emotion/core';
 import { AddonProps } from './Header.type';
 import { useProviderContext } from '../../Provider';
 
+/**
+ * ```js
+ * import { CardHeader } from '@rkta/ui';
+ *
+ * <CardHeader fitRight>
+ *  CardHeader
+ * </CardHeader>
+ * ```
+ */
 export const CardHeader: FC<AddonProps> = ({ children, ...rest }): ReactElement => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element: 'header', ...rest }, 'CardHeader', 'Addon');
