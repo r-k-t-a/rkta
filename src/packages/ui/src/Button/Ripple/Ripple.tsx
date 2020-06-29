@@ -15,7 +15,7 @@ export const Ripple = ({
   onOverlayAnimationEnd,
   onWaveDissolve,
   waves,
-}: RippleProps): ReactElement => {
+}: RippleProps): JSX.Element => {
   const hasWaves = waves.length > 0;
   const WavesWrapElement = getElement('span', {});
   return (
@@ -26,7 +26,7 @@ export const Ripple = ({
       {hasWaves && (
         <WavesWrapElement css={BoxCss}>
           {waves.map(
-            (wave): ReactElement => (
+            (wave): JSX.Element => (
               <Wave key={wave.id} {...wave} onWaveDissolve={onWaveDissolve} />
             ),
           )}
