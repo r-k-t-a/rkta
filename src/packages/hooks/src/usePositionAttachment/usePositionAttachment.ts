@@ -218,7 +218,9 @@ export function usePositionAttachment({
     const next = producerElement
       ? attachToElement({ align, consumerElement, offset, producerElement })
       : attachToWindow({ align, consumerElement, offset });
-    if ((next.top !== state?.top, next.left !== state?.left)) setState({ ...common, ...next });
+    const left = Math.round(next.left);
+    const top = Math.round(next.top);
+    if (top !== state?.top || left !== state?.left) setState({ ...common, left, top });
   }
 
   useEffect(() => {

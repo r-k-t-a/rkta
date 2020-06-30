@@ -26,9 +26,8 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   const fx = useFloatingArea({ active, consumer, onHide });
   const { applyStyles } = useProviderContext();
 
-  console.log('positionAttachmentStyles', positionAttachmentStyles);
-
   if (fx === HIDDEN) return null;
+  console.log('positionAttachmentStyles', positionAttachmentStyles);
   const [{ ...elementProps }, Element] = applyStyles({ ...rest, fx }, 'FloatingArea');
 
   return createPortal(
