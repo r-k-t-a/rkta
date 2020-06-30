@@ -72,7 +72,7 @@ function attachToWindow({ align, consumerElement, offset = 0 }: AttachToWindow):
       return { left, top };
     }
     case 'bottom-right': {
-      const left = window.innerWidth - consumerElement.offsetWidth;
+      const left = window.innerWidth - consumerElement.offsetWidth - offset;
       const top = window.innerHeight - offset - consumerElement.offsetHeight;
       return {
         left,
@@ -88,7 +88,7 @@ function attachToWindow({ align, consumerElement, offset = 0 }: AttachToWindow):
       };
     }
     case 'right': {
-      const left = window.innerWidth - consumerElement.offsetWidth;
+      const left = window.innerWidth - consumerElement.offsetWidth - offset;
       const top = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
         left,
@@ -113,7 +113,6 @@ function attachToWindow({ align, consumerElement, offset = 0 }: AttachToWindow):
     }
   }
 }
-
 function attachToElement({
   align,
   consumerElement,
@@ -124,23 +123,23 @@ function attachToElement({
   switch (align) {
     case 'top': {
       const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const top = bounds.y + producerElement.offsetHeight + offset;
+      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
         left,
         top,
       };
     }
     case 'top-right': {
-      const left = bounds.x + producerElement.offsetWidth;
-      const top = bounds.y + producerElement.offsetHeight + offset;
+      const left = bounds.x + producerElement.offsetWidth - consumerElement.offsetWidth;
+      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
         left,
         top,
       };
     }
     case 'top-left': {
-      const left = bounds.x - consumerElement.offsetWidth;
-      const top = bounds.y + producerElement.offsetHeight + offset;
+      const left = bounds.x;
+      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
         left,
         top,
@@ -148,41 +147,39 @@ function attachToElement({
     }
     case 'bottom': {
       const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const top = bounds.y - consumerElement.offsetHeight - offset;
+      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
         left,
         top,
       };
     }
     case 'bottom-right': {
-      const left = bounds.x + producerElement.offsetWidth;
-      const top = bounds.y - consumerElement.offsetHeight - offset;
+      const left = bounds.x + producerElement.offsetWidth - consumerElement.offsetWidth;
+      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
         left,
         top,
       };
     }
     case 'bottom-left': {
-      const left = bounds.x - consumerElement.offsetWidth;
-      const top = bounds.y - consumerElement.offsetHeight - offset;
+      const left = bounds.x;
+      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
         left,
         top,
       };
     }
     case 'right': {
-      const left = bounds.x + producerElement.offsetWidth;
-      const top =
-        bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
+      const left = bounds.x + producerElement.offsetWidth + offset;
+      const top = bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2;
       return {
         left,
         top,
       };
     }
     case 'left': {
-      const left = bounds.x - consumerElement.offsetWidth;
-      const top =
-        bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
+      const left = bounds.x - consumerElement.offsetWidth - offset;
+      const top = bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2;
       return {
         left,
         top,
