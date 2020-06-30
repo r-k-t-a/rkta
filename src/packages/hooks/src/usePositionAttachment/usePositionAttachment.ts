@@ -52,9 +52,49 @@ function attachToWindow({ align, consumerElement, offset = 0 }: AttachToWindow):
         transform: `translate(${x}px, ${offset}px)`,
       };
     }
+    case 'top-right': {
+      const x = window.innerWidth - consumerElement.offsetWidth;
+      return {
+        transform: `translate(${x}px, ${offset}px)`,
+      };
+    }
+    case 'top-left': {
+      const x = 0;
+      return {
+        transform: `translate(${x}px, ${offset}px)`,
+      };
+    }
     case 'bottom': {
       const x = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
       const y = window.innerHeight - offset - consumerElement.offsetHeight;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'bottom-right': {
+      const x = window.innerWidth - consumerElement.offsetWidth;
+      const y = window.innerHeight - offset - consumerElement.offsetHeight;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'bottom-left': {
+      const x = 0;
+      const y = window.innerHeight - offset - consumerElement.offsetHeight;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'right': {
+      const x = window.innerWidth - consumerElement.offsetWidth;
+      const y = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'left': {
+      const x = 0;
+      const y = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
         transform: `translate(${x}px, ${y}px)`,
       };
@@ -84,9 +124,53 @@ function attachToElement({
         transform: `translate(${x}px, ${y}px)`,
       };
     }
+    case 'top-right': {
+      const x = bounds.x + producerElement.offsetWidth;
+      const y = bounds.y + producerElement.offsetHeight + offset;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'top-left': {
+      const x = bounds.x - consumerElement.offsetWidth;
+      const y = bounds.y + producerElement.offsetHeight + offset;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
     case 'bottom': {
       const x = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
       const y = bounds.y - consumerElement.offsetHeight - offset;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'bottom-right': {
+      const x = bounds.x + producerElement.offsetWidth;
+      const y = bounds.y - consumerElement.offsetHeight - offset;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'bottom-left': {
+      const x = bounds.x - consumerElement.offsetWidth;
+      const y = bounds.y - consumerElement.offsetHeight - offset;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'right': {
+      const x = bounds.x + producerElement.offsetWidth;
+      const y =
+        bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
+      return {
+        transform: `translate(${x}px, ${y}px)`,
+      };
+    }
+    case 'left': {
+      const x = bounds.x - consumerElement.offsetWidth;
+      const y =
+        bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
       return {
         transform: `translate(${x}px, ${y}px)`,
       };
