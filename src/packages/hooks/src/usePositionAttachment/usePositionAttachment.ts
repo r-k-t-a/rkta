@@ -5,14 +5,14 @@ type NodeRef = HTMLElement | RefObject<HTMLElement>;
 
 export type PositionAttachmentConfig = {
   align?:
-    | 'bottom-left'
     | 'bottom'
+    | 'bottom-left'
     | 'bottom-right'
     | 'left'
-    | 'right'
     | 'top'
     | 'top-left'
-    | 'top-right';
+    | 'top-right'
+    | 'right';
   consumer?: NodeRef;
   offset?: number;
   producer?: NodeRef;
@@ -32,13 +32,12 @@ type AttachToElement = {
 };
 
 type Transform = {
-  transform: string;
+  left: number;
+  top: number;
 };
 
 const common = {
-  left: 0,
   position: 'fixed',
-  top: 0,
 };
 
 type State = (typeof common & Transform) | null;
@@ -47,63 +46,69 @@ type State = (typeof common & Transform) | null;
 function attachToWindow({ align, consumerElement, offset = 0 }: AttachToWindow): Transform {
   switch (align) {
     case 'top': {
-      const x = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
+      const left = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
       return {
-        transform: `translate(${x}px, ${offset}px)`,
+        left,
+        top: offset,
       };
     }
     case 'top-right': {
-      const x = window.innerWidth - consumerElement.offsetWidth;
+      const left = window.innerWidth - consumerElement.offsetWidth - offset;
       return {
-        transform: `translate(${x}px, ${offset}px)`,
+        left,
+        top: offset,
       };
     }
     case 'top-left': {
       const x = 0;
       return {
-        transform: `translate(${x}px, ${offset}px)`,
+        left: offset,
+        top: offset,
       };
     }
     case 'bottom': {
-      const x = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
-      const y = window.innerHeight - offset - consumerElement.offsetHeight;
-      return {
-        transform: `translate(${x}px, ${y}px)`,
-      };
+      const left = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
+      const top = window.innerHeight - offset - consumerElement.offsetHeight;
+      return { left, top };
     }
     case 'bottom-right': {
-      const x = window.innerWidth - consumerElement.offsetWidth;
-      const y = window.innerHeight - offset - consumerElement.offsetHeight;
+      const left = window.innerWidth - consumerElement.offsetWidth;
+      const top = window.innerHeight - offset - consumerElement.offsetHeight;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'bottom-left': {
-      const x = 0;
-      const y = window.innerHeight - offset - consumerElement.offsetHeight;
+      const left = offset;
+      const top = window.innerHeight - offset - consumerElement.offsetHeight;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'right': {
-      const x = window.innerWidth - consumerElement.offsetWidth;
-      const y = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
+      const left = window.innerWidth - consumerElement.offsetWidth;
+      const top = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'left': {
-      const x = 0;
-      const y = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
+      const left = offset;
+      const top = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     default: {
-      const x = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
-      const y = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
+      const left = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
+      const top = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
   }
@@ -118,69 +123,78 @@ function attachToElement({
   const bounds = producerElement.getBoundingClientRect();
   switch (align) {
     case 'top': {
-      const x = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const y = bounds.y + producerElement.offsetHeight + offset;
+      const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
+      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'top-right': {
-      const x = bounds.x + producerElement.offsetWidth;
-      const y = bounds.y + producerElement.offsetHeight + offset;
+      const left = bounds.x + producerElement.offsetWidth;
+      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'top-left': {
-      const x = bounds.x - consumerElement.offsetWidth;
-      const y = bounds.y + producerElement.offsetHeight + offset;
+      const left = bounds.x - consumerElement.offsetWidth;
+      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'bottom': {
-      const x = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const y = bounds.y - consumerElement.offsetHeight - offset;
+      const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
+      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'bottom-right': {
-      const x = bounds.x + producerElement.offsetWidth;
-      const y = bounds.y - consumerElement.offsetHeight - offset;
+      const left = bounds.x + producerElement.offsetWidth;
+      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'bottom-left': {
-      const x = bounds.x - consumerElement.offsetWidth;
-      const y = bounds.y - consumerElement.offsetHeight - offset;
+      const left = bounds.x - consumerElement.offsetWidth;
+      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'right': {
-      const x = bounds.x + producerElement.offsetWidth;
-      const y =
+      const left = bounds.x + producerElement.offsetWidth;
+      const top =
         bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     case 'left': {
-      const x = bounds.x - consumerElement.offsetWidth;
-      const y =
+      const left = bounds.x - consumerElement.offsetWidth;
+      const top =
         bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
     default: {
-      const x = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const y =
+      const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
+      const top =
         bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
       return {
-        transform: `translate(${x}px, ${y}px)`,
+        left,
+        top,
       };
     }
   }
@@ -204,7 +218,7 @@ export function usePositionAttachment({
     const next = producerElement
       ? attachToElement({ align, consumerElement, offset, producerElement })
       : attachToWindow({ align, consumerElement, offset });
-    if (next.transform !== state?.transform) setState({ ...common, ...next });
+    if ((next.top !== state?.top, next.left !== state?.left)) setState({ ...common, ...next });
   }
 
   useEffect(() => {
@@ -215,7 +229,7 @@ export function usePositionAttachment({
       clearInterval(interval);
       window.removeEventListener('resize', update);
     };
-  }, [consumer, align, offset, producer, state?.transform]);
+  }, [consumer, align, offset, producer, state?.top, state?.left]);
 
   return state;
 }
