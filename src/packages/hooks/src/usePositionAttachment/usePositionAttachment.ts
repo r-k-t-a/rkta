@@ -46,69 +46,57 @@ type State = (typeof common & Transform) | null;
 function attachToWindow({ align, consumerElement, offset = 0 }: AttachToWindow): Transform {
   switch (align) {
     case 'top': {
-      const left = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
       return {
-        left,
+        left: window.innerWidth / 2 - consumerElement.offsetWidth / 2,
         top: offset,
       };
     }
     case 'top-right': {
-      const left = window.innerWidth - consumerElement.offsetWidth - offset;
       return {
-        left,
+        left: window.innerWidth - consumerElement.offsetWidth - offset,
         top: offset,
       };
     }
     case 'top-left': {
-      const x = 0;
       return {
         left: offset,
         top: offset,
       };
     }
     case 'bottom': {
-      const left = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
-      const top = window.innerHeight - offset - consumerElement.offsetHeight;
-      return { left, top };
+      return {
+        left: window.innerWidth / 2 - consumerElement.offsetWidth / 2,
+        top: window.innerHeight - offset - consumerElement.offsetHeight,
+      };
     }
     case 'bottom-right': {
-      const left = window.innerWidth - consumerElement.offsetWidth - offset;
-      const top = window.innerHeight - offset - consumerElement.offsetHeight;
       return {
-        left,
-        top,
+        left: window.innerWidth - consumerElement.offsetWidth - offset,
+        top: window.innerHeight - offset - consumerElement.offsetHeight,
       };
     }
     case 'bottom-left': {
-      const left = offset;
-      const top = window.innerHeight - offset - consumerElement.offsetHeight;
       return {
-        left,
-        top,
+        left: offset,
+        top: window.innerHeight - offset - consumerElement.offsetHeight,
       };
     }
     case 'right': {
-      const left = window.innerWidth - consumerElement.offsetWidth - offset;
-      const top = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
-        left,
-        top,
+        left: window.innerWidth - consumerElement.offsetWidth - offset,
+        top: window.innerHeight / 2 - consumerElement.offsetHeight / 2,
       };
     }
     case 'left': {
-      const left = offset;
-      const top = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
-        left,
-        top,
+        left: offset,
+        top: window.innerHeight / 2 - consumerElement.offsetHeight / 2,
       };
     }
     default: {
-      const left = window.innerWidth / 2 - consumerElement.offsetWidth / 2;
-      const top = window.innerHeight / 2 - consumerElement.offsetHeight / 2;
       return {
-        left,
-        top,
+        left: window.innerWidth / 2 - consumerElement.offsetWidth / 2,
+        top: window.innerHeight / 2 - consumerElement.offsetHeight / 2,
       };
     }
   }
@@ -122,76 +110,58 @@ function attachToElement({
   const bounds = producerElement.getBoundingClientRect();
   switch (align) {
     case 'top': {
-      const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
-        left,
-        top,
+        left: bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2,
+        top: bounds.y - consumerElement.offsetHeight - offset,
       };
     }
     case 'top-right': {
-      const left = bounds.x + producerElement.offsetWidth - consumerElement.offsetWidth;
-      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
-        left,
-        top,
+        left: bounds.x + producerElement.offsetWidth - consumerElement.offsetWidth,
+        top: bounds.y - consumerElement.offsetHeight - offset,
       };
     }
     case 'top-left': {
-      const left = bounds.x;
-      const top = bounds.y - consumerElement.offsetHeight - offset;
       return {
-        left,
-        top,
+        left: bounds.x,
+        top: bounds.y - consumerElement.offsetHeight - offset,
       };
     }
     case 'bottom': {
-      const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
-        left,
-        top,
+        left: bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2,
+        top: bounds.y + producerElement.offsetHeight + offset,
       };
     }
     case 'bottom-right': {
-      const left = bounds.x + producerElement.offsetWidth - consumerElement.offsetWidth;
-      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
-        left,
-        top,
+        left: bounds.x + producerElement.offsetWidth - consumerElement.offsetWidth,
+        top: bounds.y + producerElement.offsetHeight + offset,
       };
     }
     case 'bottom-left': {
-      const left = bounds.x;
-      const top = bounds.y + producerElement.offsetHeight + offset;
       return {
-        left,
-        top,
+        left: bounds.x,
+        top: bounds.y + producerElement.offsetHeight + offset,
       };
     }
     case 'right': {
-      const left = bounds.x + producerElement.offsetWidth + offset;
-      const top = bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2;
       return {
-        left,
-        top,
+        left: bounds.x + producerElement.offsetWidth + offset,
+        top: bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2,
       };
     }
     case 'left': {
-      const left = bounds.x - consumerElement.offsetWidth - offset;
-      const top = bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2;
       return {
-        left,
-        top,
+        left: bounds.x - consumerElement.offsetWidth - offset,
+        top: bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2,
       };
     }
     default: {
-      const left = bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2;
-      const top =
-        bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset;
       return {
-        left,
-        top,
+        left: bounds.x - consumerElement.offsetWidth / 2 + producerElement.offsetWidth / 2,
+        top:
+          bounds.y - consumerElement.offsetHeight / 2 + producerElement.offsetHeight / 2 + offset,
       };
     }
   }
