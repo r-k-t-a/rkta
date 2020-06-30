@@ -23,8 +23,12 @@ import { FloatingArea } from '@rkta/ui';
 
 <Playground>
   {() => {
+    const [active, setActive] = useState(false);
     const [target, setTarget] = useState(null);
-    const bind = (event) => setTarget(event.target);
+    const bind = (event) => {
+      setTarget(event.target);
+      setActive(true);
+    };
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
         <Button bgColor="primary" onClick={bind}>
@@ -36,7 +40,7 @@ import { FloatingArea } from '@rkta/ui';
         <Button bgColor="primary" onClick={bind}>
           Target 3
         </Button>
-        <FloatingArea align="bottom-left" producer={target} active={!!target} offset={8}>
+        <FloatingArea producer={target} active={active} offset={8}>
           <List rize={1}>
             <ListTitle>Floating Area</ListTitle>
             <ListButton nowrap>Option 1</ListButton>

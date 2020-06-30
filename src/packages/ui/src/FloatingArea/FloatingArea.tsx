@@ -23,12 +23,20 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   const consumer = useRef<HTMLElement>(null);
   const positionAttachmentStyles = usePositionAttachment({ align, consumer, offset, producer });
   const mountNode = upsertNode(mountNodeId);
-  const fx = useFloatingArea({ active, consumer, onHide });
+  const { phase, transition } = useFloatingArea({
+    active,
+    consumer,
+    hasStyles: positionAttachmentStyles !== null,
+    onHide,
+  });
   const { applyStyles } = useProviderContext();
 
-  if (fx === HIDDEN) return null;
-  console.log('positionAttachmentStyles', positionAttachmentStyles);
-  const [{ ...elementProps }, Element] = applyStyles({ ...rest, fx }, 'FloatingArea');
+  if (phase === HIDDEN) return null;
+
+  const [{ ...elementProps }, Element] = applyStyles(
+    { ...rest, transition, phase },
+    'FloatingArea',
+  );
 
   return createPortal(
     <Element {...elementProps} style={{ ...positionAttachmentStyles, ...style }} ref={consumer}>

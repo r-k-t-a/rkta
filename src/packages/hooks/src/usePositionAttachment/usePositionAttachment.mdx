@@ -15,7 +15,7 @@ import { usePositionAttachment } from './usePositionAttachment';
   {() => {
     const producer = useRef(null);
     const consumer = useRef(null);
-    const style = usePositionAttachment({ align: 'top',consumer, offset: 0, producer });
+    const style = usePositionAttachment({ align: 'top', consumer, offset: 0, producer });
     return (
       <Fragment>
         <button ref={producer}>bbb</button>

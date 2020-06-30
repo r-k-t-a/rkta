@@ -9,10 +9,10 @@ export type PositionAttachmentConfig = {
     | 'bottom-left'
     | 'bottom-right'
     | 'left'
+    | 'right'
     | 'top'
     | 'top-left'
-    | 'top-right'
-    | 'right';
+    | 'top-right';
   consumer?: NodeRef;
   offset?: number;
   producer?: NodeRef;
@@ -185,6 +185,7 @@ export function usePositionAttachment({
     const next = producerElement
       ? attachToElement({ align, consumerElement, offset, producerElement })
       : attachToWindow({ align, consumerElement, offset });
+    console.log('next', next);
     const left = Math.round(next.left);
     const top = Math.round(next.top);
     if (top !== state?.top || left !== state?.left) setState({ ...common, left, top });
