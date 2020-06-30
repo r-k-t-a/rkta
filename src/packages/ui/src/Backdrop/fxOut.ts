@@ -6,8 +6,8 @@ import { leaveTop, leaveRight, leaveLeft, leaveBottom } from './fx';
 export function fxOut({ align }: Align): SerializedStyles {
   switch (align) {
     case 'bottom':
-    case 'bottomLeft':
-    case 'bottomRight':
+    case 'bottom-left':
+    case 'bottom-right':
     default:
       return leaveBottom;
     case 'left':
@@ -15,8 +15,8 @@ export function fxOut({ align }: Align): SerializedStyles {
     case 'right':
       return leaveRight;
     case 'top':
-    case 'topLeft':
-    case 'topRight':
+    case 'top-left':
+    case 'top-right':
       return leaveTop;
   }
 }

@@ -4,12 +4,12 @@ export type Align = {
   align?:
     | 'center'
     | 'top'
-    | 'topLeft'
-    | 'topRight'
+    | 'top-left'
+    | 'top-right'
     | 'right'
     | 'bottom'
-    | 'bottomRight'
-    | 'bottomLeft'
+    | 'bottom-right'
+    | 'bottom-left'
     | 'left';
 };
 

@@ -3,12 +3,12 @@ import { RktaElement } from '../Provider';
 
 export type Align =
   | 'top'
-  | 'topLeft'
-  | 'topRight'
+  | 'top-left'
+  | 'top-right'
   | 'right'
   | 'bottom'
-  | 'bottomRight'
-  | 'bottomLeft'
+  | 'bottom-right'
+  | 'bottom-left'
   | 'left';
 
 export type BindProps = RktaElement & {

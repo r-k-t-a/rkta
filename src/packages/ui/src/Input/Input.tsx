@@ -123,7 +123,7 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
             )}
             <Media atLeastTablet>
               <Bind
-                align="bottomLeft"
+                align="bottom-left"
                 blockLevel
                 onHide={unlockSuggest}
                 onFocus={lockSuggest}

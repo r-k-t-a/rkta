@@ -49,13 +49,13 @@ export const bounds = (
         top: ${top - offset}px;
         transform: translate(-50%, -100%);
       `;
-    case 'topLeft':
+    case 'top-left':
       return css`
         left: ${left}px;
         top: ${top - offset}px;
         transform: translateY(-100%);
       `;
-    case 'topRight':
+    case 'top-right':
       return css`
         left: ${right}px;
         top: ${top - offset}px;
@@ -73,12 +73,12 @@ export const bounds = (
         top: ${top + height / 2}px;
         transform: translate(-100%, -50%);
       `;
-    case 'bottomLeft':
+    case 'bottom-left':
       return css`
         left: ${left}px;
         top: ${bottom + offset}px;
       `;
-    case 'bottomRight':
+    case 'bottom-right':
       return css`
         left: ${right}px;
         top: ${bottom + offset}px;

@@ -34,8 +34,8 @@ The component provides foundation for creating various modal UI elements.
           <Card rize={1} css={{ maxWidth: 560 }}>
             <CardHeader fitRight>
               CardHeader
-               <Addon>
-                 <Popover align="bottomRight">
+              <Addon>
+                <Popover align="bottom-right">
                   <Button round>
                     <DotsThreeVertical />
                   </Button>
@@ -44,26 +44,26 @@ The component provides foundation for creating various modal UI elements.
                     <ListButton nowrap>Menu option 1</ListButton>
                     <ListButton nowrap>Menu option 1</ListButton>
                   </List>
-                 </Popover>
-               </Addon>
+                </Popover>
+              </Addon>
             </CardHeader>
             <CardBody color="textSecondary">
               <p>
-              This impressive paella is a perfect party dish and a fun meal to cook together with your
-              guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                This impressive paella is a perfect party dish and a fun meal to cook together with
+                your guests. Add 1 cup of frozen peas along with the mussels, if you like.
               </p>
-              <p>
-                Visible: {visible.toString()}
-              </p>
+              <p>Visible: {visible.toString()}</p>
             </CardBody>
             <CardFooter right>
               <Button onClick={toggleVisible}>Cancel</Button>
-              <Button autoFocus bgColor="primary" onClick={ok} rize={2}>OK</Button>
+              <Button autoFocus bgColor="primary" onClick={ok} rize={2}>
+                OK
+              </Button>
             </CardFooter>
           </Card>
         </Modal>
       </>
-    )
+    );
   }}
 </Playground>
 
@@ -92,7 +92,7 @@ The component provides foundation for creating various modal UI elements.
           </Card>
         </Modal>
       </>
-    )
+    );
   }}
 </Playground>
 

@@ -3,7 +3,7 @@ import { useEffect, useState, RefObject } from 'react';
 // #region Types
 type NodeRef = HTMLElement | RefObject<HTMLElement>;
 
-type Config = {
+export type PositionAttachmentConfig = {
   align?:
     | 'bottom-left'
     | 'bottom'
@@ -19,15 +19,15 @@ type Config = {
 };
 
 type AttachToWindow = {
-  align?: Config['align'];
+  align?: PositionAttachmentConfig['align'];
   consumerElement: HTMLElement;
-  offset: Config['offset'];
+  offset: PositionAttachmentConfig['offset'];
 };
 
 type AttachToElement = {
-  align?: Config['align'];
+  align?: PositionAttachmentConfig['align'];
   consumerElement: HTMLElement;
-  offset: Config['offset'];
+  offset: PositionAttachmentConfig['offset'];
   producerElement: HTMLElement;
 };
 
@@ -186,10 +186,15 @@ function attachToElement({
   }
 }
 
-const getElement = (nodeRef: NodeRef | undefined) =>
+export const getElement = (nodeRef: NodeRef | undefined) =>
   nodeRef && 'current' in nodeRef ? nodeRef.current : nodeRef;
 
-export function usePositionAttachment({ align, consumer, offset = 0, producer }: Config): State {
+export function usePositionAttachment({
+  align,
+  consumer,
+  offset = 0,
+  producer,
+}: PositionAttachmentConfig): State {
   const [state, setState] = useState<State>(null);
 
   function update(): void {

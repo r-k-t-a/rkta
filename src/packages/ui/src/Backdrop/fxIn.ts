@@ -6,8 +6,8 @@ import { enterTop, enterRight, enterLeft, enterBottom } from './fx';
 export function fxIn({ align }: Align): SerializedStyles {
   switch (align) {
     case 'bottom':
-    case 'bottomLeft':
-    case 'bottomRight':
+    case 'bottom-left':
+    case 'bottom-right':
     default:
       return enterBottom;
     case 'left':
@@ -15,8 +15,8 @@ export function fxIn({ align }: Align): SerializedStyles {
     case 'right':
       return enterRight;
     case 'top':
-    case 'topLeft':
-    case 'topRight':
+    case 'top-left':
+    case 'top-right':
       return enterTop;
   }
 }
