@@ -74,8 +74,8 @@ export const serverMedia = (
       : [child.props.css];
     const nextCss = childrenCss.concat(mediaQuery);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return jsx(ClassNames, null, ({ css }: { css: any }) =>
-      cloneElement(child, { ...child.props, className: css(nextCss) }),
+    return jsx(ClassNames, null, ({ css, cx }: { css: any; cx: any }) =>
+      cloneElement(child, { ...child.props, className: cx(css(nextCss), child.props.className) }),
     );
   }
   return Children.map(children, injectMediaQuery);
