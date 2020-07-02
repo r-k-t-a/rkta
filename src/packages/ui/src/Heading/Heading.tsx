@@ -1,4 +1,4 @@
-import React, { ReactElement, FC } from 'react';
+import React, { FC } from 'react';
 
 import { Text } from '../Text';
 import { TextProps } from '../Text/Text.type';
@@ -24,7 +24,6 @@ const getHeading = (level: number, rest: Partial<HeadingProps>): TextProps => {
  * <Heading level={6}>Level 6</Heading>
  * ```
  */
-
-export const Heading: FC<HeadingProps> = ({ level, ...rest }): ReactElement => (
+export const Heading: FC<HeadingProps> = ({ level, ...rest }): JSX.Element => (r
   <Text {...getHeading(level, rest)} />
 );

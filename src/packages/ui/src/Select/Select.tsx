@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { FormEvent, ReactElement, useState, forwardRef } from 'react';
+import { FormEvent, useState, forwardRef } from 'react';
 import { jsx } from '@emotion/core';
 import { Addon } from '../Addon';
 import { Svg } from '../Svg';
@@ -29,7 +29,7 @@ import { SelectProps } from './Select.type';
   ```
  */
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ caption, prepend, value, children, ...rest }: SelectProps, ref): ReactElement => {
+  ({ caption, prepend, value, children, ...rest }: SelectProps, ref): JSX.Element => {
     const { applyStyles } = useProviderContext();
     const [isActive, setIsActive] = useState(false);
     const [currentValue, setCurrentValue] = useState('');

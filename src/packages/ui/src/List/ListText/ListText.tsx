@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { FC, ReactElement } from 'react';
+import { FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../../Provider';
@@ -16,7 +16,7 @@ export const ListText: FC<ListTextProps> = ({
   children,
   description,
   ...props
-}): ReactElement => {
+}): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [nextStylesProps, Element] = applyStyles(
     { paddingY: 8, ...props },
