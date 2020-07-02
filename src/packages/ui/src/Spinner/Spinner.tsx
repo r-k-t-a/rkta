@@ -5,6 +5,14 @@ import { jsx } from '@emotion/core';
 import { useProviderContext } from '../Provider';
 import { SpinnerProps } from './Spinner.type';
 
+/**
+ * ```js
+ * import { Spinner } from '@rkta/ui';
+ *
+ * <Spinner />
+ * <Spinner color="secondary" size={80} borderWidth={6} css={{ marginTop: 40 }} />
+ * ```
+ */
 export const Spinner: FC<SpinnerProps> = (props): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(props, 'Spinner');

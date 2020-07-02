@@ -11,6 +11,20 @@ import { useRipple } from './Ripple/useRipple';
 
 const injectedProps = { element: 'button', normal: true, button: true };
 
+/**
+ * ```js
+ * import { Button } from '@rkta/ui';
+ *
+ * <Button bgColor="color1" round>
+ *   Button round
+ * </Button>
+ *
+ * <Button bgColor="primary" rize={1} round busy size={56}>
+ *  Button round and busy state
+ * </Button>
+ *
+ * ```
+ */
 export const Button = forwardRef(
   (
     {

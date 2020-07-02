@@ -14,6 +14,14 @@ import { InputProps } from './Input.type';
 import { InputElement, Value } from '../InputBase/InputBase.type';
 import { useInput } from './useInput';
 
+/**
+ * ```js
+ *
+ * import { Input } from '@rkta/ui';
+ *
+ * <Input caption="Text Input" />
+ * ```
+ */
 export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, InputProps>(
   (
     {

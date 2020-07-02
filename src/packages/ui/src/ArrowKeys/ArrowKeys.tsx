@@ -20,6 +20,29 @@ const defaultTypes = [Button, ListButton];
 type Setter = (prevIndex: number) => number;
 type Map = { key: number; valid: boolean };
 
+/**
+ * ```js
+ *  import { ArrowKeys, ListTitle, Divider, List, ListButton } from '@rkta/ui';
+ *
+ *   const list1 = [1, 2, 3];
+ *   const list2 = [4, 5];
+ *   return (
+ *     <List rize={1} sans>
+ *       <ArrowKeys vertical>
+ *         <ListTitle>Menu List</ListTitle>
+ *         <Divider horizontalSpace={16} />
+ *         {list1.map(item => (
+ *           <ListButton key={item}>Option {item}</ListButton>
+ *         ))}
+ *         <Divider horizontalSpace={16} />
+ *         {list2.map(item => (
+ *           <ListButton key={item}>Option {item}</ListButton>
+ *         ))}
+ *       </ArrowKeys>
+ *     </List>
+ *   );
+ * ```
+ */
 export const ArrowKeys: FC<ArrowKeysProps> = ({
   children,
   defaultIndex = -1,

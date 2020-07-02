@@ -7,6 +7,15 @@ import { useProviderContext } from '../Provider';
 import { clientMedia } from './clientMedia';
 import { serverMedia } from './serverMedia';
 
+/**
+ * ```js
+ * import { Media } from '@rkta/ui';
+ *
+ * <Media phone>
+ *  Phone
+ * <Media>
+ * ```
+ */
 export const Media: FC<MediaProps> = ({ children, ...queries }): JSX.Element => {
   const isMounted = useIsMounted();
   const [, toggle] = useToggle();

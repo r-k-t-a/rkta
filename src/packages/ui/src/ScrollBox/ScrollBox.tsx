@@ -6,6 +6,27 @@ import { ScrollBoxProps } from './ScrollBox.type';
 import { useProviderContext } from '../Provider';
 import useAnimation from './useAnimation';
 
+/**
+ * ```js
+ * import { ScrollBox, Button, Divider, Paper } from '@rkta/ui';
+ * import Range from 'lodash/range';
+ *
+ * <ScrollBox x bgColor="warning">
+ *   {Range(0, 50).map(item => (
+ *     <Paper
+ *       bgColor="primary"
+ *       center
+ *       size={50}
+ *       css={{ margin: 4, flexShrink: 0, lineHeight: '50px' }}
+ *       key={item}
+ *     >
+ *       {item}
+ *     </Paper>
+ *   ))}
+ * </ScrollBox>
+ *
+ * ```
+ */
 // eslint-disable-next-line react/prop-types
 export const ScrollBox: FC<ScrollBoxProps> = ({ children, visible, ...rest }): JSX.Element => {
   const { applyStyles } = useProviderContext();
