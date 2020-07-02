@@ -198,7 +198,6 @@ export function usePositionAttachment({
     const next = producerElement
       ? attachToElement({ align, consumerElement, offset, producerElement })
       : attachToWindow({ align, consumerElement, offset });
-    console.log('next', next);
     if (next.transform !== state?.transform) setState({ ...common, ...next });
   }
 
