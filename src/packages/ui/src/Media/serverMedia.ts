@@ -1,4 +1,4 @@
-import { jsx, ClassNames } from '@emotion/core';
+import { jsx, ClassNames, ClassNamesContent, Interpolation } from '@emotion/core';
 import { Children, ReactElement, ReactNode, cloneElement } from 'react';
 
 import { PropsWithoutChildren } from './Media.type';
@@ -73,10 +73,12 @@ export const serverMedia = (
       ? child.props.css
       : [child.props.css];
     const nextCss = childrenCss.concat(mediaQuery);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return jsx(ClassNames, null, ({ css, cx }: { css: any; cx: any }) =>
-      cloneElement(child, { ...child.props, className: cx(css(nextCss), child.props.className) }),
-    );
+    const children = ({ css, cx }: ClassNamesContent<RktaTheme>) =>
+      cloneElement(child, {
+        ...child.props,
+        className: cx(child.props.className, css(nextCss as Interpolation)),
+      });
+    return jsx(ClassNames, null, children);
   }
   return Children.map(children, injectMediaQuery);
 };
