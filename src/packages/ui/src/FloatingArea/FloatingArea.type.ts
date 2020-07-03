@@ -1,15 +1,7 @@
 import { PositionAttachmentConfig } from '@rkta/hooks';
 import { RktaElement } from '../Provider';
 
-export type Align =
-  | 'top'
-  | 'top-left'
-  | 'top-right'
-  | 'right'
-  | 'bottom'
-  | 'bottom-right'
-  | 'bottom-left'
-  | 'left';
+export type Align = PositionAttachmentConfig['align'];
 
 export type FloatingAreaProps = RktaElement & {
   active: boolean;

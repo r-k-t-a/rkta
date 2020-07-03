@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
 import { RktaElement } from '../Provider';
 
-import { Align } from '../Bind/Bind.type';
+import { Align } from '../FloatingArea/FloatingArea.type';
 
 export type PopoverProps = RktaElement & {
   align?: Align;

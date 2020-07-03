@@ -19,7 +19,7 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   producer,
   style,
   ...rest
-}): JSX.Element | null => {
+}) => {
   const consumer = useRef<HTMLElement>(null);
   const positionAttachmentStyles = usePositionAttachment({ align, consumer, offset, producer });
   const mountNode = upsertNode(mountNodeId);
@@ -34,7 +34,7 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   if (phase === HIDDEN) return null;
 
   const [{ ...elementProps }, Element] = applyStyles(
-    { ...rest, transition, phase },
+    { ...rest, transition, phase, producer },
     'FloatingArea',
   );
 

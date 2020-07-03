@@ -6,19 +6,22 @@ import { fxOut } from '../Backdrop/fxOut';
 import { FloatingAreaProps } from './FloatingArea.type';
 import { ACTIVE, EXITING } from './useFloatingArea';
 
+const ease = 'cubic-bezier(0.23, 1, 0.32, 1)';
+
 export const initialStyle = css`
   position: fixed;
   > * {
-    transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform 0.48s ${ease};
     will-change: transform;
   }
   z-index: 2040;
 `;
 
-export const transition = css`
-  transition: left 0.48s cubic-bezier(0.23, 1, 0.32, 1), top 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-  will-change: left, top, transform;
-`;
+export const blockLevel = (theme: RktaTheme, props: FloatingAreaProps): SerializedStyles => {
+  return css`
+    width: 100%;
+  `;
+};
 
 export const phase = (theme: RktaTheme, props: FloatingAreaProps): SerializedStyles => {
   if (props.phase === ACTIVE)
@@ -35,6 +38,7 @@ export const phase = (theme: RktaTheme, props: FloatingAreaProps): SerializedSty
   `;
 };
 
-export const blockLevel = css`
-  width: 100%;
+export const transition = css`
+  transition: transform 0.48s ${ease};
+  will-change: transform;
 `;
