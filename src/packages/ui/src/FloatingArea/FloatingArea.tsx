@@ -4,9 +4,10 @@ import { FC, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { usePositionAttachment } from '@rkta/hooks';
 
+import { Cache } from '../Cache';
 import { upsertNode } from '../util';
 import { useProviderContext } from '../Provider';
-import { useFloatingArea, HIDDEN } from './useFloatingArea';
+import { useFloatingArea, OUT, ENTER, EXIT } from './useFloatingArea';
 import { FloatingAreaProps } from './FloatingArea.type';
 
 export const FloatingArea: FC<FloatingAreaProps> = ({
@@ -23,32 +24,36 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   const consumer = useRef<HTMLElement>(null);
   const positionAttachmentStyles = usePositionAttachment({ align, consumer, offset, producer });
   const mountNode = upsertNode(mountNodeId);
-  const phase = useFloatingArea({
+  const [phase, handleAnimationEnd] = useFloatingArea({
     active,
     consumer,
     onHide,
+    producer,
   });
   const { applyStyles } = useProviderContext();
 
-  if (phase === HIDDEN) return null;
+  const visible = positionAttachmentStyles !== null;
+  const hasTransition = [ENTER, EXIT].includes(phase);
+  const animate = visible && hasTransition;
 
-  const [{ ...elementProps }, Element] = applyStyles(
-    { ...rest, transition, phase, producer, offset, align },
+  const [{ producer: p, phase: ph, offset: o, align: a, ...elementProps }, Element] = applyStyles(
+    { ...rest, align, animate, offset, phase, producer, visible },
     'FloatingArea',
   );
 
   return createPortal(
-    phase === HIDDEN ? null : (
+    phase === OUT ? null : (
       <Element
         {...elementProps}
-        key={!positionAttachmentStyles}
+        key={animate}
+        onAnimationEnd={handleAnimationEnd}
         style={{
           ...positionAttachmentStyles,
           ...style,
         }}
         ref={consumer}
       >
-        {children}
+        <Cache disabled={hasTransition}>{children}</Cache>
       </Element>
     ),
     mountNode,
