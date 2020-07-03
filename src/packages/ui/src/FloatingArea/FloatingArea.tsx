@@ -34,7 +34,7 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   if (phase === HIDDEN) return null;
 
   const [{ ...elementProps }, Element] = applyStyles(
-    { ...rest, transition, phase, producer },
+    { ...rest, transition, phase, producer, offset, align },
     'FloatingArea',
   );
 

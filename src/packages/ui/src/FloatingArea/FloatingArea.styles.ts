@@ -1,6 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
 
-import { RktaTheme } from '../Provider/theme';
+import { RktaTheme, RktaElement } from '../Provider/theme';
 import { fxIn } from '../Backdrop/fxIn';
 import { fxOut } from '../Backdrop/fxOut';
 import { FloatingAreaProps } from './FloatingArea.type';
@@ -18,8 +18,21 @@ export const initialStyle = css`
 `;
 
 export const blockLevel = (theme: RktaTheme, props: FloatingAreaProps): SerializedStyles => {
+  if (props.producer) {
+    const producer = props.producer as HTMLElement;
+
+    return css`
+      width: ${producer.offsetWidth}px;
+    `;
+  }
+
   return css`
-    width: 100%;
+    width: ${props.align === 'top' || props.align === 'bottom'
+      ? window.innerWidth - props.offset * 2 + 'px'
+      : 'auto'};
+    height: ${props.align === 'top' || props.align === 'bottom'
+      ? 'auto'
+      : window.innerHeight - props.offset * 2 + 'px'};
   `;
 };
 
