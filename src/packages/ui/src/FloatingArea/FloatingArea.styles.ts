@@ -4,7 +4,7 @@ import { RktaTheme } from '../Provider/theme';
 import { fxIn } from '../Backdrop/fxIn';
 import { fxOut } from '../Backdrop/fxOut';
 import { FloatingAreaProps } from './FloatingArea.type';
-import { ACTIVE, EXITING } from './useFloatingArea';
+import { ACTIVE } from './useFloatingArea';
 
 const ease = 'cubic-bezier(0.23, 1, 0.32, 1)';
 

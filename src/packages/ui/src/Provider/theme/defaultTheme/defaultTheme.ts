@@ -5,7 +5,6 @@ import { shadow } from '../shadow';
 import * as Addon from '../../../Addon/Addon.styles';
 import * as Backdrop from '../../../Backdrop/Backdrop.styles';
 import * as Bage from '../../../Bage/Bage.styles';
-import * as Bind from '../../../Bind/Bind.styles';
 import * as Button from '../../../Button/Button.styles';
 import * as Card from '../../../Card/Card.styles';
 import * as CardHeader from '../../../Card/Header/Header.styles';
@@ -42,7 +41,6 @@ export const defaultTheme: RktaDefaultTheme = {
   Addon,
   Backdrop,
   Bage,
-  Bind,
   Button,
   Card,
   CardHeader,

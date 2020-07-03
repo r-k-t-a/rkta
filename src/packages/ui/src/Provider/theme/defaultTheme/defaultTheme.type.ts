@@ -6,7 +6,6 @@ import { CssRkta } from '../types/CssRkta.type';
 import * as AddonStyles from '../../../Addon/Addon.styles';
 import * as BackdropStyles from '../../../Backdrop/Backdrop.styles';
 import * as BageStyles from '../../../Bage/Bage.styles';
-import * as BindStyles from '../../../Bind/Bind.styles';
 import * as ButtonStyles from '../../../Button/Button.styles';
 import * as CardStyles from '../../../Card/Card.styles';
 import * as CardBodyStyles from '../../../Card/Body/Body.styles';
@@ -45,7 +44,6 @@ export type RktaDefaultTheme = {
   Addon: typeof AddonStyles & StylesOverload;
   Backdrop: typeof BackdropStyles & StylesOverload;
   Bage: typeof BageStyles & StylesOverload;
-  Bind: typeof BindStyles & StylesOverload;
   Button: typeof ButtonStyles & StylesOverload;
   Card: typeof CardStyles & StylesOverload;
   CardBody: typeof CardBodyStyles & StylesOverload;
