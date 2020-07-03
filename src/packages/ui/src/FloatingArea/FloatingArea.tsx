@@ -23,10 +23,9 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   const consumer = useRef<HTMLElement>(null);
   const positionAttachmentStyles = usePositionAttachment({ align, consumer, offset, producer });
   const mountNode = upsertNode(mountNodeId);
-  const { phase, transition } = useFloatingArea({
+  const phase = useFloatingArea({
     active,
     consumer,
-    hasStyles: positionAttachmentStyles !== null,
     onHide,
   });
   const { applyStyles } = useProviderContext();
@@ -39,9 +38,19 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   );
 
   return createPortal(
-    <Element {...elementProps} style={{ ...positionAttachmentStyles, ...style }} ref={consumer}>
-      {children}
-    </Element>,
+    phase === HIDDEN ? null : (
+      <Element
+        {...elementProps}
+        key={!positionAttachmentStyles}
+        style={{
+          ...positionAttachmentStyles,
+          ...style,
+        }}
+        ref={consumer}
+      >
+        {children}
+      </Element>
+    ),
     mountNode,
   );
 };

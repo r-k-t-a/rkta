@@ -10,6 +10,10 @@ const ease = 'cubic-bezier(0.23, 1, 0.32, 1)';
 
 export const initialStyle = css`
   position: fixed;
+  visibility: hidden;
+  visibility: visible;
+  transition: transform 0.48s ${ease};
+  will-change: transform;
   > * {
     transition: transform 0.48s ${ease};
     will-change: transform;
@@ -36,22 +40,11 @@ export const blockLevel = (theme: RktaTheme, props: FloatingAreaProps): Serializ
   `;
 };
 
-export const phase = (theme: RktaTheme, props: FloatingAreaProps): SerializedStyles => {
-  if (props.phase === ACTIVE)
-    return css`
-      > * {
-        ${fxIn(props)}
-      }
-    `;
+export const phase = (theme: RktaTheme, props: FloatingAreaProps) => {
+  const fx = props.phase === ACTIVE ? fxIn : fxOut;
   return css`
-    pointer-events: none;
     > * {
-      ${fxOut(props)}
+      ${fx(props)}
     }
   `;
 };
-
-export const transition = css`
-  transition: transform 0.48s ${ease};
-  will-change: transform;
-`;

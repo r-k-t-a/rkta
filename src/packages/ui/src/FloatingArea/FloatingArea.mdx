@@ -6,12 +6,13 @@ name: Floating Area
 import { useState } from 'react';
 import { Link, Playground, Props } from 'docz';
 import { Button } from '../Button';
+import { Divider } from '../Divider';
 import { List, ListTitle, ListButton } from '../List';
 import { FloatingArea } from './FloatingArea';
 
 # Floating Area
 
-Helper component used by `@rkta/ui` to bind stuff to a DOM Elements.
+Helper component used by `@rkta/ui` to attach stuff to a DOM Elements or a Window.
 
 ## Import
 
@@ -19,28 +20,79 @@ Helper component used by `@rkta/ui` to bind stuff to a DOM Elements.
 import { FloatingArea } from '@rkta/ui';
 ```
 
-## Examples
+## Element mode
 
 <Playground>
   {() => {
     const [active, setActive] = useState(false);
     const [target, setTarget] = useState(null);
-    const bind = (event) => {
+    const show = (event) => {
       setTarget(event.target);
       setActive(true);
     };
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
-        <Button bgColor="primary" onClick={bind}>
+        <Button bgColor="primary" onClick={show}>
           Target 1
         </Button>
-        <Button bgColor="primary" onClick={bind}>
+        <Button bgColor="primary" onClick={show}>
           Target 2
         </Button>
-        <Button bgColor="primary" onClick={bind}>
+        <Button bgColor="primary" onClick={show}>
           Target 3
         </Button>
         <FloatingArea producer={target} active={active} offset={8}>
+          <List rize={1}>
+            <ListTitle>Floating Area</ListTitle>
+            <ListButton nowrap>Option 1</ListButton>
+            <ListButton nowrap>Option 2</ListButton>
+            <ListButton nowrap>Option 3</ListButton>
+          </List>
+        </FloatingArea>
+      </div>
+    );
+  }}
+</Playground>
+
+## Window mode
+
+<Playground>
+  {() => {
+    const [{ active, align }, setState] = useState({ active: false });
+    const show = (align) => () => setState({ align, active: true });
+    const hide = () => setState({ active: false, align });
+    return (
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
+          <Button bgColor="primary" onClick={show('top-left')}>
+            Top-left
+          </Button>
+          <Button bgColor="primary" onClick={show('top')}>
+            Top
+          </Button>
+          <Button bgColor="primary" onClick={show('top-right')}>
+            Top-right
+          </Button>
+        </div>
+        <Divider />
+        <div style={{ display: 'flex', justifyContent: 'center', padding: 8 }}>
+          <Button bgColor="primary" onClick={show()}>
+            Center
+          </Button>
+        </div>
+        <Divider />
+        <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
+          <Button bgColor="primary" onClick={show('bottom-left')}>
+            Bottom-left
+          </Button>
+          <Button bgColor="primary" onClick={show('bottom')}>
+            Bottom
+          </Button>
+          <Button bgColor="primary" onClick={show('bottom-right')}>
+            Bottom-right
+          </Button>
+        </div>
+        <FloatingArea active={active} align={align} offset={80} onHide={hide}>
           <List rize={1}>
             <ListTitle>Floating Area</ListTitle>
             <ListButton nowrap>Option 1</ListButton>
