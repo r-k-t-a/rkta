@@ -75,9 +75,15 @@ import { FloatingArea } from '@rkta/ui';
           </Button>
         </div>
         <Divider />
-        <div style={{ display: 'flex', justifyContent: 'center', padding: 8 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
+          <Button bgColor="primary" onClick={show('left')}>
+            Left
+          </Button>
           <Button bgColor="primary" onClick={show()}>
             Center
+          </Button>
+          <Button bgColor="primary" onClick={show('right')}>
+            Right
           </Button>
         </div>
         <Divider />
@@ -92,8 +98,8 @@ import { FloatingArea } from '@rkta/ui';
             Bottom-right
           </Button>
         </div>
-        <FloatingArea active={active} align={align} offset={80} onHide={hide}>
-          <List rize={1}>
+        <FloatingArea active={active} align={align} offset={80} onHide={hide} blockLevel>
+          <List css={{ height: '100%' }} rize={1}>
             <ListTitle>Floating Area</ListTitle>
             <ListButton nowrap>Option 1</ListButton>
             <ListButton nowrap>Option 2</ListButton>
