@@ -1,7 +1,5 @@
 import { makeCheckable } from '../makeCheckable';
 
-export { CheckableProps } from './Radio.type';
-
 /**
  * import { Addon, Radio } from '@rkta/ui';
  *

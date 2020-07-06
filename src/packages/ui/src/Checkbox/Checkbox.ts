@@ -1,6 +1,5 @@
 import { makeCheckable } from '../makeCheckable';
 
-export { CheckableProps } from './Checkbox.type';
 /**
  * ```js
  * import { CheckBox, Addon, List, ListButton } from '@rkta/ui';

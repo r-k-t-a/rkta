@@ -1,1 +1,1 @@
-export { PaperProps } from '../Paper/Paper.type';
+export { PaperProps as InputGroupProps } from '../Paper/Paper.type';

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import { ListItem } from '../ListItem';
-import { PaperProps } from '../ListItem/ListItem.type';
+import { ListItemProps } from '../ListItem/ListItem.type';
 
 /**
  * ```js
@@ -10,7 +10,7 @@ import { PaperProps } from '../ListItem/ListItem.type';
  * <ListTitle>Title</ListTitle>
  * ```
  */
-export const ListTitle: FC<PaperProps> = ({ children, ...rest }): JSX.Element => (
+export const ListTitle: FC<ListItemProps> = ({ children, ...rest }): JSX.Element => (
   <ListItem {...rest}>{children}</ListItem>
 );
 ListTitle.defaultProps = {

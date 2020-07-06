@@ -1,4 +1,4 @@
-import { HtmlHTMLAttributes, DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import { Color } from '../Provider/theme';
 
 type CheckableElement = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;

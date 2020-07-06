@@ -1,1 +1,1 @@
-export { CheckableProps } from '../makeCheckable';
+export { CheckableProps as RadioProps } from '../makeCheckable';

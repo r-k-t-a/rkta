@@ -18,4 +18,4 @@ export type AddonOwnProps = {
   tiny?: boolean;
 };
 
-export type AddonProps = AddonOwnProps & TextProps & {};
+export type AddonProps = AddonOwnProps & TextProps;

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment, ReactElement } from 'react';
+import { Fragment } from 'react';
 import { jsx } from '@emotion/core';
 
 import { BoxCss } from './Ripple.styles';

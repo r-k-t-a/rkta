@@ -1,4 +1,4 @@
-import { PaperProps } from '../ListItem/ListItem.type';
+import { ListItemProps } from '../ListItem/ListItem.type';
 import { ButtonProps } from '../../Button/Button.type';
 
-export type ListButtonProps = ButtonProps & PaperProps & {};
+export type ListButtonProps = ButtonProps & ListItemProps;

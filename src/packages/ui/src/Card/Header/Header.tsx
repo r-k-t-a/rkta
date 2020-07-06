@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import { jsx } from '@emotion/core';
 
-import { AddonProps } from './Header.type';
+import { HeaderProps } from './Header.type';
 import { useProviderContext } from '../../Provider';
 
 /**
@@ -14,7 +14,7 @@ import { useProviderContext } from '../../Provider';
  * </CardHeader>
  * ```
  */
-export const CardHeader: FC<AddonProps> = ({ children, ...rest }): JSX.Element => {
+export const CardHeader: FC<HeaderProps> = ({ children, ...rest }): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles({ element: 'header', ...rest }, 'CardHeader', 'Addon');
   return <Element {...nextProps}>{children}</Element>;
