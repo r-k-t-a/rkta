@@ -34,6 +34,7 @@ export function useFloatingArea({
   }
 
   function handleAnimationEnd(): void {
+    console.log('handleAnimationEnd', state);
     if (state === EXIT) setState(OUT);
     if (state === ENTER) setState(READY);
   }
