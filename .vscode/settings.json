@@ -1,7 +1,6 @@
 {
   "javascript.implicitProjectConfig.checkJs": false,
   "editor.formatOnSave": true,
-  "eslint.codeActionsOnSave": false,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": false
