@@ -10,9 +10,11 @@ import { Button } from '../Button';
 import { List, ListTitle, ListButton } from '../List';
 
 # Popover
+
 Create popovers and bind them to trigger elements.
 
 ## Import
+
 ```javascript
 import { Popover } from '@rkta/ui';
 ```
@@ -27,19 +29,19 @@ import { Popover } from '@rkta/ui';
         <ListButton>Click me</ListButton>
         <ListButton>No, me!</ListButton>
       </List>
-    )
+    );
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
         <Popover align="top">
           <Button bgColor="primary">top</Button>
           {dropDownContent}
         </Popover>
-        <Popover align="topLeft">
-          <Button bgColor="primary">topLeft</Button>
+        <Popover align="top-left">
+          <Button bgColor="primary">top-left</Button>
           {dropDownContent}
         </Popover>
-        <Popover align="topRight">
-          <Button bgColor="primary">topRight</Button>
+        <Popover align="top-right">
+          <Button bgColor="primary">top-right</Button>
           {dropDownContent}
         </Popover>
         <Popover align="right">
@@ -50,12 +52,12 @@ import { Popover } from '@rkta/ui';
           <Button bgColor="primary">bottom</Button>
           {dropDownContent}
         </Popover>
-        <Popover align="bottomRight">
-          <Button bgColor="primary">bottomRight</Button>
+        <Popover align="bottom-right">
+          <Button bgColor="primary">bottom-right</Button>
           {dropDownContent}
         </Popover>
-        <Popover align="bottomLeft">
-          <Button bgColor="primary">bottomLeft</Button>
+        <Popover align="bottom-left">
+          <Button bgColor="primary">bottom-left</Button>
           {dropDownContent}
         </Popover>
         <Popover align="left">

@@ -39,12 +39,12 @@ export const align = (theme: RktaTheme, props: BackdropProps): SerializedStyles 
         align-items: flex-end;
         justify-content: center;
       `;
-    case 'bottomRight':
+    case 'bottom-right':
       return css`
         align-items: flex-end;
         justify-content: flex-end;
       `;
-    case 'bottomLeft':
+    case 'bottom-left':
       return css`
         align-items: flex-end;
         justify-content: flex-start;
@@ -64,12 +64,12 @@ export const align = (theme: RktaTheme, props: BackdropProps): SerializedStyles 
         align-items: flex-start;
         justify-content: center;
       `;
-    case 'topLeft':
+    case 'top-left':
       return css`
         align-items: flex-start;
         justify-content: flex-start;
       `;
-    case 'topRight':
+    case 'top-right':
       return css`
         align-items: flex-start;
         justify-content: flex-end;

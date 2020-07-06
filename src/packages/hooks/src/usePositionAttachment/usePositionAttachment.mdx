@@ -1,0 +1,28 @@
+---
+menu: Hooks
+name: usePositionAttachment
+---
+
+# usePositionAttachment hook
+
+## Attach to window
+
+import { useRef, Fragment } from 'react';
+import { Playground } from 'docz';
+import { usePositionAttachment } from './usePositionAttachment';
+
+<Playground>
+  {() => {
+    const producer = useRef(null);
+    const consumer = useRef(null);
+    const style = usePositionAttachment({ align: 'top', consumer, offset: 0, producer });
+    return (
+      <Fragment>
+        <button ref={producer}>bbb</button>
+        <div ref={consumer} style={{ ...style, zIndex: 2, outline: '1px dotted' }}>
+          piu
+        </div>
+      </Fragment>
+    );
+  }}
+</Playground>

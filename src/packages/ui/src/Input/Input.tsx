@@ -5,7 +5,7 @@ import { Fragment, useRef, FocusEvent, FormEvent, forwardRef, FC } from 'react';
 
 import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
-import { Bind } from '../Bind';
+import { FloatingArea } from '../FloatingArea';
 import { Media } from '../Media';
 import { reEmit } from '../util';
 
@@ -122,17 +122,17 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
               </Media>
             )}
             <Media atLeastTablet>
-              <Bind
-                align="bottomLeft"
+              <FloatingArea
+                active={suggestIsVisible}
+                align="bottom-left"
                 blockLevel
                 onHide={unlockSuggest}
                 onFocus={lockSuggest}
                 onPointerDown={lockSuggest}
-                to={boxRef.current as Element}
-                visible={suggestIsVisible}
+                producer={boxRef.current as HTMLElement}
               >
                 {suggest}
-              </Bind>
+              </FloatingArea>
             </Media>
           </Fragment>
         )}

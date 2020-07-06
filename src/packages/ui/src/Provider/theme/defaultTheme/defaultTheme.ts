@@ -5,7 +5,6 @@ import { shadow } from '../shadow';
 import * as Addon from '../../../Addon/Addon.styles';
 import * as Backdrop from '../../../Backdrop/Backdrop.styles';
 import * as Bage from '../../../Bage/Bage.styles';
-import * as Bind from '../../../Bind/Bind.styles';
 import * as Button from '../../../Button/Button.styles';
 import * as Card from '../../../Card/Card.styles';
 import * as CardHeader from '../../../Card/Header/Header.styles';
@@ -14,6 +13,7 @@ import * as CardFooter from '../../../Card/Footer/Footer.styles';
 import * as Checkbox from '../../../Checkbox/Checkbox.styles';
 import * as Divider from '../../../Divider/Divider.styles';
 import * as Drawer from '../../../Drawer/Drawer.styles';
+import * as FloatingArea from '../../../FloatingArea/FloatingArea.styles';
 import * as Fx from '../../../Fx/Fx.styles';
 import * as Input from '../../../Input/Input.styles';
 import * as InputBase from '../../../InputBase/InputBase.styles';
@@ -41,7 +41,6 @@ export const defaultTheme: RktaDefaultTheme = {
   Addon,
   Backdrop,
   Bage,
-  Bind,
   Button,
   Card,
   CardHeader,
@@ -50,6 +49,7 @@ export const defaultTheme: RktaDefaultTheme = {
   Checkbox,
   Divider,
   Drawer,
+  FloatingArea,
   Fx,
   Input,
   InputBase,

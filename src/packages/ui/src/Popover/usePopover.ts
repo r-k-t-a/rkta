@@ -6,7 +6,7 @@ const SET_TRIGGER_ELEMENT = Symbol('SET_TRIGGER_ELEMENT');
 
 type State = {
   isVisible: boolean;
-  triggerElement?: Element;
+  producer?: HTMLElement;
 };
 type Action = {
   type: symbol;
@@ -18,14 +18,14 @@ const defaultState = {
   isVisible: false,
 };
 
-function reducer(state: State, { type, triggerElement }: Action): State {
+function reducer(state: State, { type, producer }: Action): State {
   switch (type) {
     case HIDE:
       return { ...state, isVisible: false };
     case TOGGLE:
       return { ...state, isVisible: !state.isVisible };
     case SET_TRIGGER_ELEMENT:
-      return { ...state, triggerElement };
+      return { ...state, producer };
     default:
       return state;
   }
@@ -39,8 +39,8 @@ export function usePopover() {
     hide(): void {
       dispatch({ type: HIDE });
     },
-    setTriggerElement(triggerElement: Element): void {
-      dispatch({ type: SET_TRIGGER_ELEMENT, triggerElement });
+    setProducer(producer: Element): void {
+      dispatch({ type: SET_TRIGGER_ELEMENT, producer });
     },
     toggle(): void {
       dispatch({ type: TOGGLE });

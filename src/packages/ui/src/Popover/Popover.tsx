@@ -2,7 +2,7 @@ import React, { cloneElement, FC, MouseEvent } from 'react';
 
 import { PopoverProps } from './Popover.type';
 import { usePopover } from './usePopover';
-import { Bind } from '../Bind';
+import { FloatingArea } from '../FloatingArea';
 
 const defaultAlign = 'bottom';
 const defaultOffset = 0;
@@ -64,28 +64,28 @@ export const Popover: FC<PopoverProps> = ({
   offset,
   ...rest
 }): JSX.Element => {
-  const { isVisible, hide, setTriggerElement, toggle, triggerElement } = usePopover();
+  const { isVisible, hide, setProducer, toggle, producer } = usePopover();
 
   const EnhacedTrigger = cloneElement(Trigger, {
     onClick: (event: MouseEvent): void => {
-      setTriggerElement(event.target as Element);
+      setProducer(event.target as Element);
       if (!isVisible) toggle();
     },
   });
   return (
     <>
       {EnhacedTrigger}
-      {triggerElement && (
-        <Bind
+      {producer && (
+        <FloatingArea
           {...rest}
+          active={isVisible}
           align={align}
-          onHide={hide}
           offset={offset}
-          to={triggerElement}
-          visible={isVisible}
+          onHide={hide}
+          producer={producer}
         >
           {restChildren}
-        </Bind>
+        </FloatingArea>
       )}
     </>
   );
