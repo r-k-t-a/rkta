@@ -31,7 +31,6 @@ export const blockLevel = (
   { align, offset = 0, producer }: FloatingAreaProps,
 ): SerializedStyles => {
   const producerElement = getHTMLElementFromRef(producer);
-
   const height = producerElement?.offsetHeight || window.innerHeight - offset * 2;
   const width = producerElement?.offsetWidth || window.innerWidth - offset * 2;
 
