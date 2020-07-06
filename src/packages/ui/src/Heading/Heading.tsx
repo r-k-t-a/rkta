@@ -24,6 +24,6 @@ const getHeading = (level: number, rest: Partial<HeadingProps>): TextProps => {
  * <Heading level={6}>Level 6</Heading>
  * ```
  */
-export const Heading: FC<HeadingProps> = ({ level, ...rest }): JSX.Element => (r
+export const Heading: FC<HeadingProps> = ({ level, ...rest }): JSX.Element => (
   <Text {...getHeading(level, rest)} />
 );
