@@ -1,1 +1,1 @@
-export { PaperProps } from '../../Paper/Paper.type';
+export { PaperProps as ListItemProps } from '../../Paper/Paper.type';

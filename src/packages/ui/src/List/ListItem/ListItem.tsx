@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { jsx } from '@emotion/core';
 
 import { useProviderContext } from '../../Provider';
-import { PaperProps } from './ListItem.type';
+import { ListItemProps } from './ListItem.type';
 
 /**
  * ```js
@@ -15,7 +15,7 @@ import { PaperProps } from './ListItem.type';
  * </ListItem>
  * ```
  */
-export const ListItem: FC<PaperProps> = ({ children, ...props }): JSX.Element => {
+export const ListItem: FC<ListItemProps> = ({ children, ...props }): JSX.Element => {
   const { applyStyles } = useProviderContext();
   const [nextProps, Element] = applyStyles(
     { normal: true, hard: true, body: true, transparent: true, ...props },

@@ -73,12 +73,12 @@ export const serverMedia = (
       ? child.props.css
       : [child.props.css];
     const nextCss = childrenCss.concat(mediaQuery);
-    const children = ({ css, cx }: ClassNamesContent<RktaTheme>) =>
+    const injectChildren = ({ css, cx }: ClassNamesContent<RktaTheme>) =>
       cloneElement(child, {
         ...child.props,
         className: cx(child.props.className, css(nextCss as Interpolation)),
       });
-    return jsx(ClassNames, null, children);
+    return jsx(ClassNames, null, injectChildren);
   }
   return Children.map(children, injectMediaQuery);
 };

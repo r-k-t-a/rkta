@@ -1,1 +1,1 @@
-export { AddonProps } from '../../Addon/Addon.type';
+export { AddonProps as HeaderProps } from '../../Addon/Addon.type';

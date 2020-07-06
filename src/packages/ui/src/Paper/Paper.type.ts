@@ -22,4 +22,4 @@ export type PaperOwnProps = {
 
 type OmitColor = Omit<TextProps, 'color'>;
 
-export type PaperProps = PaperOwnProps & Omit<OmitColor, 'size'> & {};
+export type PaperProps = PaperOwnProps & Omit<OmitColor, 'size'>;
