@@ -5,6 +5,7 @@ import { forwardRef } from 'react';
 import { useProviderContext } from '../Provider';
 import { CheckableProps } from './Checkable.type';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const makeCheckable = (multiple: boolean) =>
   forwardRef<HTMLInputElement, CheckableProps>(
     ({ className, ...rest }: CheckableProps, ref): JSX.Element => {

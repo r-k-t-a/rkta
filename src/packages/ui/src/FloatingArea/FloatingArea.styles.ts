@@ -15,7 +15,7 @@ export const initialStyle = css`
   z-index: 2040;
 `;
 
-export const animate = (theme: RktaTheme, props: FloatingAreaProps) => {
+export const animate = (theme: RktaTheme, props: FloatingAreaProps): SerializedStyles => {
   const fx = props.phase === ENTER ? fxIn : fxOut;
   return css`
     > * {
