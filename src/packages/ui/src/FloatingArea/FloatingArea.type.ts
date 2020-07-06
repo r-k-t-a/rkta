@@ -7,6 +7,7 @@ export type FloatingAreaProps = RktaElement & {
   active: boolean;
   align?: PositionAttachmentConfig['align'];
   blockLevel?: boolean;
+  consumer?: never;
   mountNodeId?: 'string';
   offset?: PositionAttachmentConfig['offset'];
   onHide?: () => void;

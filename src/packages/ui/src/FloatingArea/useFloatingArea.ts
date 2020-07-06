@@ -4,6 +4,8 @@ import { getHTMLElementFromRef } from '@rkta/hooks';
 
 import { FloatingAreaProps } from './FloatingArea.type';
 
+import { FloatingAreaProps } from './FloatingArea.type';
+
 export const ENTER = Symbol('ENTER');
 export const EXIT = Symbol('EXIT');
 export const OUT = Symbol('OUT');
@@ -34,7 +36,6 @@ export function useFloatingArea({
   }
 
   function handleAnimationEnd(): void {
-    console.log('handleAnimationEnd', state);
     if (state === EXIT) setState(OUT);
     if (state === ENTER) setState(READY);
   }
