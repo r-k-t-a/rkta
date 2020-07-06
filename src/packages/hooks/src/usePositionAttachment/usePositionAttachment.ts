@@ -128,7 +128,7 @@ function attachToElement({
       };
     }
     case 'top-left': {
-      const x = bounds.x;
+      const { x } = bounds;
       const y = bounds.y - consumerElement.offsetHeight - offset;
       return {
         transform: `translate(${x}px, ${y}px)`,
@@ -149,7 +149,7 @@ function attachToElement({
       };
     }
     case 'bottom-left': {
-      const x = bounds.x;
+      const { x } = bounds;
       const y = bounds.y + producerElement.offsetHeight + offset;
       return {
         transform: `translate(${x}px, ${y}px)`,
@@ -180,8 +180,9 @@ function attachToElement({
   }
 }
 
-export const getElement = (nodeRef: NodeRef | undefined) =>
-  nodeRef && 'current' in nodeRef ? nodeRef.current : nodeRef;
+export const getHTMLElementFromRef = (
+  nodeRef: NodeRef | undefined,
+): HTMLElement | undefined | null => (nodeRef && 'current' in nodeRef ? nodeRef.current : nodeRef);
 
 export function usePositionAttachment({
   align,
@@ -192,9 +193,12 @@ export function usePositionAttachment({
   const [state, setState] = useState<State>(null);
 
   function update(): void {
-    const consumerElement = getElement(consumer);
-    const producerElement = getElement(producer);
-    if (!consumerElement) return setState(null);
+    const consumerElement = getHTMLElementFromRef(consumer);
+    const producerElement = getHTMLElementFromRef(producer);
+    if (!consumerElement) {
+      setState(null);
+      return;
+    }
     const next = producerElement
       ? attachToElement({ align, consumerElement, offset, producerElement })
       : attachToWindow({ align, consumerElement, offset });
