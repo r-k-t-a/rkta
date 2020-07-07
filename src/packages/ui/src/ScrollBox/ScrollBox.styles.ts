@@ -7,7 +7,7 @@ export const initialStyle = css`
   overflow: hidden;
   overflow-scrolling: touch;
   scroll-behavior: smooth;
-  -webkit-overflows-crolling: touch;
+  -webkit-overflow-scrolling: touch;
 `;
 
 export const animateHeight = css`
