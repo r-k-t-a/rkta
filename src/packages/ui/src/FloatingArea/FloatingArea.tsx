@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 import { usePositionAttachment } from '@rkta/hooks';
 
 import { Cache } from '../Cache';
-import { upsertNode } from '../util';
+import { upsertNode, isNodeJS } from '../util';
 import { useProviderContext } from '../Provider';
 import { useFloatingArea, OUT, ENTER, EXIT } from './useFloatingArea';
 import { FloatingAreaProps } from './FloatingArea.type';
@@ -24,6 +24,7 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
 }) => {
   const consumer = useRef<HTMLElement>(null);
   const positionAttachmentStyles = usePositionAttachment({ align, consumer, offset, producer });
+  if (!isNodeJS) return null;
   const mountNode = upsertNode(mountNodeId);
   const [phase, handleAnimationEnd] = useFloatingArea({
     active,
