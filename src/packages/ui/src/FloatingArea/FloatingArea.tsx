@@ -5,7 +5,6 @@ import { FC, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { usePositionAttachment } from '@rkta/hooks';
 
-import { Cache } from '../Cache';
 import { upsertNode, isNodeJS } from '../util';
 import { useProviderContext } from '../Provider';
 import { useFloatingArea, OUT, ENTER, EXIT } from './useFloatingArea';
@@ -55,7 +54,7 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
         }}
         ref={consumer}
       >
-        <Cache disabled={hasTransition}>{children}</Cache>
+        {children}
       </Element>
     ),
     mountNode,
