@@ -24,7 +24,7 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
 }) => {
   const consumer = useRef<HTMLElement>(null);
   const positionAttachmentStyles = usePositionAttachment({ align, consumer, offset, producer });
-  if (!isNodeJS) return null;
+  if (isNodeJS) return null;
   const mountNode = upsertNode(mountNodeId);
   const [phase, handleAnimationEnd] = useFloatingArea({
     active,
