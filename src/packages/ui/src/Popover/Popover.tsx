@@ -81,7 +81,7 @@ export const Popover: FC<PopoverProps> = ({
           active={isVisible}
           align={align}
           offset={offset}
-          onHide={hide}
+          onClose={hide}
           producer={producer}
         >
           {restChildren}

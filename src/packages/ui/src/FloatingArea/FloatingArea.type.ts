@@ -1,5 +1,6 @@
 import { PositionAttachmentConfig } from '@rkta/hooks';
 import { RktaElement } from '../Provider';
+import { FloatingAreaConfig } from './useFloatingArea';
 
 export type Align = PositionAttachmentConfig['align'];
 
@@ -10,6 +11,9 @@ export type FloatingAreaProps = RktaElement & {
   consumer?: never;
   mountNodeId?: 'string';
   offset?: PositionAttachmentConfig['offset'];
-  onHide?: () => void;
+  onClose?: FloatingAreaConfig['onClose'];
+  onEscape?: FloatingAreaConfig['onEscape'];
+  onFxIn?: FloatingAreaConfig['onFxIn'];
+  onFxOut?: FloatingAreaConfig['onFxOut'];
   producer?: PositionAttachmentConfig['producer'];
 };

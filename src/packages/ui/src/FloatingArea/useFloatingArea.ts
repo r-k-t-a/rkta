@@ -9,17 +9,23 @@ export const EXIT = Symbol('EXIT');
 export const OUT = Symbol('OUT');
 export const READY = Symbol('READY');
 
-type FloatingAreaConfig = {
+export type FloatingAreaConfig = {
   active: boolean;
   consumer: RefObject<HTMLElement>;
   producer: FloatingAreaProps['producer'];
-  onHide?: () => void;
+  onClose?: () => void;
+  onEscape?: () => void;
+  onFxIn?: () => void;
+  onFxOut?: () => void;
 };
 
 export function useFloatingArea({
   active,
   consumer,
-  onHide,
+  onClose,
+  onEscape,
+  onFxIn,
+  onFxOut,
   producer,
 }: FloatingAreaConfig): [symbol, () => void] {
   const [state, setState] = useState<symbol>(OUT);
@@ -27,15 +33,23 @@ export function useFloatingArea({
   const producerElement = getHTMLElementFromRef(producer);
 
   function handleEscape(event: KeyboardEvent): void {
-    if (active && onHide && event.key === 'Escape') {
+    const hasHandlers = onEscape || onClose;
+    if (active && hasHandlers && event.key === 'Escape') {
       event.stopImmediatePropagation();
-      onHide();
+      if (onEscape) onEscape();
+      if (onClose) onClose();
     }
   }
 
   function handleAnimationEnd(): void {
-    if (state === EXIT) setState(OUT);
-    if (state === ENTER) setState(READY);
+    if (state === EXIT) {
+      setState(OUT);
+      if (onFxOut) onFxOut();
+    }
+    if (state === ENTER) {
+      setState(READY);
+      if (onFxIn) onFxIn();
+    }
   }
 
   function effect(): () => void {
@@ -48,10 +62,10 @@ export function useFloatingArea({
   }
 
   function handleClickAway(event: MouseEvent): void {
-    const shouldHide = producerElement
+    const shouldClose = producerElement
       ? !producerElement.contains(event.target as HTMLElement)
       : true;
-    if (onHide && shouldHide) onHide();
+    if (onClose && shouldClose) onClose();
   }
 
   useEffect(effect, [active, consumerElement, producerElement, state]);

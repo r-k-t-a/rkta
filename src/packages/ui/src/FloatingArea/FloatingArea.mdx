@@ -60,7 +60,7 @@ import { FloatingArea } from '@rkta/ui';
   {() => {
     const [{ active, align }, setState] = useState({ active: false });
     const show = (align) => () => setState({ align, active: true });
-    const hide = () => setState({ active: false, align });
+    const close = () => setState({ active: false, align });
     return (
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
@@ -98,7 +98,7 @@ import { FloatingArea } from '@rkta/ui';
             Bottom-right
           </Button>
         </div>
-        <FloatingArea active={active} align={align} offset={80} onHide={hide} blockLevel>
+        <FloatingArea active={active} align={align} offset={80} onClose={close} blockLevel>
           <List css={{ height: '100%' }} rize={1}>
             <ListTitle>Floating Area</ListTitle>
             <ListButton nowrap>Option 1</ListButton>

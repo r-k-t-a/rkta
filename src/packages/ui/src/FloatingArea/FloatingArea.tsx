@@ -16,7 +16,10 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   children,
   mountNodeId = 'ui-floating-area',
   offset,
-  onHide,
+  onClose,
+  onEscape,
+  onFxIn,
+  onFxOut,
   producer,
   style,
   ...rest
@@ -28,7 +31,10 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   const [phase, handleAnimationEnd] = useFloatingArea({
     active,
     consumer,
-    onHide,
+    onClose,
+    onEscape,
+    onFxIn,
+    onFxOut,
     producer,
   });
   const { applyStyles } = useProviderContext();
