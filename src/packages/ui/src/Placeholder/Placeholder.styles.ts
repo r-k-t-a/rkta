@@ -18,12 +18,16 @@ export const initialStyle = css`
   animation: ${fadeIn} 4.4s ease 0.32s infinite;
   background-color: currentColor;
   border-radius: 3px;
-  display: inline-block;
+  display: block;
   pointer-events: none;
   height: 1em;
   user-select: none;
   opacity: 0;
   width: 100%;
+`;
+
+export const inline = css`
+  display: inline-block;
 `;
 
 export const width = (theme: RktaTheme, props: PlaceholderProps): SerializedStyles => css`
