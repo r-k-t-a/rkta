@@ -10,6 +10,35 @@ import { useProviderContext } from '../Provider';
 import { useFloatingArea, OUT, ENTER, EXIT } from './useFloatingArea';
 import { FloatingAreaProps } from './FloatingArea.type';
 
+/**
+ * ```js
+ *  import { FloatingArea, List, ListTitle, ListButton, Divider, Button } from '@rkta/ui';
+ *  import { useState } from 'react'
+ *
+ * () => {
+ *   const [active, setActive] = useState(false);
+ *   const [target, setTarget] = useState(null);
+ *   const show = (event) => {
+ *     setTarget(event.target);
+ *     setActive(true);
+ *   };
+ *   return (
+ *   <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
+ *    <Button bgColor="primary" onClick={show}>
+ *       Target 1
+ *    </Button>
+ *  <FloatingArea producer={target} active={active} offset={8}>
+ *     <List rize={1}>
+ *        <ListTitle>Floating Area</ListTitle>
+ *        <ListButton nowrap>Option 1</ListButton>
+ *        <ListButton nowrap>Option 2</ListButton>
+ *        <ListButton nowrap>Option 3</ListButton>
+ *     </List>
+ *   </FloatingArea>
+ * </div>
+ * );
+ * ```
+ */
 export const FloatingArea: FC<FloatingAreaProps> = ({
   active,
   align,
