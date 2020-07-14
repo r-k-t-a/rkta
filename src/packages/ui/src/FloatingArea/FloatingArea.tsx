@@ -68,6 +68,8 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   });
   const { applyStyles } = useProviderContext();
 
+  if (phase === OUT) return null;
+
   const visible = positionAttachmentStyles !== null;
   const hasTransition = [ENTER, EXIT].includes(phase);
   const animate = visible && hasTransition;
@@ -78,20 +80,18 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   );
 
   return createPortal(
-    phase === OUT ? null : (
-      <Element
-        {...elementProps}
-        key={animate}
-        onAnimationEnd={handleAnimationEnd}
-        style={{
-          ...positionAttachmentStyles,
-          ...style,
-        }}
-        ref={consumer}
-      >
-        {children}
-      </Element>
-    ),
+    <Element
+      {...elementProps}
+      key={animate}
+      onAnimationEnd={handleAnimationEnd}
+      style={{
+        ...positionAttachmentStyles,
+        ...style,
+      }}
+      ref={consumer}
+    >
+      {children}
+    </Element>,
     mountNode,
   );
 };
