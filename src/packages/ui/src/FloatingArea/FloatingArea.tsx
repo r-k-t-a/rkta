@@ -77,21 +77,22 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
     'FloatingArea',
   );
 
-  return createPortal(
-    phase === OUT ? null : (
-      <Element
-        {...elementProps}
-        key={animate}
-        onAnimationEnd={handleAnimationEnd}
-        style={{
-          ...positionAttachmentStyles,
-          ...style,
-        }}
-        ref={consumer}
-      >
-        {children}
-      </Element>
-    ),
-    mountNode,
-  );
+  return phase === OUT
+    ? null
+    : createPortal(
+        // eslint-disable-next-line react/jsx-indent
+        <Element
+          {...elementProps}
+          key={animate}
+          onAnimationEnd={handleAnimationEnd}
+          style={{
+            ...positionAttachmentStyles,
+            ...style,
+          }}
+          ref={consumer}
+        >
+          {children}
+        </Element>,
+        mountNode,
+      );
 };
