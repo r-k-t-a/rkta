@@ -69,14 +69,10 @@ export const serverMedia = (
     .join(', ')} { display: none; }`;
 
   function injectMediaQuery(child: ReactElement & { css?: CssEmotion }): ReactElement {
-    const childrenCss: CssEmotion[] = Array.isArray(child.props.css)
-      ? child.props.css
-      : [child.props.css];
-    const nextCss = childrenCss.concat(mediaQuery);
     const injectChildren = ({ css, cx }: ClassNamesContent<RktaTheme>) =>
       cloneElement(child, {
         ...child.props,
-        className: cx(child.props.className, css(nextCss as Interpolation)),
+        className: cx(child.props.className, css(mediaQuery)),
       });
     return jsx(ClassNames, null, injectChildren);
   }
