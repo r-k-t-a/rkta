@@ -1,0 +1,27 @@
+---
+menu: Utils
+name: Palette
+---
+
+import { Playground, Props } from 'docz';
+import { color } from './color';
+import { Paper } from '@rkta/ui';
+
+# Palette
+
+Addons are meant to be used along with ListItems, to append or prepend to main content
+
+## Examples
+
+<Playground>
+ {() => {
+  const colors = Object.keys(color);
+  return(
+  <div style={{display: 'flex', flexWrap: 'wrap'}}>
+    { colors.map((item) => (
+        <Paper style={{width: '150px', height: '150px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '15px', marginBottom: '15px'}} bgColor={item}>{item}</Paper>
+    ))}
+  </div>
+  );
+ }}
+</Playground>
