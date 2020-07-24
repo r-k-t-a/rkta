@@ -17,7 +17,6 @@ export * from './List';
 export * from './Media';
 export * from './Modal';
 export * from './Select';
-export * from './Fx';
 export * from './Paper';
 export * from './Placeholder';
 export * from './Popover';

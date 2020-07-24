@@ -14,7 +14,6 @@ import * as Checkbox from '../../../Checkbox/Checkbox.styles';
 import * as Divider from '../../../Divider/Divider.styles';
 import * as Drawer from '../../../Drawer/Drawer.styles';
 import * as FloatingArea from '../../../FloatingArea/FloatingArea.styles';
-import * as Fx from '../../../Fx/Fx.styles';
 import * as Input from '../../../Input/Input.styles';
 import * as InputBase from '../../../InputBase/InputBase.styles';
 import * as InputGroup from '../../../InputGroup/InputGroup.styles';
@@ -50,7 +49,6 @@ export const defaultTheme: RktaDefaultTheme = {
   Divider,
   Drawer,
   FloatingArea,
-  Fx,
   Input,
   InputBase,
   InputGroup,
