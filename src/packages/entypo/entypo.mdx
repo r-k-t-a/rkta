@@ -5,6 +5,11 @@ name: Entypo
 
 import { Playground } from 'docz';
 import { EmojiSad } from './src';
+import * as entypos from '@rkta/entypo';
+import { Fragment, useState } from 'react';
+import { Paper , Text, Input} from '@rkta/ui';
+import { Form } from '@rkta/form';
+import { Clipboard } from '@rkta/entypo';
 
 # Entypo Icons
 
@@ -20,4 +25,42 @@ import { EmojiSad } from '@rkta/entypo';
 
 <Playground>
   <EmojiSad size={48} />
+</Playground>
+
+## All Icons
+
+
+<Playground>
+  {() => {
+    const [search, setSearchState] = useState('');
+    const entypoKeys = Object.keys(entypos).slice(1, -1);
+    const filteredEntypoKeys = entypoKeys.filter(item => item.includes(search));
+    const handleChange = ({search}) => {
+      setSearchState(search);
+    }
+    const Item = (item, name) => (
+      <Paper name="Test" style={{width: '150px', height: '150px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginLeft: '80px', marginBottom: '15px'}}>
+        {item({ size: '128px' })}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Text element="h1" subtitle2>{name}</Text>
+        </div>
+      </Paper>
+    );
+    return(
+      <Fragment>
+        <div style={{display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: '40px'}}>
+        <Form onFormChange={handleChange}>
+          <Input name="search" onChange={handleChange} caption="Поиск иконки" outline="1px"/>
+        </Form>
+        </div>
+        <div style={{display: 'flex', flexWrap: 'wrap', width: '100%', justifyContent: 'center'}}>
+          { search ? filteredEntypoKeys.map(item => ( 
+            Item(entypos[item], item)
+          )) : entypoKeys.map(item => ( 
+            Item(entypos[item], item)
+          ))}
+        </div>
+      </Fragment>
+    );
+  }}
 </Playground>
