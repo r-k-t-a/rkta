@@ -39,7 +39,7 @@ import { EmojiSad } from '@rkta/entypo';
       setSearchState(search);
     }
     const Item = (item, name) => (
-      <Paper name="Test" style={{width: '150px', height: '150px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginLeft: '80px', marginBottom: '15px'}}>
+      <Paper name="Test" style={{width: '150px', height: '150px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginLeft: '80px', marginBottom: '15px'}} key={name}>
         {item({ size: '128px' })}
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Text element="h1" subtitle2>{name}</Text>
