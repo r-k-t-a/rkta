@@ -61,17 +61,20 @@ const defaultOffset = 0;
 export const Popover: FC<PopoverProps> = ({
   align,
   children: [Trigger, ...restChildren],
+  disabled,
   offset,
   ...rest
 }): JSX.Element => {
   const { isVisible, hide, setProducer, toggle, producer } = usePopover();
 
-  const EnhacedTrigger = cloneElement(Trigger, {
-    onClick: (event: MouseEvent): void => {
-      setProducer(event.target as Element);
-      if (!isVisible) toggle();
-    },
-  });
+  const EnhacedTrigger = disabled
+    ? Trigger
+    : cloneElement(Trigger, {
+        onClick: (event: MouseEvent): void => {
+          setProducer(event.target as Element);
+          if (!isVisible) toggle();
+        },
+      });
   return (
     <>
       {EnhacedTrigger}
