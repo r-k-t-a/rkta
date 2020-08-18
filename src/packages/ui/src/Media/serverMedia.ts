@@ -1,4 +1,4 @@
-import { jsx, ClassNames, ClassNamesContent, Interpolation } from '@emotion/core';
+import { jsx, ClassNames, ClassNamesContent } from '@emotion/core';
 import { Children, ReactElement, ReactNode, cloneElement } from 'react';
 
 import { PropsWithoutChildren } from './Media.type';

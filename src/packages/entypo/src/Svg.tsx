@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /** @jsx jsx */
 import { ReactNode, FC } from 'react';
