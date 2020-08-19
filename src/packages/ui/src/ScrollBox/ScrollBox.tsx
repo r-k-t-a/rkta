@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { FC } from 'react';
+import { FC, forwardRef } from 'react';
 import { jsx } from '@emotion/core';
 
 import { ScrollBoxProps } from './ScrollBox.type';
@@ -28,18 +28,24 @@ import useAnimation from './useAnimation';
  * ```
  */
 // eslint-disable-next-line react/prop-types
-export const ScrollBox: FC<ScrollBoxProps> = ({ children, visible, ...rest }): JSX.Element => {
-  const { applyStyles } = useProviderContext();
+export const ScrollBox: FC<ScrollBoxProps> = forwardRef(
+  ({ children, visible, ...rest }, ref): JSX.Element => {
+    const { applyStyles } = useProviderContext();
 
-  const animationProps = useAnimation(visible);
-  const extraProps =
-    !rest.animateHeight || typeof rest.height !== 'undefined' ? null : animationProps;
+    const animationProps = useAnimation(visible);
+    const extraProps =
+      !rest.animateHeight || typeof rest.height !== 'undefined' ? null : animationProps;
 
-  const [nextProps, Element] = applyStyles(
-    { ...rest, ...extraProps },
-    'ScrollBox',
-    'Paper',
-    'Text',
-  );
-  return <Element {...nextProps}>{children}</Element>;
-};
+    const [nextProps, Element] = applyStyles(
+      { ...rest, ...extraProps },
+      'ScrollBox',
+      'Paper',
+      'Text',
+    );
+    return (
+      <Element {...nextProps} ref={ref}>
+        {children}
+      </Element>
+    );
+  },
+);
