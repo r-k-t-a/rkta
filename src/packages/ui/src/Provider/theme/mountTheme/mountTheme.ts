@@ -8,7 +8,7 @@ import { stringifyMediaTuple } from '../../../util/stringifyMediaTuple';
 
 export const mountTheme = (theme?: RktaDefaultTheme): RktaTheme => {
   const rawTheme = merge(defaultTheme, theme);
-  const mediaTuples = createMediaTuples(rawTheme.breakpoints);
+  const mediaTuples = createMediaTuples(rawTheme.breakpoint);
   const media = mapValues(mediaTuples, stringifyMediaTuple);
   return merge(rawTheme, {
     mediaTuples,

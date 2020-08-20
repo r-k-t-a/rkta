@@ -5,6 +5,7 @@ export * from './Button';
 export * from './Cache';
 export * from './Card';
 export * from './Checkbox';
+export * from './Container';
 export * from './Divider';
 export * from './Drawer';
 export * from './FloatingArea';
