@@ -1,4 +1,4 @@
-import { breakpoints } from '../breakpoints';
+import { breakpoint } from '../breakpoint';
 import { color } from '../color';
 import { shadow } from '../shadow';
 
@@ -11,6 +11,7 @@ import * as CardHeader from '../../../Card/Header/Header.styles';
 import * as CardBody from '../../../Card/Body/Body.styles';
 import * as CardFooter from '../../../Card/Footer/Footer.styles';
 import * as Checkbox from '../../../Checkbox/Checkbox.styles';
+import * as Container from '../../../Container/Container.styles';
 import * as Divider from '../../../Divider/Divider.styles';
 import * as Drawer from '../../../Drawer/Drawer.styles';
 import * as FloatingArea from '../../../FloatingArea/FloatingArea.styles';
@@ -33,7 +34,7 @@ import * as Text from '../../../Text/Text.styles';
 import { RktaDefaultTheme } from './defaultTheme.type';
 
 export const defaultTheme: RktaDefaultTheme = {
-  breakpoints,
+  breakpoint,
   color,
   shadow,
   ts: 0,
@@ -46,6 +47,7 @@ export const defaultTheme: RktaDefaultTheme = {
   CardBody,
   CardFooter,
   Checkbox,
+  Container,
   Divider,
   Drawer,
   FloatingArea,

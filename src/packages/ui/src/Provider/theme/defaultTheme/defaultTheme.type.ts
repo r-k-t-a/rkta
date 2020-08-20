@@ -1,4 +1,4 @@
-import { Breakpoint } from '../breakpoints';
+import { breakpoint } from '../breakpoint';
 import { Colors } from '../color';
 import { Shadows } from '../shadow';
 import { CssRkta } from '../types/CssRkta.type';
@@ -12,6 +12,7 @@ import * as CardBodyStyles from '../../../Card/Body/Body.styles';
 import * as CardFooterStyles from '../../../Card/Footer/Footer.styles';
 import * as CardHeaderStyles from '../../../Card/Header/Header.styles';
 import * as CheckboxStyles from '../../../Checkbox/Checkbox.styles';
+import * as ContainerStyles from '../../../Container/Container.styles';
 import * as DividerStyles from '../../../Divider/Divider.styles';
 import * as DrawerStyles from '../../../Drawer/Drawer.styles';
 import * as FloatingAreaStyles from '../../../FloatingArea/FloatingArea.styles';
@@ -36,7 +37,9 @@ type StylesOverload = {
 };
 
 export type RktaDefaultTheme = {
-  breakpoints: Breakpoint[];
+  breakpoint: typeof breakpoint & {
+    [key: string]: number;
+  };
   color: Colors;
   shadow: Shadows;
   ts: number;
@@ -49,6 +52,7 @@ export type RktaDefaultTheme = {
   CardFooter: typeof CardFooterStyles & StylesOverload;
   CardHeader: typeof CardHeaderStyles & StylesOverload;
   Checkbox: typeof CheckboxStyles & StylesOverload;
+  Container: typeof ContainerStyles & StylesOverload;
   Divider: typeof DividerStyles & StylesOverload;
   Drawer: typeof DrawerStyles & StylesOverload;
   FloatingArea: typeof FloatingAreaStyles & StylesOverload;

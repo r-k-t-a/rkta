@@ -1,4 +1,4 @@
-export * from './breakpoints';
+export * from './breakpoint';
 export * from './color';
 export * from './defaultTheme';
 export * from './mediaQueries';

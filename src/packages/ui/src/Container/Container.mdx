@@ -1,0 +1,33 @@
+---
+menu: Data display
+name: Container
+---
+
+import { Playground, Props } from 'docz';
+import { Container } from './Container';
+import { Paper } from '../Paper';
+import { List, ListItem } from '../List';
+
+# Container
+
+We use containers to center page content vertically.
+
+## Examples
+
+<Playground>
+  <Container maxWidth="tablet" style={{ backgroundColor: '#cf0' }}>
+    maxWidth="tablet"
+  </Container>
+  <br />
+  <Container maxWidth="laptop" style={{ backgroundColor: '#cf0' }}>
+    maxWidth="laptop"
+  </Container>
+  <br />
+  <Container disableGutters style={{ backgroundColor: '#cf0' }}>
+    default, disableGutters
+  </Container>
+</Playground>
+
+## Props
+
+<Props of={Container} />
