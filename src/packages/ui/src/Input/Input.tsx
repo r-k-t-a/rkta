@@ -87,7 +87,10 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
     function handleSuggest(nextValue?: Value): void {
       setLocalValue(nextValue);
       unlockSuggest();
-      if (inputElement) dispatchDomEvent(inputElement, 'change', { value: nextValue });
+      if (inputElement) {
+        dispatchDomEvent(inputElement, 'change', { value: nextValue });
+        dispatchDomEvent(inputElement, 'blur');
+      }
     }
     const suggest =
       boxRef.current &&
