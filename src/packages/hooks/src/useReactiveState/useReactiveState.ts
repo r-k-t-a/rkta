@@ -11,7 +11,7 @@ function replaceStore<N>(nextStore: N): void {
 }
 
 export const useReactiveState = <S>(initialState: S): [S, Dispatch<SetStateAction<S>>] => {
-  const [, replaceLocalState] = useState();
+  const [, replaceLocalState] = useState<number>();
   function setState<A>(action: A): void {
     const payload = typeof action === 'function' ? action(store) : { ...action };
     replaceStore({ ...store, ...payload });
