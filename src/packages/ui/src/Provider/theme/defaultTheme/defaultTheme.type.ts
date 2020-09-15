@@ -29,6 +29,7 @@ import * as ScrollBoxStyles from '../../../ScrollBox/ScrollBox.styles';
 import * as SelectStyles from '../../../Select/Select.styles';
 import * as SpinnerStyles from '../../../Spinner/Spinner.styles';
 import * as SvgStyles from '../../../Svg/Svg.styles';
+import * as SwitchStyles from '../../../Switch/Switch.styles';
 import * as TabsStyles from '../../../Tabs/Tabs.styles';
 import * as TextStyles from '../../../Text/Text.styles';
 
@@ -69,6 +70,7 @@ export type RktaDefaultTheme = {
   Select: typeof SelectStyles & StylesOverload;
   Spinner: typeof SpinnerStyles & StylesOverload;
   Svg: typeof SvgStyles & StylesOverload;
+  Switch: typeof SwitchStyles & StylesOverload;
   Tabs: typeof TabsStyles & StylesOverload;
   Text: typeof TextStyles & StylesOverload;
 };

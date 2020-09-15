@@ -1,0 +1,36 @@
+---
+menu: Buttons and navigation
+name: Switch
+---
+
+import { Link, Playground, Props } from 'docz';
+import { useState } from 'react';
+import { Switch } from './Switch';
+
+# Switch
+
+Implements switch control
+
+## Examples
+
+### Primary (default)
+
+<Playground>
+  {() => {
+    const [isOn, setIsOn] = useState(false);
+    return <Switch on={isOn} onClick={() => setIsOn(!isOn)} />;
+  }}
+</Playground>
+
+### Custom color and size
+
+<Playground>
+  {() => {
+    const [isOn, setIsOn] = useState(false);
+    return <Switch color="success" size="3em" on={isOn} onClick={() => setIsOn(!isOn)} />;
+  }}
+</Playground>
+
+## Props
+
+<Props of={Switch} />

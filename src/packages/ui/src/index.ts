@@ -26,6 +26,7 @@ export * from './Radio';
 export * from './ScrollBox';
 export * from './Spinner';
 export * from './Svg';
+export * from './Switch';
 export * from './Tabs';
 export * from './Text';
 
