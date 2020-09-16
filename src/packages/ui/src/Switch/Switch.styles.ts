@@ -8,15 +8,14 @@ export const initialStyle = (
   theme: RktaTheme,
   { padding, ratio, size }: Props,
 ): SerializedStyles => css`
-  -webkit-appearance: none;
-  -mox-appearance: none;
   appearance: none;
+  background-color: ${theme.color.paper2};
   border: ${padding} solid ${theme.color.divider};
   border-radius: ${size};
-  background-color: ${theme.color.paper2};
   cursor: pointer;
   display: inline-block;
   height: ${size};
+  outline: none;
   padding: 0;
   position: relative;
   transition: background 0.4s ease, border 0.4s ${easeInOutQuint};
@@ -24,14 +23,14 @@ export const initialStyle = (
   width: calc(${size} * ${ratio});
   &:before {
     background-color: ${theme.color.paper};
-    box-shadow: ${theme.shadow[1]};
-    transition: transform 0.4s ${easeInOutQuint};
-    will-change: transform;
     border-radius: inherit;
+    box-shadow: ${theme.shadow[1]};
+    content: '';
     display: block;
     height: calc(${size} - ${padding} * 2);
+    transition: transform 0.4s ${easeInOutQuint};
     width: calc(${size} - ${padding} * 2);
-    content: '';
+    will-change: transform;
   }
   &:checked {
     background-color: ${theme.color.primary};
