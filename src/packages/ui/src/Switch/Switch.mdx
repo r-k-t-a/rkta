@@ -1,34 +1,44 @@
 ---
-menu: Buttons and navigation
+menu: Inputs and form
 name: Switch
 ---
 
 import { Link, Playground, Props } from 'docz';
 import { useState } from 'react';
 import { Switch } from './Switch';
+import { Addon } from '../Addon';
+import { List, ListButton, ListTitle } from '../List';
 
 # Switch
 
-Implements switch control
+Switch control is a checkbox that has a switch appearance.
 
 ## Examples
 
 ### Primary (default)
 
 <Playground>
-  {() => {
-    const [isOn, setIsOn] = useState(false);
-    return <Switch on={isOn} onClick={() => setIsOn(!isOn)} />;
-  }}
+  <Switch defaultChecked />
 </Playground>
 
 ### Custom color and size
 
 <Playground>
-  {() => {
-    const [isOn, setIsOn] = useState(false);
-    return <Switch color="success" size="3em" on={isOn} onClick={() => setIsOn(!isOn)} />;
-  }}
+  <List element="form">
+    <ListTitle>Settings</ListTitle>
+    <ListButton element="label" fitAll>
+      <Addon main>Setting One</Addon>
+      <Addon>
+        <Switch color="success" size="3em" />
+      </Addon>
+    </ListButton>
+    <ListButton element="label" fitAll>
+      <Addon main>Setting Two</Addon>
+      <Addon>
+        <Switch color="warning" size="16px" />
+      </Addon>
+    </ListButton>
+  </List>
 </Playground>
 
 ## Props

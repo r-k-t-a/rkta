@@ -1,50 +1,56 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme, Color } from '../Provider';
-import { cssUnitToString } from '../util';
+import { easeInOutQuint } from '../util/cssEasingFunctions';
 
-export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
-  border-radius: 24px;
-  display: inline-block !important;
+type Props = { padding: string; ratio: number; size: string };
+
+export const initialStyle = (
+  theme: RktaTheme,
+  { padding, ratio, size }: Props,
+): SerializedStyles => css`
+  -webkit-appearance: none;
+  -mox-appearance: none;
+  appearance: none;
+  border: ${padding} solid ${theme.color.divider};
+  border-radius: ${size};
+  background-color: ${theme.color.paper2};
   cursor: pointer;
-  height: 24px;
+  display: inline-block;
+  height: ${size};
   padding: 0;
-  transition: background 0.4s ease, border 0.4s ease;
+  position: relative;
+  transition: background 0.4s ease, border 0.4s ${easeInOutQuint};
   will-change: background, border;
-  width: 40px;
-  > span {
+  width: calc(${size} * ${ratio});
+  &:before {
     background-color: ${theme.color.paper};
     box-shadow: ${theme.shadow[1]};
-    border-radius: 22px;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ${easeInOutQuint};
     will-change: transform;
+    border-radius: inherit;
     display: block;
-    height: 22px;
-    width: 22px;
+    height: calc(${size} - ${padding} * 2);
+    width: calc(${size} - ${padding} * 2);
+    content: '';
+  }
+  &:checked {
+    background-color: ${theme.color.primary};
+    border-color: ${theme.color.primary};
+    &:before {
+      transform: translateX(calc(${size} * ${ratio - 1}));
+    }
   }
 `;
 
 export const color = (
   theme: RktaTheme,
-  props: { color: Color; on?: boolean },
-): SerializedStyles => css`
-  border: 1px solid ${props.on ? theme.color[props.color] : theme.color.divider};
-  background-color: ${props.on ? theme.color[props.color] : theme.color.paper};
-`;
-
-export const on = css`
-  > span {
-    transform: translateX(16px);
-  }
-`;
-
-export const size = (theme: RktaTheme, props: { size: number | string }): SerializedStyles => {
-  const s = cssUnitToString(props.size);
+  props: { color: Color | string; on?: boolean },
+): SerializedStyles => {
+  const currenColor = theme.color[props.color] || props.color;
   return css`
-    height: ${s};
-    width: calc(${s} + 16px);
-    > span {
-      height: calc(${s} - 2px);
-      width: calc(${s} - 2px);
+    &:checked {
+      background-color: ${currenColor};
+      border-color: ${currenColor};
     }
   `;
 };

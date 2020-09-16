@@ -1,9 +1,9 @@
-import { HTMLProps } from 'react';
-
 import { Color } from '../Provider/theme';
+import { CheckableElement } from '../makeCheckable';
 
-export type SwitchProps = HTMLProps<HTMLButtonElement> & {
-  color?: Color;
-  on?: boolean;
-  size?: number;
-};
+export type SwitchProps = {
+  color?: Color | string;
+  padding?: string;
+  ratio?: number;
+  size?: string;
+} & Omit<CheckableElement, 'size'>;

@@ -12,14 +12,14 @@ import { SwitchProps } from './Switch.type';
  * <Switch on onClick={handleClick} />
  * ```
  */
-export const Switch: FC<SwitchProps> = ({ color = 'primary', on, ...rest }) => {
+export const Switch: FC<SwitchProps> = (props) => {
   const { applyStyles } = useProviderContext();
+  const [nextProps] = applyStyles({ ...props }, 'Switch');
+  return <input type="checkbox" {...nextProps} />;
+};
 
-  const [nextProps] = applyStyles({ color, on, rounded: true, ...rest }, 'Switch');
-
-  return (
-    <button type="button" {...nextProps}>
-      <span />
-    </button>
-  );
+Switch.defaultProps = {
+  padding: '1px',
+  ratio: 1.5,
+  size: '24px',
 };
