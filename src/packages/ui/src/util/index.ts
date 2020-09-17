@@ -1,3 +1,4 @@
+export * from './cssEasingFunctions';
 export * from './cssUnitToString';
 export * from './dispatchDomEvent';
 export * from './invariant';
