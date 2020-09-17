@@ -14,14 +14,13 @@ import flow from 'lodash/flow';
 
 Declaratively validate forms against JSON schema.
 
-
 ## Usage
+
 ```javascript
 import { makeValidator } from '@rkta/form';
 
 const validate = makeValidator(schema);
 ```
-
 
 ## Example
 
@@ -35,29 +34,31 @@ const validate = makeValidator(schema);
           format: 'email',
           messages: {
             required: 'Please enter login',
-            format: 'Wrong format'
-          }
+            format: 'Wrong format',
+          },
         },
         password: {
           type: 'string',
           messages: {
             required: 'Please enter password',
-          }
-        }
+          },
+        },
       },
-      required: ['login', 'password']
-    }
+      required: ['login', 'password'],
+    };
     const validate = makeValidator(schema);
     const FieldError = ({ name }) => {
       const [error] = useErrors(name);
-      return error ? <Addon color="warning" subtitle2>{error.message}</Addon> : null;
-    }
+      return error ? (
+        <Addon color="warning" subtitle2>
+          {error.message}
+        </Addon>
+      ) : null;
+    };
     return (
       <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-        <Form validate={validate} onFormSubmit={flow(Object.entries, alert)}>
-          <CardHeader>
-            Please Sign In
-          </CardHeader>
+        <Form validate={validate} onFormSubmit={flow(Object.entries, console.log)}>
+          <CardHeader>Please Sign In</CardHeader>
           <CardBody>
             <Input caption="Login" name="login" bgColor="paper2" />
             <FieldError name="login" />
@@ -72,7 +73,7 @@ const validate = makeValidator(schema);
           </CardFooter>
         </Form>
       </Card>
-    )
+    );
   }}
 </Playground>
 

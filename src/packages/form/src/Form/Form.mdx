@@ -14,8 +14,8 @@ import flow from 'lodash/flow';
 
 Capture entire react forms with no effort and state management.
 
-
 ## Usage
+
 ```jsx
 import { Form } from '@rkta/form';
 
@@ -23,12 +23,11 @@ import { Form } from '@rkta/form';
 ```
 
 ## Example
+
 <Playground>
   <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-    <Form onFormSubmit={flow(Object.entries, get(window, 'alert'))}>
-      <CardHeader>
-        Please Sign In
-      </CardHeader>
+    <Form onFormSubmit={flow(Object.entries, console.log)}>
+      <CardHeader>Please Sign In</CardHeader>
       <CardBody>
         <Input caption="Login" name="login" bgColor="paper2" />
         <Divider invisible />
