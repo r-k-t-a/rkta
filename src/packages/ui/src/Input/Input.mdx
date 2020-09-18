@@ -12,6 +12,7 @@ import { New } from '../../../entypo/src';
 Allows creating both single and multiline inputs with optional suggest popover.
 
 ## Import
+
 ```javascript
 import { Input } from '@rkta/ui';
 ```
@@ -22,27 +23,29 @@ import { Input } from '@rkta/ui';
   <Input caption="Text Input" />
 </Playground>
 
-
 ## Suggest Example
 
 <Playground>
   <Input caption="Suggest Input">
     {({ value, setValue }) => {
-      const search = option => !value || option.toLowerCase().includes(value.toLowerCase());
+      const search = (option) => !value || option.toLowerCase().includes(value.toLowerCase());
       const options = ['London', 'Paris', 'New York'].filter(search);
       const title = options.length ? 'Suggestions' : 'No Suggestions';
       return (
         <List rize={1}>
           <ListTitle>{title}</ListTitle>
           <ArrowKeys vertical>
-            {options.map(option => <ListButton key={option} onClick={() => setValue(option)}>{option}</ListButton>)}
+            {options.map((option) => (
+              <ListButton key={option} onClick={() => setValue(option)}>
+                {option}
+              </ListButton>
+            ))}
           </ArrowKeys>
         </List>
       );
     }}
   </Input>
 </Playground>
-
 
 ## Examples
 

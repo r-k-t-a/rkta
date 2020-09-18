@@ -23,15 +23,15 @@ export const InputBase = forwardRef<InputElement, InputBaseProps>(
 
     return (
       <WrapperElement {...elementProps} css={css}>
-        {caption && (
-          <Text caption={active} body={!active} className="caption" nowrap>
-            {caption}
-          </Text>
-        )}
         {multiline ? (
           <textarea {...inputProps} ref={ref as Ref<HTMLTextAreaElement>} value={value} />
         ) : (
           <input {...inputProps} ref={ref as Ref<HTMLInputElement>} value={value} />
+        )}
+        {caption && (
+          <Text caption={active} body={!active} className="caption" nowrap>
+            {caption}
+          </Text>
         )}
       </WrapperElement>
     );

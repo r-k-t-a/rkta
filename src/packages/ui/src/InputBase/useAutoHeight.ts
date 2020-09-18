@@ -13,10 +13,10 @@ export const useAutoHeight = (
   const ref = useRef<HTMLLabelElement>(null);
   function onInput(): void {
     if (!ref.current) return;
-    const textarea = ref.current.childNodes[1] as HTMLTextAreaElement;
+    const textarea = ref.current.childNodes[0] as HTMLTextAreaElement;
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
   }
-  useEffect(onInput, [value]);
+  useEffect(onInput, [value, ref.current]);
   return { ref, onInput };
 };
