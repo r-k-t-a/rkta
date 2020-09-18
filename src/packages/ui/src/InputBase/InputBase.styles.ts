@@ -13,6 +13,8 @@ export const initialStyle = css`
     left: 0;
     overflow: hidden;
     padding: inherit;
+    padding-top: 0;
+    padding-bottom: 0;
     pointer-events: none;
     position: absolute;
     right: 0;
@@ -69,9 +71,9 @@ export const maxRows = (
 
 export const multiline = (theme: RktaTheme, props: { active: boolean }): SerializedStyles => css`
   .caption {
-    height: ${props.active ? 16 : 40}px;
+    height: ${props.active ? '24px' : '100%'};
   }
   height: auto;
   padding-bottom: 8px;
-  padding-top: 8px;
+  padding-top: 24px;
 `;

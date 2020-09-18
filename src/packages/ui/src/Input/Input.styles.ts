@@ -1,6 +1,7 @@
 import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { InputProps } from './Input.type';
+import { easeInOutCirc } from '../util';
 
 export const initialStyle = css`
   align-items: center;
@@ -30,7 +31,7 @@ export const fancy = (theme: RktaTheme, props: InputProps): SerializedStyles => 
     right: 0;
     position: absolute;
     transform: scaleX(${props.active ? 1 : 0});
-    transition: transform 0.32s ease;
+    transition: transform 0.56s ${easeInOutCirc};
   }
   input {
     max-height: 40px;
