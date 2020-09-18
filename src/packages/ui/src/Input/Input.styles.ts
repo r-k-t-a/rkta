@@ -32,6 +32,10 @@ export const fancy = (theme: RktaTheme, props: InputProps): SerializedStyles => 
     transform: scaleX(${props.active ? 1 : 0});
     transition: transform 0.32s ease;
   }
+  input {
+    max-height: 40px;
+    bottom: 0;
+  }
 `;
 
 export const main = css`
