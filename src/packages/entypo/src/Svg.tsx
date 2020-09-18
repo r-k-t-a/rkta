@@ -3,7 +3,7 @@
 /** @jsx jsx */
 import { ReactNode, FC } from 'react';
 import { useTheme } from '@rkta/context';
-import { jsx, InterpolationWithTheme } from '@emotion/core';
+import { css, jsx, InterpolationWithTheme } from '@emotion/core';
 
 type CssProps = {
   color?: string;
@@ -21,29 +21,36 @@ type Theme = {
   };
 };
 
+const defaultSize = 20;
+
 const getCss = (
   theme: Theme,
-  { inline = false, size = 24, color = '' }: CssProps,
+  { inline = false, size = defaultSize, color = '' }: CssProps,
 ): InterpolationWithTheme<any> => [
-  {
-    display: 'block',
-    fill: 'currentColor',
-    height: size,
-    verticalAlign: 'middle',
-    width: size,
-  },
-  inline && {
-    display: 'inline-block',
-  },
-  color && {
-    fill: (theme.color[color] || color) as string,
-  },
+  css`
+    display: block;
+    fill: currentColor;
+    height: ${size};
+    width: ${size};
+  `,
+  inline &&
+    css`
+      display: inline-block;
+      vertical-align: middle;
+    `,
+  color &&
+    css`
+      fill: ${(theme.color[color] || color) as string};
+    `,
+  size !== defaultSize &&
+    css`
+      margin: 2px;
+    `,
 ];
 
-const TsElement: FC<Props> = ({ children, ...rest }: Props): JSX.Element => {
+const Svg: FC<Props> = ({ children, ...rest }: Props) => {
   const theme = useTheme<Theme>();
-  const css = getCss(theme, rest);
-  return <svg css={css}>{children}</svg>;
+  return <svg css={getCss(theme, rest)}>{children}</svg>;
 };
 
-export default TsElement;
+export default Svg;
