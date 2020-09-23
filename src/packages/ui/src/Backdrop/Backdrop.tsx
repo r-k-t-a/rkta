@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { forwardRef, useEffect, RefObject } from 'react';
@@ -9,11 +10,11 @@ import { BackdropProps } from './Backdrop.type';
 import { isTargetEvent } from '../util';
 
 export const Backdrop = forwardRef<HTMLElement, BackdropProps>(
-  ({ onClick, opacity, visible, children, onFadeOut, ...rest }, ref): JSX.Element => {
+  ({ onClick, visible, children, onFadeOut, ...rest }, ref): JSX.Element => {
     const isMounted = useIsMounted();
     const { applyStyles } = useProviderContext();
-    const [nodeProps, Element] = applyStyles(
-      { fadeIn: visible, fadeOut: !visible, onClick, opacity, ...rest },
+    const [{ opacity, ...nodeProps }, Element] = applyStyles(
+      { fadeIn: visible, fadeOut: !visible, onClick, ...rest },
       'Backdrop',
     );
     function handleClick(event: Event): void {
