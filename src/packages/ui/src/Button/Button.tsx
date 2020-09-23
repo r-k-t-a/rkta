@@ -35,7 +35,7 @@ export const Button = forwardRef(
       ...rest
     }: ButtonProps,
     ref,
-  ): JSX.Element => {
+  ) => {
     const { applyStyles } = useProviderContext();
     const [nextProps, Element] = applyStyles({ ...injectedProps, ...rest }, ...composition);
     const [rippleProps, buttonProps] = useRipple(nextProps);
