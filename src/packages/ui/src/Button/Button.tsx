@@ -30,7 +30,7 @@ export const Button = forwardRef(
     {
       noRipple,
       children,
-      composition = ['Button', 'Paper', 'Addon', 'Text'],
+      composition = ['Text', 'Button', 'Paper', 'Addon'],
       spinnerProps,
       ...rest
     }: ButtonProps,
