@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { FC } from 'react';
 import { Modal } from '../Modal';
 import { DrawerProps } from './Drawer.type';
 import { useProviderContext } from '../Provider';
