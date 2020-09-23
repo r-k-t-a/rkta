@@ -23,7 +23,7 @@
       "@rkta/entypo": ["src/packages/entypo"],
       "@rkta/hooks": ["src/packages/hooks"]
     },
-    "removeComments": true,
+    "removeComments": false,
     "rootDir": ".",
     "skipLibCheck": false,
     "sourceMap": true,
