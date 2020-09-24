@@ -10,6 +10,7 @@ type IndicatorProps = {
 };
 
 export const initialStyle = css`
+  display: flex;
   position: relative;
   > * {
     border-radius: 0;
