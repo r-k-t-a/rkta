@@ -1,6 +1,6 @@
 {
   "name": "@rkta/context",
-  "version": "0.0.163",
+  "version": "0.0.164",
   "description": "WIP Lightweight UI library for react",
   "scripts": {
     "build:esm": "tsc -m esnext --outDir lib/esm",
