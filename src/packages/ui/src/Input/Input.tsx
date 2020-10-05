@@ -76,7 +76,6 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
       reEmit(event, onBlur);
     };
     const handleChange = (event: FormEvent<InputElement>): void => {
-      setFocus(event.nativeEvent.target as Element);
       setLocalValue(event.currentTarget.value);
       reEmit(event, onChange);
     };
@@ -126,7 +125,7 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
                 active={suggestIsVisible}
                 align="bottom-left"
                 blockLevel
-                onHide={unlockSuggest}
+                onClose={unlockSuggest}
                 onFocus={lockSuggest}
                 onPointerDown={lockSuggest}
                 producer={boxRef.current as HTMLElement}
