@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { useUnmount } from '@rkta/hooks';
 import { useProviderContext } from '../Provider';
 
-type ReactiveState = {
-  modalQueue: symbol[];
-};
 type Result = {
   backdropIsVisible: boolean;
   onBackdropFade(): void;
