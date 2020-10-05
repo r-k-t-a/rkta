@@ -5,7 +5,6 @@ import { humanizeErrors, AjvError, ValidationError } from './error';
 import omitEmpty from './omitEmpty';
 import mergeErrors from './mergeErrors';
 import { ExtentedSchema } from './ExtentedSchema';
-import { CustomFormData } from '../@types/CustomFormData';
 
 type SchemaGetterPayload = {
   formData: CustomFormData;

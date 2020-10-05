@@ -3,7 +3,6 @@ import getFormData from 'get-form-data';
 
 import { compareNodes } from './compareNodes';
 import { ValidationError } from '../../validator/error';
-import { CustomFormData } from '../../@types/CustomFormData';
 
 type InputEvent = FormEvent<HTMLFormElement>;
 
