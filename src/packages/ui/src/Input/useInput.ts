@@ -9,11 +9,6 @@ type State = {
   localValue?: Value;
 };
 
-type Action = {
-  type: symbol;
-  value?: Value;
-};
-
 type Results = State & {
   lockSuggest(): void;
   removeFocus(): void;

@@ -1,4 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-type CustomFormData = {
+export type CustomFormData = {
   [key: string]: any;
 };
