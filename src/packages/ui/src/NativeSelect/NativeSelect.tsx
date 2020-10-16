@@ -4,14 +4,14 @@ import { jsx } from '@emotion/core';
 import { Addon } from '../Addon';
 import { Svg } from '../Svg';
 import { useProviderContext } from '../Provider';
-import { SelectProps } from './Select.type';
+import { NativeSelectProps } from './NativeSelect.type';
 
 /**
  * ```js
- * import { Select, Addon } from '@rkta/ui';
+ * import { NativeSelect, Addon } from '@rkta/ui';
  * import { Bug } from '@rkta/entypo'
  * 
- * <Select
+ * <NativeSelect
     caption="Normal"
     prepend={
       <Addon>
@@ -25,11 +25,11 @@ import { SelectProps } from './Select.type';
     <option>option 3</option>
     <option>option 4</option>
     <option>option 5</option>
-  </Select>
+  </NativeSelect>
   ```
  */
-export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ caption, prepend, value, children, ...rest }: SelectProps, ref): JSX.Element => {
+export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
+  ({ caption, prepend, value, children, ...rest }: NativeSelectProps, ref): JSX.Element => {
     const { applyStyles } = useProviderContext();
     const [isActive, setIsActive] = useState(false);
     const [currentValue, setCurrentValue] = useState('');
