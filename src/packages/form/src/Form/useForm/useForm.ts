@@ -90,7 +90,7 @@ export function useForm({
       if (customHandler) customHandler(formData);
       return;
     }
-    const { name } = event.currentTarget;
+    const name = event.currentTarget.getAttribute('name') || '';
     const validateForm = makeValidate(name);
     prevalidateForm(formData).then(validateForm).then(postvalidateForm).then(customHandler);
   }
