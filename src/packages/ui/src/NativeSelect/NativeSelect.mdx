@@ -4,7 +4,7 @@ name: Native Select
 ---
 
 import { Link, Playground, Props } from 'docz';
-import { Select } from './';
+import { NativeSelect } from './';
 import { Addon } from '../Addon';
 import { Divider } from '../Divider';
 import { Bug } from '../../../entypo/src';
@@ -19,7 +19,7 @@ import { Bug } from '../../../entypo/src';
 ## Examples
 
 <Playground>
-  <Select
+  <NativeSelect
     caption="Normal"
     prepend={
       <Addon>
@@ -33,17 +33,17 @@ import { Bug } from '../../../entypo/src';
     <option>option 3</option>
     <option>option 4</option>
     <option>option 5</option>
-  </Select>
+  </NativeSelect>
   <Divider invisible />
-  <Select huge caption="Huge">
+  <NativeSelect huge caption="Huge">
     <option>option 1</option>
     <option>option 2</option>
     <option>option 3</option>
     <option>option 4</option>
     <option>option 5</option>
-  </Select>
+  </NativeSelect>
 </Playground>
 
 ## Props
 
-<Props of={Select} />
+<Props of={NativeSelect} />

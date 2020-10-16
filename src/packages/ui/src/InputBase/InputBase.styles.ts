@@ -37,7 +37,8 @@ export const initialStyle = css`
     width: 100%;
     -webkit-tap-highlight-color: transparent;
   }
-  input {
+  input,
+  .value {
     height: 100%;
     left: 0;
     line-height: 20px;
@@ -49,6 +50,11 @@ export const initialStyle = css`
     min-height: 48px;
     overflow: auto;
     resize: none;
+  }
+  .value {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 
