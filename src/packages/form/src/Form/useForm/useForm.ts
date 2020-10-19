@@ -90,7 +90,8 @@ export function useForm({
       if (customHandler) customHandler(formData);
       return;
     }
-    const name = event.currentTarget.getAttribute('name') || '';
+    const name = event.currentTarget.getAttribute('name');
+    if (!name) throw new Error('The form does not have the name attribute');
     const validateForm = makeValidate(name);
     prevalidateForm(formData).then(validateForm).then(postvalidateForm).then(customHandler);
   }
