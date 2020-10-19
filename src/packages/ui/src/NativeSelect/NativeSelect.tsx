@@ -37,7 +37,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     const captionIsActive = !!displayValue;
     const [{ css: elementCss, ...baseProps }, Wrapper] = applyStyles(
       { active: isActive, ...rest, element: 'label' },
-      'Select',
+      'NativeSelect',
       'ListItem',
       'Paper',
     );

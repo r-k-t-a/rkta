@@ -24,6 +24,7 @@ export * from './Popover';
 export * from './Provider';
 export * from './Radio';
 export * from './ScrollBox';
+export * from './Select';
 export * from './Spinner';
 export * from './Svg';
 export * from './Switch';

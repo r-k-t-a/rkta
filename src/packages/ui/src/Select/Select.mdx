@@ -1,0 +1,99 @@
+---
+menu: Inputs and form
+name: Select
+---
+
+import { useState } from 'react';
+import { Link, Playground, Props } from 'docz';
+import { Select } from './';
+import { Addon } from '../Addon';
+import { Divider } from '../Divider';
+import { List, ListButton } from '../List';
+import { ArrowKeys } from '../ArrowKeys';
+import { Rocket } from '../../../entypo/src';
+
+# Select
+
+A fully customizable select control.
+
+<span>
+  See also:{' '}
+  <Link to="/src-packages-src-packages-ui-src-native-select-native-select">Native Select</Link>{' '}
+  component.
+</span>
+
+## Basic example
+
+<Playground>
+  <Select caption="Select" formatValue={(value) => `Item ${value}`} defaultValue={1}>
+    {([isSelected, makeSelectHandler]) => (
+      <List>
+        <ArrowKeys vertical>
+          <ListButton bgColor={isSelected(1) && 'color1'} onClick={makeSelectHandler(1)}>
+            Item 1
+          </ListButton>
+          <ListButton bgColor={isSelected(2) && 'color2'} onClick={makeSelectHandler(2)}>
+            Item 2
+          </ListButton>
+        </ArrowKeys>
+      </List>
+    )}
+  </Select>
+</Playground>
+
+## Controllable
+
+<Playground>
+  {() => {
+    const [state, setState] = useState();
+    return (
+      <Select caption="Select" value={state}>
+        <List>
+          <ArrowKeys vertical>
+            <ListButton bgColor={state === 1 && 'color1'} onClick={() => setState(1)}>
+              Item 1
+            </ListButton>
+            <ListButton bgColor={state === 2 && 'color2'} onClick={() => setState(2)}>
+              Item 2
+            </ListButton>
+          </ArrowKeys>
+        </List>
+      </Select>
+    );
+  }}
+</Playground>
+
+## Customized
+
+<Playground>
+  <Select
+    bgColor="primary"
+    caption="Select"
+    floatingAreaProps={{ align: 'top-left', blockLevel: false }}
+    floatingAreaContentProps={{ rize: 10 }}
+    formatValue={(value) => `Item ${value}`}
+    prepend={
+      <Addon>
+        <Rocket />
+      </Addon>
+    }
+    rize={1}
+  >
+    {([isSelected, makeSelectHandler]) => (
+      <List bgColor="primary1">
+        <ArrowKeys validTypes={[ListButton]} vertical>
+          <ListButton bgColor={isSelected(1) && 'color3'} onClick={makeSelectHandler(1)}>
+            Item 1
+          </ListButton>
+          <ListButton bgColor={isSelected(2) && 'color3'} onClick={makeSelectHandler(2)}>
+            Item 2
+          </ListButton>
+        </ArrowKeys>
+      </List>
+    )}
+  </Select>
+</Playground>
+
+## Props
+
+<Props of={Select} />

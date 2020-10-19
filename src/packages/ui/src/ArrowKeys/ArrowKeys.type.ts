@@ -1,10 +1,10 @@
-import { ReactNode, ReactType } from 'react';
+import { ReactNode, ElementType } from 'react';
 
 export type ArrowKeysProps = {
   children: ReactNode[];
   horizontal?: boolean;
   defaultIndex?: number;
   loop?: boolean;
-  validTypes?: ReactType[];
+  validTypes?: ElementType[];
   vertical?: boolean;
 };
