@@ -4,7 +4,7 @@ import { DrawerProps } from '../Drawer';
 import { FloatingAreaProps } from '../FloatingArea';
 import { PaperProps } from '../Paper';
 
-type Input = HTMLProps<HTMLInputElement>;
+type Input = Pick<HTMLProps<HTMLInputElement>, 'value' | 'defaultValue'>;
 type Value = Input['value'];
 
 type ChildrenArgs = [(value: Value) => boolean, (value: Value) => void];

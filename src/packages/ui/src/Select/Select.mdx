@@ -25,7 +25,7 @@ A fully customizable select control.
 ## Basic example
 
 <Playground>
-  <Select caption="Select" formatValue={(value) => `Item ${value}`} defaultValue={1}>
+  <Select caption="Select" defaultValue={1} formatValue={(value) => `Item ${value}`}>
     {([isSelected, makeSelectHandler]) => (
       <List>
         <ArrowKeys vertical>

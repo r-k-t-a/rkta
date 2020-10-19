@@ -58,7 +58,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       'ListItem',
       'Paper',
     );
-    const [{ css: baseCss }, Base] = applyStyles(
+    const [{ css: baseCss, wrapperProps }, Base] = applyStyles(
       { active: captionIsActive, main: true, normal: true, ...baseProps },
       'InputBase',
       'Addon',
@@ -85,7 +85,13 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     return (
       <Fragment>
-        <Wrapper css={elementCss} onClick={handleOpen} onInput={handleClose} ref={wrapperRef}>
+        <Wrapper
+          css={elementCss}
+          {...wrapperProps}
+          onClick={handleOpen}
+          onInput={handleClose}
+          ref={wrapperRef}
+        >
           {prepend}
           <Base css={baseCss}>
             {caption && <span className="caption">{caption}</span>}
