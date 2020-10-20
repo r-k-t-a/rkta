@@ -3,44 +3,97 @@ menu: Inputs and form
 name: Select
 ---
 
+import { useState } from 'react';
 import { Link, Playground, Props } from 'docz';
 import { Select } from './';
 import { Addon } from '../Addon';
 import { Divider } from '../Divider';
-import { Bug } from '../../../entypo/src';
+import { List, ListButton } from '../List';
+import { ArrowKeys } from '../ArrowKeys';
+import { Rocket } from '../../../entypo/src';
 
 # Select
 
+A fully customizable select control.
+
 <span>
-  Bage composes paper <Link to="/rkta/packages-ui-src-paper-paper">Paper</Link> and&nbsp;
-  <Link to="/rkta/packages-ui-src-text-text">Text</Link> components.
+  See also:{' '}
+  <Link to="/src-packages-src-packages-ui-src-native-select-native-select">Native Select</Link>{' '}
+  component.
 </span>
 
-## Examples
+## Basic example
+
+<Playground>
+  <Select caption="Select" defaultValue={1} formatValue={(value) => `Item ${value}`}>
+    {([isSelected, makeSelectHandler]) => (
+      <List>
+        <ArrowKeys vertical>
+          <ListButton bgColor={isSelected(1) && 'color1'} onClick={makeSelectHandler(1)}>
+            Item 1
+          </ListButton>
+          <ListButton bgColor={isSelected(2) && 'color2'} onClick={makeSelectHandler(2)}>
+            Item 2
+          </ListButton>
+        </ArrowKeys>
+      </List>
+    )}
+  </Select>
+</Playground>
+
+## Controllable
+
+<Playground>
+  {() => {
+    const [state, setState] = useState(1);
+    return (
+      <Select caption="Select" value={state}>
+        <List>
+          <ArrowKeys vertical>
+            <ListButton bgColor={state === 1 && 'color1'} onClick={() => setState(1)}>
+              Item 1
+            </ListButton>
+            <ListButton bgColor={state === 2 && 'color2'} onClick={() => setState(2)}>
+              Item 2
+            </ListButton>
+          </ArrowKeys>
+        </List>
+      </Select>
+    );
+  }}
+</Playground>
+
+## Customized
 
 <Playground>
   <Select
-    caption="Normal"
+    bgColor="primary"
+    caption="Select"
+    floatingAreaProps={{ align: 'top-left', blockLevel: false }}
+    floatingAreaContentProps={{ rize: 10 }}
+    formatValue={(value) => `Item ${value}`}
+    onChange={(value) => console.log('onChange: ', value)}
+    onClose={() => console.log('onClose')}
+    onOpen={() => console.log('onOpen')}
     prepend={
       <Addon>
-        <Bug />
+        <Rocket />
       </Addon>
     }
     rize={1}
   >
-    <option>option 1</option>
-    <option>option 2</option>
-    <option>option 3</option>
-    <option>option 4</option>
-    <option>option 5</option>
-  </Select>
-  <Divider invisible />
-  <Select huge caption="Huge">
-    <option>option 1</option>
-    <option>option 2</option>
-    <option>option 3</option>
-    <option>option 4</option>
-    <option>option 5</option>
+    {([isSelected, makeSelectHandler]) => (
+      <List bgColor="primary1">
+        <ArrowKeys validTypes={[ListButton]} vertical>
+          <ListButton bgColor={isSelected(1) && 'color3'} onClick={makeSelectHandler(1)}>
+            Item 1
+          </ListButton>
+          <ListButton bgColor={isSelected(2) && 'color3'} onClick={makeSelectHandler(2)}>
+            Item 2
+          </ListButton>
+        </ArrowKeys>
+      </List>
+    )}
   </Select>
 </Playground>
 

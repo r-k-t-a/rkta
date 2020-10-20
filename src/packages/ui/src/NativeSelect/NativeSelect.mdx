@@ -1,0 +1,49 @@
+---
+menu: Inputs and form
+name: Native Select
+---
+
+import { Link, Playground, Props } from 'docz';
+import { NativeSelect } from './';
+import { Addon } from '../Addon';
+import { Divider } from '../Divider';
+import { Bug } from '../../../entypo/src';
+
+# Native Select
+
+<span>
+  Bage composes paper <Link to="/rkta/packages-ui-src-paper-paper">Paper</Link> and&nbsp;
+  <Link to="/rkta/packages-ui-src-text-text">Text</Link> components.
+</span>
+
+## Examples
+
+<Playground>
+  <NativeSelect
+    caption="Normal"
+    prepend={
+      <Addon>
+        <Bug />
+      </Addon>
+    }
+    rize={1}
+  >
+    <option>option 1</option>
+    <option>option 2</option>
+    <option>option 3</option>
+    <option>option 4</option>
+    <option>option 5</option>
+  </NativeSelect>
+  <Divider invisible />
+  <NativeSelect huge caption="Huge">
+    <option>option 1</option>
+    <option>option 2</option>
+    <option>option 3</option>
+    <option>option 4</option>
+    <option>option 5</option>
+  </NativeSelect>
+</Playground>
+
+## Props
+
+<Props of={NativeSelect} />

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { FC, useRef } from 'react';
@@ -13,30 +12,9 @@ import { FloatingAreaProps } from './FloatingArea.type';
 /**
  * ```js
  *  import { FloatingArea, List, ListTitle, ListButton, Divider, Button } from '@rkta/ui';
- *  import { useState } from 'react'
- *
- * () => {
- *   const [active, setActive] = useState(false);
- *   const [target, setTarget] = useState(null);
- *   const show = (event) => {
- *     setTarget(event.target);
- *     setActive(true);
- *   };
- *   return (
- *   <div style={{ display: 'flex', justifyContent: 'space-between', padding: 8 }}>
- *    <Button bgColor="primary" onClick={show}>
- *       Target 1
- *    </Button>
- *  <FloatingArea producer={target} active={active} offset={8}>
- *     <List rize={1}>
- *        <ListTitle>Floating Area</ListTitle>
- *        <ListButton nowrap>Option 1</ListButton>
- *        <ListButton nowrap>Option 2</ListButton>
- *        <ListButton nowrap>Option 3</ListButton>
- *     </List>
- *   </FloatingArea>
- * </div>
- * );
+ * <FloatingArea active={active} producer?={target} offset?={8}>
+ *   ...
+ * </FloatingArea>
  * ```
  */
 export const FloatingArea: FC<FloatingAreaProps> = ({
@@ -74,6 +52,7 @@ export const FloatingArea: FC<FloatingAreaProps> = ({
   const hasTransition = [ENTER, EXIT].includes(phase);
   const animate = visible && hasTransition;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [{ producer: p, phase: ph, offset: o, align: a, ...elementProps }, Element] = applyStyles(
     { ...rest, align, animate, offset, phase, producer, visible },
     'FloatingArea',

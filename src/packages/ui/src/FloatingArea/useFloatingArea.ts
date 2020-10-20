@@ -61,15 +61,13 @@ export function useFloatingArea({
     };
   }
 
-  function handleClickAway(event: MouseEvent): void {
+  useClickAway(consumer, (event) => {
     const shouldClose = producerElement
       ? !producerElement.contains(event.target as HTMLElement)
       : true;
     if (onClose && shouldClose) onClose();
-  }
-
+  });
   useEffect(effect, [active, consumerElement, producerElement, state]);
-  useClickAway(consumer, handleClickAway);
 
   return [state, handleAnimationEnd];
 }
