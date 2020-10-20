@@ -21,14 +21,14 @@ export const Popover: FC<PopoverProps> = ({
   disabled,
   offset,
   ...rest
-}): JSX.Element => {
+}) => {
   const { isVisible, hide, setProducer, toggle, producer } = usePopover();
 
   const EnhacedTrigger = disabled
     ? Trigger
     : cloneElement(Trigger, {
         onClick: (event: MouseEvent): void => {
-          setProducer(event.target as Element);
+          setProducer(event.nativeEvent.target);
           if (!isVisible) toggle();
         },
       });
@@ -42,7 +42,7 @@ export const Popover: FC<PopoverProps> = ({
           align={align}
           offset={offset}
           onClose={hide}
-          producer={producer}
+          producer={producer as HTMLElement}
         >
           {restChildren}
         </FloatingArea>

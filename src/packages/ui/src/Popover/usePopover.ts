@@ -1,22 +1,24 @@
-import { useReducer } from 'react';
+import { useReducer, MouseEvent } from 'react';
 
 const HIDE = Symbol('HIDE');
 const TOGGLE = Symbol('TOGGLE');
 const SET_TRIGGER_ELEMENT = Symbol('SET_TRIGGER_ELEMENT');
 
+type Target = MouseEvent['nativeEvent']['target'];
+
 type State = {
   isVisible: boolean;
-  producer?: HTMLElement;
+  producer?: Target;
 };
 
 type Action = {
   type: symbol;
-  producer?: HTMLElement;
+  producer?: Target;
 };
 
-type UsePopover = {
+type UsePopover = State & {
   hide(): void;
-  setProducer(producer: HTMLElement): void;
+  setProducer(producer: Target): void;
   toggle(): void;
 };
 

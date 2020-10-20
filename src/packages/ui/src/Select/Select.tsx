@@ -1,7 +1,7 @@
 /** @jsx jsx */
 /* eslint-disable react/jsx-fragments */
 
-import { useState, forwardRef, useEffect, useRef, RefObject } from 'react';
+import { Fragment, useState, forwardRef, useEffect, useRef, RefObject } from 'react';
 import { jsx } from '@emotion/core';
 
 import { Addon } from '../Addon';

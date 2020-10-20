@@ -1,19 +1,21 @@
-import { useReducer } from 'react';
+import { useReducer, MouseEvent } from 'react';
 
 const HIDE = Symbol('HIDE');
 const SHOW = Symbol('SHOW');
 
+type Target = MouseEvent['nativeEvent']['target'];
+
 type State = {
   isVisible: boolean;
-  producer?: MouseEvent['target'];
+  producer?: Target;
 };
 
 type Action = {
   type: symbol;
-  producer?: MouseEvent['target'];
+  producer?: Target;
 };
 
-type UseTooltip = {
+type UseTooltip = State & {
   hide(): void;
   show(event: MouseEvent): void;
 };
@@ -42,7 +44,7 @@ export function useTooltip(): UseTooltip {
       dispatch({ type: HIDE });
     },
     show(event: MouseEvent): void {
-      dispatch({ type: SHOW, producer: event.target });
+      dispatch({ type: SHOW, producer: event.nativeEvent.target });
     },
   };
 }

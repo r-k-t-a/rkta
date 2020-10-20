@@ -1,7 +1,7 @@
 import { useEffect, useState, RefObject } from 'react';
 
 // #region Types
-type NodeRef = HTMLElement | RefObject<HTMLElement> | null | undefined;
+type NodeRef = HTMLElement | RefObject<HTMLElement>;
 
 export type PositionAttachmentConfig = {
   align?:
@@ -105,7 +105,6 @@ function attachToWindow({ align, consumerElement, offset = 0 }: AttachToWindow):
     }
   }
 }
-
 function attachToElement({
   align,
   consumerElement,

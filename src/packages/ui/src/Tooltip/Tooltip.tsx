@@ -50,7 +50,7 @@ export const Tooltip: FC<TooltipProps> = ({
           align={align}
           offset={offset}
           onClose={hide}
-          producer={producer}
+          producer={producer as HTMLElement}
         >
           <Element {...nextProps}>{content}</Element>
         </FloatingArea>
