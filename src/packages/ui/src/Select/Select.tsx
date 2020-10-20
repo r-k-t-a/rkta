@@ -1,8 +1,9 @@
 /** @jsx jsx */
 /* eslint-disable react/jsx-fragments */
 
-import { Fragment, useState, forwardRef, useEffect, useRef } from 'react';
+import { Fragment, useState, forwardRef, useEffect, useRef, RefObject } from 'react';
 import { jsx } from '@emotion/core';
+
 import { Addon } from '../Addon';
 import { Svg } from '../Svg';
 import { useProviderContext } from '../Provider';
@@ -25,7 +26,7 @@ import { takeDefined } from '../util';
   ```
  */
 
-export const Select = forwardRef<HTMLInputElement, SelectProps>(
+export const Select = forwardRef<HTMLElement, SelectProps>(
   (
     {
       caption,
@@ -45,7 +46,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     },
     ref,
   ) => {
-    const wrapperRef = useRef();
+    const defaultRef = useRef<HTMLElement>(null);
+    const wrapperRef = ref || defaultRef;
     const { applyStyles } = useProviderContext();
     const [state, setState] = useState<SelectState>({
       isOpen: false,
@@ -109,7 +111,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               <path d="M13.418,7.859c0.271-0.268,0.709-0.268,0.978,0c0.27,0.268,0.272,0.701,0,0.969l-3.908,3.83c-0.27,0.268-0.707,0.268-0.979,0l-3.908-3.83c-0.27-0.267-0.27-0.701,0-0.969c0.271-0.268,0.709-0.268,0.978,0L10,11L13.418,7.859z" />
             </Svg>
           </Addon>
-          <input ref={ref} type="hidden" value={currentValue || ''} />
+          <input type="hidden" value={currentValue || ''} />
         </Wrapper>
         <Media phone>
           <Drawer align="bottom" {...drawerProps} open={isOpen} onClose={handleClose}>
@@ -123,7 +125,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             {...floatingAreaProps}
             active={isOpen}
             onClose={handleClose}
-            producer={wrapperRef.current}
+            producer={wrapperRef as RefObject<HTMLElement>}
           >
             <Paper rize={6} {...floatingAreaContentProps}>
               {content}
