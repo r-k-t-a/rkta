@@ -8,10 +8,16 @@ type State = {
   isVisible: boolean;
   producer?: HTMLElement;
 };
+
 type Action = {
   type: symbol;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
+  producer?: HTMLElement;
+};
+
+type UsePopover = {
+  hide(): void;
+  setProducer(producer: HTMLElement): void;
+  toggle(): void;
 };
 
 const defaultState = {
@@ -31,18 +37,17 @@ function reducer(state: State, { type, producer }: Action): State {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export function usePopover() {
+export function usePopover(): UsePopover {
   const [state, dispatch] = useReducer(reducer, defaultState);
   return {
     ...state,
-    hide(): void {
+    hide() {
       dispatch({ type: HIDE });
     },
-    setProducer(producer: Element): void {
+    setProducer(producer) {
       dispatch({ type: SET_TRIGGER_ELEMENT, producer });
     },
-    toggle(): void {
+    toggle() {
       dispatch({ type: TOGGLE });
     },
   };

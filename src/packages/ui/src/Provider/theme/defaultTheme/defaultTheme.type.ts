@@ -33,6 +33,7 @@ import * as SvgStyles from '../../../Svg/Svg.styles';
 import * as SwitchStyles from '../../../Switch/Switch.styles';
 import * as TabsStyles from '../../../Tabs/Tabs.styles';
 import * as TextStyles from '../../../Text/Text.styles';
+import * as TooltipStyles from '../../../Tooltip/Tooltip.styles';
 
 type StylesOverload = {
   [key: string]: CssRkta;
@@ -75,4 +76,5 @@ export type RktaDefaultTheme = {
   Switch: typeof SwitchStyles & StylesOverload;
   Tabs: typeof TabsStyles & StylesOverload;
   Text: typeof TextStyles & StylesOverload;
+  Tooltip: typeof TooltipStyles & StylesOverload;
 };
