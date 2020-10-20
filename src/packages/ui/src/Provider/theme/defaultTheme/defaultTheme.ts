@@ -32,6 +32,7 @@ import * as Svg from '../../../Svg/Svg.styles';
 import * as Switch from '../../../Switch/Switch.styles';
 import * as Tabs from '../../../Tabs/Tabs.styles';
 import * as Text from '../../../Text/Text.styles';
+import * as Tooltip from '../../../Tooltip/Tooltip.styles';
 
 import { RktaDefaultTheme } from './defaultTheme.type';
 
@@ -70,4 +71,5 @@ export const defaultTheme: RktaDefaultTheme = {
   Switch,
   Tabs,
   Text,
+  Tooltip,
 };

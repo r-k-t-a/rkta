@@ -1,0 +1,40 @@
+---
+menu: Utils
+name: Tooltip
+---
+
+import { useState } from 'react';
+import { Link, Playground, Props } from 'docz';
+import { Tooltip } from './Tooltip';
+import { Button } from '../Button';
+import { List, ListTitle, ListButton } from '../List';
+
+# Tooltip
+
+Adds tooltips to the elements.
+
+## Import
+
+```javascript
+import { Tooltip } from '@rkta/ui';
+```
+
+## Basic Example
+
+<Playground>
+  <Tooltip content="A hint">
+    <Button bgColor="primary">Buton</Button>
+  </Tooltip>
+</Playground>
+
+## Styled Example
+
+<Playground>
+  <Tooltip content="A hint" bgColor="color13" color="text" uppercase rize={6}>
+    <Button bgColor="primary">Buton</Button>
+  </Tooltip>
+</Playground>
+
+## Props
+
+<Props of={Tooltip} />

@@ -30,5 +30,6 @@ export * from './Svg';
 export * from './Switch';
 export * from './Tabs';
 export * from './Text';
+export * from './Tooltip';
 
 export * from './util';
