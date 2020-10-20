@@ -35,6 +35,9 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       floatingAreaProps,
       floatingAreaContentProps,
       formatValue,
+      onChange,
+      onOpen,
+      onClose,
       open,
       prepend,
       value,
@@ -42,7 +45,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     },
     ref,
   ) => {
-    // TODO: onChange, onOpen, onClose
     const wrapperRef = useRef();
     const { applyStyles } = useProviderContext();
     const [state, setState] = useState<SelectState>({
@@ -69,9 +71,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     }
     function handleClose(): void {
       patchState({ isOpen: false });
+      if (onClose) onClose();
     }
     function handleOpen(): void {
       patchState({ isOpen: true });
+      if (onOpen) onOpen();
     }
     const content =
       typeof children === 'function'
@@ -79,6 +83,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             (option: SelectProps['value']): boolean => option === currentValue,
             (nextValue: SelectState['value']) => () => {
               patchState({ value: nextValue, isOpen: false });
+              if (onChange) onChange(nextValue);
             },
           ])
         : children;

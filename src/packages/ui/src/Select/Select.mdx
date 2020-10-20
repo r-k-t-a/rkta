@@ -45,7 +45,7 @@ A fully customizable select control.
 
 <Playground>
   {() => {
-    const [state, setState] = useState();
+    const [state, setState] = useState(1);
     return (
       <Select caption="Select" value={state}>
         <List>
@@ -72,6 +72,9 @@ A fully customizable select control.
     floatingAreaProps={{ align: 'top-left', blockLevel: false }}
     floatingAreaContentProps={{ rize: 10 }}
     formatValue={(value) => `Item ${value}`}
+    onChange={(value) => console.log('onChange: ', value)}
+    onClose={() => console.log('onClose')}
+    onOpen={() => console.log('onOpen')}
     prepend={
       <Addon>
         <Rocket />
