@@ -20,11 +20,12 @@ export type SelectProps = PaperOwnProps &
     floatingAreaContentProps?: PaperProps;
     formatValue?: (value: Value) => ReactNode;
     main?: boolean;
+    open?: boolean;
     prepend?: ReactNode;
     size?: never;
   };
 
 export type SelectState = {
-  isExpanded: boolean;
+  isOpen: boolean;
   value?: Value;
 };

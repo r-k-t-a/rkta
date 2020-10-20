@@ -7,4 +7,5 @@ export * from './isNodeJS';
 export * from './isTargetEvent';
 export * from './placeholder';
 export * from './reEmit';
+export * from './takeDefined';
 export * from './upsertNode';

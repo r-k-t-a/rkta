@@ -11,21 +11,19 @@ import { Media } from '../Media';
 import { Drawer } from '../Drawer';
 import { Paper } from '../Paper';
 import { FloatingArea } from '../FloatingArea';
+import { takeDefined } from '../util';
 
 /**
  * ```js
  * import { Select } from '@rkta/ui';
  * 
  * <Select caption="Normal">
-    {([isSelected, make]) => (
+    {([isSelected, makeSelectHandler]) => (
       ...
     )}
   </Select>
   ```
  */
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const or = (...args: any[]) => args.find((arg) => typeof arg !== 'undefined');
 
 export const Select = forwardRef<HTMLInputElement, SelectProps>(
   (
@@ -37,23 +35,26 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       floatingAreaProps,
       floatingAreaContentProps,
       formatValue,
+      open,
       prepend,
       value,
       ...rest
     },
     ref,
   ) => {
+    // TODO: onChange, onOpen, onClose
     const wrapperRef = useRef();
     const { applyStyles } = useProviderContext();
     const [state, setState] = useState<SelectState>({
-      isExpanded: false,
-      value: or(value, defaultValue),
+      isOpen: false,
+      value: takeDefined(value, defaultValue),
     });
-    const currentValue = or(value, state.value);
+    const currentValue = takeDefined(value, state.value);
+    const isOpen = takeDefined(open, state.isOpen) || false;
     const captionIsActive = !!currentValue;
     const displayValue = formatValue ? formatValue(currentValue) : currentValue;
     const [{ css: elementCss, ...baseProps }, Wrapper] = applyStyles(
-      { active: state.isExpanded, ...rest, element: 'label' },
+      { active: isOpen, ...rest, element: 'label' },
       'Select',
       'ListItem',
       'Paper',
@@ -67,21 +68,22 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       setState((prevState) => ({ ...prevState, ...nextState }));
     }
     function handleClose(): void {
-      if (state.isExpanded) patchState({ isExpanded: false });
+      patchState({ isOpen: false });
     }
     function handleOpen(): void {
-      if (!state.isExpanded) patchState({ isExpanded: true });
+      patchState({ isOpen: true });
     }
-    const isSelected = (option: SelectProps['value']): boolean => option === currentValue;
-    const makeSelectHandler = (nextValue: SelectState['value']) => () => {
-      patchState({ value: nextValue, isExpanded: false });
-    };
     const content =
-      typeof children === 'function' ? children([isSelected, makeSelectHandler]) : children;
+      typeof children === 'function'
+        ? children([
+            (option: SelectProps['value']): boolean => option === currentValue,
+            (nextValue: SelectState['value']) => () => {
+              patchState({ value: nextValue, isOpen: false });
+            },
+          ])
+        : children;
 
-    useEffect(() => {
-      patchState({ isExpanded: false });
-    }, [currentValue]);
+    useEffect(handleClose, [currentValue]);
 
     return (
       <Fragment>
@@ -105,7 +107,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           <input ref={ref} type="hidden" value={currentValue} />
         </Wrapper>
         <Media phone>
-          <Drawer align="bottom" {...drawerProps} open={state.isExpanded} onClose={handleClose}>
+          <Drawer align="bottom" {...drawerProps} open={isOpen} onClose={handleClose}>
             {content}
           </Drawer>
         </Media>
@@ -114,7 +116,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             align="bottom-left"
             blockLevel
             {...floatingAreaProps}
-            active={state.isExpanded}
+            active={isOpen}
             onClose={handleClose}
             producer={wrapperRef.current}
           >
