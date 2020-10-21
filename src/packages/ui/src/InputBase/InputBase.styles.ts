@@ -78,7 +78,7 @@ export const maxRows = (
 export const multiline = (theme: RktaTheme, props: { active: boolean }): SerializedStyles => css`
   .caption {
     height: ${props.active ? '24px' : '100%'};
-    max-height: '56px';
+    max-height: 56px;
   }
   height: auto;
   padding-bottom: 8px;
