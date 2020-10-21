@@ -1,5 +1,5 @@
 ---
-menu: Inputs and form
+menu: Data display
 name: Placeholder
 ---
 
@@ -13,7 +13,7 @@ import { Placeholder } from './Placeholder';
 
 Wrap texts to create placeholders
 
-## Default usage
+## Default
 
 <Playground>
   <Text caption element="div">
@@ -31,6 +31,16 @@ Wrap texts to create placeholders
   </Text>
 </Playground>
 
+## Multiline
+
+<Playground>
+  <Text>
+    <Placeholder />
+    <Placeholder />
+    <Placeholder width="56%" />
+  </Text>
+</Playground>
+
 ## Set width and color
 
 <Playground>
@@ -38,14 +48,16 @@ Wrap texts to create placeholders
     Before load:
   </Text>
   <Text color="primary">
-    <Placeholder width="7em">{undefined}</Placeholder>
+    <Placeholder inline width="7em">
+      {undefined}
+    </Placeholder>
   </Text>
   <Divider />
   <Text caption element="div">
     After load:
   </Text>
   <Text color="primary">
-    <Placeholder width="7em">Some text longer</Placeholder>
+    <Placeholder width="7em">Some longer text</Placeholder>
   </Text>
 </Playground>
 
