@@ -24,12 +24,8 @@ export const Tooltip: FC<TooltipProps> = ({
   ...rest
 }) => {
   const { applyStyles } = useProviderContext();
-  const [nextProps, Element] = applyStyles(
-    { bgColor: 'text', color: 'paper', caption: true, ...rest },
-    'Tooltip',
-    'Paper',
-    'Text',
-  );
+  const tooltipProps = { bgColor: 'text', color: 'paper', caption: true, ...rest };
+  const [nextProps, Element] = applyStyles(tooltipProps, 'Tooltip', 'Paper', 'Text');
   const { isVisible, hide, show, producer } = useTooltip();
 
   return (
