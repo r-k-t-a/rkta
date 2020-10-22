@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-fragments */
+
 /** @jsx jsx */
-import { cloneElement, FC } from 'react';
+import { jsx } from '@emotion/core';
+import { cloneElement, FC, Fragment } from 'react';
 
 import { TooltipProps } from './Tooltip.type';
 import { useTooltip } from './useTooltip';
@@ -30,7 +33,7 @@ export const Tooltip: FC<TooltipProps> = ({
   const { isVisible, hide, show, producer } = useTooltip();
 
   return (
-    <>
+    <Fragment>
       {cloneElement(Trigger, {
         onContextMenu(event: MouseEvent) {
           event.preventDefault();
@@ -52,7 +55,7 @@ export const Tooltip: FC<TooltipProps> = ({
           <Element {...nextProps}>{content}</Element>
         </FloatingArea>
       )}
-    </>
+    </Fragment>
   );
 };
 
