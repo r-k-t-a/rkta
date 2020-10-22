@@ -26,7 +26,7 @@ import { Form } from '@rkta/form';
 
 <Playground>
   <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-    <Form onFormSubmit={flow(Object.entries, console.log)}>
+    <Form onFormSubmit={flow(Object.entries, console.log)} onFormChange={console.log}>
       <CardHeader>Please Sign In</CardHeader>
       <CardBody>
         <Input caption="Login" name="login" bgColor="paper2" />

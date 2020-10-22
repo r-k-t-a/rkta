@@ -35,6 +35,15 @@ export type Props = {
   postvalidate?: Hook | AsyncHook;
 };
 
+const getInputName = (event: InputEvent): string | undefined => {
+  try {
+    const node = event.target as HTMLElement;
+    return node.getAttribute('name') || undefined;
+  } catch (error) {
+    return undefined;
+  }
+};
+
 export function useForm({
   live,
   onBlur,
@@ -90,9 +99,9 @@ export function useForm({
       if (customHandler) customHandler(formData);
       return;
     }
-    const name = event.currentTarget.getAttribute('name');
-    if (!name) throw new Error('The form does not have the name attribute');
-    const validateForm = makeValidate(name);
+    const inputName = getInputName(event);
+    const validateForm = makeValidate(inputName);
+
     prevalidateForm(formData).then(validateForm).then(postvalidateForm).then(customHandler);
   }
 

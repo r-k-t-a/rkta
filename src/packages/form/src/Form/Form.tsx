@@ -25,9 +25,9 @@ export const Form = forwardRef<HTMLFormElement, Props>(
       validate,
       postvalidate,
       ...rest
-    }: Props,
+    },
     externalRef,
-  ): JSX.Element => {
+  ) => {
     const { errors, handleBlur, handleChange, handleSubmit } = useForm({
       onBlur,
       live,
