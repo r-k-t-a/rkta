@@ -1,4 +1,5 @@
-import React, { cloneElement, FC } from 'react';
+/** @jsx jsx */
+import { cloneElement, FC } from 'react';
 
 import { TooltipProps } from './Tooltip.type';
 import { useTooltip } from './useTooltip';
