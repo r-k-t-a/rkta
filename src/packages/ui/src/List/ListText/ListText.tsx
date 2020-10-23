@@ -8,7 +8,6 @@ import { ListTextProps } from './ListText.type';
 
 /**
  * import { ListText } from '@rkta/ui';
- *
  * <ListText label="List text with 2 Addons" description="Some description" main />
  */
 export const ListText: FC<ListTextProps> = ({
