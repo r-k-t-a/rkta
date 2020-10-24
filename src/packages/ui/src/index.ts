@@ -14,6 +14,7 @@ export * from './Heading';
 export * from './Image';
 export * from './Input';
 export * from './InputGroup';
+export * from './LinearProgress';
 export * from './List';
 export * from './Media';
 export * from './Modal';

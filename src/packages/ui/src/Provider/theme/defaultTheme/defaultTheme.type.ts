@@ -19,6 +19,7 @@ import * as FloatingAreaStyles from '../../../FloatingArea/FloatingArea.styles';
 import * as InputStyles from '../../../Input/Input.styles';
 import * as InputBaseStyles from '../../../InputBase/InputBase.styles';
 import * as InputGroupStyles from '../../../InputGroup/InputGroup.styles';
+import * as LinearProgressStyles from '../../../LinearProgress/LinearProgress.styles';
 import * as ListStyles from '../../../List/List.styles';
 import * as ListItemStyles from '../../../List/ListItem/ListItem.styles';
 import * as ListTextStyles from '../../../List/ListText/ListText.styles';
@@ -62,6 +63,7 @@ export type RktaDefaultTheme = {
   Input: typeof InputStyles & StylesOverload;
   InputBase: typeof InputBaseStyles & StylesOverload;
   InputGroup: typeof InputGroupStyles & StylesOverload;
+  LinearProgress: typeof LinearProgressStyles & StylesOverload;
   List: typeof ListStyles & StylesOverload;
   ListItem: typeof ListItemStyles & StylesOverload;
   ListText: typeof ListTextStyles & StylesOverload;
