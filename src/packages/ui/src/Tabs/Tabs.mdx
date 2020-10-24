@@ -1,5 +1,5 @@
 ---
-menu: Buttons and navigation
+menu: Buttons and Navigation
 name: Tabs
 ---
 
@@ -20,7 +20,9 @@ Tabs navigation container with animated indication
     return (
       <Tabs index={index}>
         {[1, 2, 39999].map((key, currentIndex) => (
-          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+          <Button key={key} onClick={() => setIndex(currentIndex)}>
+            Tab {key}
+          </Button>
         ))}
       </Tabs>
     );
@@ -28,13 +30,16 @@ Tabs navigation container with animated indication
 </Playground>
 
 ### Overline
+
 <Playground>
   {() => {
     const [index, setIndex] = useState(0);
     return (
       <Tabs index={index} color="secondary" overline>
         {[1, 2, 39999].map((key, currentIndex) => (
-          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+          <Button key={key} onClick={() => setIndex(currentIndex)}>
+            Tab {key}
+          </Button>
         ))}
       </Tabs>
     );
@@ -42,13 +47,16 @@ Tabs navigation container with animated indication
 </Playground>
 
 ### Vertical
+
 <Playground>
   {() => {
     const [index, setIndex] = useState(0);
     return (
       <Tabs index={index} vertical>
         {[1, 2, 39999].map((key, currentIndex) => (
-          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+          <Button key={key} onClick={() => setIndex(currentIndex)}>
+            Tab {key}
+          </Button>
         ))}
       </Tabs>
     );
@@ -56,13 +64,16 @@ Tabs navigation container with animated indication
 </Playground>
 
 ### Vertical and overline
+
 <Playground>
   {() => {
     const [index, setIndex] = useState(0);
     return (
       <Tabs index={index} overline vertical>
         {[1, 2, 39999].map((key, currentIndex) => (
-          <Button key={key} onClick={() => setIndex(currentIndex)}>Tab {key}</Button>
+          <Button key={key} onClick={() => setIndex(currentIndex)}>
+            Tab {key}
+          </Button>
         ))}
       </Tabs>
     );
