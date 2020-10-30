@@ -28,6 +28,7 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
       append,
       caption,
       children,
+      className,
       defaultValue = '',
       disabled,
       fancy,
@@ -94,7 +95,7 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
       children({ value: currentValue, setValue: handleSuggest });
     return (
       <Fragment>
-        <Element css={css} ref={boxRef}>
+        <Element className={className} css={css} ref={boxRef}>
           {prepend}
           <InputBase
             {...inputProps}
