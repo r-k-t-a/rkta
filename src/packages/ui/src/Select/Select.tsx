@@ -31,6 +31,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
     {
       caption,
       children,
+      className,
       defaultValue,
       drawerProps,
       floatingAreaProps,
@@ -94,6 +95,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
     return (
       <Fragment>
         <Wrapper
+          className={className}
           css={elementCss}
           {...wrapperProps}
           onClick={handleOpen}
