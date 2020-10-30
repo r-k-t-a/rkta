@@ -60,7 +60,6 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
     const [{ css: elementCss, ...baseProps }, Wrapper] = applyStyles(
       { active: isOpen, ...rest, element: 'label' },
       'Select',
-      'ListItem',
       'Paper',
     );
     const [{ css: baseCss, wrapperProps }, Base] = applyStyles(

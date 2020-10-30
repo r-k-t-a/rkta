@@ -1,5 +1,4 @@
 import { ReactNode, HTMLProps, ReactChildren } from 'react';
-import { PaperOwnProps } from '../Paper/Paper.type';
 import { DrawerProps } from '../Drawer';
 import { FloatingAreaProps } from '../FloatingArea';
 import { PaperProps } from '../Paper';
@@ -10,7 +9,7 @@ type Value = Input['value'];
 type ChildrenArgs = [(value: Value) => boolean, (value: Value) => void];
 type Children = (args: ChildrenArgs) => ReactNode;
 
-export type SelectProps = PaperOwnProps &
+export type SelectProps = PaperProps &
   Input & {
     active?: boolean;
     caption?: ReactNode;
