@@ -19,6 +19,7 @@ export type SelectProps = PaperProps &
     floatingAreaContentProps?: PaperProps;
     formatValue?: (value: Value) => ReactNode;
     main?: boolean;
+    name?: string;
     onChange?: (value: Value) => void;
     onClose?: () => void;
     onOpen?: () => void;
