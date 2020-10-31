@@ -1,16 +1,16 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent as ReactFormEvent } from 'react';
 import getFormData from 'get-form-data';
 
 import { compareNodes } from './compareNodes';
 import { ValidationError } from '../../validator/error';
 
-type InputEvent = FormEvent<HTMLFormElement>;
+export type FormEvent = ReactFormEvent<HTMLFormElement>;
 
 type UseForm = {
   errors: ValidationError[];
-  handleBlur: (event: InputEvent) => void;
-  handleChange: (event: InputEvent) => void;
-  handleSubmit: (event: InputEvent) => void;
+  handleBlur: (event: FormEvent) => void;
+  handleChange: (event: FormEvent) => void;
+  handleSubmit: (event: FormEvent) => void;
 };
 
 type ReactHandler = (event: FormEvent) => void;
@@ -35,7 +35,7 @@ export type Props = {
   postvalidate?: Hook | AsyncHook;
 };
 
-const getInputName = (event: InputEvent): string | undefined => {
+const getInputName = (event: FormEvent): string | undefined => {
   try {
     const node = event.target as HTMLElement;
     return node.getAttribute('name') || undefined;
@@ -58,7 +58,7 @@ export function useForm({
 }: Props): UseForm {
   const [errors, setErrors] = useState<ValidationError[]>([]);
   const [lastNode, setLastNode] = useState<EventTarget | null>(null);
-  const getForm = (event: InputEvent): CustomFormData => getFormData(event.currentTarget);
+  const getForm = (event: FormEvent): CustomFormData => getFormData(event.currentTarget);
 
   function shouldValidate(customHandler?: CustomHandler): boolean {
     if (errors.length || live) return true;
@@ -89,7 +89,7 @@ export function useForm({
   }
 
   function handleEvent(
-    event: InputEvent,
+    event: FormEvent,
     reactHandler?: ReactHandler,
     customHandler?: CustomHandler,
   ): void {
@@ -105,15 +105,15 @@ export function useForm({
     prevalidateForm(formData).then(validateForm).then(postvalidateForm).then(customHandler);
   }
 
-  const handleBlur = (event: InputEvent): void => {
+  const handleBlur = (event: FormEvent): void => {
     if (compareNodes(event.target as HTMLElement, lastNode as HTMLElement)) setLastNode(null);
     handleEvent(event, onBlur, onFormBlur);
   };
-  const handleChange = (event: InputEvent): void => {
+  const handleChange = (event: FormEvent): void => {
     if (event.nativeEvent.type === 'input') setLastNode(event.target);
     handleEvent(event, onChange, onFormChange);
   };
-  const handleSubmit = (event: InputEvent): void => {
+  const handleSubmit = (event: FormEvent): void => {
     handleEvent(event, onSubmit, onFormSubmit);
     event.preventDefault();
   };
