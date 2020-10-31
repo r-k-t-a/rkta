@@ -6,6 +6,10 @@ import { ValidationError } from '../../validator/error';
 
 export type FormEvent = ReactFormEvent<HTMLFormElement>;
 
+export type FormData = {
+  [key: string]: string | string[];
+};
+
 type UseForm = {
   errors: ValidationError[];
   handleBlur: (event: FormEvent) => void;
@@ -14,9 +18,9 @@ type UseForm = {
 };
 
 type ReactHandler = (event: FormEvent) => void;
-type CustomHandler = (formData: CustomFormData) => void;
-type Hook = (formData: CustomFormData) => CustomFormData;
-type AsyncHook = (formData: CustomFormData) => Promise<CustomFormData>;
+type CustomHandler = (formData: FormData) => void;
+type Hook = (formData: FormData) => FormData;
+type AsyncHook = (formData: FormData) => Promise<FormData>;
 
 export type Props = {
   live?: boolean;
@@ -28,10 +32,10 @@ export type Props = {
   onFormSubmit?: CustomHandler;
   prevalidate?: Hook | AsyncHook;
   validate?: (
-    formData: CustomFormData,
+    formData: FormData,
     errors: ValidationError[],
     inputName?: string,
-  ) => Promise<CustomFormData>;
+  ) => Promise<FormData>;
   postvalidate?: Hook | AsyncHook;
 };
 
@@ -58,22 +62,20 @@ export function useForm({
 }: Props): UseForm {
   const [errors, setErrors] = useState<ValidationError[]>([]);
   const [lastNode, setLastNode] = useState<EventTarget | null>(null);
-  const getForm = (event: FormEvent): CustomFormData => getFormData(event.currentTarget);
+  const getForm = (event: FormEvent): FormData => getFormData(event.currentTarget);
 
   function shouldValidate(customHandler?: CustomHandler): boolean {
     if (errors.length || live) return true;
     return typeof customHandler === 'function';
   }
 
-  function prevalidateForm(formData: CustomFormData): Promise<CustomFormData> {
+  function prevalidateForm(formData: FormData): Promise<FormData> {
     if (!prevalidate) return Promise.resolve(formData);
     const nextFormData = prevalidate(formData);
     return Promise.resolve(nextFormData);
   }
 
-  const makeValidate = (inputName?: string) => (
-    formData: CustomFormData,
-  ): Promise<CustomFormData> => {
+  const makeValidate = (inputName?: string) => (formData: FormData): Promise<FormData> => {
     if (!validate) return Promise.resolve(formData);
     return validate(formData, errors, inputName).catch((nextErrors) => {
       setErrors(nextErrors);
@@ -81,7 +83,7 @@ export function useForm({
     });
   };
 
-  function postvalidateForm(formData: CustomFormData): Promise<CustomFormData> {
+  function postvalidateForm(formData: FormData): Promise<FormData> {
     setErrors([]);
     if (!postvalidate) return Promise.resolve(formData);
     const nextFormData = postvalidate(formData);
@@ -93,7 +95,7 @@ export function useForm({
     reactHandler?: ReactHandler,
     customHandler?: CustomHandler,
   ): void {
-    const formData = getForm(event) as CustomFormData;
+    const formData = getForm(event) as FormData;
     if (reactHandler) reactHandler(event);
     if (!shouldValidate(customHandler)) {
       if (customHandler) customHandler(formData);

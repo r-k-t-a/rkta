@@ -1,3 +1,3 @@
 export * from './Form';
 export * from './useErrors';
-export { FormEvent } from './useForm';
+export { FormEvent, FormData } from './useForm';
