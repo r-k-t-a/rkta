@@ -23,6 +23,7 @@ export const clip = css`
 `;
 
 export const disabled = css`
+  cursor: auto;
   opacity: 0.4;
   pointer-events: none;
   user-select: none;
@@ -66,6 +67,7 @@ export const outlineColor = (
 `;
 
 export const readOnly = css`
+  cursor: auto;
   pointer-events: none;
 `;
 
