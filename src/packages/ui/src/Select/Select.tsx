@@ -12,7 +12,7 @@ import { Media } from '../Media';
 import { Drawer } from '../Drawer';
 import { Paper } from '../Paper';
 import { FloatingArea } from '../FloatingArea';
-import { takeDefined } from '../util';
+import { dispatchDomEvent, takeDefined } from '../util';
 
 /**
  * ```js
@@ -49,6 +49,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
     ref,
   ) => {
     const defaultRef = useRef<HTMLElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const wrapperRef = ref || defaultRef;
     const { applyStyles } = useProviderContext();
     const [state, setState] = useState<SelectState>({
@@ -72,7 +73,8 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
     function patchState(nextState: SelectState): void {
       setState((prevState) => ({ ...prevState, ...nextState }));
     }
-    function handleClose(): void {
+    function handleChange(): void {
+      if (inputRef.current) dispatchDomEvent(inputRef.current, 'change', { value: currentValue });
       patchState({ isOpen: false });
       if (onClose) onClose();
     }
@@ -91,7 +93,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
           ])
         : children;
 
-    useEffect(handleClose, [currentValue]);
+    useEffect(handleChange, [currentValue]);
 
     return (
       <Fragment>
@@ -100,7 +102,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
           css={elementCss}
           {...wrapperProps}
           onClick={handleOpen}
-          onInput={handleClose}
+          onInput={handleChange}
           ref={wrapperRef}
         >
           {prepend}
@@ -113,10 +115,10 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
               <path d="M13.418,7.859c0.271-0.268,0.709-0.268,0.978,0c0.27,0.268,0.272,0.701,0,0.969l-3.908,3.83c-0.27,0.268-0.707,0.268-0.979,0l-3.908-3.83c-0.27-0.267-0.27-0.701,0-0.969c0.271-0.268,0.709-0.268,0.978,0L10,11L13.418,7.859z" />
             </Svg>
           </Addon>
-          <input name={name} type="hidden" value={currentValue || ''} />
+          <input name={name} ref={inputRef} type="hidden" value={currentValue || ''} />
         </Wrapper>
         <Media phone>
-          <Drawer align="bottom" {...drawerProps} open={isOpen} onClose={handleClose}>
+          <Drawer align="bottom" {...drawerProps} open={isOpen} onClose={handleChange}>
             {content}
           </Drawer>
         </Media>
@@ -126,7 +128,7 @@ export const Select = forwardRef<HTMLElement, SelectProps>(
             blockLevel
             {...floatingAreaProps}
             active={isOpen}
-            onClose={handleClose}
+            onClose={handleChange}
             producer={wrapperRef as RefObject<HTMLElement>}
           >
             <Paper rize={6} {...floatingAreaContentProps}>
