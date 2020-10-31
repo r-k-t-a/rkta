@@ -43,7 +43,7 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
     },
     ref,
   ): JSX.Element => {
-    const isControlled = typeof value === 'string';
+    const isControlled = typeof value !== 'undefined';
     const {
       hasFocus,
       inputElement,
