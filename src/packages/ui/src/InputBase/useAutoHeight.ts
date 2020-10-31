@@ -1,14 +1,12 @@
 import { RefObject, useRef, useEffect } from 'react';
+import { Value } from './InputBase.type';
 
 type Shape = {
   ref: RefObject<HTMLLabelElement>;
   onInput: () => void;
 };
 
-export const useAutoHeight = (
-  isActive?: boolean,
-  value?: string | number | string[],
-): Shape | null => {
+export const useAutoHeight = (isActive?: boolean, value?: Value): Shape | null => {
   if (!isActive) return null;
   const ref = useRef<HTMLLabelElement>(null);
   function onInput(): void {

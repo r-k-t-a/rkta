@@ -1,11 +1,13 @@
 import { ReactNode, HTMLProps } from 'react';
 import { AddonOwnProps } from '../Addon/Addon.type';
 
-export type Value = string | number | string[] | undefined;
+type Input = HTMLProps<InputElement>;
+
+export type Value = Input['value'];
 
 export type InputElement = HTMLInputElement | HTMLTextAreaElement;
 export type InputBaseProps = AddonOwnProps &
-  HTMLProps<InputElement> & {
+  Input & {
     active?: boolean;
     autoHeight?: boolean;
     caption?: ReactNode;

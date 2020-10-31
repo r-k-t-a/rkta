@@ -6,6 +6,7 @@ export * from './isElement';
 export * from './isNodeJS';
 export * from './isRefObject';
 export * from './isTargetEvent';
+export * from './hasVisibleValue';
 export * from './placeholder';
 export * from './reEmit';
 export * from './takeDefined';

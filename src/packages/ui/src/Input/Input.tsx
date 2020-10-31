@@ -7,7 +7,7 @@ import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
 import { FloatingArea } from '../FloatingArea';
 import { Media } from '../Media';
-import { reEmit } from '../util';
+import { hasVisibleValue, reEmit } from '../util';
 
 import { dispatchDomEvent } from '../util/dispatchDomEvent';
 import { InputProps } from './Input.type';
@@ -59,8 +59,7 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
     const boxRef = useRef<HTMLElement>(null);
 
     const currentValue = isControlled ? value : localValue;
-    const active = (!readOnly && hasFocus) || !!(currentValue || placeholder);
-
+    const active = (!readOnly && hasFocus) || hasVisibleValue(currentValue, placeholder);
     const { applyStyles } = useProviderContext();
     const wrapperProps = {
       active,
