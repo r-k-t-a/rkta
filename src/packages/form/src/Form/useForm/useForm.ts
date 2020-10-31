@@ -19,8 +19,8 @@ type UseForm = {
 
 type ReactHandler = (event: FormEvent) => void;
 type CustomHandler = (formData: CustomFormData) => void;
-type Hook = (formData: CustomFormData) => CustomFormData;
-type AsyncHook = (formData: CustomFormData) => Promise<CustomFormData>;
+type Prevalidate = (formData: FormData) => CustomFormData | Promise<CustomFormData>;
+type Postvalidate = (formData: CustomFormData) => CustomFormData | Promise<CustomFormData>;
 
 export type Props = {
   live?: boolean;
@@ -30,13 +30,13 @@ export type Props = {
   onFormBlur?: CustomHandler;
   onFormChange?: CustomHandler;
   onFormSubmit?: CustomHandler;
-  prevalidate?: Hook | AsyncHook;
+  prevalidate?: Prevalidate;
   validate?: (
     formData: CustomFormData,
     errors: ValidationError[],
     inputName?: string,
   ) => Promise<CustomFormData>;
-  postvalidate?: Hook | AsyncHook;
+  postvalidate?: Postvalidate;
 };
 
 const getInputName = (event: FormEvent): string | undefined => {
