@@ -11,6 +11,11 @@ export const initialStyle = css`
     transition: transform 0.4s ease;
     will-change: transition;
   }
+  .value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
 
 export const active = (theme: RktaTheme, props: SelectProps): SerializedStyles => css`
