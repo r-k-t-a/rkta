@@ -6,15 +6,15 @@ import omitEmpty from './omitEmpty';
 import mergeErrors from './mergeErrors';
 import { ExtentedSchema } from './ExtentedSchema';
 
-type SchemaGetterPayload = {
+export type SchemaGetterPayload = {
   formData: CustomFormData;
   inputName: string | undefined;
   errors: ValidationError[];
 };
 
-type SchemaGetter = (payload?: SchemaGetterPayload) => SchemaType;
+export type SchemaGetter = (payload: SchemaGetterPayload) => SchemaType;
 
-type SchemaType = ExtentedSchema | SchemaGetter;
+export type SchemaType = ExtentedSchema | SchemaGetter;
 
 export const makeValidator = (schema: SchemaType, options?: Options) => (
   formData: CustomFormData,
