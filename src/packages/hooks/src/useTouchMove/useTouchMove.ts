@@ -93,7 +93,7 @@ export function useTouchMove({ onMove, onMoved, producer }: Args): boolean {
 
   useEffect(() => {
     producer?.addEventListener('touchstart', handleStart);
-    producer?.addEventListener('touchmove', handleMove);
+    producer?.addEventListener('touchmove', handleMove, { passive: true });
     producer?.addEventListener('touchcancel', handleEnd);
     producer?.addEventListener('touchend', handleEnd);
 
