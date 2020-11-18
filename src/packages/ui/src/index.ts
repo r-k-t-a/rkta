@@ -11,7 +11,6 @@ export * from './Drawer';
 export * from './FloatingArea';
 export * from './GlobalCss';
 export * from './Heading';
-export * from './Image';
 export * from './Input';
 export * from './InputGroup';
 export * from './LinearProgress';
