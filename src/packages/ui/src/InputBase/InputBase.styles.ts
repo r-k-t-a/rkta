@@ -21,7 +21,6 @@ export const initialStyle = css`
     top: 0;
     transition: font 0.32s ease, height 0.32s ease;
     user-select: none;
-    will-change: font, height;
   }
   input,
   textarea {

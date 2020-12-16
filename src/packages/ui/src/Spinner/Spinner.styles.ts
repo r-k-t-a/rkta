@@ -26,7 +26,6 @@ export const initialStyle = css`
   border-radius: 50%;
   box-sizing: border-box;
   display: block;
-  will-change: transform;
 `;
 
 export const borderWidth = (theme: RktaTheme, props: SpinnerProps): SerializedStyles => css`

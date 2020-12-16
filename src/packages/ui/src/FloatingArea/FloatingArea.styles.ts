@@ -21,7 +21,6 @@ export const animate = (theme: RktaTheme, props: FloatingAreaProps): SerializedS
     > * {
       ${fx(props)}
       transition: transform 0.48s ${ease};
-      will-change: transform;
     }
   `;
 };
@@ -61,5 +60,4 @@ export const blockLevel = (
 export const visible = css`
   transition: transform 0.48s ${ease};
   visibility: visible;
-  will-change: transform;
 `;

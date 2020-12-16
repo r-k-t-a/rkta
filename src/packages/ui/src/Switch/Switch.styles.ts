@@ -40,7 +40,6 @@ export const initialStyle = (
     padding: 0;
     position: relative;
     transition: background 0.4s ease, border 0.4s ${easeInOutQuint};
-    will-change: background, border;
     width: ${afterSize};
     &:before {
       background-color: ${theme.color.paper};
@@ -51,7 +50,6 @@ export const initialStyle = (
       height: ${beforeSize};
       transition: transform 0.4s ${easeInOutQuint};
       width: ${beforeSize};
-      will-change: transform;
     }
     &:checked {
       background-color: ${theme.color.primary};
@@ -71,7 +69,6 @@ export const initialStyle = (
       transition: opacity 0.4s ease;
       top: calc((${size} - ${size} * ${ratio}) / 2 - ${padding});
       width: ${afterSize};
-      will-change: opacity, transition;
     }
     &:focus {
       &:after {

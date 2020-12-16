@@ -13,7 +13,6 @@ export const initialStyle = css`
 export const animateHeight = css`
   box-sizing: border-box;
   transition: height 0.24s ease;
-  will-change: height;
 `;
 
 export const height = (theme: RktaTheme, props: ScrollBoxProps): SerializedStyles => css`

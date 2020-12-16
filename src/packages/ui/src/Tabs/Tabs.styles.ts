@@ -88,7 +88,6 @@ export const indicator = (Theme: RktaTheme, props: IndicatorProps): SerializedSt
       pointer-events: none;
       position: absolute;
       transition: transform 0.48s ease, width 0.48s ease;
-      will-change: transform, width;
     }
   `,
   getPlacement(props),

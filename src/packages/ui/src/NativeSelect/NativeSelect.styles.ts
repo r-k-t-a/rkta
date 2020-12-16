@@ -17,7 +17,6 @@ export const initialStyle = css`
   }
   .chevron {
     transition: transform 0.4s ease;
-    will-change: transition;
   }
 `;
 

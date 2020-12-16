@@ -87,7 +87,6 @@ export const fadeIn = (theme: RktaTheme, props: BackdropProps): SerializedStyles
   return css`
     :before {
       animation: ${Animation} 1.2s ease forwards;
-      will-change: opacity;
     }
     > * {
       ${fxIn(props)}
@@ -101,7 +100,6 @@ export const fadeOut = (theme: RktaTheme, props: BackdropProps): SerializedStyle
   return css`
     :before {
       animation: ${Animation} 0.4s ease forwards;
-      will-change: opacity;
     }
     > * {
       ${fxOut(props)}

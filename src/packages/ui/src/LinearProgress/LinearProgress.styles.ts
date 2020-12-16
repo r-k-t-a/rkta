@@ -27,7 +27,6 @@ export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
   display: block;
   height: 4px;
   width: 100%;
-  will-change: background;
 
   &::-webkit-progress-bar {
     background-color: transparent;
