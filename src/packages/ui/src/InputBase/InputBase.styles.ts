@@ -36,6 +36,9 @@ export const initialStyle = css`
     outline: none;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
+    &:-webkit-autofill {
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
   input,
   .value {
