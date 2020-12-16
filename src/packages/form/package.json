@@ -1,6 +1,6 @@
 {
   "name": "@rkta/form",
-  "version": "0.0.190",
+  "version": "0.0.191",
   "description": "Capture entire react forms with no effort",
   "scripts": {
     "build:esm": "tsc -m esnext --outDir lib/esm",
