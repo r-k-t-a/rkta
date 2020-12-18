@@ -2,7 +2,8 @@ import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { InputBaseProps } from './InputBase.type';
 
-export const initialStyle = css`
+export const initialStyle = (theme: RktaTheme) => css`
+  border-radius: inherit;
   min-width: 0;
   position: relative;
   .caption {
@@ -27,6 +28,7 @@ export const initialStyle = css`
     background-color: transparent;
     border: none;
     box-sizing: border-box;
+    border-radius: inherit;
     color: inherit;
     display: block;
     font: inherit;
@@ -35,6 +37,11 @@ export const initialStyle = css`
     outline: none;
     width: 100%;
     -webkit-tap-highlight-color: transparent;
+    &:invalid ~ .caption:after {
+      content: '●';
+      color: ${theme.color.error};
+      margin-left: 0.2em;
+    }
     &:-webkit-autofill {
       transition: background-color 5000s ease-in-out 0s;
     }

@@ -57,14 +57,17 @@ const validate = makeValidator(schema);
     };
     return (
       <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-        <Form validate={validate} onFormSubmit={flow(Object.entries, console.log)}>
+        <Form
+          validate={validate}
+          onFormSubmit={flow(Object.entries, console.log)}
+          autoSubmit
+          disabled
+        >
           <CardHeader>Please Sign In</CardHeader>
           <CardBody>
             <Input caption="Login" name="login" bgColor="paper2" />
-            <FieldError name="login" />
             <Divider invisible />
             <Input caption="Password" name="password" bgColor="paper2" type="password" />
-            <FieldError name="password" />
           </CardBody>
           <CardFooter right>
             <Button bgColor="primary" type="submit">

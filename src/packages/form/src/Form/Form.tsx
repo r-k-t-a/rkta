@@ -8,36 +8,25 @@ type HTMLFormProps = DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTML
 
 type Props = HTMLFormProps & {
   children: ReactNode;
+  onChange: never;
+  onSubmit: never;
 };
 
 export const Form = forwardRef<HTMLFormElement, Props>(
-  (
-    {
-      children,
-      live,
-      onBlur,
-      onChange,
-      onSubmit,
-      onFormBlur,
-      onFormChange,
-      onFormSubmit,
-      validate,
-      ...rest
-    },
-    ref,
-  ) => {
-    const { errors, handleBlur, handleChange, handleSubmit } = useForm({
-      onBlur,
-      live,
-      onChange,
-      onSubmit,
-      onFormBlur,
-      onFormChange,
+  ({ autoSubmit, children, onFormSubmit, validate, ...rest }, ref) => {
+    const { errors, handleForm } = useForm({
+      autoSubmit,
       onFormSubmit,
       validate,
     });
     return (
-      <form {...rest} onChange={handleChange} onBlur={handleBlur} onSubmit={handleSubmit} ref={ref}>
+      <form
+        {...rest}
+        onSubmit={handleForm}
+        onChange={handleForm}
+        onBlur={autoSubmit ? handleForm : undefined}
+        ref={ref}
+      >
         <Context.Provider value={{ errors }}>{children}</Context.Provider>
       </form>
     );

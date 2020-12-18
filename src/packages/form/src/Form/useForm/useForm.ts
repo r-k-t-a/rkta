@@ -1,7 +1,6 @@
 import { useState, FormEvent as ReactFormEvent } from 'react';
 import getFormData from 'get-form-data';
 
-import { compareNodes } from './compareNodes';
 import { ValidationError } from '../../validator/error';
 
 export type FormEvent = ReactFormEvent<HTMLFormElement>;
@@ -12,22 +11,31 @@ export type FormData = {
 
 type UseForm = {
   errors: ValidationError[];
-  handleBlur: (event: FormEvent) => void;
-  handleChange: (event: FormEvent) => void;
-  handleSubmit: (event: FormEvent) => void;
+  handleForm: (event: FormEvent) => void;
 };
 
-type ReactHandler = (event: FormEvent) => void;
-type CustomHandler = (formData: CustomFormData) => void;
+/*
+busy
+  unbusy
+    => auto | disabled | manual
+disabled
+  enable
+    => auto | disabled | manual
+auto
+  change, submit
+    => busy
+    => on error => auto
+    => on success => auto | disabled | manual
+manual
+  submit
+    => busy
+    => on error => auto
+    => on success => auto | disabled | manual
+*/
 
 export type Props = {
-  live?: boolean;
-  onBlur?: ReactHandler;
-  onChange?: ReactHandler;
-  onSubmit?: ReactHandler;
-  onFormBlur?: CustomHandler;
-  onFormChange?: CustomHandler;
-  onFormSubmit?: CustomHandler;
+  autoSubmit?: boolean;
+  onFormSubmit?: (formData: CustomFormData) => void;
   validate?: (
     formData: CustomFormData,
     errors: ValidationError[],
@@ -35,73 +43,50 @@ export type Props = {
   ) => Promise<CustomFormData>;
 };
 
-const getInputName = (event: FormEvent): string | undefined => {
-  try {
-    const node = event.target as HTMLElement;
-    return node.getAttribute('name') || undefined;
-  } catch (error) {
-    return undefined;
-  }
-};
+function setCustomValidity(formElement: HTMLFormElement, validationErrors: ValidationError[]) {
+  Array.from(formElement.elements).forEach((element) => {
+    (element as HTMLInputElement).setCustomValidity('');
+  });
+  validationErrors.forEach(({ property, message }) => {
+    const element = formElement[property] as HTMLInputElement;
+    element.setCustomValidity(message);
+  });
+  formElement.reportValidity();
+}
 
-export function useForm({
-  live,
-  onBlur,
-  onChange,
-  onSubmit,
-  onFormBlur,
-  onFormChange,
-  onFormSubmit,
-  validate,
-}: Props): UseForm {
+export function useForm({ autoSubmit, onFormSubmit, validate }: Props): UseForm {
+  const [isBusy, setIsBusy] = useState(false);
   const [errors, setErrors] = useState<ValidationError[]>([]);
-  const [lastNode, setLastNode] = useState<EventTarget | null>(null);
-  const getForm = (event: FormEvent): CustomFormData => getFormData(event.currentTarget);
 
-  function shouldValidate(customHandler?: CustomHandler): boolean {
-    if (errors.length || live) return true;
-    return typeof customHandler === 'function';
-  }
-
-  const makeValidate = (inputName?: string) => (
-    formData: CustomFormData,
-  ): Promise<CustomFormData> => {
+  function getValidatedData(formData: FormData): Promise<FormData> {
     if (!validate) return Promise.resolve(formData);
-    return validate(formData, errors, inputName).catch((nextErrors) => {
-      setErrors(nextErrors);
-      return Promise.reject(nextErrors);
-    });
-  };
-
-  function handleEvent(
-    event: FormEvent,
-    reactHandler?: ReactHandler,
-    customHandler?: CustomHandler,
-  ): void {
-    const formData = getForm(event) as CustomFormData;
-    if (reactHandler) reactHandler(event);
-    if (!shouldValidate(customHandler)) {
-      if (customHandler) customHandler(formData);
-      return;
-    }
-    const inputName = getInputName(event);
-    const validateForm = makeValidate(inputName);
-
-    validateForm(formData);
+    return validate(formData, errors);
   }
 
-  const handleBlur = (event: FormEvent): void => {
-    if (compareNodes(event.target as HTMLElement, lastNode as HTMLElement)) setLastNode(null);
-    handleEvent(event, onBlur, onFormBlur);
-  };
-  const handleChange = (event: FormEvent): void => {
-    if (event.nativeEvent.type === 'input') setLastNode(event.target);
-    handleEvent(event, onChange, onFormChange);
-  };
-  const handleSubmit = (event: FormEvent): void => {
-    handleEvent(event, onSubmit, onFormSubmit);
-    event.preventDefault();
-  };
+  return {
+    errors,
+    handleForm(event: FormEvent): void {
+      event.preventDefault();
 
-  return { errors, handleBlur, handleChange, handleSubmit };
+      const formElement = event.currentTarget as HTMLFormElement;
+      const formData = getFormData(formElement);
+      setCustomValidity(formElement, errors);
+
+      if (isBusy || (event.type !== 'submit' && !autoSubmit)) return;
+
+      setIsBusy(true);
+
+      getValidatedData(formData)
+        .then((validatedFrom) => {
+          if (onFormSubmit) onFormSubmit(validatedFrom);
+          setErrors([]);
+          setCustomValidity(formElement, []);
+        })
+        .catch((nextErrors) => {
+          setErrors(nextErrors);
+          setCustomValidity(formElement, nextErrors);
+        })
+        .finally(() => setIsBusy(false));
+    },
+  };
 }

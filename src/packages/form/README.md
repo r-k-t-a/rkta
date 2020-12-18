@@ -4,10 +4,9 @@
 > x remove pre/postvalidate
 > x asyncCompose
 > - djv instead of ajv
-> - validity api
+> x validity api
 > - typecasting
 > - docs
-> - Rewrite with xstate
 
 ## Usage
 
