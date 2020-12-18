@@ -24,7 +24,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
       validate,
       ...rest
     },
-    externalRef,
+    ref,
   ) => {
     const { errors, handleBlur, handleChange, handleSubmit } = useForm({
       onBlur,
@@ -37,13 +37,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
       validate,
     });
     return (
-      <form
-        {...rest}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        onSubmit={handleSubmit}
-        ref={externalRef}
-      >
+      <form {...rest} onChange={handleChange} onBlur={handleBlur} onSubmit={handleSubmit} ref={ref}>
         <Context.Provider value={{ errors }}>{children}</Context.Provider>
       </form>
     );
