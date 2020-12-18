@@ -9,17 +9,17 @@ type ChildrenArgs = {
   setValue(value: Value): void;
 };
 
-export type InputProps = InputBaseProps &
-  PaperOwnProps & {
-    active?: never;
-    append?: ReactNode;
-    children?: (args: ChildrenArgs) => JSX.Element | ReactNode;
-    color?: Color;
-    disabled?: boolean;
-    hasFocus?: never;
-    fancy?: boolean;
-    main?: boolean;
-    prepend?: ReactNode;
-    readOnly?: boolean;
-    size?: never;
-  };
+export type InputProps = {
+  active?: never;
+  append?: ReactNode;
+  children?: (args: ChildrenArgs) => JSX.Element | ReactNode;
+  color?: Color;
+  disabled?: boolean;
+  hasFocus?: never;
+  fancy?: boolean;
+  main?: boolean;
+  prepend?: ReactNode;
+  readOnly?: boolean;
+  size?: never;
+} & InputBaseProps &
+  PaperOwnProps;

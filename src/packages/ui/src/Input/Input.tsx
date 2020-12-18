@@ -16,13 +16,10 @@ import { useInput } from './useInput';
 
 /**
  * ```js
- *
- * import { Input } from '@rkta/ui';
- *
  * <Input caption="Text Input" />
  * ```
  */
-export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, InputProps>(
+export const Input = forwardRef<InputElement, InputProps>(
   (
     {
       append,
@@ -40,7 +37,7 @@ export const Input: FC<Omit<InputProps, 'ref'>> = forwardRef<InputElement, Input
       readOnly,
       value,
       ...rest
-    },
+    }: InputProps,
     ref,
   ): JSX.Element => {
     const isControlled = typeof value !== 'undefined';
