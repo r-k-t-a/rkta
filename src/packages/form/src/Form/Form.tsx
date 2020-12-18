@@ -22,9 +22,9 @@ export const Form = forwardRef<HTMLFormElement, Props>(
     return (
       <form
         {...rest}
-        onSubmit={handleForm}
-        onChange={handleForm}
         onBlur={autoSubmit ? handleForm : undefined}
+        onChange={handleForm}
+        onSubmit={handleForm}
         ref={ref}
       >
         <Context.Provider value={{ errors }}>{children}</Context.Provider>
