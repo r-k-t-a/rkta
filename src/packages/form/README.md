@@ -2,8 +2,8 @@
 
 > TODO: description
 > x remove pre/postvalidate
-> - asyncCompose instead of pre/postvalidate
 > - useImperativeHandle
+> x asyncCompose
 > - djv instead of ajv
 > - validity api
 > - typecasting
