@@ -21,9 +21,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
       onFormBlur,
       onFormChange,
       onFormSubmit,
-      prevalidate,
       validate,
-      postvalidate,
       ...rest
     },
     externalRef,
@@ -36,9 +34,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
       onFormBlur,
       onFormChange,
       onFormSubmit,
-      prevalidate,
       validate,
-      postvalidate,
     });
     return (
       <form

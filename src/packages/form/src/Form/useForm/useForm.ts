@@ -19,8 +19,6 @@ type UseForm = {
 
 type ReactHandler = (event: FormEvent) => void;
 type CustomHandler = (formData: CustomFormData) => void;
-type Prevalidate = (formData: FormData) => CustomFormData | Promise<CustomFormData>;
-type Postvalidate = (formData: CustomFormData) => CustomFormData | Promise<CustomFormData>;
 
 export type Props = {
   live?: boolean;
@@ -30,13 +28,11 @@ export type Props = {
   onFormBlur?: CustomHandler;
   onFormChange?: CustomHandler;
   onFormSubmit?: CustomHandler;
-  prevalidate?: Prevalidate;
   validate?: (
     formData: CustomFormData,
     errors: ValidationError[],
     inputName?: string,
   ) => Promise<CustomFormData>;
-  postvalidate?: Postvalidate;
 };
 
 const getInputName = (event: FormEvent): string | undefined => {
@@ -56,9 +52,7 @@ export function useForm({
   onFormBlur,
   onFormChange,
   onFormSubmit,
-  prevalidate,
   validate,
-  postvalidate,
 }: Props): UseForm {
   const [errors, setErrors] = useState<ValidationError[]>([]);
   const [lastNode, setLastNode] = useState<EventTarget | null>(null);
@@ -67,12 +61,6 @@ export function useForm({
   function shouldValidate(customHandler?: CustomHandler): boolean {
     if (errors.length || live) return true;
     return typeof customHandler === 'function';
-  }
-
-  function prevalidateForm(formData: FormData): Promise<CustomFormData> {
-    if (!prevalidate) return Promise.resolve(formData);
-    const nextFormData = prevalidate(formData);
-    return Promise.resolve(nextFormData);
   }
 
   const makeValidate = (inputName?: string) => (
@@ -84,13 +72,6 @@ export function useForm({
       return Promise.reject(nextErrors);
     });
   };
-
-  function postvalidateForm(formData: CustomFormData): Promise<CustomFormData> {
-    setErrors([]);
-    if (!postvalidate) return Promise.resolve(formData);
-    const nextFormData = postvalidate(formData);
-    return Promise.resolve(nextFormData);
-  }
 
   function handleEvent(
     event: FormEvent,
@@ -106,7 +87,7 @@ export function useForm({
     const inputName = getInputName(event);
     const validateForm = makeValidate(inputName);
 
-    prevalidateForm(formData).then(validateForm).then(postvalidateForm).then(customHandler);
+    validateForm(formData);
   }
 
   const handleBlur = (event: FormEvent): void => {

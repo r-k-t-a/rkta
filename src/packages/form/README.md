@@ -1,6 +1,14 @@
 # `provider`
 
 > TODO: description
+> x remove pre/postvalidate
+> - asyncCompose instead of pre/postvalidate
+> - useImperativeHandle
+> - djv instead of ajv
+> - validity api
+> - typecasting
+> - docs
+> - Rewrite with xstate
 
 ## Usage
 
