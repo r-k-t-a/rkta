@@ -36,18 +36,14 @@ manual
 export type Props = {
   autoSubmit?: boolean;
   onFormSubmit?: (formData: CustomFormData) => void;
-  validate?: (
-    formData: CustomFormData,
-    errors: ValidationError[],
-    inputName?: string,
-  ) => Promise<CustomFormData>;
+  validate?: (formData: CustomFormData) => Promise<CustomFormData>;
 };
 
 function setCustomValidity(formElement: HTMLFormElement, validationErrors: ValidationError[]) {
   Array.from(formElement.elements).forEach((element) => {
     (element as HTMLInputElement).setCustomValidity('');
   });
-  validationErrors.forEach(({ property, message }) => {
+  validationErrors.slice(0, 1).forEach(({ property, message }) => {
     const element = formElement[property] as HTMLInputElement;
     element.setCustomValidity(message);
   });
@@ -60,7 +56,7 @@ export function useForm({ autoSubmit, onFormSubmit, validate }: Props): UseForm 
 
   function getValidatedData(formData: FormData): Promise<FormData> {
     if (!validate) return Promise.resolve(formData);
-    return validate(formData, errors);
+    return validate(formData);
   }
 
   return {

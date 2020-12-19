@@ -22,7 +22,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(
     return (
       <form
         {...rest}
-        onBlur={autoSubmit ? handleForm : undefined}
+        // onBlur={autoSubmit ? handleForm : undefined}
         onChange={handleForm}
         onSubmit={handleForm}
         ref={ref}

@@ -3,7 +3,6 @@
 > TODO: description
 > x remove pre/postvalidate
 > x asyncCompose
-> - djv instead of ajv
 > x validity api
 > - typecasting
 > - docs
