@@ -4,7 +4,7 @@
 > x remove pre/postvalidate
 > x asyncCompose
 > x validity api
-> - typecasting
+> x coercion https://github.com/ajv-validator/ajv/blob/master/docs/coercion.md
 > - docs
 
 ## Usage

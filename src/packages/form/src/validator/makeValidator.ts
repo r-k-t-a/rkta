@@ -17,8 +17,9 @@ export const makeValidator = (schema: SchemaType, options?: Options) => (
   formData: CustomFormData,
 ): Promise<CustomFormData> => {
   const defaultOptions: Options = {
-    allErrors: true,
     $data: true,
+    allErrors: true,
+    coerceTypes: true,
     errorDataPath: 'property',
     format: 'full',
     useDefaults: true,
