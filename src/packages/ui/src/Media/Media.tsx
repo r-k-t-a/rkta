@@ -1,10 +1,10 @@
 import { FC, useEffect } from 'react';
-import { useIsMounted, useToggle } from '@rkta/hooks';
+import { useToggle } from '@rkta/hooks';
 
 import { MediaProps } from './Media.type';
 import { useProviderContext } from '../Provider';
 
-import { clientMedia } from './clientMedia';
+// import { clientMedia } from './clientMedia';
 import { serverMedia } from './serverMedia';
 
 /**
@@ -17,11 +17,8 @@ import { serverMedia } from './serverMedia';
  * ```
  */
 export const Media: FC<MediaProps> = ({ children, ...queries }): JSX.Element => {
-  const isMounted = useIsMounted();
   const [, toggle] = useToggle();
   const { theme } = useProviderContext();
-
-  const resolve = isMounted ? clientMedia : serverMedia;
 
   function effect(): () => void {
     window.addEventListener('resize', toggle);
@@ -31,5 +28,5 @@ export const Media: FC<MediaProps> = ({ children, ...queries }): JSX.Element => 
   }
   useEffect(effect);
 
-  return resolve(children, queries, theme) as JSX.Element;
+  return serverMedia(children, queries, theme) as JSX.Element;
 };
