@@ -56,10 +56,10 @@ const validate = makeValidator(schema);
     };
     return (
       <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-        <Form validate={validate} onFormSubmit={console.log} autoSubmit disabled>
+        <Form validate1={validate} onFormSubmit={console.log} autoSubmit disabled>
           <CardHeader>Please Sign In</CardHeader>
           <CardBody>
-            <Input caption="Login" name="login" bgColor="paper2" />
+            <Input caption="Login" name="login" bgColor="paper2" required />
             <Divider invisible />
             <Input caption="Password" name="password" bgColor="paper2" type="password" />
           </CardBody>

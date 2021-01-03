@@ -31,7 +31,13 @@
     "target": "ES3"
   },
   "files": [],
-  "exclude": ["node_modules", "src/packages/**/lib", "src/gatsby-theme-docz", "**/*.spec.ts"],
+  "exclude": [
+    "node_modules",
+    "src/packages/**/lib",
+    "src/gatsby-theme-docz",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ],
   "types": ["typePatches"],
   "references": [
     { "path": "src/packages/context" },
