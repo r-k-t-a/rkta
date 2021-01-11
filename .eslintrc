@@ -9,7 +9,7 @@ plugins:
   - "@typescript-eslint"
   - prettier
   - react
-  - emotion
+  - "@emotion"
 extends:
   - airbnb
   - plugin:@typescript-eslint/recommended
@@ -27,9 +27,6 @@ rules:
     - error
     - never
   emotion/jsx-import: off
-  emotion/no-vanilla: error
-  emotion/import-from-emotion: error
-  emotion/styled-import: error
   import/prefer-default-export: off
   react/destructuring-assignment: off
   quotes:
