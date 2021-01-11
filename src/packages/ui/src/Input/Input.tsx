@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-fragments */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { Fragment, useRef, FocusEvent, FormEvent, forwardRef, FC } from 'react';
+import { Fragment, useRef, FocusEvent, FormEvent, forwardRef } from 'react';
 
 import { InputBase } from '../InputBase';
 import { useProviderContext } from '../Provider';
