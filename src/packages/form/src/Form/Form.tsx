@@ -29,6 +29,11 @@ export type FormProps = {
   useConstraintValidationAPI: boolean;
 } & HTMLFormProps;
 
+type FormEventItem = {
+  formElement: HTMLFormElement;
+  formData: CustomFormData;
+};
+
 async function getValidatedData({
   formData,
   formElement,
@@ -69,7 +74,24 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
     const [formIsBusy, setFormIsBusy] = useState(false);
     const [errors, setErrors] = useState<ValidationError[]>([]);
     const defaultRef = useRef<HTMLFormElement>(null);
+    const eventsStack = useRef<FormEventItem[]>([]);
     const ref = externalRef || defaultRef;
+
+    async function doValidation() {
+      const eventItem = eventsStack.current.shift();
+      if (!eventItem) return undefined;
+      const { formElement, formData } = eventItem;
+      setCustomValidity(formElement, []);
+      const validatedFrom = await getValidatedData({ formData, formElement, validate }).catch(
+        (nextErrors) => {
+          setErrors(nextErrors);
+          if (useConstraintValidationAPI) {
+            setCustomValidity(formElement, nextErrors);
+          }
+        },
+      );
+      return validatedFrom;
+    }
 
     async function handleForm(event: FormEvent): Promise<void> {
       event.preventDefault();
@@ -79,18 +101,20 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       setCustomValidity(formElement, []);
 
       if (!autoSubmit && (formIsBusy || event.type !== 'submit')) return;
+      eventsStack.current.push({ formElement, formData });
 
       setFormIsBusy(true);
 
-      const validatedFrom = await getValidatedData({ formData, formElement, validate }).catch(
-        (nextErrors) => {
-          setErrors(nextErrors);
-          if (useConstraintValidationAPI) setCustomValidity(formElement, nextErrors);
-        },
-      );
+      if (autoSubmit && formIsBusy) return;
+
+      const validatedFrom = await doValidation();
 
       if (validatedFrom && onFormSubmit)
         await Promise.resolve(onFormSubmit(validatedFrom)).finally(() => setFormIsBusy(false));
+
+      eventsStack.current.splice(-1, 1);
+      if (eventsStack.current.length) await doValidation();
+
       setFormIsBusy(false);
     }
 
