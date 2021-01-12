@@ -26,6 +26,7 @@ export type FormProps = {
   onFormSubmit?: (formData: CustomFormData) => void | Promise<void>;
   children?: JSX.Element | ((props: FormChildProps) => JSX.Element);
   validate?: (formData: CustomFormData) => Promise<CustomFormData>;
+  useConstraintValidationAPI: boolean;
 } & HTMLFormProps;
 
 async function getValidatedData({
@@ -54,7 +55,17 @@ async function getValidatedData({
  * ```
  */
 export const Form = forwardRef<HTMLFormElement, FormProps>(
-  ({ autoSubmit, children, onFormSubmit, validate, ...rest }: FormProps, externalRef) => {
+  (
+    {
+      autoSubmit,
+      children,
+      onFormSubmit,
+      validate,
+      useConstraintValidationAPI = true,
+      ...rest
+    }: FormProps,
+    externalRef,
+  ) => {
     const [formIsBusy, setFormIsBusy] = useState(false);
     const [errors, setErrors] = useState<ValidationError[]>([]);
     const defaultRef = useRef<HTMLFormElement>(null);
@@ -74,7 +85,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       const validatedFrom = await getValidatedData({ formData, formElement, validate }).catch(
         (nextErrors) => {
           setErrors(nextErrors);
-          setCustomValidity(formElement, nextErrors);
+          if (useConstraintValidationAPI) setCustomValidity(formElement, nextErrors);
         },
       );
 
