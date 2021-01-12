@@ -8,6 +8,7 @@ import { useState, Fragment } from 'react';
 import get from 'lodash/get';
 import flow from 'lodash/flow';
 import { Form } from './Form';
+import { useErrors } from './useErrors';
 import { makeValidator } from '../validator';
 import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Input } from '@rkta/ui';
 
@@ -306,6 +307,80 @@ Password: ${password}
               </CardFooter>
             </Fragment>
           )}
+        </Form>
+      </Card>
+    );
+  }}
+</Playground>
+
+## Validation without ValidationAPI
+
+
+
+<Playground>
+  {() => {
+    const FieldError = ({ name }) => {
+      const [error] = useErrors(name);
+      if (!error) return null;
+      return <span style={{ color: 'red', fontSize: 12, paddingLeft: 16 }}>{error.message}</span>
+    }
+    const validate = makeValidator({
+      type: 'object',
+      properties: {
+        login: {
+          type: 'string',
+          format: 'email',
+          messages: {
+            required: 'Please enter login',
+            format: 'Please enter a valid email',
+          },
+        },
+        password: {
+          type: 'string',
+          messages: {
+            required: 'Please enter password',
+          },
+        },
+      },
+      required: ['login', 'password'],
+    });
+    return (
+      <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+        <Form
+          useConstraintValidationAPI={false}
+          validate={validate}
+          onFormSubmit={({ login, password }) =>
+            window.alert(`
+Login: ${login}
+Password: ${password}
+      `)
+          }
+        >
+          <CardHeader>Sign In</CardHeader>
+          <CardBody>
+            <Input
+              autoComplete="username"
+              caption="Login"
+              name="login"
+              bgColor="paper2"
+              type="email"
+            />
+            <FieldError name="login" />
+            <Divider invisible />
+            <Input
+              autoComplete="current-password"
+              caption="Password"
+              bgColor="paper2"
+              name="password"
+              type="password"
+            />
+            <FieldError name="password" />
+          </CardBody>
+          <CardFooter right>
+            <Button bgColor="primary" type="submit">
+              Submit
+            </Button>
+          </CardFooter>
         </Form>
       </Card>
     );
