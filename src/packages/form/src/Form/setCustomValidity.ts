@@ -4,12 +4,27 @@ export function setCustomValidity(
   formElement: HTMLFormElement,
   validationErrors: ValidationError[],
 ): void {
+  const errorsMessagesMap = validationErrors.reduce(
+    (acc, { property, message }) => ({
+      ...acc,
+      [property]: message,
+    }),
+    {},
+  ) as { [key: string]: string };
+
   Array.from(formElement.elements).forEach((element) => {
-    (element as HTMLInputElement).setCustomValidity('');
+    const elem = element as HTMLInputElement;
+    const elementName = elem.name;
+    const errorMessage = errorsMessagesMap[elementName];
+
+    if (!errorMessage) {
+      elem.setCustomValidity('');
+      return;
+    }
+
+    if (elem.validationMessage !== errorMessage) {
+      elem.setCustomValidity(errorMessage);
+      elem.reportValidity();
+    }
   });
-  validationErrors.slice(0, 1).forEach(({ property, message }) => {
-    const element = formElement[property] as HTMLInputElement;
-    element?.setCustomValidity(message);
-  });
-  formElement.reportValidity();
 }

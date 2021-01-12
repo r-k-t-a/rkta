@@ -81,7 +81,6 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       const eventItem = eventsStack.current.shift();
       if (!eventItem) return undefined;
       const { formElement, formData } = eventItem;
-      setCustomValidity(formElement, []);
       const validatedFrom = await getValidatedData({ formData, formElement, validate }).catch(
         (nextErrors) => {
           setErrors(nextErrors);
@@ -90,6 +89,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
           }
         },
       );
+      if (validatedFrom) setCustomValidity(formElement, []);
       return validatedFrom;
     }
 
@@ -98,11 +98,12 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
 
       const formElement = event.currentTarget as HTMLFormElement;
       const formData = getFormData(formElement);
-      setCustomValidity(formElement, []);
+      if (!autoSubmit) setCustomValidity(formElement, []);
 
-      if (!autoSubmit && (formIsBusy || event.type !== 'submit')) return;
+      const isSubmit = !formIsBusy && event.type === 'submit';
+      if (!autoSubmit && !isSubmit) return;
+
       eventsStack.current.push({ formElement, formData });
-
       setFormIsBusy(true);
 
       if (autoSubmit && formIsBusy) return;
