@@ -89,7 +89,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
           }
         },
       );
-      if (validatedFrom) setCustomValidity(formElement, []);
+      if (useConstraintValidationAPI && validatedFrom) setCustomValidity(formElement, []);
       return validatedFrom;
     }
 
@@ -98,7 +98,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
 
       const formElement = event.currentTarget as HTMLFormElement;
       const formData = getFormData(formElement);
-      if (!autoSubmit) setCustomValidity(formElement, []);
+      if (!autoSubmit && useConstraintValidationAPI) setCustomValidity(formElement, []);
 
       const isSubmit = !formIsBusy && event.type === 'submit';
       if (!autoSubmit && !isSubmit) return;
