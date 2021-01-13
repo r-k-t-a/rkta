@@ -105,9 +105,10 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       if (!autoSubmit && !isSubmit) return;
 
       lastEvent.current = { formElement, formData };
-      setFormIsBusy(true);
 
-      if (autoSubmit && formIsBusy) return;
+      const prevFormIsBusy = formIsBusy;
+      setFormIsBusy(true);
+      if (autoSubmit && prevFormIsBusy) return;
 
       const validatedFrom = await doValidation();
 
