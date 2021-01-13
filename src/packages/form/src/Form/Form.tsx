@@ -100,8 +100,8 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       const formData = getFormData(formElement);
       if (!autoSubmit && useConstraintValidationAPI) setCustomValidity(formElement, []);
 
-      const isSubmit = !formIsBusy && event.type === 'submit';
-      if (!autoSubmit && !isSubmit) return;
+      const isSubmitEvent = !formIsBusy && event.type === 'submit';
+      if (!autoSubmit && !isSubmitEvent) return;
 
       eventsStack.current.push({ formElement, formData });
       setFormIsBusy(true);
