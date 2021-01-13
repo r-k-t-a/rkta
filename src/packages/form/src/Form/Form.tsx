@@ -113,7 +113,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       if (validatedFrom && onFormSubmit)
         await Promise.resolve(onFormSubmit(validatedFrom)).finally(() => setFormIsBusy(false));
 
-      eventsStack.current.splice(-1, 1);
+      eventsStack.current.splice(0, eventsStack.current.length - 1);
       if (eventsStack.current.length) await doValidation();
 
       setFormIsBusy(false);
