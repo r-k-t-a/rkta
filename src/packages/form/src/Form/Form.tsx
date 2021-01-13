@@ -74,11 +74,12 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
     const [formIsBusy, setFormIsBusy] = useState(false);
     const [errors, setErrors] = useState<ValidationError[]>([]);
     const defaultRef = useRef<HTMLFormElement>(null);
-    const eventsStack = useRef<FormEventItem[]>([]);
+    const lastEvent = useRef<FormEventItem | null>(null);
     const ref = externalRef || defaultRef;
 
     async function doValidation() {
-      const eventItem = eventsStack.current.shift();
+      const eventItem = lastEvent.current;
+      lastEvent.current = null;
       if (!eventItem) return undefined;
       const { formElement, formData } = eventItem;
       const validatedFrom = await getValidatedData({ formData, formElement, validate }).catch(
@@ -103,18 +104,18 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       const isSubmitEvent = !formIsBusy && event.type === 'submit';
       if (!autoSubmit && !isSubmitEvent) return;
 
-      eventsStack.current.push({ formElement, formData });
-      setFormIsBusy(true);
+      lastEvent.current = { formElement, formData };
 
-      if (autoSubmit && formIsBusy) return;
+      const prevFormIsBusy = formIsBusy;
+      setFormIsBusy(true);
+      if (autoSubmit && prevFormIsBusy) return;
 
       const validatedFrom = await doValidation();
 
       if (validatedFrom && onFormSubmit)
         await Promise.resolve(onFormSubmit(validatedFrom)).finally(() => setFormIsBusy(false));
 
-      eventsStack.current.splice(0, eventsStack.current.length - 1);
-      if (eventsStack.current.length) await doValidation();
+      if (lastEvent.current) await doValidation();
 
       setFormIsBusy(false);
     }
