@@ -85,7 +85,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       const validatedFrom = await getValidatedData({ formData, formElement, validate }).catch(
         (nextErrors) => {
           setErrors(nextErrors);
-          if (useConstraintValidationAPI) setCustomValidity(formElement, nextErrors.slice(0, 1));
+          if (useConstraintValidationAPI) {
+            setCustomValidity(formElement, nextErrors);
+          }
         },
       );
       if (useConstraintValidationAPI && validatedFrom) setCustomValidity(formElement, []);
