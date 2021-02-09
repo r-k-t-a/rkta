@@ -26,7 +26,7 @@ export type FormProps = {
   onFormSubmit?: (formData: CustomFormData) => void | Promise<void>;
   children?: JSX.Element | ((props: FormChildProps) => JSX.Element);
   validate?: (formData: CustomFormData) => Promise<CustomFormData>;
-  useConstraintValidationAPI: boolean;
+  useConstraintValidationAPI?: boolean;
 } & HTMLFormProps;
 
 type FormEventItem = {
