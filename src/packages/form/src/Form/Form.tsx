@@ -24,7 +24,7 @@ export type FormChildProps = {
 export type FormProps = {
   autoSubmit?: boolean;
   onFormSubmit?: (formData: CustomFormData) => void | Promise<void>;
-  children?: JSX.Element | ((props: FormChildProps) => JSX.Element);
+  children?: JSX.Element | JSX.Element[] | ((props: FormChildProps) => JSX.Element);
   validate?: (formData: CustomFormData) => Promise<CustomFormData>;
   useConstraintValidationAPI?: boolean;
 } & HTMLFormProps;
