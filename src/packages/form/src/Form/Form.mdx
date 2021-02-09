@@ -1,45 +1,390 @@
 ---
-menu: Inputs and Form
+menu: Forms
 name: Form
 ---
 
 import { Playground, Props } from 'docz';
-import { useState } from 'react';
-import { Form } from './Form';
-import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Input } from '@rkta/ui';
+import { useState, Fragment } from 'react';
 import get from 'lodash/get';
 import flow from 'lodash/flow';
+import { Form } from './Form';
+import { useErrors } from './useErrors';
+import { makeValidator } from '../validator';
+import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Input } from '@rkta/ui';
 
-## Form
+# Forms
 
-Capture entire react forms with no effort and state management.
+Create react forms with no hassle. Yes, literally.
 
-## Usage
+Features:
 
-```jsx
-import { Form } from '@rkta/form';
+- Automatic form serialization
+- Constraint validation (default)
+- JSON Schema validation (reccommended)
+- Optional automatic form submit
+- Multiple submit prevention
+- Custom errors
 
-<Form>...</Form>;
-```
+* Custom validation (supported)
+* Coercion
 
-## Example
+<!-- @rkta/form does not force you to place any listeners or refs on all the inputs. -->
+
+## Basic Usage
+
+This example illustrates the automatic form serialization feature.
+We get the form data without adding any refs or listeners to the form inputs.
 
 <Playground>
   <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-    <Form onFormSubmit={flow(Object.entries, console.log)} onFormChange={console.log}>
-      <CardHeader>Please Sign In</CardHeader>
+    <Form
+      onFormSubmit={({ login, password }) =>
+        window.alert(`
+Login: ${login}
+Password: ${password}
+      `)
+      }
+    >
+      <CardHeader>Sign In</CardHeader>
       <CardBody>
-        <Input caption="Login" name="login" bgColor="paper2" />
+        <Input autoComplete="username" caption="Login" name="login" bgColor="paper2" type="email" />
         <Divider invisible />
-        <Input caption="Password" name="pass" bgColor="paper2" type="password" />
+        <Input
+          autoComplete="current-password"
+          caption="Password"
+          bgColor="paper2"
+          name="password"
+          type="password"
+        />
       </CardBody>
       <CardFooter right>
         <Button bgColor="primary" type="submit">
-          Sign In
+          Submit
         </Button>
       </CardFooter>
     </Form>
   </Card>
+</Playground>
+
+## Constraint validation
+
+This example illustrates how to validate forms with Constraint validation API.
+
+<Playground>
+  <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+    <Form
+      onFormSubmit={({ login, password }) =>
+        window.alert(`
+Login: ${login}
+Password: ${password}
+      `)
+      }
+    >
+      <CardHeader>Sign In</CardHeader>
+      <CardBody>
+        <Input
+          autoComplete="username"
+          caption="Login"
+          name="login"
+          bgColor="paper2"
+          required
+          type="email"
+        />
+        <Divider invisible />
+        <Input
+          autoComplete="current-password"
+          caption="Password"
+          bgColor="paper2"
+          name="password"
+          required
+          type="password"
+        />
+      </CardBody>
+      <CardFooter right>
+        <Button bgColor="primary" type="submit">
+          Submit
+        </Button>
+      </CardFooter>
+    </Form>
+  </Card>
+</Playground>
+
+## Schema validation
+
+More validation details is here
+
+<Playground>
+  {() => {
+    const validate = makeValidator({
+      type: 'object',
+      properties: {
+        login: {
+          type: 'string',
+          format: 'email',
+          messages: {
+            required: 'Please enter login',
+            format: 'Please enter a valid email',
+          },
+        },
+        password: {
+          type: 'string',
+          messages: {
+            required: 'Please enter password',
+          },
+        },
+      },
+      required: ['login', 'password'],
+    });
+    return (
+      <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+        <Form
+          validate={validate}
+          onFormSubmit={({ login, password }) =>
+            window.alert(`
+Login: ${login}
+Password: ${password}
+      `)
+          }
+        >
+          <CardHeader>Sign In</CardHeader>
+          <CardBody>
+            <Input
+              autoComplete="username"
+              caption="Login"
+              name="login"
+              bgColor="paper2"
+              type="email"
+            />
+            <Divider invisible />
+            <Input
+              autoComplete="current-password"
+              caption="Password"
+              bgColor="paper2"
+              name="password"
+              type="password"
+            />
+          </CardBody>
+          <CardFooter right>
+            <Button bgColor="primary" type="submit">
+              Submit
+            </Button>
+          </CardFooter>
+        </Form>
+      </Card>
+    );
+  }}
+</Playground>
+
+## Autosubmit
+
+The auto-submit feature is useful when we already have valid data and want to edit it in a live manner.
+
+If a form has a submit button, then auto-submit may cause usability problems.
+
+<Playground>
+  {() => {
+    const schema = {
+      type: 'object',
+      properties: {
+        firstName: {
+          type: 'string',
+          minLength: 2,
+          maxLength: 8,
+          messages: {
+            required: 'First name is required',
+          },
+        },
+        lastName: {
+          type: 'string',
+          minLength: 2,
+          maxLength: 8,
+          messages: {
+            required: 'Last name is required',
+          },
+        },
+      },
+      required: ['firstName', 'lastName'],
+    };
+    const validate = makeValidator(schema);
+    return (
+      <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+        <Form autoSubmit validate={validate} onFormSubmit={console.log}>
+          <CardHeader>Edit name</CardHeader>
+          <CardBody>
+            <Input
+              autoComplete="none"
+              bgColor="paper2"
+              caption="First Name"
+              defaultValue="Barack"
+              name="firstName"
+              type="text"
+            />
+            <Divider invisible />
+            <Input
+              autoComplete="none"
+              bgColor="paper2"
+              caption="Last Name"
+              defaultValue="Obama"
+              name="lastName"
+              type="text"
+            />
+          </CardBody>
+        </Form>
+      </Card>
+    );
+  }}
+</Playground>
+
+## Busy state
+
+The form automatically maintains a busy state during validation and submission.
+It automatically prevents multiple submits when works in manual mode and allows
+multiple form submissions in _autoSubmit_ mode.
+
+<Playground>
+  {() => {
+    const validate = makeValidator({
+      type: 'object',
+      properties: {
+        login: {
+          type: 'string',
+          format: 'email',
+          messages: {
+            required: 'Please enter login',
+            format: 'Please enter a valid email',
+          },
+        },
+        password: {
+          type: 'string',
+          messages: {
+            required: 'Please enter password',
+          },
+        },
+      },
+      required: ['login', 'password'],
+    });
+    function pause() {
+      return new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+    async function handleSubmit({ login, password }) {
+      await pause();
+      window.alert(`
+Login: ${login}
+Password: ${password}
+      `);
+    }
+    async function handleValidate(formData) {
+      await pause();
+      return validate(formData);
+    }
+    return (
+      <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+        <Form validate={handleValidate} onFormSubmit={handleSubmit}>
+          {({ formIsBusy }) => (
+            <Fragment>
+              <CardHeader>Sign In</CardHeader>
+              <CardBody>
+                <Input
+                  autoComplete="username"
+                  caption="Login"
+                  name="login"
+                  bgColor="paper2"
+                  type="email"
+                />
+                <Divider invisible />
+                <Input
+                  autoComplete="current-password"
+                  caption="Password"
+                  bgColor="paper2"
+                  name="password"
+                  type="password"
+                />
+              </CardBody>
+              <CardFooter right>
+                <Button bgColor="primary" busy={formIsBusy} type="submit">
+                  Submit
+                </Button>
+              </CardFooter>
+            </Fragment>
+          )}
+        </Form>
+      </Card>
+    );
+  }}
+</Playground>
+
+## Validation without ValidationAPI
+
+
+
+<Playground>
+  {() => {
+    const FieldError = ({ name }) => {
+      const [error] = useErrors(name);
+      if (!error) return null;
+      return <span style={{ color: 'red', fontSize: 12, paddingLeft: 16 }}>{error.message}</span>
+    }
+    const validate = makeValidator({
+      type: 'object',
+      properties: {
+        login: {
+          type: 'string',
+          format: 'email',
+          messages: {
+            required: 'Please enter login',
+            format: 'Please enter a valid email',
+          },
+        },
+        password: {
+          type: 'string',
+          messages: {
+            required: 'Please enter password',
+          },
+        },
+      },
+      required: ['login', 'password'],
+    });
+    return (
+      <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
+        <Form
+          useConstraintValidationAPI={false}
+          validate={validate}
+          onFormSubmit={({ login, password }) =>
+            window.alert(`
+Login: ${login}
+Password: ${password}
+      `)
+          }
+        >
+          <CardHeader>Sign In</CardHeader>
+          <CardBody>
+            <Input
+              autoComplete="username"
+              caption="Login"
+              name="login"
+              bgColor="paper2"
+              type="email"
+            />
+            <FieldError name="login" />
+            <Divider invisible />
+            <Input
+              autoComplete="current-password"
+              caption="Password"
+              bgColor="paper2"
+              name="password"
+              type="password"
+            />
+            <FieldError name="password" />
+          </CardBody>
+          <CardFooter right>
+            <Button bgColor="primary" type="submit">
+              Submit
+            </Button>
+          </CardFooter>
+        </Form>
+      </Card>
+    );
+  }}
 </Playground>
 
 ## Props

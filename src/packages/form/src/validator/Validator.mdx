@@ -1,5 +1,5 @@
 ---
-menu: Inputs and Form
+menu: Forms
 name: makeValidator
 ---
 
@@ -8,7 +8,6 @@ import { useState } from 'react';
 import { Form, useErrors } from '../Form';
 import { makeValidator } from './makeValidator';
 import { Button, Card, CardHeader, CardBody, CardFooter, Divider, Addon, Input } from '@rkta/ui';
-import flow from 'lodash/flow';
 
 ## Validation
 
@@ -38,7 +37,7 @@ const validate = makeValidator(schema);
           },
         },
         password: {
-          type: 'string',
+          type: 'number',
           messages: {
             required: 'Please enter password',
           },
@@ -57,14 +56,12 @@ const validate = makeValidator(schema);
     };
     return (
       <Card rize={1} css={{ maxWidth: '450px', margin: '24px auto' }}>
-        <Form validate={validate} onFormSubmit={flow(Object.entries, console.log)}>
+        <Form validate1={validate} onFormSubmit={console.log} autoSubmit disabled>
           <CardHeader>Please Sign In</CardHeader>
           <CardBody>
-            <Input caption="Login" name="login" bgColor="paper2" />
-            <FieldError name="login" />
+            <Input caption="Login" name="login" bgColor="paper2" required />
             <Divider invisible />
             <Input caption="Password" name="password" bgColor="paper2" type="password" />
-            <FieldError name="password" />
           </CardBody>
           <CardFooter right>
             <Button bgColor="primary" type="submit">
