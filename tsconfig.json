@@ -28,7 +28,7 @@
     "skipLibCheck": false,
     "sourceMap": true,
     "strict": true,
-    "target": "ES3"
+    "target": "ES5"
   },
   "files": [],
   "exclude": [
