@@ -6,8 +6,8 @@ import { Spinner } from '../Spinner';
 import { useProviderContext } from '../Provider';
 
 import { ButtonProps } from './Button.type';
-// import { Ripple } from './Ripple';
-// import { useRipple } from './Ripple/useRipple';
+import { Ripple } from './Ripple';
+import { useRipple } from './Ripple/useRipple';
 
 const injectedProps = { element: 'button', normal: true, button: true };
 
@@ -28,7 +28,7 @@ const injectedProps = { element: 'button', normal: true, button: true };
 export const Button = forwardRef(
   (
     {
-      // noRipple,
+      noRipple,
       children,
       composition = ['Text', 'Button', 'Paper', 'Addon'],
       spinnerProps,
@@ -38,15 +38,11 @@ export const Button = forwardRef(
   ) => {
     const { applyStyles } = useProviderContext();
     const [nextProps, Element] = applyStyles({ ...injectedProps, ...rest }, ...composition);
-    // const [rippleProps, buttonProps] = useRipple(nextProps);
+    const [rippleProps, buttonProps] = useRipple(nextProps);
     return (
-      <Element
-        {...nextProps}
-        // {...buttonProps}
-        ref={ref}
-      >
+      <Element {...nextProps} {...buttonProps} ref={ref}>
         {children}
-        {/* {!noRipple && <Ripple {...rippleProps} />} */}
+        {!noRipple && <Ripple {...rippleProps} />}
         {rest.busy && (
           <span>
             <Spinner {...spinnerProps} />
