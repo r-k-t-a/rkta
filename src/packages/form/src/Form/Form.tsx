@@ -91,6 +91,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
         },
       );
       if (useConstraintValidationAPI && validatedFrom) setCustomValidity(formElement, []);
+      if (validatedFrom) setErrors([]);
       return validatedFrom;
     }
 
