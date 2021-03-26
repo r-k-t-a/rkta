@@ -82,7 +82,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       lastEvent.current = null;
       if (!eventItem) return undefined;
       const { formElement, formData } = eventItem;
-      const validatedFrom = await getValidatedData({ formData, formElement, validate }).catch(
+      const validatedForm = await getValidatedData({ formData, formElement, validate }).catch(
         (nextErrors) => {
           setErrors(nextErrors);
           if (useConstraintValidationAPI) {
@@ -90,8 +90,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
           }
         },
       );
-      if (useConstraintValidationAPI && validatedFrom) setCustomValidity(formElement, []);
-      return validatedFrom;
+      if (useConstraintValidationAPI && validatedForm) setCustomValidity(formElement, []);
+      if (validatedForm) setErrors([]);
+      return validatedForm;
     }
 
     async function handleForm(event: FormEvent): Promise<void> {
@@ -110,10 +111,11 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       setFormIsBusy(true);
       if (autoSubmit && prevFormIsBusy) return;
 
-      const validatedFrom = await doValidation();
+      const validatedForm = await doValidation();
 
-      if (validatedFrom && onFormSubmit)
-        await Promise.resolve(onFormSubmit(validatedFrom)).finally(() => setFormIsBusy(false));
+      if (validatedForm && onFormSubmit) {
+        await Promise.resolve(onFormSubmit(validatedForm)).finally(() => setFormIsBusy(false));
+      }
 
       if (lastEvent.current) await doValidation();
 
