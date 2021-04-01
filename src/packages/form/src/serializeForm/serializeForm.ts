@@ -13,6 +13,17 @@ export function serializeForm(form: HTMLFormElement): Data {
   const d: Data = {};
   const r: RawData = {};
 
+  // TODO: есть более короткий путь через formData.keys
+  // Он, рабочий, но требуется задать тип
+
+  // eslint-disable-next-line no-restricted-syntax
+  // for (const key of formData.keys()) {
+  //   const values = formData.getAll(key);
+  //   data[key] = values.length > 1 ? values : values[0];
+  // }
+
+  // TODO: тогда forEach+forEach можно убрать
+
   formData.forEach((v, k) => {
     if (r[k]) r[k].push(v);
     else r[k] = [v];
@@ -23,15 +34,4 @@ export function serializeForm(form: HTMLFormElement): Data {
   });
 
   return d;
-
-  // eslint-disable-next-line no-restricted-syntax
-  // for (const [key] of formData.entries()) {
-  //   const values = formData.getAll(key);
-  //   data[key] = values.length > 1 ? values : values[0];
-  // }
-  // return Array.from(formData.keys()).reduce<Data>((acc, key) => {
-  //   const values = formData.getAll(key);
-  //   const value = values.length > 1 ? values : values[0];
-  //   return { ...acc, [key]: value };
-  // }, {});
 }
