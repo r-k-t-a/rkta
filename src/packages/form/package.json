@@ -23,14 +23,12 @@
   "bugs": {
     "url": "https://github.com/r-k-t-a/rkta/issues"
   },
-  "peerDependencies": {
-    "react": "^16.9.0"
-  },
   "devDependencies": {
     "@types/json-schema": "^7.0.4",
     "@types/lodash.omitby": "^4.6.6",
     "@types/react": "^16.9.2",
     "json-schema": "^0.2.5",
+    "react": "^16.9.0",
     "rimraf": "^3.0.2"
   },
   "dependencies": {
