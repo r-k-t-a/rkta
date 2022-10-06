@@ -2,7 +2,7 @@ import { css, SerializedStyles } from '@emotion/core';
 import { RktaTheme } from '../Provider/theme';
 import { InputBaseProps } from './InputBase.type';
 
-export const initialStyle = (theme: RktaTheme) => css`
+export const initialStyle = (theme: RktaTheme): SerializedStyles => css`
   border-radius: inherit;
   min-width: 0;
   position: relative;
