@@ -96,8 +96,6 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
     }
 
     async function handleForm(event: FormEvent): Promise<void> {
-      event.preventDefault();
-
       const formElement = event.currentTarget as HTMLFormElement;
       const formData = getFormData(formElement);
       if (!autoSubmit && useConstraintValidationAPI) setCustomValidity(formElement, []);
@@ -122,8 +120,13 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
       setFormIsBusy(false);
     }
 
+    function handleSubmit(event: FormEvent) {
+      event.preventDefault();
+      handleForm(event);
+    }
+
     return (
-      <form {...rest} onChange={handleForm} onSubmit={handleForm} ref={ref}>
+      <form {...rest} onChange={handleForm} onSubmit={handleSubmit} ref={ref}>
         <Context.Provider value={{ errors }}>
           {typeof children === 'function' ? children({ formIsBusy, errors }) : children}
         </Context.Provider>
